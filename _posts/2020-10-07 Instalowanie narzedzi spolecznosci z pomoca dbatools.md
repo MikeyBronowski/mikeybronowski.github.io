@@ -50,7 +50,7 @@ What if: Performing the operation "Installing FRK procedures in master on localh
 #### zasoby
 
 [SQL Server First Responder Kit na GitHub](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit)  
-www.brentozar.com/responder/
+[www.brentozar.com/responder/]
 
 ### [Install-DbaMaintenanceSolution](http://docs.dbatools.io/#Install-DbaMaintenanceSolution)
 
@@ -68,7 +68,7 @@ What if: Performing the operation "Installing MaintenanceSolution.sql" on target
 #### zasoby
 
 [Sql Server Maintenance Solution on GitHub](https://github.com/olahallengren/sql-server-maintenance-solution)  
-ola.hallengren.com
+[ola.hallengren.com]
 
 ### [Install-DbaWhoIsActive](http://docs.dbatools.io/#Install-DbaWhoIsActive)
 
@@ -87,15 +87,15 @@ What if: Performing the operation "Installing sp_WhoisActive" on target "localho
 #### zasoby
 
 [sp_whoisactive na GitHub](https://github.com/amachanic/sp_whoisactive)
-http://whoisactive.com
+[http://whoisactive.com]
 
 ### [Invoke-DbaDiagnosticQuery](http://docs.dbatools.io/#Invoke-DbaDiagnosticQuery)
 
 Glenn Berry ([blog](https://glennsqlperformance.com/)|[twitter](https://twitter.com/GlennAlanBerry)) zmienił świat administratora baz danych kiedy zebrał te wszystkie użyteczne zapytania w jednym miejscu. Kiedykolwiek napotkasz na problemy z wydajnocią serwera SQL skorzystaj ze skryptów i zobacz gdzie boli.
 
 #### zasoby
-https://glennsqlperformance.com/resources/ 
-https://github.com/ktaranov/sqlserver-kit/tree/master/Scripts
+[https://glennsqlperformance.com/resources/]
+[https://github.com/ktaranov/sqlserver-kit/tree/master/Scripts]
 
 ### [Install-DbaSqlWatch](http://docs.dbatools.io/#Install-DbaSqlWatch)
 
@@ -103,4 +103,4 @@ https://github.com/ktaranov/sqlserver-kit/tree/master/Scripts
 
 #### zasoby
 [sqlwatch on GitHub](https://github.com/marcingminski/sqlwatch)  
-sqlwatch.io
+[sqlwatch.io]

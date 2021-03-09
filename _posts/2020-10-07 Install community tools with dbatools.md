@@ -1,7 +1,7 @@
 ---
 title: Install community tools with dbatools
 tags: [dbatools, community, tools, sqlfamily]
-excerpt: Take advantege of others' work and experience
+excerpt: Take advantage of others' work and experience
 lang: en
 ref: communitydbatools
 ---
@@ -94,7 +94,8 @@ What if: Performing the operation "Installing sp_WhoisActive" on target "localho
 Glenn Berry ([blog](https://glennsqlperformance.com/)|[twitter](https://twitter.com/GlennAlanBerry)) changed the DBA world by combining all the useful queries in one place. Whenever there is a performance issue on the server run them and see where it hurts.
 
 #### resources
-[https://glennsqlperformance.com/resources/] 
+
+[https://glennsqlperformance.com/resources/]
 [https://github.com/ktaranov/sqlserver-kit/tree/master/Script]
 
 ### [Install-DbaSqlWatch](http://docs.dbatools.io/#Install-DbaSqlWatch)
@@ -102,5 +103,6 @@ Glenn Berry ([blog](https://glennsqlperformance.com/)|[twitter](https://twitter.
 The 'youngster' among community tools within the module. Open-source monitoring solution created by Marcin Gminski ([blog](https://marcin.gminski.net/)|[twitter](https://twitter.com/marcingminski)).
 
 #### resources
+
 [sqlwatch on GitHub](https://github.com/marcingminski/sqlwatch)  
 [sqlwatch.io]
