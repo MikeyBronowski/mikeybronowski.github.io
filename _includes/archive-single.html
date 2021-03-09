@@ -1,30 +1,55 @@
+{% include base_path %}
+
 {% if post.header.teaser %}
   {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
 {% else %}
-  {% assign teaser = site.teaser %}
+  {% capture teaser %}{{ site.teaser }}{% endcapture %}
 {% endif %}
 
-{% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
-{% else %}
-  {% assign title = post.title %}
-{% endif %}
-
-<div class="{{ include.type | default: 'list' }}__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
-        <img src="{{ teaser | relative_url }}" alt="">
-      </div>
-    {% endif %}
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+<div class="{{ include.type | default: "list" }}__item">
+  {% if post.link %}
+    <a href="{{ post.link }}" target="_blank">
+  {% else %}
+    <a href="{{ base_path }}{{ post.url }}">
+  {% endif %}
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      {% if include.type == "grid" and teaser != blank %}
+        <div class="archive__item-teaser">
+          <img src=
+            {% if teaser contains "http" %}
+              "{{ teaser }}"
+            {% else %}
+              "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+            {% endif %}
+            alt="">
+        </div>
       {% endif %}
-    </h2>
-    {% include page__meta.html type=include.type %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
-  </article>
+      <h2 class="archive__item-title" itemprop="headline">
+        {% if post.id %}
+          {{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}
+        {% else %}
+          {{ post.title }}
+        {% endif %}
+        {% if post.link %}
+          <i class="fa fa-star" aria-hidden="true"></i>
+        {% endif %}
+      </h2>
+      {% if post.read_time %}
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+      {% endif %}
+      {% if post.excerpt %}
+        <p class="archive__item-excerpt" itemprop="description">
+          {{ post.excerpt | markdownify | strip_html | truncate: 160 }}
+          {% assign versions=site.posts | where:"ref", post.ref | sort: 'lang' %}
+          {% if versions.size > 1 %}
+            {% for version in versions %}
+              {% if version.lang != site.lang %}
+                <a href="{{ version.url }}" >{{ site.data.i18n[version.lang].icon }} </a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </p>
+      {% endif %}
+    </article>
+  </a>
 </div>
