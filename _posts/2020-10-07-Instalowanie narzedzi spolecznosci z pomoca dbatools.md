@@ -6,8 +6,6 @@ lang: pl
 ref: communitydbatools
 ---
 
-# Instalowanie narzędzi społeczności za pomocą dbatools
-
 > Roses are red,  
 Violets are blue,  
 Community loves dbatools  
