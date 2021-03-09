@@ -45,8 +45,6 @@ What if: Performing the operation "Installing FRK procedures in master on localh
 #>
 ```
 
-#### zasoby
-
 [SQL Server First Responder Kit na GitHub](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit)  
 [www.brentozar.com/responder/]
 
@@ -63,10 +61,8 @@ What if: Performing the operation "Installing MaintenanceSolution.sql" on target
 #>
 ```
 
-#### zasoby
-
-[Sql Server Maintenance Solution on GitHub](https://github.com/olahallengren/sql-server-maintenance-solution)  
-[ola.hallengren.com]
+<https://github.com/olahallengren/sql-server-maintenance-solution>  
+<https://ola.hallengren.com>
 
 ### [Install-DbaWhoIsActive](http://docs.dbatools.io/#Install-DbaWhoIsActive)
 
@@ -82,23 +78,19 @@ What if: Performing the operation "Installing sp_WhoisActive" on target "localho
 #>
 ```
 
-#### zasoby
-
-[sp_whoisactive na GitHub](https://github.com/amachanic/sp_whoisactive)
-[http://whoisactive.com]
+<https://github.com/amachanic/sp_whoisactive>  
+<http://whoisactive.com>
 
 ### [Invoke-DbaDiagnosticQuery](http://docs.dbatools.io/#Invoke-DbaDiagnosticQuery)
 
 Glenn Berry ([blog](https://glennsqlperformance.com/)|[twitter](https://twitter.com/GlennAlanBerry)) zmienił świat administratora baz danych kiedy zebrał te wszystkie użyteczne zapytania w jednym miejscu. Kiedykolwiek napotkasz na problemy z wydajnocią serwera SQL skorzystaj ze skryptów i zobacz gdzie boli.
 
-#### zasoby
-[https://glennsqlperformance.com/resources/]
-[https://github.com/ktaranov/sqlserver-kit/tree/master/Scripts]
+<https://glennsqlperformance.com/resources/>
+<https://github.com/ktaranov/sqlserver-kit/tree/master/Scripts>
 
 ### [Install-DbaSqlWatch](http://docs.dbatools.io/#Install-DbaSqlWatch)
 
 'Młodzieniec' posród narzędzi społeczności dostępnych z modułu dbatools. Rozwiązanie monitoringu w formie otwartego oprogramowania stworzone przez Marcina Gmińskiego ([blog](https://marcin.gminski.net/)|[twitter](https://twitter.com/marcingminski)).
 
-#### zasoby
-[sqlwatch on GitHub](https://github.com/marcingminski/sqlwatch)  
-[sqlwatch.io]
+<https://github.com/marcingminski/sqlwatch>  
+<https://sqlwatch.io>
