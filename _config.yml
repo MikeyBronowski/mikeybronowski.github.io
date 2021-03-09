@@ -63,6 +63,10 @@ algolia:
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
+
+# Multilanguage
+lang: en
+
 # SEO Related
 google_site_verification :
 bing_site_verification   :
@@ -71,7 +75,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               :mikeybronowski
 facebook:
   username               :
   app_id                 :
