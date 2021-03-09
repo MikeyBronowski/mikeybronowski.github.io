@@ -1,4 +1,4 @@
--
+---
 title: Install community tools with dbatools
 tags: [dbatools, community, tools, sqlfamily]
 excerpt: Take advantege of others' work and experience
