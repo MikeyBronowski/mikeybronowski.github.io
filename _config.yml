@@ -5,12 +5,12 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-title: Juan Pallarès Garbí
+title: Mikey Bronowski - blog
 locale: en_US
-url: https://juan.pallares.me
+url: https://mikeybronowski.com
 # url                      : https://localhost:4000
 title_separator: "-"
-name: "Juan Pallarès Garbí"
+name: "Mikey Bronowski"
 description: "Landing page."
 baseurl: # the subpath of your site, e.g. "/blog"
 gh_repo:
@@ -22,7 +22,7 @@ comments:
   #  provider               : # false (default), "disqus", "facebook", "google-plus", custom"
   provider: "disqus"
   disqus:
-    shortname: jpallares
+    #shortname: jpallares
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
     appid:
@@ -40,7 +40,7 @@ yandex_site_verification:
 
 # Social Sharing
 twitter:
-  username: juanpallares
+  username: mikeybronowski
 facebook:
   username:
   app_id:
@@ -52,15 +52,15 @@ social:
   type: # Person or Organization (defaults to Person)
   name: # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-    - "https://twitter.com/juanpallares"
-    - "https://www.linkedin.com/in/juanpallares"
+    - "https://twitter.com/mikeybronowski"
+    - "https://www.linkedin.com/in/mikeybronowski"
 
 # Analytics
 analytics:
   #  provider               : false # false (default), "google", "google-universal", "custom"
   provider: "google-universal"
   google:
-    tracking_id: UA-54458401-1
+    #tracking_id: UA-54458401-1
 
 # Google AdSense
 google_ad_client:
@@ -68,11 +68,11 @@ google_ad_slot:
 
 # Site Author
 author:
-  name: "Juan Pallarès"
-  avatar: "juanpallares.jpg"
-  bio: "Software Engineer, football and technology lover from Barcelona."
-  location: "Barcelona"
-  email: juan@pallares.me
+  name: "Mikey Bronowski"
+  avatar: #"juanpallares.jpg"
+  bio: #"Software Engineer, football and technology lover from Barcelona."
+  location: #"Barcelona"
+  email: #juan@pallares.me
   uri:
   bitbucket:
   codepen:
@@ -80,19 +80,19 @@ author:
   flickr:
   facebook:
   foursquare:
-  github: "jpallares"
-  gitlab: "jpallares"
+  github: "mikeybronowski"
+  gitlab:
   google_plus:
   keybase:
   instagram:
   lastfm:
-  linkedin: juanpallares
+  linkedin: mikeybronowski
   pinterest:
   soundcloud:
-  stackoverflow: https://stackoverflow.com/users/500843/juan
+  stackoverflow: 
   steam:
   tumblr:
-  twitter: "juanpallares"
+  twitter: "mikeybronowski"
   vine:
   weibo:
   xing:
@@ -154,7 +154,7 @@ kramdown:
 permalink: /:categories/:title/
 paginate: 10 # amount of posts to show
 paginate_path: /page:num/
-timezone: Europe/Madrid
+timezone: Europe/London
 
 # Plugins
 gems:
