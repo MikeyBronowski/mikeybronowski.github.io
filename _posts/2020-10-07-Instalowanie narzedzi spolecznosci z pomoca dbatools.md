@@ -31,7 +31,7 @@ W tej części zaprezentuję kilka narzędzi społeczności, które są dostępn
 
 ### [Install-DbaFirstResponder](https://docs.dbatools.io/#Install-DbaFirstResponderKit)
 
-Zbiór skryptów oryginalnie stworzony przez osoby stojące za marką Brent Ozar Unlimited ([blog](http://www.brentozar.com/blog/)|[twitter](https://twitter.com/BrentOzarULTD)), później udostępnione w wersji otwartego oprogoramowania.
+Zbiór skryptów oryginalnie stworzony przez osoby stojące za marką Brent Ozar Unlimited ([blog](http://www.brentozar.com/blog/)\|[twitter](https://twitter.com/BrentOzarULTD)), później udostępnione w wersji otwartego oprogoramowania.
 
 ### instalacja FRK bezpośrednio z GitHub
 
@@ -66,7 +66,7 @@ What if: Performing the operation "Installing MaintenanceSolution.sql" on target
 
 ### [Install-DbaWhoIsActive](http://docs.dbatools.io/#Install-DbaWhoIsActive)
 
-Adam Machanic ([blog](http://dataeducation.com/)|[twitter](https://twitter.com/AdamMachanic)) stworzył procedurę składowaną bez której byłoby bardzo smutno w trakcie rozwiązywania problemów z serwerem SQL.
+Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) stworzył procedurę składowaną bez której byłoby bardzo smutno w trakcie rozwiązywania problemów z serwerem SQL.
 
 ```powershell
 Install-DbaWhoIsActive -SqlInstance $server -Database master -WhatIf  
@@ -83,14 +83,14 @@ What if: Performing the operation "Installing sp_WhoisActive" on target "localho
 
 ### [Invoke-DbaDiagnosticQuery](http://docs.dbatools.io/#Invoke-DbaDiagnosticQuery)
 
-Glenn Berry ([blog](https://glennsqlperformance.com/)|[twitter](https://twitter.com/GlennAlanBerry)) zmienił świat administratora baz danych kiedy zebrał te wszystkie użyteczne zapytania w jednym miejscu. Kiedykolwiek napotkasz na problemy z wydajnocią serwera SQL skorzystaj ze skryptów i zobacz gdzie boli.
+Glenn Berry ([blog](https://glennsqlperformance.com/)\|[twitter](https://twitter.com/GlennAlanBerry)) zmienił świat administratora baz danych kiedy zebrał te wszystkie użyteczne zapytania w jednym miejscu. Kiedykolwiek napotkasz na problemy z wydajnocią serwera SQL skorzystaj ze skryptów i zobacz gdzie boli.
 
 <https://glennsqlperformance.com/resources/>
 <https://github.com/ktaranov/sqlserver-kit/tree/master/Scripts>
 
 ### [Install-DbaSqlWatch](http://docs.dbatools.io/#Install-DbaSqlWatch)
 
-'Młodzieniec' posród narzędzi społeczności dostępnych z modułu dbatools. Rozwiązanie monitoringu w formie otwartego oprogramowania stworzone przez Marcina Gmińskiego ([blog](https://marcin.gminski.net/)|[twitter](https://twitter.com/marcingminski)).
+"Młodzieniec" posród narzędzi społeczności dostępnych z modułu dbatools. Rozwiązanie monitoringu w formie otwartego oprogramowania stworzone przez Marcina Gmińskiego ([blog](https://marcin.gminski.net/)\|[twitter](https://twitter.com/marcingminski)).
 
 <https://github.com/marcingminski/sqlwatch>  
 <https://sqlwatch.io>

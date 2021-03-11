@@ -45,10 +45,8 @@ What if: Performing the operation "Installing FRK procedures in master on localh
 #>
 ```
 
-#### resources
-
-[SQL Server First Responder Kit on GitHub](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit)  
-[www.brentozar.com/responder/]
+<https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit>
+<www.brentozar.com/responder/>
 
 ### [Install-DbaMaintenanceSolution](http://docs.dbatools.io/#Install-DbaMaintenanceSolution)
 
@@ -63,14 +61,12 @@ What if: Performing the operation "Installing MaintenanceSolution.sql" on target
 #>
 ```
 
-#### resources
-
-[Sql Server Maintenance Solution on GitHub](https://github.com/olahallengren/sql-server-maintenance-solution)  
-[ola.hallengren.com]
+<https://github.com/olahallengren/sql-server-maintenance-solution>
+<https://ola.hallengren.com>
 
 ### [Install-DbaWhoIsActive](http://docs.dbatools.io/#Install-DbaWhoIsActive)
 
-Adam Machanic ([blog](http://dataeducation.com/)|[twitter](https://twitter.com/AdamMachanic)) created a stored procedure without which it would be very sad when you are about to troubleshoot your SQL server.
+Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) created a stored procedure without which it would be very sad when you are about to troubleshoot your SQL server.
 
 ```powershell
 Install-DbaWhoIsActive -SqlInstance $server -Database master -WhatIf  
@@ -82,25 +78,19 @@ What if: Performing the operation "Installing sp_WhoisActive" on target "localho
 #>
 ```
 
-#### resources
-
-[sp_whoisactive on GitHub](https://github.com/amachanic/sp_whoisactive)
-[http://whoisactive.com]
+<https://github.com/amachanic/sp_whoisactive>
+<http://whoisactive.com>
 
 ### [Invoke-DbaDiagnosticQuery](http://docs.dbatools.io/#Invoke-DbaDiagnosticQuery)
 
-Glenn Berry ([blog](https://glennsqlperformance.com/)|[twitter](https://twitter.com/GlennAlanBerry)) changed the DBA world by combining all the useful queries in one place. Whenever there is a performance issue on the server run them and see where it hurts.
+Glenn Berry ([blog](https://glennsqlperformance.com/)\|[twitter](https://twitter.com/GlennAlanBerry)) changed the DBA world by combining all the useful queries in one place. Whenever there is a performance issue on the server run them and see where it hurts.
 
-#### resources
-
-[https://glennsqlperformance.com/resources/]
-[https://github.com/ktaranov/sqlserver-kit/tree/master/Script]
+<https://glennsqlperformance.com/resources/>
+<https://github.com/ktaranov/sqlserver-kit/tree/master/Script>
 
 ### [Install-DbaSqlWatch](http://docs.dbatools.io/#Install-DbaSqlWatch)
 
-The 'youngster' among community tools within the module. Open-source monitoring solution created by Marcin Gminski ([blog](https://marcin.gminski.net/)|[twitter](https://twitter.com/marcingminski)).
+The 'youngster' among community tools within the module. Open-source monitoring solution created by Marcin Gminski ([blog](https://marcin.gminski.net/)\|[twitter](https://twitter.com/marcingminski)).
 
-#### resources
-
-[sqlwatch on GitHub](https://github.com/marcingminski/sqlwatch)  
-[sqlwatch.io]
+<https://github.com/marcingminski/sqlwatch>
+<https://sqlwatch.io>
