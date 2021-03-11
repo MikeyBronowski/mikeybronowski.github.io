@@ -19,9 +19,9 @@ dbatools.io to zbiór poleceń PowerShell służących do zarządzanie serwerem 
 
 ## czym jest społeczność SQL?
 
-Społeczność SQL (lub [#SQLFamily](https://twitter.com/hashtag/sqlfamily)) to grupa profesjonalistów związanych z danymi skupiona głównie wokół servera Microsot.
+Społeczność SQL (lub [#SQLFamily](https://twitter.com/hashtag/sqlfamily)) to grupa profesjonalistów związanych z danymi skupiona głównie wokół serwera Microsoft.
 
-## buziaki i uściski
+## XOXOXO
 
 Te dwa zbiory ludzi mają część wspólną - osoby które są aktywnymi członkami społeczności i które mają swój wkład w rozwoju dbatools, stąd to przywiązanie. W większości przypadków jest to sytuacja w której każdy wygrywa.
 
@@ -45,8 +45,8 @@ What if: Performing the operation "Installing FRK procedures in master on localh
 #>
 ```
 
-[SQL Server First Responder Kit na GitHub](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit)  
-[www.brentozar.com/responder/]
+<https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit>  
+<https://www.brentozar.com/responder/>
 
 ### [Install-DbaMaintenanceSolution](http://docs.dbatools.io/#Install-DbaMaintenanceSolution)
 
@@ -94,3 +94,6 @@ Glenn Berry ([blog](https://glennsqlperformance.com/)\|[twitter](https://twitter
 
 <https://github.com/marcingminski/sqlwatch>  
 <https://sqlwatch.io>
+
+Dziękuję,  
+Mikey
