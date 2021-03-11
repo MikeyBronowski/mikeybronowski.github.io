@@ -46,7 +46,7 @@ What if: Performing the operation "Installing FRK procedures in master on localh
 ```
 
 <https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit>
-<www.brentozar.com/responder/>
+<https://www.brentozar.com/responder/>
 
 ### [Install-DbaMaintenanceSolution](http://docs.dbatools.io/#Install-DbaMaintenanceSolution)
 
@@ -78,7 +78,7 @@ What if: Performing the operation "Installing sp_WhoisActive" on target "localho
 #>
 ```
 
-<https://github.com/amachanic/sp_whoisactive>
+<https://github.com/amachanic/sp_whoisactive>  
 <http://whoisactive.com>
 
 ### [Invoke-DbaDiagnosticQuery](http://docs.dbatools.io/#Invoke-DbaDiagnosticQuery)
@@ -92,5 +92,9 @@ Glenn Berry ([blog](https://glennsqlperformance.com/)\|[twitter](https://twitter
 
 The 'youngster' among community tools within the module. Open-source monitoring solution created by Marcin Gminski ([blog](https://marcin.gminski.net/)\|[twitter](https://twitter.com/marcingminski)).
 
-<https://github.com/marcingminski/sqlwatch>
+<https://github.com/marcingminski/sqlwatch>  
 <https://sqlwatch.io>
+
+
+Thank you,  
+Mikey
