@@ -5,6 +5,7 @@ excerpt: Take advantage of others' work and experience
 lang: en
 ref: dbatoolshowtocontribute
 permalink: /2020/04/dbatools-io-how-to-contribute/
+permalink_pl: /2020/04/dbatools-io-jak-pomoc/
 ---
 
 ## What dbatools.io is?
