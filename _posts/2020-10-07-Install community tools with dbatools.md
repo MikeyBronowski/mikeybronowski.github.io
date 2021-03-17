@@ -31,7 +31,7 @@ In this section I am going to present you a few community tools that are availab
 
 ### [Install-DbaFirstResponder](https://docs.dbatools.io/#Install-DbaFirstResponderKit)
 
-A collection of scripts originally written by people behind Brent Ozar Unlimited ([blog](http://www.brentozar.com/blog/)|[twitter](https://twitter.com/BrentOzarULTD)), and later on released as an open-source tool.
+A collection of scripts originally written by people behind Brent Ozar Unlimited ([blog](http://www.brentozar.com/blog/)\|[twitter](https://twitter.com/BrentOzarULTD)), and later on released as an open-source tool.
 
 ### install the FRK straight from GitHub
 
