@@ -15,6 +15,17 @@ description: "Landing page."
 baseurl: # the subpath of your site, e.g. "/blog"
 gh_repo:
 teaser: "black_keyboard.jpg"
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
 # breadcrumbs            : false # true, false (default)
 reading_time: false
 words_per_minute: 200
