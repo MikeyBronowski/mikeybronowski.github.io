@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Install community tools with dbatools
 tags: [dbatools, community, tools, sqlfamily]
 excerpt: Take advantage of others' work and experience
@@ -94,7 +95,6 @@ The 'youngster' among community tools within the module. Open-source monitoring 
 
 <https://github.com/marcingminski/sqlwatch>  
 <https://sqlwatch.io>
-
 
 Thank you,  
 Mikey
