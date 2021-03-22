@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "default" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-GB"
@@ -99,7 +99,7 @@ analytics:
 # Site Author
 author:
   name             : "Mikey Bronowski"
-  avatar           : /assets/images/mb_profile.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : /images/mikeybronowski.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I select, select stars."
   location         : #"Somewhere"
   email            :
