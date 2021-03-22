@@ -2,8 +2,6 @@
 main: 
 - title: cv
   url: /cv/
-- title: books
-  url: /books/
 
 #- title: Theme Setup
 #  url: /theme-setup/
