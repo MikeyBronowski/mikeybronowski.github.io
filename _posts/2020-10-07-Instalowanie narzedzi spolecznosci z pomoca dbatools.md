@@ -4,6 +4,7 @@ tags: [dbatools, społeczność, narzędzia, sqfamily]
 excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: communitydbatools
+permalink: /:year/:month/:title:output_ext
 ---
 
 > Roses are red,  
