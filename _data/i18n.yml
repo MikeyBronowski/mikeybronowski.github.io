@@ -1,8 +1,8 @@
 en:
   label: English
-  icon: 🇬🇧
+  icon: 
   read_it_in: "Read it in English"
-es:
-  label: Polish
-  icon: 🇵🇱
+pl:
+  label: Polski
+  icon: 
   read_it_in: "Przeczytaj w języku polskim"

@@ -1,4 +1,12 @@
-_site
-.sass-cache
+*.sublime-project
+*.sublime-workspace
+.DS_Store
 .jekyll-metadata
-Gemfile.lock
+.sass-cache
+_asset_bundler_cache
+_site
+codekit-config.json
+node_modules
+npm-debug.log*
+images/bio-photo.jpg
+.vscode/snipsnap.code-snippets
