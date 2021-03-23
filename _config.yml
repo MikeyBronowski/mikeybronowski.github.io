@@ -7,7 +7,7 @@
 remote_theme: "mmistakes/minimal-mistakes"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "en-GB"
 title                    : "Mikey Bronowski - Blog"
 url                      : "https://mikeybronowski.com"
 title_separator          : "-"
