@@ -26,11 +26,11 @@
       {% endif %}
       <h2 class="archive__item-title" itemprop="headline">
         {% if post.id %}
-          {{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}
+          {{ post.title | markdownify | remove: "<p>" | remove: "</p>" }} {{ site.data.i18n[version.lang].icon }}
         {% else %}
-          {{ post.title }}
+          {{ post.title }} {{ site.data.i18n[version.lang].icon }}
         {% endif %}
-        {{ site.data.i18n[version.lang].icon }}
+        
         {% if post.link %}
           <i class="fa fa-star" aria-hidden="true"></i>
         {% endif %}
