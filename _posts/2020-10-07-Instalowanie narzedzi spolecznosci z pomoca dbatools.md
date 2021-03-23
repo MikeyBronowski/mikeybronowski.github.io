@@ -5,6 +5,7 @@ excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: communitydbatools
 permalink: /:year/:month/:title:output_ext
+locale: pl-PL
 ---
 
 > Roses are red,  

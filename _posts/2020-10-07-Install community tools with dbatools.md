@@ -5,6 +5,7 @@ excerpt: Take advantage of others' work and experience
 lang: en
 ref: communitydbatools
 permalink: /:year/:month/:title:output_ext
+locale: en-GB
 ---
 
 > Roses are red,  

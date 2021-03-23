@@ -4,6 +4,7 @@ tags: [dbatools, community, tools, sqlfamily]
 excerpt: Take advantage of others' work and experience
 lang: en
 ref: dbatoolshowtocontribute
+locale: en-GB
 ---
 
 ## What dbatools.io is?
