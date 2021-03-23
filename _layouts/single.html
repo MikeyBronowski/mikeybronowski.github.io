@@ -33,7 +33,7 @@ layout: default
         </header>
       {% endunless %}
 
-      {% if page.bookauthor == null and page.permalink == null %}
+      {% if page.bookauthor == null %}
         {% assign versions=site.posts | where:"ref", page.ref | sort: 'lang' %}
         {% if versions.size > 1 %}
           {% for version in versions %}
