@@ -1085,7 +1085,8 @@ pl: &DEFAULT_PL
   toc_label                  : "Spis treści"
   ext_link_label             : "Link bezpośredni"
   less_than                  : "mniej niż"
-  minute_read                : "minut(y)"
+  minute_read                : "minuta"
+  minutes_read               : "minut(y)"
   share_on_label             : "Udostępnij"
   meta_label                 :
   tags_label                 : "Tagi:"
