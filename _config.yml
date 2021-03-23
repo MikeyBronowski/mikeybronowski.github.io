@@ -15,7 +15,7 @@ remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-GB"
+locale                   : "en-US"
 title                    : "Mikey Bronowski - Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
@@ -99,7 +99,7 @@ analytics:
 # Site Author
 author:
   name             : "Mikey Bronowski"
-  avatar           : mikeybronowski.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "mikeybronowski.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I select, select stars."
   location         : "UK" #"Somewhere"
   email            :
