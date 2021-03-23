@@ -172,6 +172,8 @@ whitelist:
   - jekyll-feed
   - jemoji
 
+emoji:
+  src: "/assets/images/emoji" 
 # Archives
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
