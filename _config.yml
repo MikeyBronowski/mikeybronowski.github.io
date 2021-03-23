@@ -6,24 +6,24 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 remote_theme: "mmistakes/minimal-mistakes"
 
-title: Juan Pallarès Garbí
-locale: en_US
-url: https://juan.pallares.me
-# url                      : https://localhost:4000
-title_separator: "-"
-name: "Juan Pallarès Garbí"
-description: "Landing page."
-baseurl: # the subpath of your site, e.g. "/blog"
-gh_repo:
-teaser: "black_keyboard.jpg"
+# Site Settings
+locale                   : "en-US"
+title                    : "Mikey Bronowski - Blog"
+url                      : "https://mikeybronowski.com"
+title_separator          : "-"
+name                     : "Mikey Bronowski"
+description              : "Mikey Bronowski blogs about data"
+baseurl                  : 
+gh_repo                  :
+teaser                   : 
 # breadcrumbs            : false # true, false (default)
-reading_time: false
-words_per_minute: 200
+reading_time             : false
+words_per_minute         : 200
 comments:
   #  provider               : # false (default), "disqus", "facebook", "google-plus", custom"
-  provider: "disqus"
+  provider: 
   disqus:
-    shortname: jpallares
+    shortname: 
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
     appid:
@@ -40,7 +40,7 @@ yandex_site_verification:
 
 # Social Sharing
 twitter:
-  username: juanpallares
+  username: MikeyBronowski
 facebook:
   username:
   app_id:
@@ -52,15 +52,15 @@ social:
   type: # Person or Organization (defaults to Person)
   name: # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-    - "https://twitter.com/juanpallares"
-    - "https://www.linkedin.com/in/juanpallares"
+    - "https://twitter.com/MikeyBronowski"
+    - "https://www.linkedin.com/in/MikeyBronowski"
 
 # Analytics
 analytics:
   #  provider               : false # false (default), "google", "google-universal", "custom"
   provider: "google-universal"
   google:
-    tracking_id: UA-54458401-1
+    tracking_id: 
 
 # Google AdSense
 google_ad_client:
@@ -68,11 +68,11 @@ google_ad_slot:
 
 # Site Author
 author:
-  name: "Juan Pallarès"
-  avatar: "juanpallares.jpg"
-  bio: "Software Engineer, football and technology lover from Barcelona."
-  location: "Barcelona"
-  email: juan@pallares.me
+  name: "Mikey Bronowski"
+  avatar: 
+  bio: 
+  location: "UK"
+  email: mikeybronowski@gmail.com
   uri:
   bitbucket:
   codepen:
@@ -80,19 +80,19 @@ author:
   flickr:
   facebook:
   foursquare:
-  github: "jpallares"
-  gitlab: "jpallares"
+  github: "MikeyBronowski"
+  gitlab: 
   google_plus:
   keybase:
   instagram:
   lastfm:
-  linkedin: juanpallares
+  linkedin: MikeyBronowski
   pinterest:
   soundcloud:
-  stackoverflow: https://stackoverflow.com/users/500843/juan
+  stackoverflow: 
   steam:
   tumblr:
-  twitter: "juanpallares"
+  twitter: "MikeyBronowski"
   vine:
   weibo:
   xing:
@@ -154,7 +154,7 @@ kramdown:
 permalink: /:categories/:title/
 paginate: 10 # amount of posts to show
 paginate_path: /page:num/
-timezone: Europe/Madrid
+timezone: Europe/London
 
 # Plugins
 gems:
