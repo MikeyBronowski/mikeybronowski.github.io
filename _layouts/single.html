@@ -38,7 +38,7 @@ layout: default
         {% if versions.size > 1 %}
           {% for version in versions %}
             {% if version.lang != page.lang %}
-              <a href="{{ version.url }}" class="{{ version.lang }}">{{ site.data.i18n[version.lang].read_it_in] }} {{ site.data.i18n[version.lang].icon }} </a>
+              <a href="{{ version.url }}" class="{{ version.lang }}">{{ site.data.i18n[version.lang].read_it_in] }} {{ site.data.i18n[version.lang].icon }} {{ site.data.i18n[version.lang].label }}</a>
             {% endif %}
           {% endfor %}
         {% endif %}
