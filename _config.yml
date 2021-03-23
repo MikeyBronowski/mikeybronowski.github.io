@@ -13,7 +13,7 @@ url                      : "https://mikeybronowski.com"
 title_separator          : "-"
 name                     : "Mikey Bronowski"
 description              : "Mikey Bronowski blogs about data"
-baseurl                  : 
+baseurl                  : "/blog"
 gh_repo                  :
 teaser                   : 
 # breadcrumbs            : false # true, false (default)
