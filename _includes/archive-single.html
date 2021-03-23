@@ -30,6 +30,7 @@
         {% else %}
           {{ post.title }}
         {% endif %}
+        {{ site.data.i18n[version.lang].icon }}
         {% if post.link %}
           <i class="fa fa-star" aria-hidden="true"></i>
         {% endif %}
