@@ -29,14 +29,6 @@
           {{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}
         {% else %}
           {{ post.title }}
-          {% assign versions=site.posts | where:"ref", post.ref | sort: 'lang' %}
-          {% if versions.size > 1 %}
-            {% for version in versions %}
-              {% if version.lang != site.lang %}
-                <a href="{{ version.url }}" >{{ site.data.i18n[version.lang].read_it_in] }} {{ site.data.i18n[version.lang].icon }} </a>
-              {% endif %}
-            {% endfor %}
-          {% endif %}
         {% endif %}
         {% if post.link %}
           <i class="fa fa-star" aria-hidden="true"></i>
@@ -48,7 +40,14 @@
       {% if post.excerpt %}
         <p class="archive__item-excerpt" itemprop="description">
           {{ post.excerpt | markdownify | strip_html | truncate: 160 }}
-          
+          {% assign versions=site.posts | where:"ref", post.ref | sort: 'lang' %}
+          {% if versions.size > 1 %}
+            {% for version in versions %}
+              {% if version.lang != site.lang %}
+                <a href="{{ version.url }}" >{{ site.data.i18n[version.lang].icon }} </a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </p>
       {% endif %}
     </article>
