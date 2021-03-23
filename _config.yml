@@ -31,7 +31,7 @@ comments:
 
 # Multilanguage
 lang: en
-
+remote_theme: "mmistakes/minimal-mistakes@4.22.0
 # SEO Related
 google_site_verification:
 bing_site_verification:
