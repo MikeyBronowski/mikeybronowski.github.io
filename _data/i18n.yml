@@ -1,8 +1,8 @@
 en:
   label: English
-  icon: ":🇺🇸🇬🇧:"
-  read_it_in: "Read it in "
+  icon: "🇺🇸🇬🇧"
+  read_it_in: "Read it in"
 pl:
   label: polsku
-  icon: ":🇵🇱:"
+  icon: "🇵🇱"
   read_it_in: "Przeczytaj po"
