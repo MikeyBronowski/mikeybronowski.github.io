@@ -4,7 +4,7 @@ tags: [dbatools, społeczność, narzędzia, sqfamily]
 excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: communitydbatools
-permalink: /:year/:month/:title:output_ext
+permalink: /:year/:month/:title
 locale: pl-PL
 ---
 

@@ -5,5 +5,5 @@ excerpt:
 lang: en
 ref: DataScotland2019ThankYou
 locale: en-GB
-permalink: /:year/:month/:title:output_ext
+permalink: /:year/:month/:title
 ---

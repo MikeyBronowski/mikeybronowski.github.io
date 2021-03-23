@@ -4,7 +4,7 @@ tags: [dbatools, community, tools, sqlfamily]
 excerpt: Take advantage of others' work and experience
 lang: en
 ref: communitydbatools
-permalink: /:year/:month/:title:output_ext
+permalink: /:year/:month/:title
 locale: en-GB
 ---
 
