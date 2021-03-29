@@ -1,6 +1,6 @@
 ---
 title: Instalowanie narzędzi społeczności z pomocą dbatools
-tags: [dbatools, społeczność, narzędzia, sqfamily]
+tags: [dbatools, społeczność, narzędzia, sqlfamily]
 excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: communitydbatools

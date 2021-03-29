@@ -1,6 +1,6 @@
 ---
 title: dbatools.io = command-line SQL Server Management Studio - Let me see
-tags: [dbatools, community, tools, sqfamily]
+tags: [dbatools, community, tools, sqlfamily]
 excerpt: 
 lang: en
 ref: dbatools_ssmscmd_see

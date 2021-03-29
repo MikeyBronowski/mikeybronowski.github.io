@@ -1,6 +1,6 @@
 ---
 title: dbatools.io = SQL Server Management Studio jako wiersz poleceń
-tags: [dbatools, społeczność, narzędzia, sqfamily]
+tags: [dbatools, społeczność, narzędzia, sqlfamily]
 excerpt: 
 lang: pl
 ref: dbatools_ssmscmd

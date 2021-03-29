@@ -1,6 +1,6 @@
 ---
-title: dbatools.io = command-line SQL Server Management Studio
-tags: [dbatools, community, tools, sqfamily]
+title: dbatools.io = command-line SQL Server Management Studio - Keys, certificates
+tags: [dbatools, community, tools, sqlfamily]
 excerpt: 
 lang: en
 ref: dbatools_ssmscmd_cert
