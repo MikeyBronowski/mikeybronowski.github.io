@@ -16,13 +16,17 @@ dbatools commands used in this post:
 * [Connect-DbaInstance](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Connect-DbaInstance)
 * [Invoke-DbaQuery](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Invoke-DbaQuery)
 * [Write-DbaDbTableData](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Write-DbaDbTableData)
+
 ## Connect to the Database Engine
+
 It is possible in dbatools to create a server object and reuse it without providing the credentials and connecting to the instance again and again.
 
 ### SSMS
+
 ![Connect-DbaInstance](dbatools_ssmscmd_0101_connect.png)
 
 ### dbatools: [Connect-DbaInstance](https://docs.dbatools.io/#Connect-DbaInstance)
+
 ```powershell
 # set the variables
 $SqlInstance = "localhost:1433"
@@ -42,12 +46,15 @@ localhost    localhost,1433 Microsoft SQL Server 14.0.3048 Linux        False   
 ```
 
 ## Execute a simple query
+
 Once the connection is established you can run the query.
 
 ### SSMS
+
 ![Invoke-DbaQuery](dbatools_ssmscmd_0102_execute.png)
 
 ### dbatools: [Invoke-DbaQuery](https://docs.dbatools.io/#Invoke-DbaQuery)
+
 ```powershell
 # reuse connection object created before
 Invoke-DbaQuery -SqlInstance $server -Query "SELECT @@version"
@@ -62,12 +69,15 @@ $output | Out-GridView
 ```
 
 ## Save results as…
+
 Once you’ve got your results out in the grid, these can be saved as CSV or TXT file.
 
 ### SSMS
+
 ![Write-DbaDbTableData](dbatools_ssmscmd_0103_save.png)
 
 ### dbatools: [Write-DbaDbTableData](https://docs.dbatools.io/#Write-DbaDbTableData)
+
 ```powershell
 # or... save to a TXT file
 $output | Out-File -FilePath .\output.txt
@@ -83,5 +93,6 @@ Thank you,
 Mikey
 
 ## See more
+
 * [Export-Csv at MS Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv)
 * [Out-File at MS Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-file)
