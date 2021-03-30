@@ -59,6 +59,9 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
+emoji:
+  src: "/assets/images/"
+
 author:
   name:       "Mikey Bronowski"
   avatar:     "mikeybronowski.jpg"
