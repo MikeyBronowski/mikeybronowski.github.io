@@ -52,7 +52,7 @@ What if: Performing the operation "Installing FRK procedures in master on localh
 
 ### [Install-DbaMaintenanceSolution](http://docs.dbatools.io/#Install-DbaMaintenanceSolution)
 
-Bardzo poteżny zbiór funkcji służący do zarządzania aktywnościami konsweracyjnymi serwera SQL (kopie zapasowe, konsweracja indeksów, sprawdzania poprawności baz) stworzone przez Ola Hallengren.
+Bardzo poteżny zbiór funkcji służący do zarządzania aktywnościami konsweracyjnymi serwera SQL (kopie zapasowe, konserwacja indeksów, sprawdzania poprawności baz) stworzone przez Ola Hallengren.
 
 ```powershell
 Install-DbaMaintenanceSolution -SqlInstance $server -Database master -InstallJobs -LogToTable -WhatIf 
