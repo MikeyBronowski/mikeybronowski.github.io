@@ -102,7 +102,6 @@ author:
 include:
   - .htaccess
   - _pages
-  - _books
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
