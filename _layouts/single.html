@@ -32,13 +32,13 @@ layout: default
       {% endunless %}
 
       {% assign versions=site.posts | where:"ref", page.ref | sort: 'lang' %}
-        
+        {% if versions.size > 1 %}
           {% for version in versions %}
-
+            {% if version.lang != page.lang %}
               <a href="{{ version.url }}" class="{{ version.lang }}">{{ site.data.i18n[version.lang].read_it_in] }} {{ site.data.i18n[version.lang].label }} {{ site.data.i18n[version.lang].icon }}</a>
-
+            {% endif %}
           {% endfor %}
-
+        {% endif %}
 
       <section class="page__content" itemprop="text">
         {% if page.toc %}
