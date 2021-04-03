@@ -5,7 +5,7 @@ author_profile: true
 
 {{ content }}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts." }}</h3>
 
 {% assign items_grouped = paginator.posts | group_by: 'ref' %}
 {% for group in items_grouped %}
