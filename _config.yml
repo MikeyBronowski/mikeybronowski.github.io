@@ -21,6 +21,8 @@ twitter_username: mikeybronowski
 github_username: mikeybronowski
 minimal_mistakes_skin: default
 search: true
+# multilanguage
+language: en
 
 # Build settings
 markdown: kramdown
@@ -62,7 +64,7 @@ author:
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
+      url: "https://mikeybronowski.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/"
