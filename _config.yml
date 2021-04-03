@@ -22,7 +22,7 @@ github_username: mikeybronowski
 minimal_mistakes_skin: default
 search: true
 # multilanguage
-language: en
+lang: en
 
 # Build settings
 markdown: kramdown
