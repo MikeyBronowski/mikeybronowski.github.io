@@ -31,6 +31,15 @@ layout: default
         </header>
       {% endunless %}
 
+      {% assign versions=site.posts | where:"ref", page.ref | sort: 'lang' %}
+        
+          {% for version in versions %}
+
+              <a href="{{ version.url }}" class="{{ version.lang }}">{{ site.data.i18n[version.lang].read_it_in] }} {{ site.data.i18n[version.lang].label }} {{ site.data.i18n[version.lang].icon }}</a>
+
+          {% endfor %}
+
+
       <section class="page__content" itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
