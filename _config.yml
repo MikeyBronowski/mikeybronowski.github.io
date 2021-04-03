@@ -13,11 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-# Multilanguage
-lang: en
-locale                   : "en-GB"
-title                    : "Mikey Bronowski - Blog"
-url                      : "https://mikeybronowski.com"
+title: MM
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -61,25 +57,23 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-emoji:
-  src: "/assets/images/"
-
 author:
-  name:       "Mikey Bronowski"
-  avatar:     "/assets/images/mikeybronowski.jpg"
-  bio: 
-  location:   "UK"
-  email:      "mikeybronowski@gmail.com"
+  name   : "First Lastname"
+  avatar : "/assets/images/bio-photo.jpg"
+  bio    : "My awesome biography constrained to a sentence or two goes here."
   links:
-    - label:  "Website"
-      icon:   "fas fa-fw fa-link"
-      url:    "https://mikeybronowski.com"
-    - label:  "Twitter"
-      icon:   "fab fa-fw fa-twitter-square"
-      url:    "https://twitter.com/MikeyBronowski"
-    - label:  "GitHub"
-      icon:   "fab fa-fw fa-github"
-      url:    "https://github.com/MikeyBronowski"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/"
 
 footer:
   links:
