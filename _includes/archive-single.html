@@ -29,9 +29,7 @@
       {% assign versions=site.posts | where:"ref", post.ref | sort: 'lang' %}
           {% if versions.size > 1 %}
             {% for version in versions %}
-              {% if version.lang != site.lang %}
                 <a href="{{ version.url }}" >{{ site.data.i18n[version.lang].icon }} </a>
-              {% endif %}
             {% endfor %}
           {% endif %}
     </p>{% endif %}
