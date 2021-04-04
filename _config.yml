@@ -24,6 +24,13 @@ search: true
 # multilanguage
 lang: en
 
+# analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-HNFSYHRQSE"
+    anonymize_ip: false # default
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
