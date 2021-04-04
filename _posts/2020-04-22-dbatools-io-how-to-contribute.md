@@ -5,6 +5,7 @@ excerpt: Take advantage of others' work and experience
 lang: en
 ref: dbatoolshowtocontribute
 locale: en-GB
+toc: true
 ---
 
 ## What dbatools.io is?
