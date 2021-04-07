@@ -81,6 +81,15 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-linkedin-in"
       url: "https://www.linkedin.com/in/mikeybronowski/"
+    - label: "stackoverflow"
+      icon: "fab fa-stack-overflow"
+      url: "https://stackoverflow.com/users/14998787/mikey-bronowski"
+    - label: "StackExchange"
+      icon: "fab fa-stack-exchange"
+      url: "https://stackexchange.com/users/15234793/mikey-bronowski?tab=accounts"
+      
+      
+      
 
 footer:
   links:
