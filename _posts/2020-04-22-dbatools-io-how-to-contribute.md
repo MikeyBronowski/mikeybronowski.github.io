@@ -42,13 +42,13 @@ I am going to show you my attempt to make a small change that addresses an issue
 
 First of all, the issues (opened/closed) can be found on the Issues page of the repository.
 
-![dbatools@GitHub - main repo](/images/dbatools_contribute_01_main_repo.png)
+![dbatools@GitHub - main repo](/assets/images/dbatools_contribute_01_main_repo.png)
 
 ### #2 Find an issue to fix
 
 Locate the issue that needs fixing, either by browsing all issues, or opening a new one, or go straight to the specific one you spotted earlier.
 
-![dbatools@GitHub - find an issue](/images/dbatools_contribute_02_issues.png)
+![dbatools@GitHub - find an issue](/assets/images/dbatools_contribute_02_issues.png)
 
 ### #3 Read the issue & the discussion
 
@@ -56,7 +56,7 @@ Sometimes the issue has a long discussion, so it is worth to go through the whol
 
 In my case it was a simple thing that the example of one function was showing the parameter that does not exist.
 
-![dbatools@GitHub - understand the issue](/images/dbatools_contribute_03_issues_example.png)
+![dbatools@GitHub - understand the issue](/assets/images/dbatools_contribute_03_issues_example.png)
 
 ### #4 Get a plan
 
@@ -77,7 +77,7 @@ make changes
 
 Let’s see the examples (I’ve cheated as I’ve searched for word a phrase “-Credential” on the docs page):
 
-![dbatools@GitHub - investigate the issue](/images/dbatools_contribute_04_issues_example_investigate.png)
+![dbatools@GitHub - investigate the issue](/assets/images/dbatools_contribute_04_issues_example_investigate.png)
 
 Here we have example #6 has the parameter called [-Credential]. Sweet.
 
@@ -87,33 +87,33 @@ PS C:\> Write-DbaDbTableData -SqlInstance AzureDB.database.windows.net -InputObj
 
 Let’s go see the parameters at the top of the page:
 
-![dbatools@GitHub - investigate the issue](/images/dbatools_contribute_05_issues_example_investigate2.png)
+![dbatools@GitHub - investigate the issue](/assets/images/dbatools_contribute_05_issues_example_investigate2.png)
 None of the parameters is called [-Credential], we do see [-SqlCredential] though.
 
 ### #6 Fix the issue
 
 Going back to GitHub repo. Now we need to fix the example within the Write-DbaDbTableData function. Let’s find it under functions.
 
-![dbatools@GitHub - fix the issue](/images/dbatools_contribute_06_main_repo_functions.png)
+![dbatools@GitHub - fix the issue](/assets/images/dbatools_contribute_06_main_repo_functions.png)
 Sitting at the very bottom. Click the link and open it up.
 
-![dbatools@GitHub - fix the issue](/images/dbatools_contribute_07_main_repo_functions_example.png)
+![dbatools@GitHub - fix the issue](/assets/images/dbatools_contribute_07_main_repo_functions_example.png)
 Once the file is open on GitHub you can edit its content via browser.
 
-![dbatools@GitHub - edit the code](/images/dbatools_contribute_08_edit.png)
+![dbatools@GitHub - edit the code](/assets/images/dbatools_contribute_08_edit.png)
 The area becomes editable and you can start your contribution.
 
 Note: This will not edit the original code on dbatools – do not worry. It will create a dbatools fork under your GitHub account. When the change is submitted it will be written to a new branch in your fork. From there you can create a pull request (PR).
 
-![dbatools@GitHub - change the code](/images/dbatools_contribute_09_edit2.png)
+![dbatools@GitHub - change the code](/assets/images/dbatools_contribute_09_edit2.png)
 
 In our case the fix would be to replace [-Credential] with [-SqlCredential] as you can see on the pictures below. After file is changed, we would need to describe what was done and why.
 
-![dbatools@GitHub - describe the change](/images/dbatools_contribute_10_edit3.png)
+![dbatools@GitHub - describe the change](/assets/images/dbatools_contribute_10_edit3.png)
 
 All done and ready to propose the change (remember, it is still in your repository).
 
-![dbatools@GitHub - describe the change](/images/dbatools_contribute_11_propose_change.png)
+![dbatools@GitHub - describe the change](/assets/images/dbatools_contribute_11_propose_change.png)
 
 ### #7 Create the pull request
 
@@ -124,7 +124,7 @@ MikeyBronowski/dbatools (fork of dbatools) patch-1 (branch in that fork)
 to
 sqlcollaborative/dbatools (main repo) development (default branch).
 
-![dbatools@GitHub - describe the change](/images/dbatools_contribute_13_open_pull_request2.png)
+![dbatools@GitHub - describe the change](/assets/images/dbatools_contribute_13_open_pull_request2.png)
 
 Next step is to create a PR. Is as simple as hitting that green button above and filling out the form from the template.
 
@@ -132,7 +132,7 @@ The dbatools issues have a template that you can use, so it helps to understand 
 
 In my example I’ve simply said what I’ve done, what kind of change it was and its purpose as well as the approach.
 
-![dbatools@GitHub - describe the change](/images/dbatools_contribute_12_open_pull_request.png)
+![dbatools@GitHub - describe the change](/assets/images/dbatools_contribute_12_open_pull_request.png)
 
 ### #8 Congratulations! You’ve contributed
 

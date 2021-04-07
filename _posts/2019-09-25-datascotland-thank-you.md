@@ -1,6 +1,7 @@
 ---
 title: Data:Scotland – Thank you!
-tags: [community, sqlfamily]
+tags: [community, speaking, sqlfamily datascotland]
+categories: [english, community]
 excerpt: 
 lang: en
 ref: DataScotland2019ThankYou
