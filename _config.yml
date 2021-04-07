@@ -74,13 +74,13 @@ author:
       url: "https://mikeybronowski.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://twitter.com/mikeybronowski"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/mikeybronowski"
     - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      icon: "fab fa-linkedin-in"
+      url: "https://www.linkedin.com/in/mikeybronowski/"
 
 footer:
   links:
