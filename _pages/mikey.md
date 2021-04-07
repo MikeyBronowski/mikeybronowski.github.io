@@ -1,5 +1,5 @@
 ---
-permalink: /about/
+permalink: /mikey/
 title: "Mikey"
 layout: home
 ---
