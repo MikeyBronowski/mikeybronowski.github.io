@@ -1,12 +1,13 @@
 ---
 title: dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści
-tags: [dbatools, społeczność, narzędzia, sqlfamily, polski,test,test2,test3,test4,test5,test6,test7,test8,test9,test10]
-categories: [dbatools,seria]
+tags: [dbatools, społeczność, narzędzia, sqlfamily, polski]
+categories: [dbatools, seria, polski]
 excerpt: 
 lang: pl
 ref: dbatools_ssmscmd_toc
 permalink: /:year/:month/:title
 locale: pl-PL
+toc: true
 ---
 Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen).
 

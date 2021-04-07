@@ -4,7 +4,8 @@ tags: [dbatools, community, tools, sqlfamily]
 excerpt: 
 lang: en
 ref: dbatools_ssmscmd_new
-permalink: /:year/:month/:title
+locale: en-GB
+toc: truear/:month/:title
 locale: en-GB
 ---
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)

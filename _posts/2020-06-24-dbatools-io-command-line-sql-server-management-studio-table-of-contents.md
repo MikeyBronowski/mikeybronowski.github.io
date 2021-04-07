@@ -7,6 +7,7 @@ lang: en
 ref: dbatools_ssmscmd_toc
 permalink: /:year/:month/:title
 locale: en-GB
+toc: true
 ---
 Table of contents for the [dbatools.io = command-line SQL Server Management Studio series](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio/).
 

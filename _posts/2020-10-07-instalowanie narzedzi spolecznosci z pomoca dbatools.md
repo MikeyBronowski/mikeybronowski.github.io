@@ -1,11 +1,13 @@
 ---
 title: Instalowanie narzędzi społeczności z pomocą dbatools
-tags: [dbatools, społeczność, narzędzia, sqlfamily]
+tags: [polski, dbatools, społeczność, narzędzia, sqlfamily]
+categories: [polski]
 excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: communitydbatools
 permalink: /:year/:month/:title
 locale: pl-PL
+toc: true
 ---
 
 > Roses are red,  

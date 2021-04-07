@@ -1,11 +1,13 @@
 ---
 title: dbatools.io = SQL Server Management Studio jako wiersz poleceń
 tags: [dbatools, społeczność, narzędzia, sqlfamily]
+categories: [dbatools, seria, polski]
 excerpt: 
 lang: pl
 ref: dbatools_ssmscmd
 permalink: /:year/:month/:title
 locale: pl-PL
+toc: true
 ---
 Używam [dbatools.io](https://dbatools.io/) w codziennej pracy. Ten niesamowity zestaw narzędzi pomógł mi niezmiernie. Spotkałem także sporo osób, któe miały pewne zastrzeżenia lub nie wiedziały, gdzie rozpocząć. Słyszałem na przykład::
 

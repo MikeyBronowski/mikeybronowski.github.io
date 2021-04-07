@@ -6,6 +6,7 @@ lang: en
 ref: communitydbatools
 permalink: /:year/:month/:title
 locale: en-GB
+toc: true
 ---
 
 > Roses are red,  

@@ -4,4 +4,6 @@ tags: [dbatools, community, tools, sqlfamily]
 excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: dbatoolshowtocontribute
+locale: pl-PL
+toc: true
 ---

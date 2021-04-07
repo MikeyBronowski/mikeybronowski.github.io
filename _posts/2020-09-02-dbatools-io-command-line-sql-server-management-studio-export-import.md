@@ -6,6 +6,7 @@ lang: en
 ref: dbatools_ssmscmd_export
 permalink: /:year/:month/:title
 locale: en-GB
+toc: true
 ---
 ![dbatools.io = command-line SQL Server Management Studio - Connect, Query and Save](dbatools_ssmscmd.png)
 
