@@ -37,8 +37,10 @@ The SSMS offers to script out lots of the SQL Server objects, however it can be 
 # create a job
 New-DbaAgentJob -SqlInstance $server -Job ScriptMeOutBeforeYouGoGo -Description StuckInMyHead
 New-DbaAgentJobStep -SqlInstance $server -Job ScriptMeOutBeforeYouGoGo -StepName OneStepCloser -Subsystem TransactSql -Command "SELECT 1"
+
 # script out the job and save to file
 Get-DbaAgentJob -SqlInstance $server -Job ScriptMeOutBeforeYouGoGo | Export-DbaScript -FilePath MikeyScriptsThings.sql
+
 # want to script out a single step? can you do it in SSMS?
 Get-DbaAgentJobStep -SqlInstance $server -Job ScriptMeOutBeforeYouGoGo | Export-DbaScript -FilePath MikeyScriptsThingsStepByStep.sql
 ```
@@ -130,6 +132,7 @@ There are scenarios where one would like to use DACPACs, so either use SSMS wiza
 ```powershell
 # export DacPac
 Export-DbaDacPackage -SqlInstance $server2 -Database Imported -AllUserDatabases -Path MyDacPac
+
 <#
 Database    : Imported
 Elapsed     : 14.54 s
@@ -224,6 +227,7 @@ SqlInstance : 37f6c33a9599
 ```powershell
 # publish DacPac to the database
 Publish-DbaDacPackage -SqlInstance $server2 -Path 'C:\Temp\MyDacPac\localhost,14333-20200902112209-dacpackage.dacpac' -Database Imported
+
 <#
 ComputerName         : localhost
 InstanceName         : MSSQLSERVER
@@ -275,6 +279,7 @@ Imagine you would like to script out the whole instance, what would be the best 
 ```powershell
 # one of the best one-liners
 Export-DbaInstance -SqlInstance $server -Path MySQLOops
+
 <#
     Directory: C:\Users\micha\MySQLOops\localhost,1433-09012020004734
 Mode                 LastWriteTime         Length Name                                                                                                          
@@ -301,6 +306,7 @@ SQL Server objects are not the only thing you can export or import. Every now an
 ```powershell
 # copy data between SQL Server instances
 Copy-DbaDbTableData -SqlInstance $server -Database msdb -Table syscategories -Destination $server2 -DestinationDatabase model -AutoCreateTable
+
 <#
 SourceInstance      : localhost,1433
 SourceDatabase      : msdb
@@ -329,6 +335,7 @@ Get-DbaDbTable -SqlInstance $server -Database msdb -Table syscategories | Export
 ```powershell
 # import CSV file into SQL Server instance
 Import-DbaCsv -Path 'pigeon-racing.csv' -SqlInstance $server2 -Database imported -AutoCreateTable
+
 <#
 ComputerName  : localhost
 InstanceName  : MSSQLSERVER
@@ -344,6 +351,7 @@ Path          : C:\Users\micha\pigeon-racing.csv
 
 # import multiple CSV files at once
 Get-ChildItem -Path . -Filter *CSV* | Import-DbaCsv -SqlInstance $server2 -Database imported -AutoCreateTable
+
 <#
 ComputerName  : localhost
 InstanceName  : MSSQLSERVER
