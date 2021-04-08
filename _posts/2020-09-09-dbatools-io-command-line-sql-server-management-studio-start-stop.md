@@ -34,7 +34,6 @@ dbatools commands used in this post:
 
 OK, let’s start. While doing some maintenance tasks there is a need to start/stop/restart SQL Services. Using SQL Server Configuration Manager is one way or even straight from SSMS, however, working with multiple instances is easier with dbatools.
 
-### SSMS
 ![Get-DbaService](dbatools_ssmscmd_1101_service.png)
 
 ### [Get-DbaService](https://docs.dbatools.io/#Get-DbaService)
@@ -84,7 +83,6 @@ Restart-DbaService -ComputerName $server
 ## SQL Agent
 How many times did you want to kick off the SQL Agent jobs on multiple servers? Too many probably. Not an easy task to do in SSMS (at least without the use of MSX/TSX). With dbatools these things are possible. Start/Stop agent jobs without issues. One note though, in SSMS you can start the job on a specific step, however in dbatools that option is not available (at least not at the moment). There is a feature request on GitHub already, so it might be there in the future 🙂
 
-### SSMS
 ![Start-DbaAgentJob](dbatools_ssmscmd_1102_agentstart.png)
 
 ### [Start-DbaAgentJob](http://docs.dbatools.io/#Start-DbaAgentJob)
@@ -113,7 +111,6 @@ CreateDate             : 09/09/2020 19:21:41
 #>
 ```
 
-### SSMS
 ![Stop-DbaAgentJob](dbatools_ssmscmd_1103_agentstop.png)
 
 ### [Stop-DbaAgentJob](http://docs.dbatools.io/#Stop-DbaAgentJob)
@@ -254,7 +251,6 @@ BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id
 ## XE session
 Those lucky DBAs who work with newer version of SQL Server may need to manage XE sessions. It is possible to do it via SSMS as well as dbatools.
 
-### SSMS
 ![Start-DbaXESession](dbatools_ssmscmd_1106_xesession.png)
 
 ### [Start-DbaXESession](https://docs.dbatools.io/#Start-DbaXESession)
@@ -306,4 +302,5 @@ MaxEventSize : 0
 That might a good moment to stop this post.
 
 Thank you,
+
 Mikey
