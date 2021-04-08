@@ -1,10 +1,11 @@
 ---
-title: dbatools.io = command-line SQL Server Management Studio - Request for change
-tags: [dbatools, community, tools, sqlfamily]
-excerpt: 
-lang: en
 ref: dbatools_ssmscmd_change
+title: dbatools.io = command-line SQL Server Management Studio - Request for change
+excerpt: 
 permalink: /:year/:month/:title
+tags: [english, dbatools, community, tools, sqlfamily]
+categories: [english, dbatools, series]
+lang: en
 locale: en-GB
 toc: true
 ---
@@ -32,9 +33,9 @@ dbatools commands used in this post:
 ## Change database
 The reasons to alter the database might be as many as different users. Some want to rename the old database, or maybe change the owner or recovery model after restoring the database. Enabling features like Query Store is also common. Most of this can be done from the Database Properties screen and as well with dbatools.
 
-### SSMS
 ![Rename-DbaDatabase](dbatools_ssmscmd_0501_db.png)
-dbatools: [Rename-DbaDatabase](https://docs.dbatools.io/#Rename-DbaDatabase)
+
+### [Rename-DbaDatabase](https://docs.dbatools.io/#Rename-DbaDatabase)
 
 ```powershell
 # rename the database
@@ -51,6 +52,7 @@ PendingRenames :
 SqlInstance    : e6928404da5d
 Status         : FULL
 #>
+
 # the database name is changed, but the files stay the same
 Get-DbaDbFile -SqlInstance $server -Database IDidItAgain | Select-Object Database, LogicalName, PhysicalName | Format-Table
 <#
@@ -60,6 +62,7 @@ IDidItAgain ChangedMyMind     /var/opt/mssql/data/ChangedMyMind.mdf
 IDidItAgain ChangedMyMind_log /var/opt/mssql/data/ChangedMyMind_log.ldf
 #>
 ```
+
 ```powershell
 # rename the database using templates.
 Rename-DbaDatabase -SqlInstance $server -Database IDidItAgain -DatabaseName "Oops<DBN>" -FileName "<FNN>_ItIsAMess" -LogicalName "<LGN><DATE>"
@@ -76,6 +79,7 @@ PendingRenames : {@{Source=/var/opt/mssql/data/ChangedMyMind.mdf; Destination=\v
 SqlInstance    : e6928404da5d
 Status         : PARTIAL
 #>
+
 # see the changes
 Get-DbaDbFile -SqlInstance $server -Database OopsIDidItAgain | Select-Object Database, LogicalName, PhysicalName | Format-Table
 <#
@@ -85,7 +89,9 @@ OopsIDidItAgain ChangedMyMind20200728     \var\opt\mssql\data\ChangedMyMind_ItIs
 OopsIDidItAgain ChangedMyMind_log20200728 \var\opt\mssql\data\ChangedMyMind_log_ItIsAMess.ldf
 #>
 ```
-### dbatools: [Set-DbaDbOwner](https://docs.dbatools.io/#Set-DbaDbOwner)
+
+### [Set-DbaDbOwner](https://docs.dbatools.io/#Set-DbaDbOwner)
+
 ```powershell
 # change the database owner 
 Set-DbaDbOwner -SqlInstance $server -Database ChangedMyMind -TargetLogin sa
@@ -97,7 +103,9 @@ Database     : ChangedMyMind
 Owner        : sa
 #>
 ```
-### dbatools: [Set-DbaDbCompatibility](https://docs.dbatools.io/#Set-DbaDbCompatibility)
+
+### [Set-DbaDbCompatibility](https://docs.dbatools.io/#Set-DbaDbCompatibility)
+
 ```powershell
 # change the compatibility level
 Set-DbaDbCompatibility -SqlInstance $server -Database ChangedMyMind -TargetCompatibility 14
@@ -109,7 +117,8 @@ Database      : ChangedMyMind
 Compatibility : Version140
 #>
 ```
-### dbatools: [Set-DbaDbRecoveryModel](http://docs.dbatools.io/#Set-DbaDbRecoveryModel)
+### [Set-DbaDbRecoveryModel](http://docs.dbatools.io/#Set-DbaDbRecoveryModel)
+
 ```powershell
 # change the recovery model
 Set-DbaDbRecoveryModel -SqlInstance $server -Database ChangedMyMind -RecoveryModel Simple -Confirm:$false
@@ -126,7 +135,9 @@ LastDiffBackup : 01/01/0001 00:00:00
 LastLogBackup  : 01/01/0001 00:00:00
 #>
 ```
-### dbatools: [Set-DbaDbQueryStoreOption](http://docs.dbatools.io/#Set-DbaDbQueryStoreOption)
+
+### [Set-DbaDbQueryStoreOption](http://docs.dbatools.io/#Set-DbaDbQueryStoreOption)
+
 ```powershell
 # enable Query Store
 Set-DbaDbQueryStoreOption  -SqlInstance $server -Database ChangedMyMind -State ReadOnly
@@ -147,19 +158,24 @@ MaxPlansPerQuery                      : 200
 WaitStatsCaptureMode                  : ON
 #>
 ```
+
 There is one special database that is cool enough to have a dedicated function. Dear Readers, please welcome TempDB!
 
-### dbatools: [Set-DbaTempDbConfig](https://docs.dbatools.io/#Set-DbaTempDbConfig)
+### [Set-DbaTempDbConfig](https://docs.dbatools.io/#Set-DbaTempDbConfig)
+
 ```powershell
 # change TempDB config and generate the T-SQL script
 Set-DbaTempDbConfig -SqlInstance $server -DataFileCount 2 -DataFileSize 1024 -LogFileSize 512 -OutputScriptOnly
 ```
+
 ## Change login
 Login changes might not be as often as other changes, but they happen too. dbatools offer functions to rename the login and set other properties.
 
-### SSMS
+
 ![Rename-DbaLogin](dbatools_ssmscmd_0502_login.png)
-### dbatools: [Rename-DbaLogin](http://docs.dbatools.io/#Rename-DbaLogin)
+
+### [Rename-DbaLogin](http://docs.dbatools.io/#Rename-DbaLogin)
+
 ```powershell
 # rename the login
 Rename-DbaLogin -SqlInstance $server -Login MyNameIs -NewLogin MyNameIsNew
@@ -173,11 +189,14 @@ NewLogin      : MyNameIsNew
 Status        : Successful
 #>
 ```
+
 Besides renaming logins have some other properties that you might want to change.
 
-### SSMS
+
 ![Set-DbaLogin](dbatools_ssmscmd_0503_setlogin.png)
-### dbatools: [Set-DbaLogin](https://docs.dbatools.io/#Set-DbaLogin)
+
+### [Set-DbaLogin](https://docs.dbatools.io/#Set-DbaLogin)
+
 ```powershell
 # change the login
 Set-DbaLogin -SqlInstance $server -Login MyNameIs -DefaultDatabase model -Disable -DenyLogin
@@ -196,12 +215,15 @@ ServerRole             :
 Notes                  : 
 #>
 ```
+
 ## Change agent job
 Updating jobs or job steps are quite common activities and it is good to have handy scripts. dbatools offer a broad range of functions to make this task easier.
 
-### SSMS
+
 ![Set-DbaAgentJob](dbatools_ssmscmd_0504_job.png)
-### dbatools: [Set-DbaAgentJob](http://docs.dbatools.io/#Set-DbaAgentJob)
+
+### [Set-DbaAgentJob](http://docs.dbatools.io/#Set-DbaAgentJob)
+
 ```powershell
 # update the job
 Set-DbaAgentJob -SqlInstance $server -Job DoWeHaveAJob -NewName WeDoHaveAJob -Enabled -StartStepId 2 -Description 'I never use this' -OwnerLogin sa
@@ -222,12 +244,16 @@ OperatorToEmail        :
 CreateDate             : 27/07/2020 00:19:54
 #>
 ```
-### dbatools: [Set-DbaAgentJobStep](http://docs.dbatools.io/#Set-DbaAgentJobStep)
+
+### [Set-DbaAgentJobStep](http://docs.dbatools.io/#Set-DbaAgentJobStep)
+
 ```powershell
 # update the job step
 Set-DbaAgentJobStep -SqlInstance $server -Job WeDoHaveAJob -StepName Step2 -NewName StepToo -Command 'SELECT 2' -OnSuccessAction QuitWithSuccess -RetryAttempts 5
 ```
-### dbatools: [Set-DbaAgentJobOutputFile](http://docs.dbatools.io/#Set-DbaAgentJobOutputFile)
+
+### [Set-DbaAgentJobOutputFile](http://docs.dbatools.io/#Set-DbaAgentJobOutputFile)
+
 ```powershell
 # changing the output file for the job step
 Set-DbaAgentJobOutputFile -SqlInstance $server -Job WeDoHaveAJob -Step StepToo -OutputFile 'C:\Temp' -WhatIf
@@ -240,7 +266,9 @@ JobStep        : StepToo
 OutputFileName : 
 #>
 ```
-### dbatools: [Set-DbaAgentJobOwner](http://docs.dbatools.io/#Set-DbaAgentJobOwner)
+
+### [Set-DbaAgentJobOwner](http://docs.dbatools.io/#Set-DbaAgentJobOwner)
+
 ```powershell
 # changing the job owner
 Set-DbaAgentJobOwner -SqlInstance $server -Job WeDoHaveAJob -Login MyNameIsNew
@@ -255,12 +283,14 @@ Status         : Successful
 Notes          : 
 #>
 ```
+
 ## Cycle the logs
 I have decided to place this function here as it is very useful and in some way changes SQL Server objects, i.e. SQL Server and Agent logs. There is a way to cycle the agent log from the SSMS, but thanks to dbatools you can do this on both files.
 
-### SSMS
 ![Invoke-DbaCycleErrorLog](dbatools_ssmscmd_0505_cyclelog.png)
-### dbatools: [Invoke-DbaCycleErrorLog](https://docs.dbatools.io/#Invoke-DbaCycleErrorLog)
+
+### [Invoke-DbaCycleErrorLog](https://docs.dbatools.io/#Invoke-DbaCycleErrorLog)
+
 ```powershell
 # cycle the SQL Server log
 Invoke-DbaCycleErrorLog -SqlInstance $server -Type instance
@@ -273,6 +303,7 @@ IsSuccessful : True
 Notes        : 
 #>
 ```
+
 ```powershell
 # cycle the Agent log
 Invoke-DbaCycleErrorLog -SqlInstance $server -Type agent
@@ -285,13 +316,17 @@ IsSuccessful : True
 Notes        : 
 #>
 ```
-### SSMS
+
 ![Invoke-DbaCycleErrorLog](dbatools_ssmscmd_0506_setlog.png)
-### dbatools: [Set-DbaErrorLogConfig](https://docs.dbatools.io/#Set-DbaErrorLogConfig)
+
+### [Set-DbaErrorLogConfig](https://docs.dbatools.io/#Set-DbaErrorLogConfig)
+
 ```powershell
 # setting up the error log
 Set-DbaErrorLogConfig -SqlInstance $server -LogCount 99 -LogSize 123
 The change is complete.
 ```
+
 Thank you,
+
 Mikey
