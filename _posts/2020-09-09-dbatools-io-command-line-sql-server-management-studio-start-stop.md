@@ -37,7 +37,7 @@ OK, let’s start. While doing some maintenance tasks there is a need to start/s
 ### SSMS
 ![Get-DbaService](dbatools_ssmscmd_1101_service.png)
 
-### dbatools: [Get-DbaService](https://docs.dbatools.io/#Get-DbaService)
+### [Get-DbaService](https://docs.dbatools.io/#Get-DbaService)
 ```powershell
 # get the engine service only
 Get-DbaService -ComputerName $server -Type Engine| Format-Table
@@ -49,7 +49,7 @@ localhost     MSSQL$Insta2 Engine      Insta2       SQL Server (Insta2) BRONOWSK
 #>
 ```
 
-### dbatools: [Stop-DbaService](https://docs.dbatools.io/#Get-DbaService)
+### [Stop-DbaService](https://docs.dbatools.io/#Get-DbaService)
 
 ```powershell
 # stop the agent service only
@@ -62,7 +62,7 @@ localhost     SQLAgent$Insta2 Agent       Insta2    SQL Server Agent (Insta2) BR
 #>
 ```
 
-### dbatools: [Start-DbaService](https://docs.dbatools.io/#Start-DbaService)
+### [Start-DbaService](https://docs.dbatools.io/#Start-DbaService)
 
 ```powershell
 # start the browser service only
@@ -74,7 +74,7 @@ localhost    SQLBrowser  Browser                  SQL Server Browser NT AUTHORIT
 #>
 ```
 
-### dbatools: [Restart-DbaService](https://docs.dbatools.io/#Restart-DbaService)
+### [Restart-DbaService](https://docs.dbatools.io/#Restart-DbaService)
 
 ```powershell
 # restart all
@@ -87,7 +87,7 @@ How many times did you want to kick off the SQL Agent jobs on multiple servers? 
 ### SSMS
 ![Start-DbaAgentJob](dbatools_ssmscmd_1102_agentstart.png)
 
-### dbatools: [Start-DbaAgentJob](http://docs.dbatools.io/#Start-DbaAgentJob)
+### [Start-DbaAgentJob](http://docs.dbatools.io/#Start-DbaAgentJob)
 
 ```powershell
 # create a job that will run for some time
@@ -116,7 +116,7 @@ CreateDate             : 09/09/2020 19:21:41
 ### SSMS
 ![Stop-DbaAgentJob](dbatools_ssmscmd_1103_agentstop.png)
 
-### dbatools: [Stop-DbaAgentJob](http://docs.dbatools.io/#Stop-DbaAgentJob)
+### [Stop-DbaAgentJob](http://docs.dbatools.io/#Stop-DbaAgentJob)
 
 ```powershell
 # combine Get- and Stop- to cancel the job execution
@@ -142,10 +142,9 @@ CreateDate             : 09/09/2020 19:21:41
 ## SQL Endpoint
 When configuring Availability Groups you might want to have endpoint created as well. It is hidden under Server Objects, but as you can see there is no option to create on from SSMS in the Object Explorer. dbatools offer a set of functions to fill that gap.
 
-### SSMS
 ![New-DbaEndpoint](dbatools_ssmscmd_1105_endpoint.png)
 
-### dbatools: [New-DbaEndpoint](http://docs.dbatools.io/#New-DbaEndpoint)
+### [New-DbaEndpoint](http://docs.dbatools.io/#New-DbaEndpoint)
 
 ```powershell
 # create a new endpoint - stopped by default
@@ -166,7 +165,7 @@ IsSystemObject  : False
 #>
 ```
 
-### dbatools: [Start-DbaEndpoint](http://docs.dbatools.io/#Start-DbaEndpoint)
+### [Start-DbaEndpoint](http://docs.dbatools.io/#Start-DbaEndpoint)
 
 ```powershell
 # combine Get- and Start- to start the endpoint
@@ -187,7 +186,7 @@ IsSystemObject  : False
 #>
 ```
 
-### dbatools: [Stop-DbaEndpoint](http://docs.dbatools.io/#Stop-DbaEndpoint)
+### [Stop-DbaEndpoint](http://docs.dbatools.io/#Stop-DbaEndpoint)
 
 ```powershell
 # stop the endpoint with single command
@@ -211,7 +210,7 @@ IsSystemObject  : False
 ## SQL Trace
 If you cannot use XE because your environment is too old, there is a way to see what is happening on your server – SQL Trace might save you. There is no option to create it from SSMS or dbatools directly, you would need to use Profiler to generate the T-SQL. I did this, but then I can manage traces via PowerShell commands. Read more on traces on the [dbatools website](https://dbatools.io/traces/).
 
-### dbatools: [Get-DbaTrace](https://docs.dbatools.io/#Get-DbaTrace)
+### [Get-DbaTrace](https://docs.dbatools.io/#Get-DbaTrace)
 
 ```powershell
 # see the available traces - have created one manually
@@ -225,7 +224,7 @@ BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id
 #>
 ```
 
-### dbatools: [Stop-DbaTrace](https://docs.dbatools.io/#Stop-DbaTrace)
+### [Stop-DbaTrace](https://docs.dbatools.io/#Stop-DbaTrace)
 
 ```powershell
 # stop multiple traces
@@ -238,7 +237,7 @@ BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id
 #>
 ```
 
-### dbatools: [Start-DbaTrace](https://docs.dbatools.io/#Start-DbaTrace)
+### [Start-DbaTrace](https://docs.dbatools.io/#Start-DbaTrace)
 
 ```powershell
 # start all traces - see the warning about the default trace
