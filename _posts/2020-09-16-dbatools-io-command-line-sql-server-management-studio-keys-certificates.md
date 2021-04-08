@@ -1,11 +1,11 @@
 ---
-title: dbatools.io = command-line SQL Server Management Studio - Keys, certificates
-tags: [english, dbatools, community, tools, sqlfamily]
-categories: [english, dbatools,series]
-excerpt: 
-lang: en
 ref: dbatools_ssmscmd_cert
+title: dbatools.io = command-line SQL Server Management Studio - Keys, certificates
+excerpt:
 permalink: /:year/:month/:title
+tags: [english, dbatools, community, tools, sqlfamily]
+categories: [english, dbatools, series]
+lang: en
 locale: en-GB
 toc: true
 ---
@@ -40,10 +40,10 @@ There are multiple security-related objects that are not easily accessible via S
 
 
 
-### SSMS
+
 ![New-DbaServiceMasterKey](dbatools_ssmscmd_1201_masterkey.png)
 
-### dbatools: [New-DbaServiceMasterKey]()
+### [New-DbaServiceMasterKey](http://docs.dbatools.io/#New-DbaServiceMasterKey)
 
 ```powershell
 # set the secure password that will be used later on
@@ -56,7 +56,7 @@ What if: Performing the operation "Creating New MasterKey" on target "localhost,
 #>
 ```
 
-### dbatools: [Backup-DbaServiceMasterKey]()
+### [Backup-DbaServiceMasterKey](http://docs.dbatools.io/#Backup-DbaServiceMasterKey)
 
 ```powershell
 # backup the Service Master Key
@@ -74,7 +74,7 @@ Status       : Success
 
 There is no way to see database master keys via SSMS GUI, so the only way would be to manage it using T-SQL, or... dbatools.
 
-### dbatools: [New-DbaDbMasterKey]()
+### [New-DbaDbMasterKey](https://docs.dbatools.io/#New-DbaDbMasterKey)
 
 ```powershell
 # new Database Master Key for multiple databases
@@ -98,8 +98,7 @@ IsEncryptedByServer : True
 #>
 ```
 
-
-### dbatools: [Get-DbaDbMasterKey]()
+### [Get-DbaDbMasterKey](https://docs.dbatools.io/#Get-DbaDbMasterKey)
 
 
 ```powershell
@@ -113,8 +112,7 @@ localhost    MSSQLSERVER  e6928404da5d model     15/09/2020 21:58:00 15/09/2020 
 #>
 ```
 
-
-### dbatools: [Backup-DbaDbMasterKey]()
+### [Backup-DbaDbMasterKey](https://docs.dbatools.io/#Backup-DbaDbMasterKey)
 
 ```powershell
 # backup all Database Master Keys
@@ -136,8 +134,7 @@ Status       : Success
 #>
 ```
 
-
-### dbatools: [Remove-DbaDbMasterKey]()
+### [Remove-DbaDbMasterKey](https://docs.dbatools.io/#Remove-DbaDbMasterKey)
 
 ```powershell
 # remove all the Database Master Keys
@@ -161,11 +158,10 @@ Status       : Master key removed
 
 A very similar case to the service master key - we can see them in the object explorer, but not much can be done via GUI. dbatools to the rescue.
 
-### SSMS
 
 ![New-DbaDbAsymmetricKey](dbatools_ssmscmd_1202_asymmetrickey.png)
 
-### dbatools: [New-DbaDbAsymmetricKey]()
+### [New-DbaDbAsymmetricKey](https://docs.dbatools.io/#New-DbaDbAsymmetricKey)
 
 ```powershell
 New-DbaDbAsymmetricKey -SqlInstance $server -Name AsymmKey1 -Database keys -SecurePassword $securePassword -Algorithm Rsa4096
@@ -187,7 +183,7 @@ Serial                       :
 #>
 ```
 
-### dbatools: [Get-DbaDbAsymmetricKey]()
+### [Get-DbaDbAsymmetricKey](https://docs.dbatools.io/#Get-DbaDbAsymmetricKey)
 
 ```powershell
 # see the list of the asymmetric keys
@@ -199,7 +195,7 @@ localhost    MSSQLSERVER  e6928404da5d keys     AsymmKey1 dbo   CryptographicPro
 #>
 ```
 
-### dbatools: [Remove-DbaDbAsymmetricKey]()
+### [Remove-DbaDbAsymmetricKey](https://docs.dbatools.io/#Remove-DbaDbAsymmetricKey)
 
 ```powershell
 # remove a selected asymmetric key
@@ -218,12 +214,9 @@ Status       : Success
 
 Another object from the "family" where we can see it in the Object Explorer, but the only available option is "Delete".
 
-
-
-### SSMS
 ![New-DbaDbCertificate](dbatools_ssmscmd_1203_dbcert.png)
 
-### dbatools: [New-DbaDbCertificate]()
+### [New-DbaDbCertificate](https://docs.dbatools.io/#New-DbaDbCertificate)
 
 ```powershell
 # get a new database certificate
@@ -246,7 +239,7 @@ Serial                       : c1 51 6e d0 f5 ea 35 f8
 #>
 ```
 
-### dbatools: [Get-DbaDbCertificate]()
+### [Get-DbaDbCertificate](https://docs.dbatools.io/#Get-DbaDbCertificate)
 
 ```powershell
 # list all the certificates
@@ -267,7 +260,7 @@ localhost    MSSQLSERVER  e6928404da5d keys     CertKey                         
 #>
 ```
 
-### dbatools: [Backup-DbaDbCertificate]()
+### [Backup-DbaDbCertificate](https://docs.dbatools.io/#Backup-DbaDbCertificate)
 
 ```powershell
 # backup the certificates
@@ -284,7 +277,7 @@ Status       : Success
 #>
 ```
 
-### dbatools: [Remove-DbaDbCertificate]()
+### [Remove-DbaDbCertificate](https://docs.dbatools.io/#Remove-DbaDbCertificate)
 
 ```powershell
 # removed a given certificate 
@@ -299,7 +292,7 @@ Status       : Success
 #>
 ```
 
-### dbatools: [Restore-DbaDbCertificate]()
+### [Restore-DbaDbCertificate](https://docs.dbatools.io/#Restore-DbaDbCertificate)
 
 ```powershell
 # restore the certificate from the backup
@@ -324,4 +317,6 @@ Serial                       : c7 64 80 e0 c4 e6 f4 37
 
 That post concludes the series of twelve summer Wednesdays with the dbatools as command-line version of SQL Server Management Studio.
 
-Thank you, Mikey
+Thank you, 
+
+Mikey
