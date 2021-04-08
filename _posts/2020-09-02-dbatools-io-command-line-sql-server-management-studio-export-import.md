@@ -58,7 +58,7 @@ In a similar way you can export multiple objects from the server to the file –
 
 ![Get-DbaDbStoredProcedure](dbatools_ssmscmd_1002_sproc.png)
 
-[Get-DbaDbStoredProcedure](http://docs.dbatools.io/#Get-DbaDbStoredProcedure)
+### [Get-DbaDbStoredProcedure](http://docs.dbatools.io/#Get-DbaDbStoredProcedure)
 
 ```powershell
 # export all user sprocs 
@@ -70,7 +70,7 @@ These functions are powerful. Exporting users with all the role membership or lo
 
 ![Export-DbaUser](dbatools_ssmscmd_1003_user.png)
 
-[Export-DbaUser](https://docs.dbatools.io/#Export-DbaUser)
+### [Export-DbaUser](https://docs.dbatools.io/#Export-DbaUser)
 
 ```powershell
 # export user with role memberships
@@ -91,7 +91,8 @@ GO
 Exporting logins is even more impressive.
 
 ![Export-DbaLogin](dbatools_ssmscmd_1004_login.png)
-[Export-DbaLogin](http://docs.dbatools.io/#Export-DbaLogin)
+
+### [Export-DbaLogin](http://docs.dbatools.io/#Export-DbaLogin)
 ```powershell
 # even better, export login with all the users
 Export-DbaLogin -SqlInstance $server -Login MikeyHasBeenHere -FilePath MikeyHasBeenThere.sql
@@ -124,7 +125,8 @@ GO
 There are scenarios where one would like to use DACPACs, so either use SSMS wizards or handy dbatools commands.
 
 ![Export-DbaDacPackage](dbatools_ssmscmd_1005_dacpac.png)
-[Export-DbaDacPackage](https://docs.dbatools.io/#Export-DbaDacPackage)
+
+### [Export-DbaDacPackage](https://docs.dbatools.io/#Export-DbaDacPackage)
 ```powershell
 # export DacPac
 Export-DbaDacPackage -SqlInstance $server2 -Database Imported -AllUserDatabases -Path MyDacPac
@@ -217,7 +219,7 @@ SqlInstance : 37f6c33a9599
 ```
 ![Publish-DbaDacPackage](dbatools_ssmscmd_1006_dacpac2.png)
 
-[Publish-DbaDacPackage](https://docs.dbatools.io/#Publish-DbaDacPackage)
+### [Publish-DbaDacPackage](https://docs.dbatools.io/#Publish-DbaDacPackage)
 
 ```powershell
 # publish DacPac to the database
@@ -268,7 +270,7 @@ SqlCmdVariableValues : {}
 ## Crème de la crème – export everything
 Imagine you would like to script out the whole instance, what would be the best way to do it in the SSMS?
 
-[Export-DbaInstance](https://docs.dbatools.io/#Export-DbaInstance)
+### [Export-DbaInstance](https://docs.dbatools.io/#Export-DbaInstance)
 
 ```powershell
 # one of the best one-liners
@@ -293,7 +295,8 @@ Mode                 LastWriteTime         Length Name
 SQL Server objects are not the only thing you can export or import. Every now and then DBA would need to shuffle some data. For this reason the Import and Export Wizard can be used or dbatools commands.
 
 ![Copy-DbaDbTableData](dbatools_ssmscmd_1007_tabledatacopy.png)
-[Copy-DbaDbTableData](https://docs.dbatools.io/#Copy-DbaDbTableData)
+
+### [Copy-DbaDbTableData](https://docs.dbatools.io/#Copy-DbaDbTableData)
 
 ```powershell
 # copy data between SQL Server instances
@@ -313,7 +316,7 @@ Elapsed             : 311.11 ms
 ```
 ![Export-DbaDbTableData](dbatools_ssmscmd_1008_tabledataexport.png)
 
-[Export-DbaDbTableData](https://docs.dbatools.io/#Export-DbaDbTableData)
+### [Export-DbaDbTableData](https://docs.dbatools.io/#Export-DbaDbTableData)
 
 ```powershell
 # export table as a collection of INSERT INTO statements
@@ -321,7 +324,7 @@ Get-DbaDbTable -SqlInstance $server -Database msdb -Table syscategories | Export
 ```
 ![Import-DbaCsv](dbatools_ssmscmd_1009_csvimport.png)
 
-[Import-DbaCsv](https://docs.dbatools.io/#Import-DbaCsv)
+### [Import-DbaCsv](https://docs.dbatools.io/#Import-DbaCsv)
 
 ```powershell
 # import CSV file into SQL Server instance
