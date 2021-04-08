@@ -1,10 +1,11 @@
 ---
-title: dbatools.io = command-line SQL Server Management Studio - Drop it
-tags: [dbatools, community, tools, sqlfamily]
-excerpt: 
-lang: en
 ref: dbatools_ssmscmd_drop
+title: dbatools.io = command-line SQL Server Management Studio - Drop it
+excerpt: 
 permalink: /:year/:month/:title
+tags: [english, dbatools, community, tools, sqlfamily]
+categories: [english, dbatools, series]
+lang: en
 locale: en-GB
 toc: true
 ---
@@ -30,16 +31,18 @@ Who does not like to drop databases? Or, better, who have not dropped the databa
 
 In this very first example, I will demonstrate how the -WhatIf switch works. For the other commands, I am going to put the WhatIf message only.
 
-### SSMS
+
 ![Remove-DbaDatabase](dbatools_ssmscmd_0401_db.png)
 
-### dbatools: [Remove-DbaDatabase](https://docs.dbatools.io/#Remove-DbaDatabase)
+### [Remove-DbaDatabase](https://docs.dbatools.io/#Remove-DbaDatabase)
+
 ```powershell
 # use the command with -WhatIf switch
 Remove-DbaDatabase -SqlInstance $server -Database TheDatabaseToDrop -Confirm:$false -WhatIf
 <# See what is going to be done
 What if: Performing the operation "KillDatabase" on target "[TheDatabaseToDrop] on [localhost,1433]".
 #>
+
 # now, drop the database without a confirmation prompt -Confirm:$false
 Remove-DbaDatabase -SqlInstance $server -Database TheDatabaseToDrop -Confirm:$false
 <#
@@ -50,12 +53,14 @@ Database     : TheDatabaseToDrop
 Status       : Dropped
 #>
 ```
+
 ## Drop login/user/role
 Keep the ball rolling and drop some logins, users, even roles. The SSMS screens will look very similar, so I am going to skip some of them.
 
-### SSMS
 ![Remove-DbaLogin](dbatools_ssmscmd_0402_login.png)
-### dbatools: [Remove-DbaLogin](https://docs.dbatools.io/#Remove-DbaLogin)
+
+### [Remove-DbaLogin](https://docs.dbatools.io/#Remove-DbaLogin)
+
 ```powershell
 # drop the login
 Remove-DbaLogin -SqlInstance $server -Login LoginToDrop -Confirm:$false 
@@ -69,9 +74,10 @@ Status       : Dropped
 #>
 ```
 
-### SSMS
 ![Remove-DbaDbUser](dbatools_ssmscmd_0403_dbuser.png)
-dbatools: Remove-DbaDbUser
+
+### [Remove-DbaDbUser](https://docs.dbatools.io/#Remove-DbaDbUser)
+
 ```powershell
 # drop the user
 Remove-DbaDbUser -SqlInstance $server -Database TheDatabaseToDrop -User UserToDrop
@@ -85,20 +91,26 @@ User         : [UserToDrop]
 Status       : Dropped
 #>
 ```
-### SSMS
+
 ![Remove-DbaDbRoleMember](dbatools_ssmscmd_0404_dbrolemember.png)
-### dbatools: [Remove-DbaDbRoleMember](https://docs.dbatools.io/#Remove-DbaDbRoleMember)
+
+### [Remove-DbaDbRoleMember](https://docs.dbatools.io/#Remove-DbaDbRoleMember)
+
 ```powershell
 Remove-DbaDbRoleMember -SqlInstance $server -Database TheDatabaseToDrop -User UserToDrop -Role db_owner
 # What if: Performing the operation "Removing User UserToDrop from role: [db_owner] in database [TheDatabaseToDrop]" on target "[localhost,1433]".
 ```
-### dbatools: [Remove-DbaDbRole](https://docs.dbatools.io/#Remove-DbaDbRole)
+
+### [Remove-DbaDbRole](https://docs.dbatools.io/#Remove-DbaDbRole)
+
 ```powershell
 # in a very similar way we can drop the database roles
 Remove-DbaDbRole -SqlInstance $server -Database TheDatabaseToDrop -Confirm:$false
 # What if: Performing the operation "Remove role [DbRoleToDrop] from database [TheDatabaseToDrop]" on target "[localhost,1433]".
 ```
-### dbatools: [Remove-DbaServerRole](https://docs.dbatools.io/#Remove-DbaServerRole)
+
+### [Remove-DbaServerRole](https://docs.dbatools.io/#Remove-DbaServerRole)
+
 ```powershell
 # ... or server roles
 Remove-DbaServerRole -SqlInstance $server -ServerRole ServerRoleToDrop -Confirm:$false
@@ -111,20 +123,24 @@ ServerRole   : ServerRoleToDrop
 Status       : Success
 #>
 ```
+
 ## Drop agent job/step
 Once we dropped all the databases, and logins, why not to cleanup some SQL Agent jobs.
 
-### SSMS
 ![Remove-DbaAgentJobStep](dbatools_ssmscmd_0405_jobstep.png)
-### dbatools: [Remove-DbaAgentJobStep](https://docs.dbatools.io/#Remove-DbaAgentJobStep)
+
+### [Remove-DbaAgentJobStep](https://docs.dbatools.io/#Remove-DbaAgentJobStep)
+
 ```powershell
 # drop the step
 Remove-DbaAgentJobStep -SqlInstance $server -Job JobToDrop -StepName StepToDrop
 # What if: Performing the operation "Removing the job step StepToDrop for job JobToDrop" on target "localhost,1433".
 ```
-### SSMS
+
 ![Remove-DbaAgentJob](dbatools_ssmscmd_0406_job.png)
-### dbatools: [Remove-DbaAgentJob]()
+
+### [Remove-DbaAgentJob]()
+
 ```powershell
 # drop the whole job
 Remove-DbaAgentJob -SqlInstance $server -Job JobToDrop
@@ -137,7 +153,9 @@ Name         : JobToDrop
 Status       : Dropped
 #>
 ```
+
 That was quite a cleaning service – we have dropped few interesting objects.
 
 Thank you,
+
 Mikey
