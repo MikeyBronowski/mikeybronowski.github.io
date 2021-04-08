@@ -73,6 +73,7 @@ Let’s create an AG, add a replica and a listener.
 ```powershell
 # add a new availability group
 New-DbaAvailabilityGroup -Primary $server -Name NewAG -FailoverMode External
+
 <#
 ComputerName               : SQL01
 InstanceName               : MSSQLSERVER
@@ -88,6 +89,7 @@ AvailabilityDatabases      : {}
 AvailabilityGroupListeners : {}
 #>
 ```
+
 Once the AG is created we can add replicas.
 
 ![Add-DbaAgReplica](dbatools_ssmscmd_0903_replica.png)
@@ -97,6 +99,7 @@ Once the AG is created we can add replicas.
 ```powershell
 # add new replica
 Get-DbaAvailabilityGroup -SqlInstance $server -AvailabilityGroup MikeyAG | Add-DbaAgReplica -SqlInstance $server2 -FailoverMode Manual
+
 <#
 ComputerName               : SQL01
 InstanceName               : MSSQLSERVER
@@ -123,6 +126,7 @@ Another step would be to add a listener to our AG.
 ```powershell
 # create AG listener
 Add-DbaAgListener -SqlInstance $server -AvailabilityGroup MikeyAG -IPAddress $listener -Name AGListener
+
 <#
 ComputerName           : SQL01
 InstanceName           : MSSQLSERVER
@@ -139,6 +143,7 @@ ClusterIPConfiguration :
 ```powershell
 # Remove existing AG listener - Get it first and pipe to the remove command
 Get-DbaAgListener -SqlInstance $server | Remove-DbaAgListener
+
 <#
 ComputerName      : SQL01
 InstanceName      : MSSQLSERVER
@@ -160,6 +165,7 @@ New-DbaDatabase -SqlInstance $server -Name NewDB4AG
 Backup-DbaDatabase -SqlInstance $server -Database NewDB4AG
 # add the database to the AG
 Add-DbaAgDatabase -SqlInstance $server -AvailabilityGroup MikeyAG -Database NewDB4AG -Secondary $server2
+
 <#
 ComputerName         : SQL01
 InstanceName         : MSSQLSERVER
@@ -193,6 +199,7 @@ The SQL Server Management Studio has a dashboard where you can check health of y
 ```powershell
 # See the database details
 Get-DbaAgDatabase -SqlInstance $server -AvailabilityGroup MikeyAG -Database NewDB4AG
+
 <#
 ComputerName         : SQL01
 InstanceName         : MSSQLSERVER
@@ -216,6 +223,7 @@ One of the main features of AlwaysOn availability groups is option to fail the g
 ```powershell
 # change the mode from Async to Sync
 Set-DbaAgReplica -SqlInstance $server -Replica $server -AvailabilityGroup MikeyAG -AvailabilityMode SynchronousCommit
+
 <#
 ComputerName               : SQL01
 InstanceName               : MSSQLSERVER
@@ -243,6 +251,7 @@ Once the AG is synchronised we can fail it over.
 ```powershell
 # failover the AG (using Force as those AG are clusterless)
 Invoke-DbaAgFailover -SqlInstance $server2 -AvailabilityGroup MikeyAG -Force
+
 <#
 ComputerName               : SQL02
 InstanceName               : MSSQLSERVER
@@ -267,6 +276,7 @@ Two useful alternatives to SSMS options.
 ### [Suspend-DbaAgDbDataMovement](http://docs.dbatools.io/#Suspend-DbaAgDbDataMovement)
 ```powershell
 Suspend-DbaAgDbDataMovement -SqlInstance $server -AvailabilityGroup MikeyAG -Database MikeyDb
+
 <#
 ComputerName         : SQL01
 InstanceName         : MSSQLSERVER
@@ -284,6 +294,7 @@ IsSuspended          : True
 ### [Resume-DbaAgDbDataMovement](http://docs.dbatools.io/#Resume-DbaAgDbDataMovement)
 ```powershell
 Resume-DbaAgDbDataMovement -SqlInstance $server -AvailabilityGroup MikeyAG -Database MikeyDb
+
 <#
 ComputerName         : SQL01
 InstanceName         : MSSQLSERVER
@@ -305,6 +316,7 @@ At some point, you have lots of different objects between replicas like logins, 
 ```powershell
 # see what can be synchronised between replicas.
 Sync-DbaAvailabilityGroup -Primary $server -Secondary $server2 -WhatIf
+
 <#
 What if: Performing the operation "Sync-DbaAvailabilityGroup" on target "Syncing SQL Server Configuration from SQL01 to SQL02".
 What if: Performing the operation "Sync-DbaAvailabilityGroup" on target "Syncing logins from SQL01 to SQL02".
