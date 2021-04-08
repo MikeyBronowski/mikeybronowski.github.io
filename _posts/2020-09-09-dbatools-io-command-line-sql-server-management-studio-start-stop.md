@@ -258,7 +258,9 @@ Those lucky DBAs who work with newer version of SQL Server may need to manage XE
 ### SSMS
 ![Start-DbaXESession](dbatools_ssmscmd_1106_xesession.png)
 
-### dbatools: [Start-DbaXESession](https://docs.dbatools.io/#Start-DbaXESession)
+### dbatools
+
+#### [Start-DbaXESession](https://docs.dbatools.io/#Start-DbaXESession)
 
 ```powershell
 # by default this session is not running on my server - let's start it
@@ -281,7 +283,7 @@ MaxEventSize : 0
 #>
 ```
 
-### dbatools [Stop-DbaXESession](https://docs.dbatools.io/#Stop-DbaXESession)
+#### [Stop-DbaXESession](https://docs.dbatools.io/#Stop-DbaXESession)
 
 ```powershell
 # in the same way we can stop the session
