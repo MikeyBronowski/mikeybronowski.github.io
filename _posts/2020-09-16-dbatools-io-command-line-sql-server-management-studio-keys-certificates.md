@@ -34,12 +34,7 @@ dbatools commands used in this post:
 
 ## Service Master Key
 
-
-
 There are multiple security-related objects that are not easily accessible via SQL Server Management Studio. The first one would be Service Master Key, if exists, can be seen under the master database. Luckily, dbatools can help us to take a backup.
-
-
-
 
 ![New-DbaServiceMasterKey](dbatools_ssmscmd_1201_masterkey.png)
 
@@ -51,6 +46,7 @@ $securePassword = ('&lt;YourStrong@Passw0rd>' | ConvertTo-SecureString -asPlainT
 
 # creating Service Master Key if does not exist
 New-DbaServiceMasterKey -SqlInstance $server -SecurePassword $securePassword -WhatIf
+
 <#
 What if: Performing the operation "Creating New MasterKey" on target "localhost,1433".
 #>
@@ -61,6 +57,7 @@ What if: Performing the operation "Creating New MasterKey" on target "localhost,
 ```powershell
 # backup the Service Master Key
 Backup-DbaServiceMasterKey -SqlInstance $server -SecurePassword $securePassword
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
@@ -79,6 +76,7 @@ There is no way to see database master keys via SSMS GUI, so the only way would 
 ```powershell
 # new Database Master Key for multiple databases
 New-DbaDbMasterKey -SqlInstance $server -Database keys, model -SecurePassword $securePassword -Confirm:$false
+
 <#
 ComputerName        : localhost
 InstanceName        : MSSQLSERVER
@@ -104,6 +102,7 @@ IsEncryptedByServer : True
 ```powershell
 # list all Database Master Keys available on the instance
 Get-DbaDbMasterKey -SqlInstance $server | Format-Table
+
 <#
 ComputerName InstanceName SqlInstance  Database CreateDate          DateLastModified    IsEncryptedByServer
 ------------ ------------ -----------  -------- ----------          ----------------    -------------------
@@ -117,6 +116,7 @@ localhost    MSSQLSERVER  e6928404da5d model     15/09/2020 21:58:00 15/09/2020 
 ```powershell
 # backup all Database Master Keys
 Backup-DbaDbMasterKey -SqlInstance $server -SecurePassword $securePassword
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
@@ -139,6 +139,7 @@ Status       : Success
 ```powershell
 # remove all the Database Master Keys
 Remove-DbaDbMasterKey -SqlInstance $server -All -Confirm:$false
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
@@ -158,13 +159,13 @@ Status       : Master key removed
 
 A very similar case to the service master key - we can see them in the object explorer, but not much can be done via GUI. dbatools to the rescue.
 
-
 ![New-DbaDbAsymmetricKey](dbatools_ssmscmd_1202_asymmetrickey.png)
 
 ### [New-DbaDbAsymmetricKey](https://docs.dbatools.io/#New-DbaDbAsymmetricKey)
 
 ```powershell
 New-DbaDbAsymmetricKey -SqlInstance $server -Name AsymmKey1 -Database keys -SecurePassword $securePassword -Algorithm Rsa4096
+
 <#
 ComputerName                 : localhost
 InstanceName                 : MSSQLSERVER
@@ -188,6 +189,7 @@ Serial                       :
 ```powershell
 # see the list of the asymmetric keys
 Get-DbaDbAsymmetricKey -SqlInstance $server | Format-Table
+
 <#
 ComputerName InstanceName SqlInstance  Database Name      Owner       KeyEncryptionAlgorithm KeyLength PrivateKeyEncryptionType Thumbprint            
 ------------ ------------ -----------  -------- ----      -----       ---------------------- --------- ------------------------ ----------            
@@ -200,6 +202,7 @@ localhost    MSSQLSERVER  e6928404da5d keys     AsymmKey1 dbo   CryptographicPro
 ```powershell
 # remove a selected asymmetric key
 Remove-DbaDbAsymmetricKey -SqlInstance $server -Database keys -Confirm:$false
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
@@ -221,6 +224,7 @@ Another object from the "family" where we can see it in the Object Explorer, but
 ```powershell
 # get a new database certificate
 New-DbaDbCertificate -SqlInstance $server -Database keys -Name CertKey -SecurePassword $securePassword
+
 <#
 ComputerName                 : localhost
 InstanceName                 : MSSQLSERVER
@@ -244,6 +248,7 @@ Serial                       : c1 51 6e d0 f5 ea 35 f8
 ```powershell
 # list all the certificates
 Get-DbaDbCertificate -SqlInstance $server | Format-Table
+
 <#
 ComputerName InstanceName SqlInstance  Database Name                                                                    Subject                           
 ------------ ------------ -----------  -------- ----                                                                    -------                           
@@ -265,6 +270,7 @@ localhost    MSSQLSERVER  e6928404da5d keys     CertKey                         
 ```powershell
 # backup the certificates
 Backup-DbaDbCertificate -SqlInstance $server -EncryptionPassword $securePassword -DecryptionPassword $securePassword
+
 <#
 Certificate  : CertKey
 ComputerName : localhost
@@ -282,6 +288,7 @@ Status       : Success
 ```powershell
 # removed a given certificate 
 Remove-DbaDbCertificate -SqlInstance $server -Certificate CertKey -Confirm:$false
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
@@ -297,6 +304,7 @@ Status       : Success
 ```powershell
 # restore the certificate from the backup
 Restore-DbaDbCertificate -SqlInstance $server -Path '/var/opt/mssql/data/\CertMsdb2020091523230623620200916120717717.cer' -Database keys -EncryptionPassword $securePassword -DecryptionPassword $securePassword -Confirm:$false
+
 <#
 ComputerName                 : localhost
 InstanceName                 : MSSQLSERVER

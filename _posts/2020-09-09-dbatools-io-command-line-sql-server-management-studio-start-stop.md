@@ -40,6 +40,7 @@ OK, let’s start. While doing some maintenance tasks there is a need to start/s
 ```powershell
 # get the engine service only
 Get-DbaService -ComputerName $server -Type Engine| Format-Table
+
 <#
 ComputerName  ServiceName  ServiceType InstanceName DisplayName         StartName         State   StartMode
 ------------  -----------  ----------- ------------ -----------         ---------         -----   ---------
@@ -53,6 +54,7 @@ localhost     MSSQL$Insta2 Engine      Insta2       SQL Server (Insta2) BRONOWSK
 ```powershell
 # stop the agent service only
 Get-DbaService -ComputerName $server -Type Agent| Stop-DbaService
+
 <#
 ComputerName  ServiceName  ServiceType InstanceName DisplayName               StartName         State   StartMode
 ------------  -----------  ----------- ------------ -----------               ---------         -----   ---------
@@ -66,6 +68,7 @@ localhost     SQLAgent$Insta2 Agent       Insta2    SQL Server Agent (Insta2) BR
 ```powershell
 # start the browser service only
 Get-DbaService -ComputerName $server -Type Browser| start -DbaService
+
 <#
 ComputerName ServiceName ServiceType InstanceName DisplayName        StartName                 State   StartMode
 ------------ ----------- ----------- ------------ -----------        ---------                 -----   ---------
@@ -91,8 +94,10 @@ How many times did you want to kick off the SQL Agent jobs on multiple servers? 
 # create a job that will run for some time
 New-DbaAgentJob -SqlInstance $server -Job RunMeNowThenStop
 New-DbaAgentJobStep -SqlInstance $server -Job RunMeNowThenStop -StepName Step1 -Command "WAITFOR DELAY '00:01:01'"
+
 # start the job
 Start-DbaAgentJob -SqlInstance $server -Job RunMeNowThenStop
+
 <#
 ComputerName           : localhost
 InstanceName           : MSSQLSERVER
@@ -118,6 +123,7 @@ CreateDate             : 09/09/2020 19:21:41
 ```powershell
 # combine Get- and Stop- to cancel the job execution
 Get-DbaAgentJob -SqlInstance $server -Job RunMeNowThenStop | Stop-DbaAgentJob
+
 <#
 ComputerName           : localhost
 InstanceName           : MSSQLSERVER
@@ -146,6 +152,7 @@ When configuring Availability Groups you might want to have endpoint created as 
 ```powershell
 # create a new endpoint - stopped by default
 New-DbaEndpoint -SqlInstance $server -Name AGEndpoint -Type DatabaseMirroring
+
 <#
 ComputerName    : localhost
 InstanceName    : MSSQLSERVER
@@ -167,6 +174,7 @@ IsSystemObject  : False
 ```powershell
 # combine Get- and Start- to start the endpoint
 Get-DbaEndpoint -SqlInstance $server -Endpoint AGEndpoint | Start-DbaEndpoint
+
 <#
 ComputerName    : localhost
 InstanceName    : MSSQLSERVER
@@ -188,6 +196,7 @@ IsSystemObject  : False
 ```powershell
 # stop the endpoint with single command
 Stop-DbaEndpoint -SqlInstance $server -Endpoint AGEndpoint -Confirm:$false
+
 <#
 ComputerName    : localhost
 InstanceName    : MSSQLSERVER
@@ -212,6 +221,7 @@ If you cannot use XE because your environment is too old, there is a way to see 
 ```powershell
 # see the available traces - have created one manually
 Get-DbaTrace -SqlInstance $server | Format-Table
+
 <#
 BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id InstanceName IsDefault IsRollover IsRowset IsRunning IsShutdown LastEventTime  
 ----------- ---------- ------------ ----------------- ---------- ------------ -- ------------ --------- ---------- -------- --------- ---------- -------------  
@@ -226,6 +236,7 @@ BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id
 ```powershell
 # stop multiple traces
 Stop-DbaTrace -SqlInstance $server -Id 2,3 | Format-Table
+
 <#
 BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id InstanceName IsDefault IsRollover IsRowset IsRunning IsShutdown LastEventTime  
 ----------- ---------- ------------ ----------------- ---------- ------------ -- ------------ --------- ---------- -------- --------- ---------- -------------  
@@ -239,6 +250,7 @@ BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id
 ```powershell
 # start all traces - see the warning about the default trace
 Start-DbaTrace -SqlInstance $server | Format-Table
+
 <#
 WARNING: [21:08:29][Start-DbaTrace] The default trace on [localhost,1433] cannot be started. Use Set-DbaSpConfigure to turn it on.
 BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id InstanceName IsDefault IsRollover IsRowset IsRunning IsShutdown LastEventTime  
@@ -258,6 +270,7 @@ Those lucky DBAs who work with newer version of SQL Server may need to manage XE
 ```powershell
 # by default this session is not running on my server - let's start it
 Start-DbaXESession -SqlInstance $server -Session AlwaysOn_health 
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
@@ -281,6 +294,7 @@ MaxEventSize : 0
 ```powershell
 # in the same way we can stop the session
 Stop-DbaXESession -SqlInstance $server -Session AlwaysOn_health 
+
 <#
 ComputerName : localhost
 InstanceName : MSSQLSERVER
