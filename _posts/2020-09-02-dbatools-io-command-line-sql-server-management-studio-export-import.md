@@ -44,7 +44,7 @@ Get-DbaAgentJobStep -SqlInstance $server -Job ScriptMeOutBeforeYouGoGo | Export-
 ```
 
 Exported script will contain this piece, so it is clear where it is coming from:
-```powershell
+```sql
 /*
     Created by COMPUTER\Mikey using dbatools Export-DbaScript for objects on localhost,1433 at 09/01/2020 02:45:34
     See https://dbatools.io/Export-DbaScript for more information
@@ -77,7 +77,7 @@ These functions are powerful. Exporting users with all the role membership or lo
 Export-DbaUser -SqlInstance $server -Database master -User MikeyHasBeenHere -FilePath MikeyHasBeenHere.sql
 ```
 
-```powershell
+```sql
 USE [master]
 GO
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'MikeyHasBeenHere')
@@ -98,7 +98,7 @@ Exporting logins is even more impressive.
 Export-DbaLogin -SqlInstance $server -Login MikeyHasBeenHere -FilePath MikeyHasBeenThere.sql
 ```
 
-```powershell
+```sql
 /*
     Created by DESKTOP-VDRVEN3\Mikey using dbatools Export-DbaLogin for objects on localhost,1433 at 2020-09-01 23:45:07.664
     See https://dbatools.io/Export-DbaLogin for more information
