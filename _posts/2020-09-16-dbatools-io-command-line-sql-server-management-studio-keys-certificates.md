@@ -7,7 +7,7 @@ lang: en
 ref: dbatools_ssmscmd_cert
 permalink: /:year/:month/:title
 locale: en-GB
-toc: false
+toc: true
 ---
 
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
