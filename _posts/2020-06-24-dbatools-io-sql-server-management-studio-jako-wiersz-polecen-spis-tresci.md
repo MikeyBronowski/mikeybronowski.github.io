@@ -1,19 +1,19 @@
 ---
-title: dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści
-tags: [dbatools, społeczność, narzędzia, sqlfamily, polski]
-categories: [polski, dbatools, seria]
-excerpt: 
-lang: pl
 ref: dbatools_ssmscmd_toc
-permalink: /:year/:month/:title
+title: dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści
+excerpt:
+permalink: /blog/:year/:month/:title
+tags: [polski, seria, dbatools, społeczność, narzędzia, sqfamily]
+categories: [polski, seria, dbatools]
+lang: pl
 locale: pl-PL
-toc: true
+toc: false
 ---
-Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen).
+Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/2020-07-01-dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz).
 
 
 1. Omówienie jak rozpocząć używanie dbatools w celu uruchamiania zapytań na serwerze SQL.  
-[dbatools: Połącz, Zapytaj i Zapisz](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/)
+[dbatools: Połącz, Zapytaj, Zapisz](/dbatools-io-command-line-sql-server-management-studio-connect-and-query/)
 
 2. Jeżeli chcesz przeglądnąć obiekty na serwerze SQL w tym wpisie dowiesz się, jak to zrobić..  
 [dbatools: Let me see](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-let-me-see/)
@@ -36,7 +36,7 @@ Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz p
 8. Za każdym razem kiedy budujemy nowy serwer lub dziedziczymy nieznaną bestię chcielibyśmy zrobić pewną analizę. Możliwość zapisania i odtworzenia bierzącej konfiguracji serwera SQL może być naprawdę pomocna.  
 [dbatools: SQL configuration](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-sql-configuration/)[dbatools: SQL configuration]
 
-9. Masz za zadanie stworzyć grupy dostępności AlwaysOn lub dodać odbiornik, lub przejść w tryb awaryjny? Sprawdź w jaki sposób możesz to osiągnać bez zbędnego klikania.  
+9. Masz za zadanie stworzyć grupy dostępności AlwaysOn lub dodać odbiornik (*listener*), lub przejść w tryb awaryjny (*failover*)? Sprawdź w jaki sposób możesz to osiągnać bez zbędnego klikania.  
 [dbatools: AlwaysOn Availability Groups](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-alwayson-availability-groups/)
 
 10. Zadania importu/eksportu są ważną cześcią pracy. Dobrze jest mieć narzędzia, które nas w tym wspierają. Sprawdź ten wpis by zobaczyć, jak proste to może być z użyciem dbatools.  
@@ -48,5 +48,6 @@ Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz p
 12. Serwer SQL ma kilka obiektów z domeny bezpieczeństwa, do których potrzebny jest czysty T-SQL, ponieważ SQL Server Management Studio nie posiada odpowiedniego interfejsu.  
 [dbatools: Keys & Certificates](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/)
 
-Dziękuję,  
+Dziękuję,
+
 Mikey
