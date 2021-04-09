@@ -16,10 +16,10 @@ Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz p
 [dbatools: Połącz, Zapytaj, Zapisz](/blog/2020/07/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz)
 
 2. Jeżeli chcesz przeglądnąć obiekty na serwerze SQL w tym wpisie dowiesz się, jak to zrobić..  
-[dbatools: Let me see](/blog/2020/07/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-pokaz-mi/)
+[dbatools: Pokaż mi](/blog/2020/07/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-pokaz-mi/)
 
 3. Dodawanie nowych obiektów do serwera SQL nigdy nie było prostsze.  
-[dbatools: Something new](/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-something-new/)
+[dbatools: Coś nowego](/blog/2020/07/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-cos-nowego/)
 
 4. Przychodzi taki czas, że musisz usunąć wszystko ze swojego serwera SQL.  
 [dbatools: Drop it](/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-drop-it/)
