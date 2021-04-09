@@ -2,18 +2,18 @@
 ref: dbatools_ssmscmd_toc
 title: dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści
 excerpt:
-permalink: 
+permalink: /blog/:year/:month/:title
 tags: [polski, seria, dbatools, społeczność, narzędzia, sqfamily]
 categories: [polski, seria, dbatools]
 lang: pl
 locale: pl-PL
 toc: false
 ---
-Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/2020-07-01-dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz).
+Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz).
 
 
 1. Omówienie jak rozpocząć używanie dbatools w celu uruchamiania zapytań na serwerze SQL.  
-[dbatools: Połącz, Zapytaj, Zapisz](/2020-07-01-dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz)
+[dbatools: Połącz, Zapytaj, Zapisz](/blog/2020/07/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz)
 
 2. Jeżeli chcesz przeglądnąć obiekty na serwerze SQL w tym wpisie dowiesz się, jak to zrobić..  
 [dbatools: Let me see](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-let-me-see/)
