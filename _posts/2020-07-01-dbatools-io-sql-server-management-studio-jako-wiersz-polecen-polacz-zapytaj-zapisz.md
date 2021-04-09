@@ -11,7 +11,7 @@ toc: true
 ---
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
 
-This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
+This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](/2020-06-24-dbatools-io-sql-server-management-studio-jako-wiersz-polecen/).
 
 dbatools commands used in this post:
 
