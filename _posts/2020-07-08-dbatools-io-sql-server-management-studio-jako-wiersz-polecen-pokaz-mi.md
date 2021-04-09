@@ -1,6 +1,6 @@
 ---
 ref: dbatools_ssmscmd_see
-title: dbatools.io = command-line SQL Server Management Studio - Pokaż mi
+title: dbatools.io = SQL Server Management Studio jako wiersz poleceń - Pokaż mi
 excerpt: 
 permalink: /blog/:year/:month/:title
 tags: [polski, seria, dbatools, społeczność, narzędzia, sqfamily]

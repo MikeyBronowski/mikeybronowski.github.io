@@ -9,23 +9,10 @@ lang: en
 locale: en-GB
 toc: true
 ---
+
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
-
-dbatools commands used in this post:
-
-* [Backup-DbaDatabase](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Backup-DbaDatabase)
-* [Restore-DbaDatabase](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Restore-DbaDatabase)
-* [Get-DbaDbBackupHistory](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Get-DbaDbBackupHistory)
-* [Get-DbaBackupInformation](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Get-DbaDbBackupHistory)
-* [Get-DbaLastBackup](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Get-DbaDbBackupHistory)
-* [Get-DbaDbRestoreHistory](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Get-DbaDbBackupHistory)
-* [Measure-DbaBackupThroughput](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#Get-DbaDbBackupHistory)
-* [New-DbaDbSnapshot](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#New-DbaDbSnapshot)
-* [Get-DbaDbSnapshot](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#New-DbaDbSnapshot)
-* [Restore-DbaDbSnapshot](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#New-DbaDbSnapshot)
-* [Remove-DbaDbSnapshot](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-backup-restore/#New-DbaDbSnapshot)
 
 ## Backup
 
@@ -38,6 +25,7 @@ Taking backup is an essential task for everyone working with any kind of data. S
 ```powershell
 # take a full copy-only backup
 Backup-DbaDatabase -SqlInstance $server -Database BackMeUp -Type Full -CopyOnly -CompressBackup
+
 <#
 SqlInstance  Database Type TotalSize DeviceType Start                   Duration End                    
 -----------  -------- ---- --------- ---------- -----                   -------- ---                    
@@ -51,6 +39,7 @@ Backup-DbaDatabase -SqlInstance $server -Database BackMeUp -Type Full
 ```powershell
 # take a DIFF now
 Backup-DbaDatabase -SqlInstance $server -Database BackMeUp -Type Diff -FileCount 2
+
 <#
 SqlInstance  Database Type         TotalSize DeviceType Start                   Duration End                    
 -----------  -------- ----         --------- ---------- -----                   -------- ---                    
@@ -61,6 +50,7 @@ e6928404da5d BackMeUp Differential 485.00 KB Disk       2020-08-04 21:47:30.000 
 ```powershell
 # take a T-LOG backup
 Backup-DbaDatabase -SqlInstance $server -Database BackMeUp -Type Log
+
 <#
 SqlInstance  Database Type TotalSize DeviceType Start                   Duration End                    
 -----------  -------- ---- --------- ---------- -----                   -------- ---                    
@@ -79,6 +69,7 @@ The whole purpose of taking a backup is to restore it if needed.
 ```powershell
 # restore a backup next to the existing database (rename database and files)
 Restore-DbaDatabase -SqlInstance $server -DatabaseName BackMeUp -WithReplace -Path 'C:\var\opt\mssql\data\BackMeUp_202008042347.bak' -RestoredDatabaseNamePrefix Restored -ReplaceDbNameInFile
+
 <#
 ComputerName         : localhost
 InstanceName         : MSSQLSERVER
@@ -114,6 +105,7 @@ Once backup is taken, or while you are preparing to restore you might want to ta
 ```powershell
 # see the backup history including copy-only
 Get-DbaDbBackupHistory -SqlInstance $server -Database BackMeUp -IncludeCopyOnly
+
 <#
 SqlInstance  Database Type         TotalSize DeviceType Start                   Duration End                    
 -----------  -------- ----         --------- ---------- -----                   -------- ---                    
@@ -129,6 +121,7 @@ e6928404da5d BackMeUp Full         2.71 MB   Disk       2020-08-04 21:44:00.000 
 ```powershell
 # see the details of the backup file with this extra command
 Get-DbaBackupInformation -SqlInstance $server -Path 'C:\var\opt\mssql\data\BackMeUp_202008042347.bak'
+
 <#
 SqlInstance  Database Type     TotalSize DeviceType Start                   Duration End                    
 -----------  -------- ----     --------- ---------- -----                   -------- ---                    
@@ -141,6 +134,7 @@ e6928404da5d BackMeUp Database 2.71 MB   Disk       2020-08-04 21:47:25.000 00:0
 ```powershell
 # get overall details of the last backup on the instance
 Get-DbaLastBackup -SqlInstance $server | Format-Table
+
 <#
 ComputerName InstanceName SqlInstance  Database         LastFullBackup          LastDiffBackup          LastLogBackup          
 ------------ ------------ -----------  --------         --------------          --------------          -------------          
@@ -157,6 +151,7 @@ localhost    MSSQLSERVER  e6928404da5d RestoredBackMeUp
 ```powershell
 # see the restore history
 Get-DbaDbRestoreHistory -SqlInstance $server | Format-Table
+
 <#
 BackupFinishDate    ComputerName Database         Date                From                                            InstanceName RestoreType SqlInstance  To  
 ----------------    ------------ --------         ----                ----                                            ------------ ----------- -----------  --  
@@ -169,6 +164,7 @@ BackupFinishDate    ComputerName Database         Date                From      
 ```powershell
 # see some stats about backup performance
 Measure-DbaBackupThroughput -SqlInstance $server -Database BackMeUp | FT
+
 <#
 ComputerName InstanceName SqlInstance  Database AvgThroughput AvgSize AvgDuration MinThroughput MaxThroughput MinBackupDate          
 ------------ ------------ -----------  -------- ------------- ------- ----------- ------------- ------------- -------------          
@@ -181,7 +177,8 @@ localhost    MSSQLSERVER  e6928404da5d BackMeUp 2.71 MB       2.71 MB 00:00:01  
 Snapshot might be considered as special kind of backup and while SSMS does not help you to create them easily without T-SQL, dbatools can help here.
 
 ![New-DbaDbSnapshot](dbatools_ssmscmd_0604_snapshot.png)
-### New-DbaDbSnapshot(https://docs.dbatools.io/#New-DbaDbSnapshot)
+
+### [New-DbaDbSnapshot](https://docs.dbatools.io/#New-DbaDbSnapshot)
 
 ```powershell
 # create a new snapshot

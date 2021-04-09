@@ -9,6 +9,7 @@ lang: en
 locale: en-GB
 toc: true
 ---
+
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).

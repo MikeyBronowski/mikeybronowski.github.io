@@ -9,31 +9,21 @@ lang: en
 locale: en-GB
 toc: true
 ---
+
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
-dbatools commands used in this post:
-
-* [New-DbaDatabase]()
-* [New-DbaLogin]()
-* [New-DbaDbRole]()
-* [New-DbaDbUser]()
-* [New-DbaAgentJob]()
-* [New-DbaAgentJobStep]()
-* [New-DbaAgentSchedule]()
-* [New-DbaDbMailAccount]()
-* [New-DbaDbMailProfile]()
-
 ## New database
-Request for a new database is a pretty standard and repeatable task. It can be either a simple database based on the model database or more complex with multiple data files and filegroups.
 
+Request for a new database is a pretty standard and repeatable task. It can be either a simple database based on the model database or more complex with multiple data files and filegroups.
 
 ![New-DbaDatabase](dbatools_ssmscmd_0301_db1.png)
 
 ![New-DbaDatabase](dbatools_ssmscmd_0302_db2.png)
 
 ### New-DbaDatabase
+
 ```powershell
 # simple database creation based on the model database
 New-DbaDatabase -SqlInstance $server -Name NewDatabaseBasedOnModel
@@ -99,8 +89,8 @@ LastLogBackup      : 01/01/0001 00:00:00
 ```
 
 ## New login/user/role
-Another piece of the request could be granting access to the new database. So we would need to create a new login on the SQL instance and then user and a custom role (like db_executor):
 
+Another piece of the request could be granting access to the new database. So we would need to create a new login on the SQL instance and then user and a custom role (like db_executor):
 
 ![New-DbaLogin](dbatools_ssmscmd_0303_login.png)
 
@@ -178,6 +168,7 @@ DefaultSchema      : db
 ```
 
 ### [Add-DbaDbRoleMember](http://docs.dbatools.io/#Add-DbaDbRoleMember)
+
 ```powershell
 # add the new user to the newly created database role
 # use -Confirm:$false to skip the prompt
@@ -185,6 +176,7 @@ Add-DbaDbRoleMember -SqlInstance $server -Database BrandNewAndShinyDb -Role db_e
 ```
 
 ## New agent job
+
 Configuring a SQL agent job can be easy too. With a few lines, you can have a brand new job with its steps and schedule. Let’s see how:
 
 ![New-DbaAgentJob]()
@@ -193,7 +185,7 @@ Configuring a SQL agent job can be easy too. With a few lines, you can have a br
 
 ![New-DbaDbMaiDbaAgentSchedulelProfile]()
 
-### dbatools:[ New-DbaAgentJob](http://docs.dbatools.io/#New-DbaAgentJob)
+### dbatools: [New-DbaAgentJob](http://docs.dbatools.io/#New-DbaAgentJob)
 
 ```powershell
 # create a new empty job
@@ -209,13 +201,14 @@ New-DbaAgentJobStep -SqlInstance $server -Job ANewJob -StepName SecondStep -Comm
 ```
 
 ### [New-DbaAgentSchedule](https://docs.dbatools.io/#New-DbaAgentSchedule)
+
 ```powershell
 # create a new schedule for the job
 # Job done!
 New-DbaAgentSchedule -SqlInstance $server -Job ANewJob -Schedule DailySchedule -FrequencyType Daily -FrequencyInterval 1 -StartTime '080000' -Force
 ```
-
 ## New mail account/profile
+
 Finally, the last thing I wanted to show you is how easy we can configure mail service with dbatools.
 
 ![New-DbaDbMailProfile]()
