@@ -9,6 +9,7 @@ lang: pl
 locale: pl-PL
 toc: false
 ---
+
 Używam [dbatools.io](https://dbatools.io/) w codziennej pracy. Ten niesamowity zestaw narzędzi pomógł mi niezmiernie. Spotkałem także sporo osób, któe miały pewne zastrzeżenia lub nie wiedziały, gdzie rozpocząć. Słyszałem na przykład::
 
 > Nie będę się uczył nowego języka, na przykład PowerShell.
@@ -23,7 +24,7 @@ Nie będę oceniał tych ludzi - to ich życie i praca. Mam jednak taki pomysł 
 
 Mam nadzieję, że ta seria wpisów pozwoli zrozumieć i zrobić ważny ktok dla tych, którzy chcą rozpocząć używanie dbatools.
 
-Ten wpis jest częścią serii pokazującą praktyczne przykłady użytkowania. Główny wpis obejmujący odnośniki do wszystkich wpisów znajduje się tutaj: The main post covering links to all posts can be found here: [dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści](/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-spis-tresci).
+Ten wpis jest częścią serii ukazującej praktyczne przykłady użycia modułu. Główny wpis zawierający odnośniki do pozostałych wpisów serii można znaleźć tutaj: [dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-spis-tresci/).
 
 Dziękuję,
 

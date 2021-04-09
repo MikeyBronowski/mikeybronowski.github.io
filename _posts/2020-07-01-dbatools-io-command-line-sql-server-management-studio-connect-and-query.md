@@ -13,14 +13,9 @@ toc: true
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
-dbatools commands used in this post:
-
-* [Connect-DbaInstance](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Connect-DbaInstance)
-* [Invoke-DbaQuery](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Invoke-DbaQuery)
-* [Write-DbaDbTableData](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Write-DbaDbTableData)
 ## Connect to the Database Engine
-It is possible in dbatools to create a server object and reuse it without providing the credentials and connecting to the instance again and again.
 
+It is possible in dbatools to create a server object and reuse it without providing the credentials and connecting to the instance again and again.
 
 ![Connect-DbaInstance](dbatools_ssmscmd_0101_connect.png)
 
@@ -49,6 +44,7 @@ localhost    localhost,1433 Microsoft SQL Server 14.0.3048 Linux        False   
 ```
 
 ## Execute a simple query
+
 Once the connection is established you can run the query.
 
 ![Invoke-DbaQuery](dbatools_ssmscmd_0102_execute.png)
@@ -73,7 +69,8 @@ $output | Out-GridView
 ```
 
 ## Save results as…
-Once you’ve got your results out in the grid, these can be saved as CSV or TXT file.
+
+Once you’ve got your results out, these can be saved as CSV or TXT file.
 
 ![Write-DbaDbTableData](dbatools_ssmscmd_0103_save.png)
 
@@ -97,5 +94,6 @@ Thank you,
 Mikey
 
 ## See more
+
 * [Export-Csv at MS Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv)
 * [Out-File at MS Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-file)

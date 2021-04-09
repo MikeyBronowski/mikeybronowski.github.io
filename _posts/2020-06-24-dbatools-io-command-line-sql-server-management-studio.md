@@ -9,6 +9,7 @@ permalink: /:year/:month/:title
 locale: en-GB
 toc: true
 ---
+
 I am using [dbatools.io](https://dbatools.io/) in day-to-day work. That amazing set of tools helped me a lot. I have also met people who have some reservations or do not know where to start. I have heard:
 
 > I will not learn new language, for example PowerShell

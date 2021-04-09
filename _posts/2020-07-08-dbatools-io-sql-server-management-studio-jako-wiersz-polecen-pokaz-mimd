@@ -1,30 +1,31 @@
 ---
 ref: dbatools_ssmscmd_see
-title: dbatools.io = command-line SQL Server Management Studio - Let me see
+title: dbatools.io = command-line SQL Server Management Studio - Pokaż mi
 excerpt: 
-permalink: /:year/:month/:title
-tags: [english, dbatools, community, tools, sqlfamily]
-categories: [english, dbatools, series]
-lang: en
-locale: en-GB
+permalink: /blog/:year/:month/:title
+tags: [polski, seria, dbatools, społeczność, narzędzia, sqfamily]
+categories: [polski, seria, dbatools]
+lang: pl
+locale: pl-PL
 toc: true
 ---
 
 ![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
 
-This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
+Ten wpis jest częścią serii ukazującej praktyczne przykłady użycia modułu. Główny wpis zawierający odnośniki do pozostałych wpisów serii można znaleźć tutaj: [dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-spis-tresci/).
 
-## See the databases
+## Zobacz bazy danych
 
-When I want to quickly check the databases in the SSMS I would use this:
+Kiedy potrzebuję na szybko sprawdzić bazy danych w SSMS używam tego:
 
 ![Get-DbaDatabase](dbatools_ssmscmd_0201_db.png)
-With dbatools I can run the following command:
+
+Z modułem dbatools wystarczy, że użyję następującego polecenia:
 
 ### [Get-DbaDatabase](https://docs.dbatools.io/#Get-DbaDatabase)
 
 ```powershell
-# see all the databases
+# pokaż wszystkie bazy danych
 Get-DbaDatabase -SqlInstance $server | Format-Table
 
 <#
@@ -37,14 +38,14 @@ localhost    MSSQLSERVER  4dc570825344 msdb   Normal         True        Simple 
 #>
 ```
 
-In a comparable way we can see details of a single database:
+W podobny sposób możemy zobaczyć szczegóły pojedynczej bazy danych:
 
 ![Get-DbaDbFile](dbatools_ssmscmd_0202_dbfile.png)
 
 ### [Get-DbaDbFile](https://docs.dbatools.io/#Get-DbaDbFile)
 
 ```powershell
-# get the files details
+# pokaż szczegóły plików bazy danych
 Get-DbaDbFile -SqlInstance $server -Database tempdb | Format-Table
 
 <#
@@ -58,7 +59,7 @@ localhost    MSSQLSERVER  4dc570825344 tempdb                  2    1 LOG       
 ### [Get-DbaDbSpace](https://docs.dbatools.io/#Get-DbaDbSpace)
 
 ```powershell
-# get extra information on free/used space in files
+# pokaż dodatkowe informacje o wolnej/zajętej przestrzeni w plikach
 Get-DbaDbSpace -SqlInstance $server -Database tempdb| Format-Table
 
 <#
@@ -69,22 +70,22 @@ localhost    MSSQLSERVER  4dc570825344 tempdb   templog            /var/opt/mssq
 #>
 ```
 
-## See the jobs
+## Zobacz zadania agenta SQL
 
-The SQL Server Agent is crucial component and being able to see what is happening inside is important. In SSMS we would click here and there and see windows like that:
+Agent SQL jest istotnym komponentem i możliwość zobaczenia co się dzieje w środku jest bardzo ważna. W SSMS poklikamy tu i ówdzie i zobaczymy następujące okienko:
 
 ![Get-DbaAgentJob](dbatools_ssmscmd_0203_job.png)
 
-Getting job’s details is as easy as opening one and navigating few tabs:
+Podejrzenie szczegółowych informacji konkretnego zadania, to kwestia kilku kliknięć i przejścia paru zakładek:
 
 ![Get-DbaAgentJob](dbatools_ssmscmd_0203_job2.png)
 
-Now, let’s switch to dbatools and see what they offer.
+Teraz przejdźmy do modułu dbatools i zobaczmy, co mają w ofercie.
 
 ### [dbatools: Get-DbaAgentJob](https://docs.dbatools.io/#Get-DbaAgentJob)
 
 ```powershell
-# see the jobs
+# pokaż zadania
 Get-DbaAgentJob -SqlInstance $server | Format-Table
 
 <#
@@ -107,7 +108,7 @@ localhost    MSSQLSERVER  4dc570825344 sp_purge_jobhistory                      
 ### [Get-DbaAgentJobStep](https://docs.dbatools.io/#Get-DbaAgentJobStep)
 
 ```powershell
-# see the job steps details
+# pokaż szczegóły kroków zadań
 Get-DbaAgentJobStep -SqlInstance $server | Format-Table
 
 <#
@@ -128,25 +129,25 @@ localhost    MSSQLSERVER  4dc570825344 sp_purge_jobhistory                      
 #>
 ```
 
-With some modification we can even get the Command quickly.
+Z kilkoma modyfikacjami możemy szybko zobaczyć jakie polecenie będzie wykonywane w zadaniu.
 
 ```powershell
-# see the command of a selected job step
+# pokaż polecenie w wybranym kroku zadania
 Get-DbaAgentJobStep -SqlInstance $server -Job Ajob| SELECT AgentJob, Name, Command | Out-GridView
 ```
 
 ![Get-DbaAgentJobStep](dbatools_ssmscmd_0204_jobstep.png)
 
-## See the logins/users/roles
+## Pokaż loginy/użytkowników/role
 
-Another important aspect of taking care of the server is user management. In this part, we will see how to quickly check basic information about users, logins, and roles. First, start with logins:
+Innym ważnym elementem dbania o serwer jest zarządzanie użytkownikami. W tej części zobaczymy jak szybko sprawdzić podstawowe informacje o loginach, użytkownikach i rolach. Na początek zobaczmy loginy:
 
 ![Get-DbaLogin](dbatools_ssmscmd_0205_login.png)
 
 ### [Get-DbaLogin](https://docs.dbatools.io/#Get-DbaLogin)
 
 ```powershell
-# see the logins on the server
+# pokaż loginy na serwerze
 Get-DbaLogin -SqlInstance $server | Format-Table
 
 <#
@@ -163,14 +164,14 @@ localhost    MSSQLSERVER  4dc570825344 sa                                    Sql
 #>
 ```
 
-…then database users
+…następnie użytkowników baz danych.
 
 ![Get-DbaDbUser](dbatools_ssmscmd_0206_user.png)
 
 ### [Get-DbaDbUser](https://docs.dbatools.io/#Get-DbaDbUser)
 
 ```powershell
-# see all users of the given database
+# pokaż wszystkich użytkowników wybranej bazy danych
 Get-DbaDbUser -SqlInstance $server -Database MikeyDatabase | Format-Table
 
 <#
@@ -184,17 +185,17 @@ localhost    MSSQLSERVER  4dc570825344 MikeyDatabase 13/04/2009 12:59:11 13/04/2
 #>
 ```
 
-…now roles, both server and database
+…kolejnie, role, zarówno na poziomie serwera, jak i bazy
 
 ![Get-DbaServerRole](dbatools_ssmscmd_0207_serverrole.png)
 
 ### [Get-DbaServerRole](https://docs.dbatools.io/#Get-DbaServerRole)
 
 ```powershell
-# see the server roles
+# zobacz role na poziomie serwera
 Get-DbaServerRole -SqlInstance $server | Format-Table
 
-# or use this:
+# lub użyj tego by zobaczyć członków tych ról
 # Get-DbaServerRoleMember -SqlInstance $server | Format-Table
 
 <#
@@ -215,7 +216,7 @@ localhost    MSSQLSERVER  4dc570825344 sysadmin      {sa, BUILTINAdministrators,
 ### [Get-DbaDbRole](https://docs.dbatools.io/#Get-DbaDbRole)
 
 ```powershell
-# see database roles
+# zobacz role bazodanowe
 Get-DbaDbRole -SqlInstance $server -Database MikeyDatabase | Format-Table
 
 <#
@@ -235,14 +236,14 @@ localhost    MSSQLSERVER  MikeyDatabase public                  False
 #>
 ```
 
-Finally, database role members:
+W końcu, zobacz członków rol bazodanowych:
 
 ![Get-DbaDbRoleMember](dbatools_ssmscmd_0208_dbrole.png)
 
 ### [Get-DbaDbRoleMember](https://docs.dbatools.io/#Get-DbaDbRoleMember)
 
 ```powershell
-# see the role members
+# zobacz członków ról bazodanowych
 Get-DbaDbRoleMember -SqlInstance $server -Database MikeyDatabase  | Format-Table
 
 <#
@@ -256,8 +257,8 @@ localhost    MSSQLSERVER  4dc570825344 MikeyDatabase db_securityadmin  Hacker   
 #>
 ```
 
-"Now You See Me" - said SQL Server. Of course there is more to see on the server, but I think it is a good teaser and an incentive to start using dbatools module.
+"Teraz mnie widzisz" - rzekł serwer SQL. Oczywiście poza tymi kilkoma przykładami na serwerze jest wiele więcej obiektów, które możemy podglądnąć. Myślę jednak, że ten wpis może zachęcić do sprawdzenia modułu dbatools i używania go na codzień.
 
-Thank you,  
+Dziękuję,
 
 Mikey

@@ -9,8 +9,8 @@ lang: pl
 locale: pl-PL
 toc: false
 ---
-Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz).
 
+Spis treści dla serii [dbatools.io = SQL Server Management Studio jako wiersz poleceń](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz).
 
 1. Omówienie jak rozpocząć używanie dbatools w celu uruchamiania zapytań na serwerze SQL.  
 [dbatools: Połącz, Zapytaj, Zapisz](/blog/2020/07/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-polacz-zapytaj-zapisz)

@@ -9,36 +9,31 @@ lang: pl
 locale: pl-PL
 toc: true
 ---
-![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
+![dbatools.io = SQL Server Management Studio jako wiersz poleceń](dbatools_ssmscmd.png)
 
-This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](/2020-06-24-dbatools-io-sql-server-management-studio-jako-wiersz-polecen/).
+Ten wpis jest częścią serii ukazującej praktyczne przykłady użycia modułu. Główny wpis zawierający odnośniki do pozostałych wpisów serii można znaleźć tutaj: [dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-spis-tresci/).
 
-dbatools commands used in this post:
+## Połączenie z bazą danych
 
-* [Connect-DbaInstance](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Connect-DbaInstance)
-* [Invoke-DbaQuery](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Invoke-DbaQuery)
-* [Write-DbaDbTableData](https://www.bronowski.it/blog/2020/07/dbatools-io-command-line-sql-server-management-studio-connect-and-query/#Write-DbaDbTableData)
-## Connect to the Database Engine
-It is possible in dbatools to create a server object and reuse it without providing the credentials and connecting to the instance again and again.
-
+Z pomocą dbatools mamy możliwość stworzenia obiektu serwera i ponowne jego użycie bez potrzeby podawania danych uwierzytelnienie oraz wieloktornego podłączania do bazy.
 
 ![Connect-DbaInstance](dbatools_ssmscmd_0101_connect.png)
 
 ### [Connect-DbaInstance](https://docs.dbatools.io/#Connect-DbaInstance)
 
 ```powershell
-# set the variables
+# ustalamy zmienne
 $SqlInstance = "localhost:1433"
 $User = "sa"
 $PWord = ConvertTo-SecureString -String "<YourStrong@Passw0rd>" -AsPlainText -Force
 
-# create the credential object
+# tworzymy obiekt uwierzytelnienia
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $PWord
 
-# create the server connection object
+# tworzymy obiekt podłączenia do serwera
 $server = Connect-DbaInstance -SqlInstance $SqlInstance -SqlCredential $Credential
 
-# additionally, see the server object
+# podgląd obiektu serwera
 $server
 
 <#
@@ -48,54 +43,56 @@ localhost    localhost,1433 Microsoft SQL Server 14.0.3048 Linux        False   
 #>
 ```
 
-## Execute a simple query
-Once the connection is established you can run the query.
+## Wykonywanie prostego zapytania
+
+Po utworzeniu obiektu serwera możemy wykonać zapytanie.
 
 ![Invoke-DbaQuery](dbatools_ssmscmd_0102_execute.png)
 
 ### [Invoke-DbaQuery](https://docs.dbatools.io/#Invoke-DbaQuery)
 
 ```powershell
-# reuse connection object created before
+# ponowne użycie wcześniej utworzonego obiektu serwera
 Invoke-DbaQuery -SqlInstance $server -Query "SELECT @@version"
 
-# or reuse the credential object instead
+# lub obiektu uwierzytelnienia
 Invoke-DbaQuery -SqlInstance "localhost,1433" -SqlCredential $Credential -Query "SELECT @@version"
 
-# when AD auth in use, simply connect to the instance without server object
+# w sytuacji, w której korzystamy z uwierzytelnienia Active Directory wystarczy podłączyć się bezpośrednio do serwera
 Invoke-DbaQuery -SqlInstance "localhost:1433" -Query "SELECT @@version" 
 
-# save outputs as PowerShell object
+# zapisanie wyników zapytania jako obiekt PowerShell
 $output = Invoke-DbaQuery -SqlInstance $server -Query "SELECT @@version"
 
-# and... see them in the grid (with a pipeline)
+# oraz ich podgląd w formie tabelarycznej
 $output | Out-GridView
 ```
 
 ## Save results as…
-Once you’ve got your results out in the grid, these can be saved as CSV or TXT file.
+
+Otrzymane wyniki możemy zapisać do pliku, na przykład CSV lub TXT.
 
 ![Write-DbaDbTableData](dbatools_ssmscmd_0103_save.png)
 
 ### [Write-DbaDbTableData](https://docs.dbatools.io/#Write-DbaDbTableData)
 
 ```powershell
-# or... save to a TXT file
+# zapisanie wyników w pliku TXT
 $output | Out-File -FilePath .\output.txt
 
-# or to a CSV file
+# lub w pliku CSV
 $output | Export-Csv -Path .\output.csv -NoTypeInformation
 
-# or to any table (dbatools)
+# lub do tabeli (za pomocą dbatools)
 $output|Write-DbaDbTableData -SqlInstance $server -Table tempdb.dbo.customers -AutoCreateTable
 ```
 
-I hope that makes the whole command-line SQL Server Management Studio thing clearer. Next week I am going to show you how to see the SQL Server objects via dbatools.
+Mam nadzieję, że koncept SQL Server Management Studio jako wiersz poleceń jest teraz bardziej klarowny.
 
-Thank you,  
+Dziękuję,  
 
 Mikey
 
-## See more
-* [Export-Csv at MS Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv)
-* [Out-File at MS Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-file)
+## Zobacz więcej
+* [Export-Csv w dokumentacji Microsoft](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv)
+* [Out-File w dokumentacji Microsoft](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-file)
