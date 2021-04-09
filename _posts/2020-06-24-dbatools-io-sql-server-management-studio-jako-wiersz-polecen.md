@@ -1,13 +1,13 @@
 ---
-title: dbatools.io = SQL Server Management Studio jako wiersz poleceń
-tags: [dbatools, społeczność, narzędzia, sqlfamily]
-categories: [dbatools, seria, polski]
-excerpt: 
-lang: pl
 ref: dbatools_ssmscmd
-permalink: /:year/:month/:title
+title: dbatools.io = SQL Server Management Studio jako wiersz poleceń
+excerpt: 
+permalink: 
+tags: [polski, seria, dbatools, społeczność, narzędzia, sqfamily]
+categories: [polski, seria, dbatools]
+lang: pl
 locale: pl-PL
-toc: true
+toc: false
 ---
 Używam [dbatools.io](https://dbatools.io/) w codziennej pracy. Ten niesamowity zestaw narzędzi pomógł mi niezmiernie. Spotkałem także sporo osób, któe miały pewne zastrzeżenia lub nie wiedziały, gdzie rozpocząć. Słyszałem na przykład::
 
@@ -25,5 +25,6 @@ Mam nadzieję, że ta seria wpisów pozwoli zrozumieć i zrobić ważny ktok dla
 
 Ten wpis jest częścią serii pokazującą praktyczne przykłady użytkowania. Główny wpis obejmujący odnośniki do wszystkich wpisów znajduje się tutaj: The main post covering links to all posts can be found here: [dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści](/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-spis-tresci).
 
-Dziękuję,  
+Dziękuję,
+
 Mikey
