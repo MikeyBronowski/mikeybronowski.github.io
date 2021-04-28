@@ -1,9 +1,10 @@
 ---
+ref: dbatoolshowtocontribute
 title: dbatools.io – how to contribute?
 tags: [dbatools, community, tools, sqlfamily]
 excerpt: Take advantage of others' work and experience
+permalink: /:year/:month/:title
 lang: en
-ref: dbatoolshowtocontribute
 locale: en-GB
 toc: true
 ---
