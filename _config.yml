@@ -63,6 +63,10 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-redirect-from
+
+  whitelist:
+  - jekyll-redirect-from
 
 author:
   name   : "Mikey Bronowski"
