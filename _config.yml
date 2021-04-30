@@ -65,7 +65,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-redirect-from
 
-  whitelist:
+whitelist:
   - jekyll-redirect-from
 
 author:
