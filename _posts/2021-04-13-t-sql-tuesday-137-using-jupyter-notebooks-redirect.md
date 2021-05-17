@@ -6,4 +6,5 @@ redirect_to:
   
 permalink: /:year/:month/:title
 hidden: true
+published: false
 ---
