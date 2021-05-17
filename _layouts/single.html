@@ -90,9 +90,6 @@ layout: default
           {% if post.id == page.id %}
             {% continue %}
           {% endif %}
-          {% if post.hidden == "false" %}
-            {% continue %}
-          {% endif %}
           {% include archive-single.html type="grid" %}
         {% endfor %}
       </div>
