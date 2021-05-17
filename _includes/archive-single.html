@@ -18,13 +18,8 @@
       </div>
     {% endif %}
     <h2 class="archive__item-title no_toc" itemprop="headline">
-<<<<<<< HEAD
       {% if post.link %}
-        <a href="{{ post.link }}">MIKEY{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-=======
-      {% if post.link and post.hidden == "false"%}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
->>>>>>> 3c2a7414e150ba96c7463bd0cfe522438981561f
       {% else %}
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
         {% assign versions=site.posts | where:"ref", post.ref | sort: 'lang' %}
