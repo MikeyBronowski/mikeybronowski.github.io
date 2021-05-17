@@ -31,7 +31,8 @@ layout: default
         </header>
       {% endunless %}
 
-      {% assign versions=site.posts | where:"ref", page.ref | sort: 'lang' %}
+      {% assign versions2=site.posts | where: "hidden", nil %}
+      {% assign versions=versions2 | where: "ref", page.ref | sort: 'lang' %}
         {% if versions.size > 1 %}
           {% for version in versions %}
             {% if version.lang != page.lang %}
