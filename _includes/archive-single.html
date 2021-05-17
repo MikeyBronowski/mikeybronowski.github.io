@@ -22,7 +22,8 @@
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
-        {% assign versions=site.posts | where:"ref", post.ref | where:"hidden", "false" | sort: 'lang' %}
+        {% assign versions2=site.posts | where:"hidden", true %}
+        {% assign versions=versions2 | where:"ref", post.ref | sort: 'lang' %}
         {% for version in versions %}
             <a href="{{ version.url }}" >{{ site.data.i18n[version.lang].icon }}</a>
         {% endfor %}
