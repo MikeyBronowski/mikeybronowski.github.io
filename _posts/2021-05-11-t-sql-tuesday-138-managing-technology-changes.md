@@ -9,9 +9,9 @@ locale: en-GB
 permalink: /:year/:month/:title
 ---
 
-[![T-SQL Tuesday Logo](t-sql-tuesday-logo.jpg)](https://andyleonard.blog/2021/05/t-sql-tuesday-138-managing-technology-changes/ "T-SQL Tuesday invitation")
+[![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://andyleonard.blog/2021/05/t-sql-tuesday-138-managing-technology-changes/ "T-SQL Tuesday invitation")
 
-This month the #TSQL2SDAY invitation comes from Andy Leonard ([blog](http://andyleonard.blog/)|[twitter](https://twitter.com/AndyLeonard)). The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)|[twitter](https://twitter.com/way0utwest)).
+This month the #TSQL2SDAY invitation comes from Andy Leonard ([blog](http://andyleonard.blog/)\|[twitter](https://twitter.com/AndyLeonard)). The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
 
 Andy invites us to write about ch-ch-ch-ch-changes and how we deal with them. The invitation is in this post.
 
@@ -33,5 +33,4 @@ I have started submitting topics to various conferences or events, to force myse
 Changes might be scary, but they in my case I needed them. They were the trigger to learn more. Thank you Andy for hosting it this month.
 
 Thanks,
-
 Mikey
