@@ -1,7 +1,7 @@
 ---
 ref: tsql2sday138
 title: T-SQL Tuesday 138 - Managing Technology Changes
-excerpt: 
+excerpt: "This month the #TSQL2SDAY invitation comes from Andy Leonard who asks us to write about ch-ch-ch-ch-changes and how we deal with them."
 tags: [english, community, events, sqlfamily, tsql2sday]
 categories: [english, community, events, tsql2sday]
 lang: en
@@ -33,4 +33,5 @@ I have started submitting topics to various conferences or events, to force myse
 Changes might be scary, but they in my case I needed them. They were the trigger to learn more. Thank you Andy for hosting it this month.
 
 Thanks,
+
 Mikey
