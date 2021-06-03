@@ -10,9 +10,12 @@ permalink: /blog/:year/:month/:title
 toc: true
 ---
 
-Last week I have introduced you to ImportExcel PowerShell module and its capability to manipulate the worksheets and create pivot tables and pivot charts. This week let’s jump on some other features: conditional formatting and charts.
+![PowerShell into Excel - ImportExcel Module Part 2](/assets/images/importexcel-intro-1-01.png)
 
-ImportExcel – how to?
+Last week I have introduced you to [ImportExcel PowerShell module](https://www.bronowski.it/blog/2020/06/powershell-into-excelimportexcel-module-part-1/) and its capability to manipulate the worksheets and create pivot tables and pivot charts. This week let's jump on some other features: conditional formatting and charts.
+
+## ImportExcel – how to?
+
 If you have not installed the module before, use the below code to do so and move on to the examples.
 
 ```powershell
@@ -22,8 +25,9 @@ Install-Module -Name ImportExcel
 Import-Module -Name ImportExcel
 ```
 
-ImportExcel – how to do conditional formatting?
-I have a dataset with three columns and would like to add the conditional formatting on each of the columns separately. As a base will use Events exported to the worksheet and later will use the Export-Excel function with ConditionalFormat parameter:
+### ImportExcel – how to do conditional formatting?
+
+I have a dataset with three columns and would like to add the conditional formatting on each of the columns separately. As a base will use Events exported to the worksheet and later will use the **Export-Excel** function with **ConditionalFormat** parameter:
 
 ```powershell
 # cleanup any previous files
@@ -36,7 +40,8 @@ $events | Export-Excel -WorksheetName Events -TableName Events -Path $excelFile 
 
 That will produce spreadsheet like this:
 
-ImportExcel - Export-Excel
+![](/assets/images/importexcel-intro-2-01-worksheetclean.png)
+
 Now, will add another worksheet with the Conditional Formatting:
 
 ```powershell
@@ -53,7 +58,8 @@ $Events | Export-Excel -WorksheetName EventsConditional -TableName EventsConditi
 
 That is how to the other worksheet looks like one below:
 
-ImportExcel - ConditionalFormat
+![](/assets/images/importexcel-intro-2-02-conditionalformatting.png)
+
 We have gotten some colors. It is also possible to apply the formatting to the existing worksheet. For that scenario I will define the formatting first (keeping in mind I will place the second table on the side of existing one).
 
 ```powershell
@@ -69,10 +75,11 @@ $ConditionalFormat2 =$(
 $Events | Export-Excel -WorksheetName Events -TableName EventsConditional2 -Path $excelFile -ConditionalFormat $ConditionalFormat2 -Show -Activate -KillExcel -StartColumn 5
 ```
 
-ImportExcel - ConditionalFormat
+![](/assets/images/importexcel-intro-2-02-conditionalformatting2.png)
+
 We are back on the first worksheet with to tables (first without, second with the conditional formatting applied).
 
-On a separate note we can add conditional formatting using dedicated function called Add-ConditionalFormatting.
+On a separate note we can add conditional formatting using dedicated function called **Add-ConditionalFormatting**.
 
 ```powershell
 # load the spreadsheet
@@ -84,8 +91,9 @@ Add-ConditionalFormatting -Worksheet $excel.Events -RuleType Equal 'Warning' -Ad
 Close-ExcelPackage $excel -Show
 ```
 
-ImportExcel - Add-ConditionalFormatting
-That is right. We have changed background for all the ‘warning’ values.
+![](/assets/images/importexcel-intro-2-03-worksheetadd.png)
+
+That is right. We have changed background for all the 'warning' values.
 
 Finally, there is one interesting formatting using icon sets. The ImportExcel module can do it too:
 
@@ -98,11 +106,13 @@ $ConditionalFormat3 =$(
 "L",1,2,3,4,5 | Export-Excel -WorksheetName EventsIcons -TableName EventsConditional3 -Path $excelFile -ConditionalFormat $ConditionalFormat3 -Show -Activate -KillExcel
 ```
 
-ImportExcel - New-ConditionalFormatIconSet
+![](/assets/images/importexcel-intro-2-04-iconset.png)
+
 All the quarters are there! I will stop playing with the conditional formatting at this point. If you have other examples or scenarios, please comment below.
 
-ImportExcel – how to create charts?
-Last week we’ve seen how to add pivot charts, but ImportExcel module can work with regular charts as well.
+### ImportExcel – how to create charts?
+
+Last week we've seen how to add pivot charts, but ImportExcel module can work with regular charts as well.
 
 As an example, I am collecting some performance counters and going to draw a chart.
 
@@ -120,7 +130,8 @@ $chartDef = New-ExcelChartDefinition -XRange Path,TimeStamp -YRange CookedValue 
 $dataCooked | Export-Excel -WorksheetName Events -TableName Events $excelFile -ExcelChartDefinition $chartDef -AutoNameRange -Show -KillExcel
 ```
 
-ImportExcel - New-ExcelChartDefinition
+![](/assets/images/importexcel-intro-2-05-chart.png)
+
 That is extremely basic chart that would need some names defined (like Title, or Series). Adding multi-series chart is also not a problem. Have a look:
 
 ```powershell
@@ -146,7 +157,7 @@ $chartDef2 = New-ExcelChartDefinition -Title 'Sin(x)/Cos(x)' `
 Export-Excel -Path $excelFile -WorksheetName MathChart -ExcelChartDefinition $chartDef2 -Activate -Show
 ```
 
-ImportExcel - New-ExcelChartDefinition
+![](/assets/images/importexcel-intro-2-05-chart2.png)
 The first worksheet (Math) has the data and the other one gets the beautiful sine waves.
 
 There is a way to add the chart separately, using Add-ExcelChart.
@@ -170,8 +181,10 @@ Add-ExcelChart -Worksheet $excel.Pie -ChartType Pie -Title Pie -XRange Surface -
 Close-ExcelPackage $excel -Show
 ```
 
-ImportExcel - Add-ExcelChart
-Summary
+![](/assets/images/importexcel-intro-2-05-chart3.png)
+
+## Summary
+
 I hope you enjoyed this post and you are a bit more confident using the module. There are endless possibilities and scenarios.
 
 Thank you,

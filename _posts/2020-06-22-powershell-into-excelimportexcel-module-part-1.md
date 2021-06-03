@@ -190,7 +190,7 @@ $PTDef += New-PivotTableDefinition -PivotTableName "P2" -SourceWorkSheet "Proces
 Export-Excel -ExcelPackage $excel -PivotTableDefinition $PTDef -Show -Activate
 ```
 
-![Pivot table chart #1](/assets/images/importexcel-intro-1-06-how2pivotchart1.png)![Pivot table chart #2](/assets/images/importexcel-intro-1-06-how2pivotchart2.png)
+| ![Pivot table chart #1](/assets/images/importexcel-intro-1-06-how2pivotchart1.png) | ![Pivot table chart #2](/assets/images/importexcel-intro-1-06-how2pivotchart2.png) |
 
 That does not limit the user to create pivot table charts on a new worksheet. It is quite simple to add more charts on the worksheet. Just to avoid overlapping of the charts and tables set the **Address** (for placing table [A]) and **ChartRow** / **ChartColumn** (to set location for a chart [B]).
 
