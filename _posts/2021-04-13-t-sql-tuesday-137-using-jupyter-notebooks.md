@@ -1,7 +1,7 @@
 ---
 ref: tsql2sday137
 title: T-SQL Tuesday 137 - Using Jupyter Notebooks
-excerpt: 
+excerpt: "This month the #TSQL2SDAY invitation comes from Steve Jones who asks us to write about Jupyter notebooks."
 tags: [english, community, events, sqlfamily, tsql2sday, jupyter]
 categories: [english, community, events, tsql2sday]
 lang: en
