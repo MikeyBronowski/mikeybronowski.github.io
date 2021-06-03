@@ -2,7 +2,7 @@
 ref: dbatools_ssmscmd_start
 title: dbatools.io = command-line SQL Server Management Studio - Start/Stop
 excerpt:
-permalink: /:year/:month/:title 
+permalink: /blog/:year/:month/:title 
 tags: [english, dbatools, community, tools, sqlfamily]
 categories: [english, dbatools, series]
 lang: en

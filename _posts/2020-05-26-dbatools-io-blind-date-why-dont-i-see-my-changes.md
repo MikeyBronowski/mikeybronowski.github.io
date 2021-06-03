@@ -6,6 +6,6 @@ tags: [english, dbatools, community, tools, sqlfamily]
 categories: [english, dbatools]
 lang: en
 locale: en-GB
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 ---
 

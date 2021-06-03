@@ -6,6 +6,6 @@ tags: [english, community, tools, carnac, code52]
 categories: [english, community, tools]
 lang: en
 locale: en-GB
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 ---
 

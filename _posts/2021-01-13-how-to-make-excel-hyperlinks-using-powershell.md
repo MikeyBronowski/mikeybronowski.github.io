@@ -6,5 +6,5 @@ tags: [english, community, tools, importexcel, powershell, excel]
 categories: [english, community, tools, importexcel]
 lang: en
 locale: en-GB
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 ---

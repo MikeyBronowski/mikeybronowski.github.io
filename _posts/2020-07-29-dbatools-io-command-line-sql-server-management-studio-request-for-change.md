@@ -2,7 +2,7 @@
 ref: dbatools_ssmscmd_change
 title: dbatools.io = command-line SQL Server Management Studio - Request for change
 excerpt: 
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 tags: [english, dbatools, community, tools, sqlfamily]
 categories: [english, dbatools, series]
 lang: en

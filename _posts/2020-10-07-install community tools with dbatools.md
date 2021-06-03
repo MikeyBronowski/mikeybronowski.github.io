@@ -2,7 +2,7 @@
 ref: communitydbatools
 title: Install community tools with dbatools
 excerpt: Take advantage of others' work and experience
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 tags: [dbatools, community, tools, sqlfamily]
 categories: [english, dbatools, series]
 lang: en

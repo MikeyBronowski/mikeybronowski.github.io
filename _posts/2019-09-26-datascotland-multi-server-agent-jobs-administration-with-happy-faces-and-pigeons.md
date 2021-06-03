@@ -6,7 +6,7 @@ tags: [english, community, speaking, sqlfamily, datascotland]
 categories: [english, community, speaking]
 lang: en
 locale: en-GB
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 ---
 
 Following the [Data:Scotland](https://www.datascotland.org/) conference I have uploaded my presentation to [GitHub](https://github.com/MikeyBronowski/Presentations) as well as official Data:Scotland repository.

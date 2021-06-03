@@ -6,6 +6,6 @@ tags: [english, chocolatey, community, tools]
 categories: [english, tools, chocolatey]
 lang: en
 locale: en-GB
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:title
 ---
 
