@@ -1,7 +1,7 @@
 ---
 ref: tsql2sday135writeup
 title: T-SQL Tuesday 135 - The outstanding tools of the trade that make your job awesome – write-up
-excerpt: 
+excerpt: Read responses to the February 2021 edition of T-SQL Tuesday.
 tags: [english, community, events, sqlfamily, tsql2sday, tools]
 categories: [english, community, events, tsql2sday]
 lang: en
