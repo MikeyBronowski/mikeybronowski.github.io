@@ -1,7 +1,7 @@
 ---
 ref: tsql2sday135
 title: T-SQL Tuesday 135 - The outstanding tools of the trade that make your job awesome
-excerpt: 
+excerpt: Without tools, most of the work would be much harder to do or could not be done at all.
 tags: [english, community, events, sqlfamily, tsql2sday, tools]
 categories: [english, community, events, tsql2sday]
 lang: en
