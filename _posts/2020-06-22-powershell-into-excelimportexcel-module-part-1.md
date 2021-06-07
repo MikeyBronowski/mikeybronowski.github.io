@@ -6,7 +6,7 @@ tags: [english, importexcel, community, tools]
 categories: [english, importexcel, tools]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 toc: true
 ---
 
