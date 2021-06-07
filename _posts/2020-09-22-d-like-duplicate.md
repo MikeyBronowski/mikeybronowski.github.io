@@ -2,7 +2,7 @@
 ref: dlikeduplicate
 title: D like Duplicate.
 excerpt:
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 tags: [ctrld, delete, duplicate, excel, powerbi, powerpivot, shortcut, ssms]
 categories: [english, excel, magda]
 lang: en

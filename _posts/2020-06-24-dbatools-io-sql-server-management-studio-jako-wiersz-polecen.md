@@ -2,7 +2,7 @@
 ref: dbatools_ssmscmd
 title: dbatools.io = SQL Server Management Studio jako wiersz poleceń
 excerpt: 
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 tags: [polski, seria, dbatools, społeczność, narzędzia, sqfamily]
 categories: [polski, seria, dbatools]
 lang: pl

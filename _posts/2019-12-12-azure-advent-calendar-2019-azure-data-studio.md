@@ -6,6 +6,6 @@ tags: [english, community, events, sqlfamily, azure, azureadventcalendar]
 categories: [english, community, events]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 ---
 

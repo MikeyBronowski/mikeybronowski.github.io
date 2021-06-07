@@ -6,7 +6,7 @@ tags: [english, community, events, sqlfamily, tsql2sday]
 categories: [english, community, events, tsql2sday]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 ---
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://andyleonard.blog/2021/05/t-sql-tuesday-138-managing-technology-changes/ "T-SQL Tuesday invitation")

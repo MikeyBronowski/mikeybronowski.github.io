@@ -6,7 +6,7 @@ tags: [english, community, events, sqlfamily, tsql2sday, tools]
 categories: [english, community, events, tsql2sday]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 toc: true
 ---
 

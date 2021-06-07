@@ -6,5 +6,5 @@ tags: [_CloudFamily, excel, FestiveTechCalendar, importexcel, msdevuk, powershel
 categories: [english, community, events, importexcel]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 ---

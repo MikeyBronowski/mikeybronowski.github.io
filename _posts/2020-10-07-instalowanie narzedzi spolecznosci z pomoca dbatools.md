@@ -5,7 +5,7 @@ categories: [polski]
 excerpt: Skorzystaj z pracy i doświadczenia innych
 lang: pl
 ref: communitydbatools
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 locale: pl-PL
 toc: true
 ---

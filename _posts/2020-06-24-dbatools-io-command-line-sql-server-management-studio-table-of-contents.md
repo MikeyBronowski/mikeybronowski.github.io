@@ -5,7 +5,7 @@ categories: [dbatools,series]
 excerpt: 
 lang: en
 ref: dbatools_ssmscmd_toc
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 locale: en-GB
 toc: false
 ---

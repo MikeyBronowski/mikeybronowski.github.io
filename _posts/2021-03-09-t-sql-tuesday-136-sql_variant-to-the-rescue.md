@@ -6,7 +6,7 @@ tags: [english, community, events, sqlfamily, tsql2sday]
 categories: [english, community, events, tsql2sday]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 ---
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://www.brentozar.com/archive/2021/03/tsql2sday-136-invitation-blog-about-your-favorite-data-type-or-least-favorite/ "T-SQL Tuesday invitation")

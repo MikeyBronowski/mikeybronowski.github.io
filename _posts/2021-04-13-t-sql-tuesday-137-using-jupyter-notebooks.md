@@ -6,7 +6,7 @@ tags: [english, community, events, sqlfamily, tsql2sday, jupyter]
 categories: [english, community, events, tsql2sday]
 lang: en
 locale: en-GB
-permalink: /blog/:year/:month/:title
+permalink: /blog/:year/:month/:title/
 ---
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](http://tsqltuesday.com/2021/04/06/t-sql-tuesday-137-using-notebooks-every-day/ "T-SQL Tuesday invitation")
