@@ -1,8 +1,11 @@
 ---
-permalink: /mikey/
 title: "Mikey"
+permalink: /mikey
 layout: home
+author_profile: true
+entries_layout: grid
 ---
+
 
 Experienced SQL Server DBA who loves making things simpler. Favourite pets are knowledge bases and run-books (SharePoint, OneNote, any other place that can be used to make the team’s life easier). Big appetite for data – scrape them (R/Python), store them (SQL), analyse them (Power BI/Excel).
 Not afraid of challenges – the journey to find a solution is very exciting.
