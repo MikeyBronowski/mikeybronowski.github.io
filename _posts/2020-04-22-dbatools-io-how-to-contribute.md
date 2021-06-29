@@ -1,12 +1,13 @@
 ---
 ref: dbatoolshowtocontribute
 title: dbatools.io – how to contribute?
-tags: [dbatools, community, tools, sqlfamily]
 excerpt: Take advantage of others' work and experience
-permalink: /blog/:year/:month/:title/
+tags: [dbatools, community, tools, sqlfamily, wip]
+categories: [english, dbatools]
 lang: en
 locale: en-GB
 toc: true
+permalink: /blog/:year/:month/:title/
 ---
 
 ## What dbatools.io is?
