@@ -26,7 +26,7 @@ dbatools.io is a set of PowerShell commands to manage SQL Server, contained in a
 
 SQL community (or [#SQLFamily](https://twitter.com/search?q=%23SQLFamily)) is a group of data professionals gathered mainly around Microsoft SQL Server.
 
-## X’s and O’s
+## X's and O's
 
 Those two sets of people have a common part – people who are active members of the community and who contribute to the dbatools, hence all the affection. In most cases it is a win-win situation.
 

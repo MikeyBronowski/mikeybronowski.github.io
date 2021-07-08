@@ -32,7 +32,7 @@ dbatools commands used in this post:
 
 ## SQL Services
 
-OK, let’s start. While doing some maintenance tasks there is a need to start/stop/restart SQL Services. Using SQL Server Configuration Manager is one way or even straight from SSMS, however, working with multiple instances is easier with dbatools.
+OK, let's start. While doing some maintenance tasks there is a need to start/stop/restart SQL Services. Using SQL Server Configuration Manager is one way or even straight from SSMS, however, working with multiple instances is easier with dbatools.
 
 ![Get-DbaService](dbatools_ssmscmd_1101_service.png)
 

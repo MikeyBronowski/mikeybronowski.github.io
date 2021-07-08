@@ -177,7 +177,7 @@ Add-DbaDbRoleMember -SqlInstance $server -Database BrandNewAndShinyDb -Role db_e
 
 ## New agent job
 
-Configuring a SQL agent job can be easy too. With a few lines, you can have a brand new job with its steps and schedule. Let’s see how:
+Configuring a SQL agent job can be easy too. With a few lines, you can have a brand new job with its steps and schedule. Let's see how:
 
 ![New-DbaAgentJob]()
 

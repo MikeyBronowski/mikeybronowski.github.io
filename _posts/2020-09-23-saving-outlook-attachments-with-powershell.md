@@ -40,7 +40,7 @@ Below is my proposed solution in PowerShell. Run through all the emails in the M
 At the bottom you will find the whole script.
 
 ### Microsoft Outlook Inbox
-In order to access the inbox, we would need to use GetNameSpace method that supports ‘MAPI’ names space type. inbox no 6. Read about other folders at [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.interop.outlook.oldefaultfolders?view=outlook-pia).
+In order to access the inbox, we would need to use GetNameSpace method that supports ‘MAPI' names space type. inbox no 6. Read about other folders at [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.interop.outlook.oldefaultfolders?view=outlook-pia).
 
 ```powershell
 # use MAPI name space
@@ -109,7 +109,7 @@ $email.ReceivedTime.ToString("yyyyMMddhhmmss")
 20200603080025
 #>
 ```
-Now let’s have a look at the attachments.
+Now let's have a look at the attachments.
 
 ```powershell
 # single email attachment details

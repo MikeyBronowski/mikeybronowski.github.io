@@ -21,7 +21,7 @@ sql_variant MS Docs
 
 ### Data type doo-doo-doo-doo
 
-Let’s see how it works in the real world. Firstly, create some tables to play with. Each table has two columns:
+Let's see how it works in the real world. Firstly, create some tables to play with. Each table has two columns:
 **first** – stores the first letter of the datatype
 **second** – values inserted
 
@@ -65,7 +65,7 @@ Arithmetic overflow error converting numeric to data type varchar.
 The statement has been terminated.
 ```
 
-Hey, 2 out of 3 worked fine! Let’s see what we have there. In this part, we are going to use the [SQL_VARIANT_PROPERTY](https://docs.microsoft.com/en-us/sql/t-sql/functions/sql-variant-property-transact-sql?view=sql-server-ver15) function to find out what data types hiding there.
+Hey, 2 out of 3 worked fine! Let's see what we have there. In this part, we are going to use the [SQL_VARIANT_PROPERTY](https://docs.microsoft.com/en-us/sql/t-sql/functions/sql-variant-property-transact-sql?view=sql-server-ver15) function to find out what data types hiding there.
 
 ```sql
 select int, SQL_VARIANT_PROPERTY(int, 'BaseType') AS 'BaseType', SQL_VARIANT_PROPERTY(int, 'MaxLength') AS 'MaxLength' from int;
@@ -76,11 +76,11 @@ select sql_variant, SQL_VARIANT_PROPERTY(sql_variant, 'BaseType') AS 'BaseType',
 As we can expect the first two are returning **int** and **varchar**, but the third one is very much different:
 
 ![](/assets/images/tsql2sday136_01.png)
-We can also see that the **int** and **varchar** table did not store the values we’ve provided as they either tried to convert them to respective data type or failed to insert, while sql_variant stores them all nicely.
+We can also see that the **int** and **varchar** table did not store the values we've provided as they either tried to convert them to respective data type or failed to insert, while sql_variant stores them all nicely.
 
 ### Not my type – sorry
 
-The above is a result of three separate SELECT statements, but in SQL we could use UNION ALL. Firstly, let’s have a look at how the different types behave:
+The above is a result of three separate SELECT statements, but in SQL we could use UNION ALL. Firstly, let's have a look at how the different types behave:
 
 ```sql
 select int, SQL_VARIANT_PROPERTY(int, 'BaseType') AS 'BaseType', SQL_VARIANT_PROPERTY(int, 'MaxLength') AS 'MaxLength' from int

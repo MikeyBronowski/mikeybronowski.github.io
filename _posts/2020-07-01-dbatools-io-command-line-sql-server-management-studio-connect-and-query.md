@@ -71,7 +71,7 @@ $output | Out-GridView
 
 ## Save results as…
 
-Once you’ve got your results out, these can be saved as CSV or TXT file.
+Once you've got your results out, these can be saved as CSV or TXT file.
 
 ![Write-DbaDbTableData](dbatools_ssmscmd_0103_save.png)
 

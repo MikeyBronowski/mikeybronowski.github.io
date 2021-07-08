@@ -19,16 +19,16 @@ Children – can break things 🙂 but also help to take breaks from work.
 
 ### Watching children grow and learn
 
-One of my favorite activity is to observe and listen how the young human is learning things. Speaking is particularly funny, as we both are Polish and our child is learning English at the daycare, bringing home new words every day. For example, he has lots of friends and their common name is … “Careful”. That’s the answer when we ask him about other children
+One of my favorite activity is to observe and listen how the young human is learning things. Speaking is particularly funny, as we both are Polish and our child is learning English at the daycare, bringing home new words every day. For example, he has lots of friends and their common name is … "Careful". That's the answer when we ask him about other children
 
-– “Did you play with Tommy today?”
-– “Yes, Tommy…careful”.
+– "Did you play with Tommy today?"
+– "Yes, Tommy…careful".
 
 ### LEGO
 
 Toy blocks – can be the famous Danish company or some no-name wooden bricks. Building stuff with a child is great and when he falls asleep we have all the toys to ourselves. Very relaxing 🙂
 
-Recently we’ve got three heads full of brick graded 4+ years (he still has some time to play with them, but we will make sure they are well tested 😉 )
+Recently we've got three heads full of brick graded 4+ years (he still has some time to play with them, but we will make sure they are well tested 😉 )
 
 Exploring – in between lockdowns we tend to drive to different places like beach, forest or simply a new town. Then we look for interesting shells or pebbles or gulls or dogs or ships or horses… or anything. Something that we would normally ignore – it is fun how all these obvious things are new and interesting to a child.
 
@@ -44,7 +44,7 @@ A great soft and not too hot sand not and warm water and the food… While we we
 
 ### Portugal (and France and Spain) and bit of a SQL
 
-A few years ago we had some time off planned but did not now where to go. Finally decided on going to Lisbon, but there were no direct flights from Poland or were too expensive. After some research we’ve found that we could fly to Marseille (France) for two days, from there to Valencia (Spain) and finally to Lisbon.
+A few years ago we had some time off planned but did not now where to go. Finally decided on going to Lisbon, but there were no direct flights from Poland or were too expensive. After some research we've found that we could fly to Marseille (France) for two days, from there to Valencia (Spain) and finally to Lisbon.
 
 That plan not only agreed with out budget but also we have visited more great places.
 

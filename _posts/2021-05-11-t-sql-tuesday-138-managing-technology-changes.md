@@ -17,11 +17,11 @@ Andy invites us to write about ch-ch-ch-ch-changes and how we deal with them. Th
 
 ## Cloudvolution
 
-Cloud, Azure, in particular, was always a synonym of “change” to me. Years ago at one of my old places we have been told we are going to use “cloud” now. Everything we knew was about to change. We had to convert everything we knew about on-premises to the new approach. That time there was excitement, but also fear as it was very new and not many resources available.
+Cloud, Azure, in particular, was always a synonym of "change" to me. Years ago at one of my old places we have been told we are going to use "cloud" now. Everything we knew was about to change. We had to convert everything we knew about on-premises to the new approach. That time there was excitement, but also fear as it was very new and not many resources available.
 
 The project did not happen, nothing changed at work, but while I was trying to find something to learn from I found the user groups – data platform and Azure.
 
-I remember a few sessions about products in Azure where the presenter said: “It worked last night, but I cannot find this option anymore today. They must have changed something overnight”.
+I remember a few sessions about products in Azure where the presenter said: "It worked last night, but I cannot find this option anymore today. They must have changed something overnight".
 
 At first, I was scared, that there is no way to keep up with the pace of the changes, especially that I did not work with the cloud on daily basis. However, I have attended more events and became more familiar with the subject. It was obvious that the community is a powerful source of knowledge. Even if Azure was changing fast it was good to follow the community leaders.
 

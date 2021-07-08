@@ -27,7 +27,7 @@ If you do not own the blog – Tweet your contribution or post on LinkedIn with 
 Tools are great
 Can you imagine your day without them? How do you make your coffee or slice the bread? How do you cook breakfast or dinner?
 
-We are surrounded by tools, and there is a special class of them called “tools of the trade”. Those are needed to do your job whatever it is.
+We are surrounded by tools, and there is a special class of them called "tools of the trade". Those are needed to do your job whatever it is.
 
 I would like you to write about the tools that help you at work, those that helped you the most or were the most effective. It can by anything really, does not have to be related to SQL at all. Here is the list of example, but you can go beyond that and share the tools you cannot live without. Are you…
 
@@ -48,11 +48,11 @@ Everyone has its own experience and workstyle. The goal of this post is for ever
 
 As a SQL Server DBA, I use PowerShell a lot to make things easier. The examples of only a few PowerShell modules: [dbatools](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/), [dbachecks](https://www.youtube.com/watch?v=KyQh6mg6C-k), [Pester](https://www.youtube.com/watch?v=0h6mradGhYI), [ImportExcel](https://www.bronowski.it/blog/2020/12/how-to-excel-with-powershell-importexcel/). Before those tools, I was using PowerShell but had to write my own version of each script. It was time-consuming and prone to bugs, so switching to the tools created by the community was a life-changer.
 
-When doing my research for blog posts I come across other people’ blogs/websites. I try to mention them and [this list](https://github.com/amtwo/Data-Blogger-Resource-Kit/blob/production/BlogMentions.html) is particularly handy. This way I can “tag” Andy Mallon ([blog](https://am2.co/)\|[twitter](https://twitter.com/AMtwo)) without spending too much time trying to track Andy’s Twitter handle.
+When doing my research for blog posts I come across other people' blogs/websites. I try to mention them and [this list](https://github.com/amtwo/Data-Blogger-Resource-Kit/blob/production/BlogMentions.html) is particularly handy. This way I can "tag" Andy Mallon ([blog](https://am2.co/)\|[twitter](https://twitter.com/AMtwo)) without spending too much time trying to track Andy's Twitter handle.
 
 For writing blog posts, but as well for creating documentation I take lots of screenshots. I like to see what was done exactly, so want to share that with my readers. Windows 10 (my main OS) has a tool to take screenshots out of the box ([Snip & Sketch](https://community.windows.com/en-us/videos/use-snip-sketch-to-take-a-screenshot-in-windows-10/T1p2kgd-Rsc?form=WINBLOG&OCID=SSLEARN)), however, I use the tool called [Greenshot](https://getgreenshot.org/).
 
-If you are new or want to expand your reading sources have a look at [Brent Ozar’s list on GitHub](https://github.com/BrentOzar/sqlblogs). PS: “Brent Ozar” is generally a good “thing” to have in your toolbelt.
+If you are new or want to expand your reading sources have a look at [Brent Ozar's list on GitHub](https://github.com/BrentOzar/sqlblogs). PS: "Brent Ozar" is generally a good "thing" to have in your toolbelt.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Achievement unlocked: I have become a required skill on LinkedIn <a href="https://t.co/e16Lf2Y3l0">pic.twitter.com/e16Lf2Y3l0</a></p>&mdash; Brent Ozar (@BrentO) <a href="https://twitter.com/BrentO/status/1352250857853775875?ref_src=twsrc%5Etfw">January 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 

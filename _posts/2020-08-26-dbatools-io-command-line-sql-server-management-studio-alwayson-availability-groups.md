@@ -64,7 +64,7 @@ Disable-DbaAgHadr
 ```
 
 ## Create AG, replicas, listener
-Let’s create an AG, add a replica and a listener.
+Let's create an AG, add a replica and a listener.
 
 ![New-DbaAvailabilityGroup](dbatools_ssmscmd_0902_ag.png)
 
@@ -153,7 +153,7 @@ Listener          : MikeyAG
 Status            : Removed
 #>
 ```
-And finally, let’s add some databases.
+And finally, let's add some databases.
 
 ![Add-DbaAgDatabase](dbatools_ssmscmd_0904_agdb.png)
 

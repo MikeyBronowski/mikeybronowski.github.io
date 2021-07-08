@@ -15,17 +15,18 @@ This month Taiob Ali ([blog](https://sqlworldwide.com/)\|[twitter](https://twitt
 
 ## Background
 
-Just before the virus outbreak, I have changed the job (the main reason was to spend more time with the family and work from home more often). The change required the move, so around mid-Feb 2020 we have moved to the new place and 3 weeks later we went for holidays in Poland (just three weeks). I remember saying to my co-workers in the office: “See you in three weeks… maybe”.
+Just before the virus outbreak, I have changed the job (the main reason was to spend more time with the family and work from home more often). The change required the move, so around mid-Feb 2020 we have moved to the new place and 3 weeks later we went for holidays in Poland (just three weeks). I remember saying to my co-workers in the office: "See you in three weeks… maybe".
 
 While on holiday, visiting families, the Polish government decided to ban all commercial flights, so we had to decide whether to pack within a day and rush back to the UK or stay and see what happens.
 
-We’ve stayed… for 5 more months.
+We've stayed… for 5 more months.
 
 ## Outcome
 
-That decision of course triggered a set of actions, as we did not know how long it is going to be, but I am not going to go into details about it. Let’s stay focused on the positive things (except the test results of course).
+That decision of course triggered a set of actions, as we did not know how long it is going to be, but I am not going to go into details about it. Let's stay focused on the positive things (except the test results of course).
 
 ### More family time
+
 Since we ended up working from home, we were spending more time together. I missed that in 2019, so I was quite happy to get that opportunity this year.
 
 Since both our families live in Poland we have been also given a chance to see them more often since our move a few years ago. That was also very positive.
@@ -54,7 +55,7 @@ We also have time in the evenings to catch up on some favourites TV shows or mov
 
 ### Summary
 
-Overall, despite this being a very hard and difficult time for many we are coping quite well. Trying to look at the positive side of things and do not worry too much about the things we cannot control. The world has changed, it might be permanent in some cases, or just temporary for some more time, but we need to adapt to it. That’s our recipe + opportunities to smile.
+Overall, despite this being a very hard and difficult time for many we are coping quite well. Trying to look at the positive side of things and do not worry too much about the things we cannot control. The world has changed, it might be permanent in some cases, or just temporary for some more time, but we need to adapt to it. That's our recipe + opportunities to smile.
 
 Thank you,
 

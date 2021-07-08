@@ -80,7 +80,7 @@ In my case the attachments are being save to the **Attachment** folder and look 
 
 ![Email attachments saved with VBA](/assets/images/tsql2sday133_09.png)
 
-You can spot there are two reports for 20201205 and that’s because I have modified one of the received emails by adding the same attachment (it had the same name), so the script handles that as well by adding an “id” of an attachment to the name.
+You can spot there are two reports for 20201205 and that's because I have modified one of the received emails by adding the same attachment (it had the same name), so the script handles that as well by adding an "id" of an attachment to the name.
 
 VBA script to save Outlook attachments
 Here is the full script I have used:

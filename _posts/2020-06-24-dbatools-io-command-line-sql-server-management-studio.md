@@ -20,7 +20,7 @@ I am using [dbatools.io](https://dbatools.io/) in day-to-day work. That amazing 
 
 I am not going to judge those people. It is their life and work. I have this idea to show people who are unsure where to start and how to translate what they can do in SSMS to commands in dbatools.
 
-> Ultimately, you can think of dbatools as a command-line SQL Server Management Studio. But in addition to the simple things you can do in SSMS (like starting a job), we’ve also read a whole bunch of docs and came up with commands that do nifty things quickly.
+> Ultimately, you can think of dbatools as a command-line SQL Server Management Studio. But in addition to the simple things you can do in SSMS (like starting a job), we've also read a whole bunch of docs and came up with commands that do nifty things quickly.
 
 I hope, this series of posts will help to understand and make that key step for those who want to start using dbatools. 
 

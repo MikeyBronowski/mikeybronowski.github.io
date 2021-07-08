@@ -75,11 +75,11 @@ The SQL Server Agent is crucial component and being able to see what is happenin
 
 ![Get-DbaAgentJob](dbatools_ssmscmd_0203_job.png)
 
-Getting job’s details is as easy as opening one and navigating few tabs:
+Getting job's details is as easy as opening one and navigating few tabs:
 
 ![Get-DbaAgentJob](dbatools_ssmscmd_0203_job2.png)
 
-Now, let’s switch to dbatools and see what they offer.
+Now, let's switch to dbatools and see what they offer.
 
 ### [dbatools: Get-DbaAgentJob](https://docs.dbatools.io/#Get-DbaAgentJob)
 

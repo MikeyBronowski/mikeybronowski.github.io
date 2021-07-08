@@ -23,7 +23,7 @@ dbatools commands used in this post:
 * [Set-DbaMaxMemory](https://docs.dbatools.io/#Set-DbaMaxMemory)
 
 ## SQL Server configuration / sp_configure
-SQL Server allows its users to configure a lot of things. From ‘Ad Hoc Distributed Queries’ through ‘max degree of parallelism’ to ‘xp_cmdshell’. Some of those can be done via SQL instance properties or the famous sp_configure. With dbatools, there are a few more options to manage the SQL Server configuration.
+SQL Server allows its users to configure a lot of things. From ‘Ad Hoc Distributed Queries' through ‘max degree of parallelism' to ‘xp_cmdshell'. Some of those can be done via SQL instance properties or the famous sp_configure. With dbatools, there are a few more options to manage the SQL Server configuration.
 
 ![Get-DbaSpConfigure](dbatools_ssmscmd_0801_config.png)
 ### [Get-DbaSpConfigure](https://docs.dbatools.io/#Get-DbaSpConfigure)
