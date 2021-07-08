@@ -1,7 +1,7 @@
 ---
 ref: outlook_saveattachments
 title: Saving Outlook attachments with PowerShell
-excerpt:
+excerpt: Save attachments from hundreds of emails received via Microsoft Outlook using PowerShell.
 permalink: /blog/:year/:month/:title/ 
 tags: [english, tools, outlook, powershell]
 categories: [english, powershell]
