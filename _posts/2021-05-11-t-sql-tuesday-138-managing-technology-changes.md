@@ -16,6 +16,7 @@ This month the #TSQL2SDAY invitation comes from Andy Leonard ([blog](http://andy
 Andy invites us to write about ch-ch-ch-ch-changes and how we deal with them. The invitation is in this post.
 
 ## Cloudvolution
+
 Cloud, Azure, in particular, was always a synonym of “change” to me. Years ago at one of my old places we have been told we are going to use “cloud” now. Everything we knew was about to change. We had to convert everything we knew about on-premises to the new approach. That time there was excitement, but also fear as it was very new and not many resources available.
 
 The project did not happen, nothing changed at work, but while I was trying to find something to learn from I found the user groups – data platform and Azure.
@@ -25,6 +26,7 @@ I remember a few sessions about products in Azure where the presenter said: “I
 At first, I was scared, that there is no way to keep up with the pace of the changes, especially that I did not work with the cloud on daily basis. However, I have attended more events and became more familiar with the subject. It was obvious that the community is a powerful source of knowledge. Even if Azure was changing fast it was good to follow the community leaders.
 
 ## Community
+
 People sharing their knowledge and experiences was a great addition to the official whitepapers or raw documentation notes. After some time and with the help of the local leaders I gave my first talk at the local user group. This helped me to understand problems even more. That time I figured out that by teaching I learn even more.
 
 I have started submitting topics to various conferences or events, to force myself to work on something new – to investigate. Additionally, I began writing a blog to explore new topics. Things I did not use at work, but I knew they were there in the wild. More learning, a better understanding of the technology that eventually could cross my way.

@@ -115,6 +115,7 @@ Oh, and it even works when we truncate the sql_variant table and keep it in the 
 ![](/assets/images/tsql2sday136_04.png)
 
 Enough playing, you can drop the tables now.
+
 ### Where in the world?
 
 There are few places in the SQL Server when you can find the sql_variant column, here is a quick query to find these objects:
@@ -128,5 +129,7 @@ order by object,name;
 ## Summary
 
 Although it looks very tempting to use sql_variant more often it may not be the best idea – there is a number of examples where not to it: one from [Brent](https://www.brentozar.com/archive/2017/03/no-seriously-dont-use-sql_variant/) and [Phil](https://www.red-gate.hub/product-learning/sql-prompt/problems-caused-by-use-of-the-sql_variant-datatype).
+
 Thanks,
+
 Mikey
