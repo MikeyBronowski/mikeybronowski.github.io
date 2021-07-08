@@ -14,6 +14,7 @@ permalink: /blog/:year/:month/:title/
 This month the #TSQL2SDAY invitation comes from Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)). Steve is a maintainer of the T-SQL Tuesday – monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)). Steve invites us to write about Jupyter notebooks. The invitation is in this [post](http://tsqltuesday.com/2021/04/06/t-sql-tuesday-137-using-notebooks-every-day/).
 
 ## Jupyter Notebooks
+
 [Project Jupyter](https://jupyter.org/) is something that data scientists are familiar with. Its name is derived from the hot languages: **Ju**lia, **Pyt**hon, **R**. It is a project that was born on the core of IPython. The notebooks were called IPython Notebooks in the past. It is an interactive web-based environment that could be run on your own laptop or you could use one of the [online services](https://jupyter.org/try). Additionally, for over two years the Jupyter Notebooks are supported by Azure Data Studio.
 
 The notebook itself is a JSON document, often associated with the *.ipynb extension. The document contains the list of actions (inputs/outputs) that could be either raw text, or Markdown, or code (there is a number of supported languages like R, Python, C++, Powershell or SQL.
