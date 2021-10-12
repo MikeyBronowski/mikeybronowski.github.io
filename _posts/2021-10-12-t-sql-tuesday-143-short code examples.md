@@ -6,7 +6,7 @@ tags: [english, community, events, sqlfamily, tsql2sday]
 categories: [english, community, events, tsql2sday]
 lang: en
 locale: en-GB
-permalink: 
+permalink: /:title/
 ---
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://johnmccormack.it/2021/10/t-sql-tuesday-143-short-code-examples/ "T-SQL Tuesday invitation")
