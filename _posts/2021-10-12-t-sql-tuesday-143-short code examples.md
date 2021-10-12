@@ -11,7 +11,7 @@ permalink: /:title/
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://johnmccormack.it/2021/10/t-sql-tuesday-143-short-code-examples/ "T-SQL Tuesday invitation")
 
-This month the #TSQL2SDAY invitation comes from John McCormack ([blog](johnmccormack.it)\|[twitter](https://twitter.com/actualjohn)). The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
+This month the #TSQL2SDAY invitation comes from John McCormack ([blog](https://johnmccormack.it)\|[twitter](https://twitter.com/actualjohn)). The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
 
 John invites us to write about our handy short scripts. The invitation is in [this](https://johnmccormack.it/2021/10/t-sql-tuesday-143-short-code-examples/) post.
 
