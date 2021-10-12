@@ -69,7 +69,7 @@ plugins:
 author:
   name   : "Mikey Bronowski"
   avatar : "/assets/images/mikeybronowski.jpg"
-  bio    : "I am Mikey: Husband | Dad | SQL DBA | MCT"
+  bio    : "I am Mikey: Husband, Dad, SQL DBA, MCT, Microsoft Data platform MVP"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"

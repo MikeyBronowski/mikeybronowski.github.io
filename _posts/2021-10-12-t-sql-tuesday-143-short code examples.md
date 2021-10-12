@@ -17,6 +17,8 @@ John invites us to write about our handy short scripts. The invitation is in [th
 
 ## Loop through
 
+I found this method really helpful in some situations where I had to run multiple commands that were dynamically generated. In the below example it is all static, but you should get the idea.
+
 ```tsql
 -- create a table with commands
 DROP TABLE IF EXISTS [@@@]; CREATE TABLE [@@@] ([@] int, [@@] nvarchar(400));
@@ -47,7 +49,7 @@ There was a time I needed to work with the agent jobs a lot, so there was one ha
 
 ## Tables
 
-Prior dbatools I used [this](https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database) script a lot to understand what tables are in the database. I have added database and server details as well in case I was running that on multiple servers.
+Prior the dbatools I used [this query](https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database) a lot to understand what tables are in the database. I have added database and server details as well in case I was running that on multiple servers.
 
 ```tsql
 	GETDATE() AS CurrentTime,
