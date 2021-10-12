@@ -1,7 +1,7 @@
 ---
 ref: tsql2sday131c
 title: T-SQL Tuesday 131 - Data Analogies, or Explain Databases Like I'm Five! – Magda
-excerpt: "This month the #TSQL2SDAY invitation comes from Rob Volk who asks about the analogies we use to explain data concepts."
+excerpt: "This month the #TSQL2SDAY invitation comes from Rob Volk who asks about the analogies we use to explain data concepts. Magda writes about SQL JOINs."
 tags: [english, community, events, sqlfamily, tsql2sday, magda]
 categories: [english, community, events, tsql2sday, magda]
 lang: en
