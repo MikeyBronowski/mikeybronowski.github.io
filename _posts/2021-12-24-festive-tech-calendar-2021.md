@@ -1,8 +1,8 @@
 ---
-ref: festivetechcalendar2021
-title: Festive Tech Calendar - Arm your Bicep with D(i)SC
+ref: ftc2021
+title: "Festive Tech Calendar - Arm your Bicep with D(i)SC"
 excerpt: "Watch a video where I am showing how to make your life easier while building new environments."
-tags: [english, community, events, sqlfamily, cloudfamily, festivetechcalendar, azure]
+tags: [english, community, events, sqlfamily, _CloudFamily, FestiveTechCalendar, azure]
 categories: [english, community, events, festivetechcalendar, azure]
 lang: en
 locale: en-GB
