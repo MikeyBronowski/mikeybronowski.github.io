@@ -10,7 +10,7 @@ locale: pl-PL
 toc: true
 ---
 
-![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
+![dbatools.io = command-line SQL Server Management Studio](/assets/images/dbatools_ssmscmd.png)
 
 Ten wpis jest częścią serii ukazującej praktyczne przykłady użycia modułu. Główny wpis zawierający odnośniki do pozostałych wpisów serii można znaleźć tutaj: [dbatools.io = SQL Server Management Studio jako wiersz poleceń - spis treści](/blog/2020/06/dbatools-io-sql-server-management-studio-jako-wiersz-polecen-spis-tresci/).
 
