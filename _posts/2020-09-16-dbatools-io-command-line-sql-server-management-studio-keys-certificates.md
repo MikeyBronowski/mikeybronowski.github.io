@@ -15,7 +15,7 @@ This post is part of the series showing practical usage examples. The main post 
 
 dbatools commands used in this post:
 
-* [New-DbaServiceMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaServiceMasterKey)
+* [New-DbaServiceMasterKey](#New-DbaServiceMasterKey)
 * [Backup-DbaServiceMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaServiceMasterKey)
 * [New-DbaDbMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbMasterKey)
 * [Get-DbaDbMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbMasterKey)
