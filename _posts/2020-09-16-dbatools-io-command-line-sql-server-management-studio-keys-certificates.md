@@ -10,7 +10,7 @@ locale: en-GB
 toc: true
 ---
 
-![dbatools.io = command-line SQL Server Management Studio](dbatools_ssmscmd.png)
+![dbatools.io = command-line SQL Server Management Studio](/assets/images/dbatools_ssmscmd.png)
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
@@ -36,7 +36,7 @@ dbatools commands used in this post:
 
 There are multiple security-related objects that are not easily accessible via SQL Server Management Studio. The first one would be Service Master Key, if exists, can be seen under the master database. Luckily, dbatools can help us to take a backup.
 
-![New-DbaServiceMasterKey](dbatools_ssmscmd_1201_masterkey.png)
+![New-DbaServiceMasterKey](/assets/images/dbatools_ssmscmd_1201_masterkey.png)
 
 ### [New-DbaServiceMasterKey](http://docs.dbatools.io/#New-DbaServiceMasterKey)
 
@@ -159,7 +159,7 @@ Status       : Master key removed
 
 A very similar case to the service master key - we can see them in the object explorer, but not much can be done via GUI. dbatools to the rescue.
 
-![New-DbaDbAsymmetricKey](dbatools_ssmscmd_1202_asymmetrickey.png)
+![New-DbaDbAsymmetricKey](/assets/images/dbatools_ssmscmd_1202_asymmetrickey.png)
 
 ### [New-DbaDbAsymmetricKey](https://docs.dbatools.io/#New-DbaDbAsymmetricKey)
 
@@ -217,7 +217,7 @@ Status       : Success
 
 Another object from the "family" where we can see it in the Object Explorer, but the only available option is "Delete".
 
-![New-DbaDbCertificate](dbatools_ssmscmd_1203_dbcert.png)
+![New-DbaDbCertificate](/assets/images/dbatools_ssmscmd_1203_dbcert.png)
 
 ### [New-DbaDbCertificate](https://docs.dbatools.io/#New-DbaDbCertificate)
 
