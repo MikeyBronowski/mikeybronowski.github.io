@@ -47,6 +47,6 @@ Table of contents for the [dbatools.io = command-line SQL Server Management Stud
 [dbatools: Start/Stop](/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/)
 
 12. There is a bunch of security objects in SQL Server, that need T-SQL to be managed as SQL Server Management Studio does not offer too many options.  
-[dbatools: Keys & Certificates](/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/)
+[dbatools: Keys & Certificates](/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-keys-certificates/)
 
 Thank you, Mikey
