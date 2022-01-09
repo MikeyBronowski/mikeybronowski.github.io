@@ -16,19 +16,19 @@ This post is part of the series showing practical usage examples. The main post 
 dbatools commands used in this post:
 
 * [New-DbaServiceMasterKey](#New-DbaServiceMasterKey)
-* [Backup-DbaServiceMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaServiceMasterKey)
-* [New-DbaDbMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbMasterKey)
-* [Get-DbaDbMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbMasterKey)
-* [Backup-DbaDbMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbMasterKey)
-* [Remove-DbaDbMasterKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbAsymmetricKey)
-* [New-DbaDbAsymmetricKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbAsymmetricKey)
-* [Get-DbaDbAsymmetricKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbAsymmetricKey)
-* [Remove-DbaDbAsymmetricKey](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbAsymmetricKey)
-* [New-DbaDbCertificate](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbCertificate)
-* [Get-DbaDbCertificate](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbCertificate)
-* [Backup-DbaDbCertificate](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbCertificate)
-* [Remove-DbaDbCertificate](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbCertificate)
-* [Restore-DbaDbCertificate](https://www.bronowski.it/blog/2020/09/dbatools-io--command-line-sql-server-management-studio-keys-certificates/#New-DbaDbCertificate)
+* [Backup-DbaServiceMasterKey](#Backup-DbaServiceMasterKey)
+* [New-DbaDbMasterKey](#New-DbaDbMasterKey)
+* [Get-DbaDbMasterKey](#New-DbaDbMasterKey)
+* [Backup-DbaDbMasterKey](#New-DbaDbMasterKey)
+* [Remove-DbaDbMasterKey](#New-DbaDbAsymmetricKey)
+* [New-DbaDbAsymmetricKey](#New-DbaDbAsymmetricKey)
+* [Get-DbaDbAsymmetricKey](#New-DbaDbAsymmetricKey)
+* [Remove-DbaDbAsymmetricKey](#New-DbaDbAsymmetricKey)
+* [New-DbaDbCertificate](#New-DbaDbCertificate)
+* [Get-DbaDbCertificate](#New-DbaDbCertificate)
+* [Backup-DbaDbCertificate](#New-DbaDbCertificate)
+* [Remove-DbaDbCertificate](#New-DbaDbCertificate)
+* [Restore-DbaDbCertificate](#New-DbaDbCertificate)
 
 
 ## Service Master Key
@@ -37,7 +37,7 @@ There are multiple security-related objects that are not easily accessible via S
 
 ![New-DbaServiceMasterKey](/assets/images/dbatools_ssmscmd_1201_masterkey.png)
 
-### [New-DbaServiceMasterKey](http://docs.dbatools.io/#New-DbaServiceMasterKey)
+### <a name="New-DbaServiceMasterKey"></a>[New-DbaServiceMasterKey](http://docs.dbatools.io/#New-DbaServiceMasterKey)
 
 ```powershell
 # set the secure password that will be used later on
@@ -51,7 +51,7 @@ What if: Performing the operation "Creating New MasterKey" on target "localhost,
 #>
 ```
 
-### [Backup-DbaServiceMasterKey](http://docs.dbatools.io/#Backup-DbaServiceMasterKey)
+### <a name="Backup-DbaServiceMasterKey"></a>[Backup-DbaServiceMasterKey](http://docs.dbatools.io/#Backup-DbaServiceMasterKey)
 
 ```powershell
 # backup the Service Master Key
