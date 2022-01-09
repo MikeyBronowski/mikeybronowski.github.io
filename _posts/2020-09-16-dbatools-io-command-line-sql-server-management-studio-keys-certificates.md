@@ -3,7 +3,7 @@ ref: dbatools_ssmscmd_cert
 title: "dbatools.io = command-line SQL Server Management Studio - Keys, certificates"
 excerpt:
 permalink: /blog/:year/:month/:title/
-tags: [english, dbatools, community, tools, sqlfamily
+tags: [english, dbatools, community, tools, sqlfamily]
 categories: [english, dbatools, series]
 lang: en
 locale: en-GB
