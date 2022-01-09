@@ -14,13 +14,19 @@ toc: true
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
+dbatools commands used in this post:
+
+* [Connect-DbaInstance](#Connect-DbaInstance)
+* [Invoke-DbaQuery](#Invoke-DbaQuery)
+* [Write-DbaDbTableData](#Write-DbaDbTableData)
+
 ## Connect to the Database Engine
 
 It is possible in dbatools to create a server object and reuse it without providing the credentials and connecting to the instance again and again.
 
-![Connect-DbaInstance](dbatools_ssmscmd_0101_connect.png)
+![Connect-DbaInstance](/assets/images/dbatools_ssmscmd_0101_connect.png)
 
-### [Connect-DbaInstance](https://docs.dbatools.io/#Connect-DbaInstance)
+### <a name="Connect-DbaInstance"></a>[Connect-DbaInstance](https://docs.dbatools.io/#Connect-DbaInstance)
 
 ```powershell
 # set the variables
@@ -48,9 +54,9 @@ localhost    localhost,1433 Microsoft SQL Server 14.0.3048 Linux        False   
 
 Once the connection is established you can run the query.
 
-![Invoke-DbaQuery](dbatools_ssmscmd_0102_execute.png)
+![Invoke-DbaQuery](/assets/images/dbatools_ssmscmd_0102_execute.png)
 
-### [Invoke-DbaQuery](https://docs.dbatools.io/#Invoke-DbaQuery)
+### <a name="Invoke-DbaQuery"></a>[Invoke-DbaQuery](https://docs.dbatools.io/#Invoke-DbaQuery)
 
 ```powershell
 # reuse connection object created before
@@ -73,9 +79,9 @@ $output | Out-GridView
 
 Once you've got your results out, these can be saved as CSV or TXT file.
 
-![Write-DbaDbTableData](dbatools_ssmscmd_0103_save.png)
+![Write-DbaDbTableData](/assets/images/dbatools_ssmscmd_0103_save.png)
 
-### [Write-DbaDbTableData](https://docs.dbatools.io/#Write-DbaDbTableData)
+### <a name="Write-DbaDbTableData"></a>[Write-DbaDbTableData](https://docs.dbatools.io/#Write-DbaDbTableData)
 
 ```powershell
 # or... save to a TXT file
