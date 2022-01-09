@@ -1,6 +1,6 @@
 ---
 ref: dbatools_ssmscmd_cert
-title: dbatools.io = command-line SQL Server Management Studio - Keys, certificates
+title: "dbatools.io = command-line SQL Server Management Studio - Keys, certificates"
 excerpt:
 permalink: /blog/:year/:month/:title/
 tags: [english, dbatools, community, tools, sqlfamily
@@ -9,7 +9,6 @@ lang: en
 locale: en-GB
 toc: true
 ---
-
 ![dbatools.io = command-line SQL Server Management Studio](/assets/images/dbatools_ssmscmd.png)
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
