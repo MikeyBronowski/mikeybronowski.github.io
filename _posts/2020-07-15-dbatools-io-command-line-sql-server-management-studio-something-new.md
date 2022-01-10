@@ -18,9 +18,9 @@ This post is part of the series showing practical usage examples. The main post 
 
 Request for a new database is a pretty standard and repeatable task. It can be either a simple database based on the model database or more complex with multiple data files and filegroups.
 
-![New-DbaDatabase](dbatools_ssmscmd_0301_db1.png)
+![New-DbaDatabase](/assets/images/dbatools_ssmscmd_0301_db1.png)
 
-![New-DbaDatabase](dbatools_ssmscmd_0302_db2.png)
+![New-DbaDatabase](/assets/images/dbatools_ssmscmd_0302_db2.png)
 
 ### New-DbaDatabase
 
@@ -92,11 +92,11 @@ LastLogBackup      : 01/01/0001 00:00:00
 
 Another piece of the request could be granting access to the new database. So we would need to create a new login on the SQL instance and then user and a custom role (like db_executor):
 
-![New-DbaLogin](dbatools_ssmscmd_0303_login.png)
+![New-DbaLogin](/assets/images/dbatools_ssmscmd_0303_login.png)
 
-![New-DbaDbRole](dbatools_ssmscmd_0304_dbrole.png)
+![New-DbaDbRole](/assets/images/dbatools_ssmscmd_0304_dbrole.png)
 
-![New-DbaDbUser](dbatools_ssmscmd_0305_dbuser.png)
+![New-DbaDbUser](/assets/images/dbatools_ssmscmd_0305_dbuser.png)
 
 ### [New-DbaLogin](http://docs.dbatools.io/#New-DbaLogin)
 
@@ -179,11 +179,11 @@ Add-DbaDbRoleMember -SqlInstance $server -Database BrandNewAndShinyDb -Role db_e
 
 Configuring a SQL agent job can be easy too. With a few lines, you can have a brand new job with its steps and schedule. Let's see how:
 
-![New-DbaAgentJob]()
+![New-DbaAgentJob](/assets/images/dbatools_ssmscmd_0306_job.png)
 
-![New-DbaAgentJobStep]()
+![New-DbaAgentJobStep](/assets/images/dbatools_ssmscmd_0307_jobstep.png)
 
-![New-DbaDbMaiDbaAgentSchedulelProfile]()
+![New-DbaAgentSchedule](/assets/images/dbatools_ssmscmd_0308_jobschedule.png)
 
 ### dbatools: [New-DbaAgentJob](http://docs.dbatools.io/#New-DbaAgentJob)
 
@@ -211,9 +211,9 @@ New-DbaAgentSchedule -SqlInstance $server -Job ANewJob -Schedule DailySchedule -
 
 Finally, the last thing I wanted to show you is how easy we can configure mail service with dbatools.
 
-![New-DbaDbMailProfile]()
+![New-DbaDbMailProfile](/assets/images/dbatools_ssmscmd_0309_mailprofile.png)
 
-![New-DbaDbMailAccount]()
+![New-DbaDbMailAccount](/assets/images/dbatools_ssmscmd_0310_mailaccount.png)
 
 ### [New-DbaDbMailAccount](http://docs.dbatools.io/#New-DbaDbMailAccount)
 
