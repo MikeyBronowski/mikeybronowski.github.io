@@ -18,7 +18,7 @@ This post is part of the series showing practical usage examples. The main post 
 
 When I want to quickly check the databases in the SSMS I would use this:
 
-![Get-DbaDatabase](dbatools_ssmscmd_0201_db.png)
+![Get-DbaDatabase](/assets/images/dbatools_ssmscmd_0201_db.png)
 With dbatools I can run the following command:
 
 ### [Get-DbaDatabase](https://docs.dbatools.io/#Get-DbaDatabase)
@@ -39,7 +39,7 @@ localhost    MSSQLSERVER  4dc570825344 msdb   Normal         True        Simple 
 
 In a comparable way we can see details of a single database:
 
-![Get-DbaDbFile](dbatools_ssmscmd_0202_dbfile.png)
+![Get-DbaDbFile](/assets/images/dbatools_ssmscmd_0202_dbfile.png)
 
 ### [Get-DbaDbFile](https://docs.dbatools.io/#Get-DbaDbFile)
 
@@ -73,11 +73,11 @@ localhost    MSSQLSERVER  4dc570825344 tempdb   templog            /var/opt/mssq
 
 The SQL Server Agent is crucial component and being able to see what is happening inside is important. In SSMS we would click here and there and see windows like that:
 
-![Get-DbaAgentJob](dbatools_ssmscmd_0203_job.png)
+![Get-DbaAgentJob](/assets/images/dbatools_ssmscmd_0203_job.png)
 
 Getting job's details is as easy as opening one and navigating few tabs:
 
-![Get-DbaAgentJob](dbatools_ssmscmd_0203_job2.png)
+![Get-DbaAgentJob](/assets/images/dbatools_ssmscmd_0203_job2.png)
 
 Now, let's switch to dbatools and see what they offer.
 
@@ -135,13 +135,13 @@ With some modification we can even get the Command quickly.
 Get-DbaAgentJobStep -SqlInstance $server -Job Ajob| SELECT AgentJob, Name, Command | Out-GridView
 ```
 
-![Get-DbaAgentJobStep](dbatools_ssmscmd_0204_jobstep.png)
+![Get-DbaAgentJobStep](/assets/images/dbatools_ssmscmd_0204_jobstep.png)
 
 ## See the logins/users/roles
 
 Another important aspect of taking care of the server is user management. In this part, we will see how to quickly check basic information about users, logins, and roles. First, start with logins:
 
-![Get-DbaLogin](dbatools_ssmscmd_0205_login.png)
+![Get-DbaLogin](/assets/images/dbatools_ssmscmd_0205_login.png)
 
 ### [Get-DbaLogin](https://docs.dbatools.io/#Get-DbaLogin)
 
@@ -165,7 +165,7 @@ localhost    MSSQLSERVER  4dc570825344 sa                                    Sql
 
 …then database users
 
-![Get-DbaDbUser](dbatools_ssmscmd_0206_user.png)
+![Get-DbaDbUser](/assets/images/dbatools_ssmscmd_0206_user.png)
 
 ### [Get-DbaDbUser](https://docs.dbatools.io/#Get-DbaDbUser)
 
@@ -186,7 +186,7 @@ localhost    MSSQLSERVER  4dc570825344 MikeyDatabase 13/04/2009 12:59:11 13/04/2
 
 …now roles, both server and database
 
-![Get-DbaServerRole](dbatools_ssmscmd_0207_serverrole.png)
+![Get-DbaServerRole](/assets/images/dbatools_ssmscmd_0207_serverrole.png)
 
 ### [Get-DbaServerRole](https://docs.dbatools.io/#Get-DbaServerRole)
 
@@ -211,6 +211,8 @@ localhost    MSSQLSERVER  4dc570825344 setupadmin    {}                         
 localhost    MSSQLSERVER  4dc570825344 sysadmin      {sa, BUILTINAdministrators, NT AUTHORITYNETWORK SERVICE} sa           True 13/04/2009 12:59:06 13/04/2009 12:59:06
 #>
 ```
+
+![Get-DbaDbRole](/assets/images/dbatools_ssmscmd_0207_dbrole.png)
 
 ### [Get-DbaDbRole](https://docs.dbatools.io/#Get-DbaDbRole)
 
@@ -237,7 +239,7 @@ localhost    MSSQLSERVER  MikeyDatabase public                  False
 
 Finally, database role members:
 
-![Get-DbaDbRoleMember](dbatools_ssmscmd_0208_dbrole.png)
+![Get-DbaDbRoleMember](/assets/images/dbatools_ssmscmd_0208_dbrole.png)
 
 ### [Get-DbaDbRoleMember](https://docs.dbatools.io/#Get-DbaDbRoleMember)
 
