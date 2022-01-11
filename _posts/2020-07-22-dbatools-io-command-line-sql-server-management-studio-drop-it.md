@@ -22,7 +22,7 @@ Who does not like to drop databases? Or, better, who have not dropped the databa
 
 In this very first example, I will demonstrate how the -WhatIf switch works. For the other commands, I am going to put the WhatIf message only.
 
-![Remove-DbaDatabase](dbatools_ssmscmd_0401_db.png)
+![Remove-DbaDatabase](/assets/images/dbatools_ssmscmd_0401_db.png)
 
 ### [Remove-DbaDatabase](https://docs.dbatools.io/#Remove-DbaDatabase)
 
@@ -50,7 +50,7 @@ Status       : Dropped
 
 Keep the ball rolling and drop some logins, users, even roles. The SSMS screens will look very similar, so I am going to skip some of them.
 
-![Remove-DbaLogin](dbatools_ssmscmd_0402_login.png)
+![Remove-DbaLogin](/assets/images/dbatools_ssmscmd_0402_login.png)
 
 ### [Remove-DbaLogin](https://docs.dbatools.io/#Remove-DbaLogin)
 
@@ -68,7 +68,7 @@ Status       : Dropped
 #>
 ```
 
-![Remove-DbaDbUser](dbatools_ssmscmd_0403_dbuser.png)
+![Remove-DbaDbUser](/assets/images/dbatools_ssmscmd_0403_dbuser.png)
 
 ### [Remove-DbaDbUser](https://docs.dbatools.io/#Remove-DbaDbUser)
 
@@ -88,7 +88,7 @@ Status       : Dropped
 #>
 ```
 
-![Remove-DbaDbRoleMember](dbatools_ssmscmd_0404_dbrolemember.png)
+![Remove-DbaDbRoleMember](/assets/images/dbatools_ssmscmd_0404_dbrolemember.png)
 
 ### [Remove-DbaDbRoleMember](https://docs.dbatools.io/#Remove-DbaDbRoleMember)
 
@@ -128,7 +128,7 @@ Status       : Success
 
 Once we dropped all the databases, and logins, why not to cleanup some SQL Agent jobs.
 
-![Remove-DbaAgentJobStep](dbatools_ssmscmd_0405_jobstep.png)
+![Remove-DbaAgentJobStep](/assets/images/dbatools_ssmscmd_0405_jobstep.png)
 
 ### [Remove-DbaAgentJobStep](https://docs.dbatools.io/#Remove-DbaAgentJobStep)
 
@@ -139,7 +139,7 @@ Remove-DbaAgentJobStep -SqlInstance $server -Job JobToDrop -StepName StepToDrop
 # What if: Performing the operation "Removing the job step StepToDrop for job JobToDrop" on target "localhost,1433".
 ```
 
-![Remove-DbaAgentJob](dbatools_ssmscmd_0406_job.png)
+![Remove-DbaAgentJob](/assets/images/dbatools_ssmscmd_0406_job.png)
 
 ### [Remove-DbaAgentJob](https://docs.dbatools.io/#Remove-DbaAgentJob)
 
