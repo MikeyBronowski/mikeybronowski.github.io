@@ -18,7 +18,7 @@ This post is part of the series showing practical usage examples. The main post 
 
 The reasons to alter the database might be as many as different users. Some want to rename the old database, or maybe change the owner or recovery model after restoring the database. Enabling features like Query Store is also common. Most of this can be done from the Database Properties screen and as well with dbatools.
 
-![Rename-DbaDatabase](dbatools_ssmscmd_0501_db.png)
+![Rename-DbaDatabase](/assets/images/dbatools_ssmscmd_0501_db.png)
 
 ### [Rename-DbaDatabase](https://docs.dbatools.io/#Rename-DbaDatabase)
 
@@ -166,7 +166,7 @@ Set-DbaTempDbConfig -SqlInstance $server -DataFileCount 2 -DataFileSize 1024 -Lo
 
 Login changes might not be as often as other changes, but they happen too. dbatools offer functions to rename the login and set other properties.
 
-![Rename-DbaLogin](dbatools_ssmscmd_0502_login.png)
+![Rename-DbaLogin](/assets/images/dbatools_ssmscmd_0502_login.png)
 
 ### [Rename-DbaLogin](http://docs.dbatools.io/#Rename-DbaLogin)
 
@@ -187,7 +187,7 @@ Status        : Successful
 
 Besides renaming logins have some other properties that you might want to change.
 
-![Set-DbaLogin](dbatools_ssmscmd_0503_setlogin.png)
+![Set-DbaLogin](/assets/images/dbatools_ssmscmd_0503_setlogin.png)
 
 ### [Set-DbaLogin](https://docs.dbatools.io/#Set-DbaLogin)
 
@@ -215,7 +215,7 @@ Notes                  :
 
 Updating jobs or job steps are quite common activities and it is good to have handy scripts. dbatools offer a broad range of functions to make this task easier.
 
-![Set-DbaAgentJob](dbatools_ssmscmd_0504_job.png)
+![Set-DbaAgentJob](/assets/images/dbatools_ssmscmd_0504_job.png)
 
 ### [Set-DbaAgentJob](http://docs.dbatools.io/#Set-DbaAgentJob)
 
@@ -285,7 +285,7 @@ Notes          :
 
 I have decided to place this function here as it is very useful and in some way changes SQL Server objects, i.e. SQL Server and Agent logs. There is a way to cycle the agent log from the SSMS, but thanks to dbatools you can do this on both files.
 
-![Invoke-DbaCycleErrorLog](dbatools_ssmscmd_0505_cyclelog.png)
+![Invoke-DbaCycleErrorLog](/assets/images/dbatools_ssmscmd_0505_cyclelog.png)
 
 ### [Invoke-DbaCycleErrorLog](https://docs.dbatools.io/#Invoke-DbaCycleErrorLog)
 
@@ -317,7 +317,7 @@ Notes        :
 #>
 ```
 
-![Invoke-DbaCycleErrorLog](dbatools_ssmscmd_0506_setlog.png)
+![Invoke-DbaCycleErrorLog](/assets/images/dbatools_ssmscmd_0506_setlog.png)
 
 ### [Set-DbaErrorLogConfig](https://docs.dbatools.io/#Set-DbaErrorLogConfig)
 
