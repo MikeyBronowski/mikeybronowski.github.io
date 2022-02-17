@@ -29,7 +29,7 @@ Do you need to hide a specific worksheet? It is possible with PowerShell. Simila
 Did you get invalid data in your spreadsheet? Now you can prevent it.
 
 1. [How to move Excel worksheets using PowerShell + bonus?]()
-Moving worksheets around does not need to be difficult and you can do it without a single click of the mouse too. Additionally, have a look at how to change the tab’s colours.
+Moving worksheets around does not need to be difficult and you can do it without a single click of the mouse too. Additionally, have a look at how to change the tab's colours.
 
 1. [How to change Excel metadata using PowerShell?]()
 Maybe not the core details about spreadsheets, but for sure overlooked. The metadata contains information about the author or creation dates. Changing them with PowerShell might give some interesting results.
