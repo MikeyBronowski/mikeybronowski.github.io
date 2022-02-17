@@ -12,10 +12,10 @@ toc: true
 ---
 ![How to Excel with PowerShell (ImportExcel)?](/assets/images/importexcel_howto.png)
 
-This is part of the How to Excel with PowerShell series. Links to all the tips can be found in this post.
-If you would like to learn more about the module with an interactive notebook, check this post out.
+This is part of the [How to Excel with PowerShell](https://bronowski.it/blog/2020/12/how-to-excel-with-powershell-importexcel/) series. Links to all the tips can be found in [this post](https://bronowski.it/blog/2020/12/how-to-excel-with-powershell-table-of-contents/).
+If you would like to learn more about the module with an interactive notebook, check [this post](https://www.bronowski.it/blog/2020/12/the-ms-excel-an-unexpected-journey-with-powershell/) out.
 
-Another week and another tip for Excel using Powershell. This post was inspired by one of my readers (thank you Harsha).
+Another week and another tip for Excel using Powershell. Today's post was inspired by one of my readers (thank you Harsha).
 
 Conditional formatting is important, however by default we change the look of the cells that have specific values. What about changing the entire row if a specific cell meets certain conditions?
 
@@ -65,7 +65,7 @@ $data | Export-Excel -Path $excelFiles -WorksheetName HowToConditionalFormatting
 
 Our goal is to highlight the entire row for the C drives, so in this case rows 2, 6 and 10. To add the formatting to an existing file I am going to use a combination of Open-ExcelPackage/Add-ConditionalFormatting/Close-ExcelPackage.
 
-For the ConditionalFormatting we want the RuleType = Expression and ConditionValue would contain our formula. Note that I am using $ sign to lock the column, so only the B column will be checked for the matching condition.
+For the ConditionalFormatting we want the **RuleType = Expression** and **ConditionValue** would contain our formula. Note that I am using $ sign to lock the column, so only the B column will be checked for the matching condition.
 
 ```powershell
 # open Excel file with PowerShell
