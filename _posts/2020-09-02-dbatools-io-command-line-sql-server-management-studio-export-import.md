@@ -13,18 +13,6 @@ toc: true
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
-dbatools commands used in this post:
-
-* [Export-DbaScript]()
-* [Export-DbaUser]()
-* [Export-DbaLogin]()
-* [Export-DbaDacPackage]()
-* [Publish-DbaDacPackage]()
-* [Export-DbaInstance]()
-* [Copy-DbaDbTableData]()
-* [Export-DbaDbTableData]()
-* [Import-DbaCsv]()
-
 ## Script it out
 
 The SSMS offers to script out lots of the SQL Server objects, however it can be limited in some areas. Using Get-Dba* commands and piping them into Export-DbaScript may add few more options. For example SQL Agent jobs.
@@ -46,6 +34,7 @@ Get-DbaAgentJobStep -SqlInstance $server -Job ScriptMeOutBeforeYouGoGo | Export-
 ```
 
 Exported script will contain this piece, so it is clear where it is coming from:
+
 ```sql
 /*
     Created by COMPUTER\Mikey using dbatools Export-DbaScript for objects on localhost,1433 at 09/01/2020 02:45:34
@@ -56,6 +45,7 @@ BEGIN TRANSACTION
 ..
 . 
 ```
+
 In a similar way you can export multiple objects from the server to the file – an alternative to Object Explorer Details in SSMS.
 
 ![Get-DbaDbStoredProcedure](dbatools_ssmscmd_1002_sproc.png)
@@ -68,6 +58,7 @@ Get-DbaDbStoredProcedure -SqlInstance $server -Database master -ExcludeSystemSp|
 ```
 
 ## Export logins/users
+
 These functions are powerful. Exporting users with all the role membership or logins with users in the databases is easy. I do not think it is that simple in SSMS.
 
 ![Export-DbaUser](dbatools_ssmscmd_1003_user.png)
@@ -90,11 +81,13 @@ GO
 GRANT CONNECT TO [MikeyHasBeenHere]  AS [dbo];
 GO
 ```
+
 Exporting logins is even more impressive.
 
 ![Export-DbaLogin](dbatools_ssmscmd_1004_login.png)
 
 ### [Export-DbaLogin](http://docs.dbatools.io/#Export-DbaLogin)
+
 ```powershell
 # even better, export login with all the users
 Export-DbaLogin -SqlInstance $server -Login MikeyHasBeenHere -FilePath MikeyHasBeenThere.sql
@@ -124,11 +117,13 @@ GO
 ```
 
 ## Manage the data-tier application/DACPAC
+
 There are scenarios where one would like to use DACPACs, so either use SSMS wizards or handy dbatools commands.
 
 ![Export-DbaDacPackage](dbatools_ssmscmd_1005_dacpac.png)
 
 ### [Export-DbaDacPackage](https://docs.dbatools.io/#Export-DbaDacPackage)
+
 ```powershell
 # export DacPac
 Export-DbaDacPackage -SqlInstance $server2 -Database Imported -AllUserDatabases -Path MyDacPac
@@ -219,6 +214,7 @@ Result      : Extracting schema (Start)
 
 SqlInstance : 37f6c33a9599
 #>
+
 ```
 ![Publish-DbaDacPackage](dbatools_ssmscmd_1006_dacpac2.png)
 
@@ -272,6 +268,7 @@ SqlCmdVariableValues : {}
 ```
 
 ## Crème de la crème – export everything
+
 Imagine you would like to script out the whole instance, what would be the best way to do it in the SSMS?
 
 ### [Export-DbaInstance](https://docs.dbatools.io/#Export-DbaInstance)
@@ -297,6 +294,7 @@ Mode                 LastWriteTime         Length Name
 ```
 
 ## Import/Export data
+
 SQL Server objects are not the only thing you can export or import. Every now and then DBA would need to shuffle some data. For this reason the Import and Export Wizard can be used or dbatools commands.
 
 ![Copy-DbaDbTableData](dbatools_ssmscmd_1007_tabledatacopy.png)
@@ -320,6 +318,7 @@ RowsCopied          : 21
 Elapsed             : 311.11 ms
 #>
 ```
+
 ![Export-DbaDbTableData](dbatools_ssmscmd_1008_tabledataexport.png)
 
 ### [Export-DbaDbTableData](https://docs.dbatools.io/#Export-DbaDbTableData)
@@ -328,6 +327,7 @@ Elapsed             : 311.11 ms
 # export table as a collection of INSERT INTO statements
 Get-DbaDbTable -SqlInstance $server -Database msdb -Table syscategories | Export-DbaDbTableData -FilePath MikeyDoesData.sql
 ```
+
 ![Import-DbaCsv](dbatools_ssmscmd_1009_csvimport.png)
 
 ### [Import-DbaCsv](https://docs.dbatools.io/#Import-DbaCsv)

@@ -13,19 +13,12 @@ toc: true
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
-dbatools commands used in this post:
-
-* [Get-DbaSpConfigure](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-sql-configuration/#Get-DbaSpConfigure)
-* [Export-DbaSpConfigure](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-sql-configuration/#Get-DbaSpConfigure)
-* [Set-DbaSpConfigure](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-sql-configuration/#Get-DbaSpConfigure)
-* [Import-DbaSpConfigure](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-sql-configuration/#Get-DbaSpConfigure)
-* [Set-DbaMaxDop](https://www.bronowski.it/blog/2020/08/dbatools-io-command-line-sql-server-management-studio-sql-configuration/#Set-DbaMaxDop)
-* [Set-DbaMaxMemory](https://docs.dbatools.io/#Set-DbaMaxMemory)
-
 ## SQL Server configuration / sp_configure
+
 SQL Server allows its users to configure a lot of things. From ‘Ad Hoc Distributed Queries' through ‘max degree of parallelism' to ‘xp_cmdshell'. Some of those can be done via SQL instance properties or the famous sp_configure. With dbatools, there are a few more options to manage the SQL Server configuration.
 
 ![Get-DbaSpConfigure](dbatools_ssmscmd_0801_config.png)
+
 ### [Get-DbaSpConfigure](https://docs.dbatools.io/#Get-DbaSpConfigure)
 
 ```powershell
@@ -46,6 +39,7 @@ localhost                  0            0 maximum degree of parallelism  max deg
 ```
 
 ### [Export-DbaSpConfigure](https://docs.dbatools.io/#Export-DbaSpConfigure)
+
 ```powershell
 # Export/backup all the config to file as T-SQL script
 Export-DbaSpConfigure -SqlInstance $server -FilePath SqlConfig.txt
@@ -60,6 +54,7 @@ EXEC sp_configure 'user connections' , 0;
 ```
 
 ### [Set-DbaSpConfigure](https://docs.dbatools.io/#Set-DbaSpConfigure)
+
 ```powershell
 # set config value
 Set-DbaSpConfigure -SqlInstance $server -Name 'max degree of parallelism' -Value 4
@@ -74,6 +69,7 @@ NewValue      : 4
 ```
 
 ### [Import-DbaSpConfigure](https://docs.dbatools.io/#Import-DbaSpConfigure)
+
 ```powershell
 # import config from file
 Import-DbaSpConfigure -SqlInstance $server -Path SqlConfig.txt
@@ -95,17 +91,21 @@ localhost    max degree of parallelism               0
 ```
 
 ## Suggested max memory and MAXDOP configuration
+
 dbatools even offer help with deciding what your max memory and MAXDOP should be. Use below functions to set the values based on industry recommendations that could be considered as a starting point.
 
 ### [Set-DbaMaxDop](https://docs.dbatools.io/#Set-DbaMaxDop)
+
 ```powershell
 Set-DbaMaxDop -SqlInstance $server
 ```
 
 ### [Set-DbaMaxMemory](https://docs.dbatools.io/#Set-DbaMaxMemory)
+
 ```powershell
 Set-DbaMaxMemory -SqlInstance $server
 ```
+
 With only few dbatools commands it is possible to manage SQL configuration efficiently.
 
 Thank you,

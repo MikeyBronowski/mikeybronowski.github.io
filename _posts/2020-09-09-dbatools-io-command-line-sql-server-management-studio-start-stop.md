@@ -13,23 +13,6 @@ toc: true
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
-dbatools commands used in this post:
-
-* [Get-DbaService](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Get-DbaService)
-* [Stop-DbaService](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Get-DbaService)
-* [Start-DbaService](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Get-DbaService)
-* [Restart-DbaService](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Get-DbaService)
-* [Start-DbaAgentJob](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaAgentJob)
-* [Stop-DbaAgentJob](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaAgentJob)
-* [New-DbaEndpoint](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#New-DbaEndpoint)
-* [Start-DbaEndpoint](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#New-DbaEndpoint)
-* [Stop-DbaEndpoint](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#New-DbaEndpoint)
-* [Start-DbaTrace](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaTrace)
-* [Get-DbaTrace](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaTrace)
-* [Stop-DbaTrace](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaTrace)
-* [Start-DbaXESession](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaXESession)
-* [Stop-DbaXESession](https://www.bronowski.it/blog/2020/09/dbatools-io-command-line-sql-server-management-studio-start-stop/#Start-DbaXESession)
-
 ## SQL Services
 
 OK, let's start. While doing some maintenance tasks there is a need to start/stop/restart SQL Services. Using SQL Server Configuration Manager is one way or even straight from SSMS, however, working with multiple instances is easier with dbatools.
@@ -37,6 +20,7 @@ OK, let's start. While doing some maintenance tasks there is a need to start/sto
 ![Get-DbaService](dbatools_ssmscmd_1101_service.png)
 
 ### [Get-DbaService](https://docs.dbatools.io/#Get-DbaService)
+
 ```powershell
 # get the engine service only
 Get-DbaService -ComputerName $server -Type Engine| Format-Table
@@ -84,6 +68,7 @@ Restart-DbaService -ComputerName $server
 ```
 
 ## SQL Agent
+
 How many times did you want to kick off the SQL Agent jobs on multiple servers? Too many probably. Not an easy task to do in SSMS (at least without the use of MSX/TSX). With dbatools these things are possible. Start/Stop agent jobs without issues. One note though, in SSMS you can start the job on a specific step, however in dbatools that option is not available (at least not at the moment). There is a feature request on GitHub already, so it might be there in the future 🙂
 
 ![Start-DbaAgentJob](dbatools_ssmscmd_1102_agentstart.png)
@@ -143,6 +128,7 @@ CreateDate             : 09/09/2020 19:21:41
 ```
 
 ## SQL Endpoint
+
 When configuring Availability Groups you might want to have endpoint created as well. It is hidden under Server Objects, but as you can see there is no option to create on from SSMS in the Object Explorer. dbatools offer a set of functions to fill that gap.
 
 ![New-DbaEndpoint](dbatools_ssmscmd_1105_endpoint.png)
@@ -214,6 +200,7 @@ IsSystemObject  : False
 ```
 
 ## SQL Trace
+
 If you cannot use XE because your environment is too old, there is a way to see what is happening on your server – SQL Trace might save you. There is no option to create it from SSMS or dbatools directly, you would need to use Profiler to generate the T-SQL. I did this, but then I can manage traces via PowerShell commands. Read more on traces on the [dbatools website](https://dbatools.io/traces/).
 
 ### [Get-DbaTrace](https://docs.dbatools.io/#Get-DbaTrace)
@@ -261,6 +248,7 @@ BufferCount BufferSize ComputerName DroppedEventCount EventCount FilePosition Id
 ```
 
 ## XE session
+
 Those lucky DBAs who work with newer version of SQL Server may need to manage XE sessions. It is possible to do it via SSMS as well as dbatools.
 
 ![Start-DbaXESession](dbatools_ssmscmd_1106_xesession.png)

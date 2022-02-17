@@ -13,31 +13,13 @@ toc: true
 
 This post is part of the series showing practical usage examples. The main post covering links to all posts can be found here: [dbatools.io = command-line SQL Server Management Studio: Table of contents](https://www.bronowski.it/blog/2020/06/dbatools-io-command-line-sql-server-management-studio-table-of-contents/).
 
-dbatools commands used in this post:
-
-* [New-DbaServiceMasterKey](#New-DbaServiceMasterKey)
-* [Backup-DbaServiceMasterKey](#New-DbaServiceMasterKey)
-* [New-DbaDbMasterKey](#New-DbaDbMasterKey)
-* [Get-DbaDbMasterKey](#New-DbaDbMasterKey)
-* [Backup-DbaDbMasterKey](#New-DbaDbMasterKey)
-* [Remove-DbaDbMasterKey](#New-DbaDbMasterKey)
-* [New-DbaDbAsymmetricKey](#New-DbaDbAsymmetricKey)
-* [Get-DbaDbAsymmetricKey](#New-DbaDbAsymmetricKey)
-* [Remove-DbaDbAsymmetricKey](#New-DbaDbAsymmetricKey)
-* [New-DbaDbCertificate](#New-DbaDbCertificate)
-* [Get-DbaDbCertificate](#New-DbaDbCertificate)
-* [Backup-DbaDbCertificate](#New-DbaDbCertificate)
-* [Remove-DbaDbCertificate](#New-DbaDbCertificate)
-* [Restore-DbaDbCertificate](#New-DbaDbCertificate)
-
-
 ## Service Master Key
 
 There are multiple security-related objects that are not easily accessible via SQL Server Management Studio. The first one would be Service Master Key, if exists, can be seen under the master database. Luckily, dbatools can help us to take a backup.
 
 ![New-DbaServiceMasterKey](/assets/images/dbatools_ssmscmd_1201_masterkey.png)
 
-### <a name="New-DbaServiceMasterKey"></a>[New-DbaServiceMasterKey](http://docs.dbatools.io/#New-DbaServiceMasterKey)
+### [New-DbaServiceMasterKey](http://docs.dbatools.io/#New-DbaServiceMasterKey)
 
 ```powershell
 # set the secure password that will be used later on
@@ -51,7 +33,7 @@ What if: Performing the operation "Creating New MasterKey" on target "localhost,
 #>
 ```
 
-### <a name="New-DbaServiceMasterKey"></a>[Backup-DbaServiceMasterKey](http://docs.dbatools.io/#Backup-DbaServiceMasterKey)
+### [Backup-DbaServiceMasterKey](http://docs.dbatools.io/#Backup-DbaServiceMasterKey)
 
 ```powershell
 # backup the Service Master Key
@@ -70,7 +52,7 @@ Status       : Success
 
 There is no way to see database master keys via SSMS GUI, so the only way would be to manage it using T-SQL, or... dbatools.
 
-### <a name="New-DbaDbMasterKey"></a>[New-DbaDbMasterKey](https://docs.dbatools.io/#New-DbaDbMasterKey)
+### [New-DbaDbMasterKey](https://docs.dbatools.io/#New-DbaDbMasterKey)
 
 ```powershell
 # new Database Master Key for multiple databases
@@ -95,7 +77,7 @@ IsEncryptedByServer : True
 #>
 ```
 
-### <a name="New-DbaDbMasterKey"></a>[Get-DbaDbMasterKey](https://docs.dbatools.io/#Get-DbaDbMasterKey)
+### [Get-DbaDbMasterKey](https://docs.dbatools.io/#Get-DbaDbMasterKey)
 
 
 ```powershell
@@ -110,7 +92,7 @@ localhost    MSSQLSERVER  e6928404da5d model     15/09/2020 21:58:00 15/09/2020 
 #>
 ```
 
-### <a name="New-DbaDbMasterKey"></a>[Backup-DbaDbMasterKey](https://docs.dbatools.io/#Backup-DbaDbMasterKey)
+### [Backup-DbaDbMasterKey](https://docs.dbatools.io/#Backup-DbaDbMasterKey)
 
 ```powershell
 # backup all Database Master Keys
@@ -133,7 +115,7 @@ Status       : Success
 #>
 ```
 
-### <a name="New-DbaDbMasterKey"></a>[Remove-DbaDbMasterKey](https://docs.dbatools.io/#Remove-DbaDbMasterKey)
+### [Remove-DbaDbMasterKey](https://docs.dbatools.io/#Remove-DbaDbMasterKey)
 
 ```powershell
 # remove all the Database Master Keys
@@ -160,7 +142,7 @@ A very similar case to the service master key - we can see them in the object ex
 
 ![New-DbaDbAsymmetricKey](/assets/images/dbatools_ssmscmd_1202_asymmetrickey.png)
 
-### <a name="New-DbaDbAsymmetricKey"></a>[New-DbaDbAsymmetricKey](https://docs.dbatools.io/#New-DbaDbAsymmetricKey)
+### [New-DbaDbAsymmetricKey](https://docs.dbatools.io/#New-DbaDbAsymmetricKey)
 
 ```powershell
 New-DbaDbAsymmetricKey -SqlInstance $server -Name AsymmKey1 -Database keys -SecurePassword $securePassword -Algorithm Rsa4096
@@ -183,7 +165,7 @@ Serial                       :
 #>
 ```
 
-### <a name="New-DbaDbAsymmetricKey"></a>[Get-DbaDbAsymmetricKey](https://docs.dbatools.io/#Get-DbaDbAsymmetricKey)
+### [Get-DbaDbAsymmetricKey](https://docs.dbatools.io/#Get-DbaDbAsymmetricKey)
 
 ```powershell
 # see the list of the asymmetric keys
@@ -196,7 +178,7 @@ localhost    MSSQLSERVER  e6928404da5d keys     AsymmKey1 dbo   CryptographicPro
 #>
 ```
 
-### <a name="New-DbaDbAsymmetricKey"></a>[Remove-DbaDbAsymmetricKey](https://docs.dbatools.io/#Remove-DbaDbAsymmetricKey)
+### [Remove-DbaDbAsymmetricKey](https://docs.dbatools.io/#Remove-DbaDbAsymmetricKey)
 
 ```powershell
 # remove a selected asymmetric key
@@ -218,7 +200,7 @@ Another object from the "family" where we can see it in the Object Explorer, but
 
 ![New-DbaDbCertificate](/assets/images/dbatools_ssmscmd_1203_dbcert.png)
 
-### <a name="New-DbaDbCertificate"></a>[New-DbaDbCertificate](https://docs.dbatools.io/#New-DbaDbCertificate)
+### [New-DbaDbCertificate](https://docs.dbatools.io/#New-DbaDbCertificate)
 
 ```powershell
 # get a new database certificate
@@ -242,7 +224,7 @@ Serial                       : c1 51 6e d0 f5 ea 35 f8
 #>
 ```
 
-### <a name="New-DbaDbCertificate"></a>[Get-DbaDbCertificate](https://docs.dbatools.io/#Get-DbaDbCertificate)
+### [Get-DbaDbCertificate](https://docs.dbatools.io/#Get-DbaDbCertificate)
 
 ```powershell
 # list all the certificates
@@ -264,7 +246,7 @@ localhost    MSSQLSERVER  e6928404da5d keys     CertKey                         
 #>
 ```
 
-### <a name="New-DbaDbCertificate"></a>[Backup-DbaDbCertificate](https://docs.dbatools.io/#Backup-DbaDbCertificate)
+### [Backup-DbaDbCertificate](https://docs.dbatools.io/#Backup-DbaDbCertificate)
 
 ```powershell
 # backup the certificates
@@ -282,7 +264,7 @@ Status       : Success
 #>
 ```
 
-### <a name="New-DbaDbCertificate"></a>[Remove-DbaDbCertificate](https://docs.dbatools.io/#Remove-DbaDbCertificate)
+### [Remove-DbaDbCertificate](https://docs.dbatools.io/#Remove-DbaDbCertificate)
 
 ```powershell
 # removed a given certificate 
@@ -298,7 +280,7 @@ Status       : Success
 #>
 ```
 
-### <a name="New-DbaDbCertificate"></a>[Restore-DbaDbCertificate](https://docs.dbatools.io/#Restore-DbaDbCertificate)
+### [Restore-DbaDbCertificate](https://docs.dbatools.io/#Restore-DbaDbCertificate)
 
 ```powershell
 # restore the certificate from the backup
