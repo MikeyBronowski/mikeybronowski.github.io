@@ -14,7 +14,7 @@ Table of contents for the How to Excel with PowerShell series.
 1. [How to merge cells/split cells in Excel with PowerShell?]() 
 By default Excel spreadsheet is a grid made of same size cells, but this can be changed by merging cells.
 
-1. [How to format an entire Excel row based on the cell values with PowerShell?]() Conditional formatting is a powerful feature. Did you know you can highlight the whole row based on the value of a single cell?
+1. [How to format an entire Excel row based on the cell values with PowerShell?](https://bronowski.it/blog/2020/12/how-to-format-an-entire-excel-row-based-on-the-cell-values-with-powershell/) Conditional formatting is a powerful feature. Did you know you can highlight the whole row based on the value of a single cell?
 
 1. [How to manage notes in Excel with PowerShell?]()
 Notes are useful to provide some extra explanation. Now, have a look at this community contribution.
