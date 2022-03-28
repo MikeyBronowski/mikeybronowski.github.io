@@ -11,7 +11,7 @@ permalink: /:title/
 
 # Back to SQLBits
 
-The SQLBits 2022 was my second in-person (before it was 2019). Last time I was an attendee and could experience the famous party, but this year was different. I've been there in several roles.
+The SQLBits 2022 was my second in-person (the first in 2019). Last time I was an attendee and could experience the famous party, but this year was different. I've been there in several roles.
 
 ## Parent
 
