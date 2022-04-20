@@ -148,7 +148,7 @@ The other thing is that Chocolatey sometimes stalls for a long time. Like a real
 Szukając informacji na temat Chocolatej znalazłem kilka interesujących stron i materiałów:
 [Lista parametrów z opisami](https://gist.github.com/yunga/99d04694e2466e017c5502d7c828d4f4) w skróconej wersji. 
 
-Post na blogu Kendry Little ([blog](http://sqlworkbooks.com/)|[twitter](https://twitter.com/Kendra_Little)) o instalacji narzędzi Redgate [o instalacji narzędzi Redgate [en]](https://littlekendra.com/2019/12/02/installing-redgate-sql-toolbelt-with-chocolatey/) + plus kilka intetesujacych linków oraz [Chocolatey GUI](https://chocolatey.github.io/ChocolateyGUI/about).
+Post na blogu Kendry Little ([blog](http://sqlworkbooks.com/)\|[twitter](https://twitter.com/Kendra_Little)) o instalacji narzędzi Redgate [o instalacji narzędzi Redgate [en]](https://littlekendra.com/2019/12/02/installing-redgate-sql-toolbelt-with-chocolatey/) + plus kilka intetesujacych linków oraz [Chocolatey GUI](https://chocolatey.github.io/ChocolateyGUI/about).
 
 Dziękuję,
 
