@@ -9,6 +9,8 @@ locale: en-GB
 permalink: /blog/:year/:month/:title/
 ---
 
+![Chocolatey](/assets/images/chocolatey.jpeg)
+
 Recently, I have got a new laptop and decided to get all new software with the scripts – to avoid clicking and downloading stuff manually. I have heard about Chocolatey in the past but had no opportunity to use it. A new laptop was a great excuse to play with some chocolate.
 
 # What is chocolatey?
