@@ -148,7 +148,7 @@ The other thing is that Chocolatey sometimes stalls for a long time. Like a real
 
 While I was doing my research on this subject I have found few interesting resources:
 
-[List of the parameters with descriptions](https://gist.github.com/yunga/99d04694e2466e017c5502d7c828d4f4) in a short form. Kendra’s Kendra Little ([blog](http://sqlworkbooks.com/)|[twitter](https://twitter.com/Kendra_Little)) blog post about [Installing Redgate SQL Toolbelt with Chocolatey](https://littlekendra.com/2019/12/02/installing-redgate-sql-toolbelt-with-chocolatey/) + some interesting links and [Chocolatey GUI](https://chocolatey.github.io/ChocolateyGUI/about).
+[List of the parameters with descriptions](https://gist.github.com/yunga/99d04694e2466e017c5502d7c828d4f4) in a short form. Kendra’s Kendra Little ([blog](http://sqlworkbooks.com/)\|[twitter](https://twitter.com/Kendra_Little)) blog post about [Installing Redgate SQL Toolbelt with Chocolatey](https://littlekendra.com/2019/12/02/installing-redgate-sql-toolbelt-with-chocolatey/) + some interesting links and [Chocolatey GUI](https://chocolatey.github.io/ChocolateyGUI/about).
 
 Thank you,
 
