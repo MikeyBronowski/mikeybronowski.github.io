@@ -6,6 +6,7 @@ tags: [polski, chocolatey, community, tools]
 categories: [polski, tools, chocolatey]
 lang: pl
 locale: pl-PL
+permalink: /:title/
 ---
 
 Ostatnio kupiłem nowy laptop i zdecydowałem, że zainstaluję na nim oprogramowanie za pomocą skryptów - wszystko po to by uniknąć zbędnego klikania i ściągania rzeczy ręcznie. Słyszałem w przeszłości o Chocolatey, jednak nie miałem okazji go przetestować. Nowy laptop to doskonały pretekst żeby pobawić się czekoladą.
