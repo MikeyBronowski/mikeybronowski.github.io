@@ -1,26 +1,11 @@
-Mikey:
-  name        : "Mikey"
-  bio         : "What do you want, jewels? I am a very extravagant man."
-  avatar      : "/assets/images/bio-photo-2.jpg"
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:mikeybronowski@gmail.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://bronowski.it"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mikeybronowski"
-
 Magda:
   name        : "Magda"
-  bio         : "I ordered what?"
-  avatar      : "/assets/images/bio-photo.jpg"
+  bio         : 
+  avatar      : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:cornelius@thewhip.com"
+      url: ""
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/rhymeswithsackit"
+      url: ""
