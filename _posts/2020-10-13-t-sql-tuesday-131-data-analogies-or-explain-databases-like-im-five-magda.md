@@ -7,6 +7,7 @@ categories: [english, community, events, tsql2sday, magda]
 lang: en
 locale: en-GB
 permalink: /blog/:year/:month/:title/
+author: Magda
 ---
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://sqlrblog.wordpress.com/2020/10/05/t-sql-tuesday-131-data-analogies-or-explain-databases-like-im-five/ "T-SQL Tuesday invitation")
