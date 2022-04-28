@@ -7,7 +7,6 @@ categories: [english, community, speaking]
 lang: en
 locale: en-GB
 permalink: /blog/:year/:month/:title/
-author: Mikey
 ---
 
 Earlier this month I had a pleasure to attend the third edition of Data:Scotland - the data platform conference that takes place in Glasgow, Scotland. In this place I would like to thank you, everyone, who helped me to make this happen:
