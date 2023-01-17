@@ -2,7 +2,7 @@
 ref: powerqueryinstallation
 title: Power Query installation.
 excerpt: "While I was preparing to work in the new (for me) Microsoft Office 365, I learned that Excel 365 already has the “built-in” Power Query add-in."
-tags: [add-ins, excel, Excel365, instalation, Microsoft Office, power query]
+tags: [add-ins, excel, Excel365, instalation, Microsoft Office, power query, magda]
 categories: [english, excel, magda]
 lang: en
 locale: en-GB
