@@ -31,9 +31,15 @@ Simple CTRL+D – duplicate your slide or slides if we marked it right-click. Al
 
 In our query editor, we highlight a word and If we use CTRL+D it shows us the duplicate word, and how many times we use this short cut it shows us this word in our code. It is not a copy-paste trick but using this we can change words in our query if we eg. change the name of the table.
 
+DAX – highlight the word.
+
 ![DAX – highlight the word.](/assets/images/2020-09-22-d-like-duplicate_04.png)
 
+DAX – highlight the word +CTRL+D.
+
 ![DAX – highlight the word +CTRL+D.](/assets/images/2020-09-22-d-like-duplicate_05.png)
+
+DAX – possibility to change words.
 
 ![DAX – possibility to change words.](/assets/images/2020-09-22-d-like-duplicate_05a.png)
 
@@ -59,11 +65,15 @@ In Windows, if we marked a file or document using  CTRL+D we can remove it to th
 
 SQL Server Management Studio. In SSMS we can have our query results in the grid or in the text. It means if we use CTRL+T and then execute our query we got the data in text format, and if we use CTRL+D we will get back to a grid.
 
-![SSMS -CTRL+T](/assets/images/2020-09-22-d-like-duplicate_10.png)
+SSMS -CTRL+T
 
-![SSMS -CTRL+D](/assets/images/2020-09-22-d-like-duplicate_11.png)
+![SSMS -CTRL+T](/assets/images/2020-09-22-d-like-duplicate_10.jpg)
 
-In Microsoft Office Word doc we can use  CTRL+D and it will display font dialogue – but CTRL+F will do the same.
+SSMS -CTRL+D
+
+![SSMS -CTRL+D](/assets/images/2020-09-22-d-like-duplicate_11.jpg)
+
+In Microsoft Office Word doc we can use  CTRL+D and it will display font dialog – but CTRL+F will do the same.
 
 ![CTRL+D or CTRL+F. Display the Font dialog.](/assets/images/2020-09-22-d-like-duplicate_12.png)
 
