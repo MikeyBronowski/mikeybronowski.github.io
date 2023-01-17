@@ -55,15 +55,15 @@ Why SHIFT? Because in the browser CTRL+D is a shortcut key for adding your page 
 
 # Not always DUPLICATE!
 
-In Microsoft Office Power Pivot (add-inn for Excel) we use CTRL+D like DELETE. We can delete our table.
+In **Microsoft Office Power Pivot** (add-inn for Excel) we use CTRL+D like DELETE. We can delete our table.
 
 ![CTRL+D delete table from Power Pivot.](/assets/images/2020-09-22-d-like-duplicate_08.png)
 
-In Windows, if we marked a file or document using  CTRL+D we can remove it to the Recycle Bin.
+In **Windows**, if we marked a file or document using  CTRL+D we can remove it to the Recycle Bin.
 
 ![CTRL+D – move file to Recycle Bin](/assets/images/2020-09-22-d-like-duplicate_09.png)
 
-SQL Server Management Studio. In SSMS we can have our query results in the grid or in the text. It means if we use CTRL+T and then execute our query we got the data in text format, and if we use CTRL+D we will get back to a grid.
+**SQL Server Management Studio**. In SSMS we can have our query results in the grid or in the text. It means if we use CTRL+T and then execute our query we got the data in text format, and if we use CTRL+D we will get back to a grid.
 
 SSMS -CTRL+T
 
@@ -73,7 +73,7 @@ SSMS -CTRL+D
 
 ![SSMS -CTRL+D](/assets/images/2020-09-22-d-like-duplicate_11.jpg)
 
-In Microsoft Office Word doc we can use  CTRL+D and it will display font dialog – but CTRL+F will do the same.
+In **Microsoft Office Word doc** we can use  CTRL+D and it will display font dialog – but CTRL+F will do the same.
 
 ![CTRL+D or CTRL+F. Display the Font dialog.](/assets/images/2020-09-22-d-like-duplicate_12.png)
 
