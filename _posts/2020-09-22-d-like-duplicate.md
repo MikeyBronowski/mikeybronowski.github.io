@@ -1,7 +1,7 @@
 ---
 ref: dlikeduplicate
 title: D like Duplicate.
-excerpt:
+excerpt: "I found the CTRL+D shortcut key as an interesting feature in many programs. It can duplicate without using copy and paste. But not always. It is also D like DELETE, DISPLAY, or HIGHLIGHT…"
 tags: [ctrld, delete, duplicate, excel, powerbi, powerpivot, shortcut, ssms, magda]
 categories: [english, excel, magda]
 lang: en
