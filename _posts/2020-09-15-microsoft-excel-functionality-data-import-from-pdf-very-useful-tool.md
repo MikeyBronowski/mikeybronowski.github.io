@@ -1,7 +1,7 @@
 ---
 ref: dataimportfrompdf
 title: Microsoft Excel functionality – Data import from PDF – very useful tool.
-excerpt:
+excerpt: "Many times happened to me when I received a PDF file with a table that I had to “type” into the program manually. This option allows you in an easy way to get the data from a PDF file to Excel or Power BI."
 permalink: /blog/:year/:month/:title/
 tags: [excel, import, pdf, power query]
 categories: [english, excel, magda]
