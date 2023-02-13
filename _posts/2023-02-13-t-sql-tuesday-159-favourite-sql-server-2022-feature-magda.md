@@ -57,16 +57,16 @@ And the results are as below:
 ```
 part	            dateTRUNC	                    datePART
 ----                ---------                       --------
-10 - Year	        2023-01-01 00:00:00.0000000	    2023
-11 - Quarter	    2023-01-01 00:00:00.0000000	    1
-12 - Month	        2023-02-01 00:00:00.0000000	    2
-13 - Week	        2023-02-12 00:00:00.0000000	    7
-14 - Iso_week	    2023-02-13 00:00:00.0000000	    7
-15 - DayOfYear	    2023-02-14 00:00:00.0000000	    45
-16 - Day	        2023-02-14 00:00:00.0000000	    14
-17 - Hour	        2023-02-14 23:00:00.0000000	    23
-18 - Minute	        2023-02-14 23:02:00.0000000	    2
-19 - Second	        2023-02-14 23:02:14.0000000	    14
+10 - Year		2023-01-01 00:00:00.0000000	    2023
+11 - Quarter		2023-01-01 00:00:00.0000000	    1
+12 - Month		2023-02-01 00:00:00.0000000	    2
+13 - Week		2023-02-12 00:00:00.0000000	    7
+14 - Iso_week		2023-02-13 00:00:00.0000000	    7
+15 - DayOfYear		2023-02-14 00:00:00.0000000	    45
+16 - Day		2023-02-14 00:00:00.0000000	    14
+17 - Hour		2023-02-14 23:00:00.0000000	    23
+18 - Minute		2023-02-14 23:02:00.0000000	    2
+19 - Second		2023-02-14 23:02:14.0000000	    14
 20 - Millisecond	2023-02-14 23:02:14.2300000	    230
 21 - Microsecond	2023-02-14 23:02:14.2302140	    230214
 ```
@@ -80,10 +80,18 @@ One thing to note is that for `Iso_week` the first day of the week in the ISO860
 ## LEAST() & GREATEST()
 
 From MS Learn:
-> The LEAST() & GREATEST() functions return the minimum / maximum value from a list of one or more expressions.
+> The `LEAST()` & `GREATEST()` functions return the minimum / maximum value from a list of one or more expressions.
+
+If the data type is various then in the return I will receive the data type of the highest value before comparison. It is similar to `MAX()` and `MIN()` functions, however `LEAST()` & `GREATEST()` accept more arguments  (up to 254) and they work differently on columns. 
+
+First, let's consider this example with multiple arguments:
+
+```sql
+SELECT LEAST ( '4.12', 2.14, N'2023' ) AS least;
+```
 
 
-GREATEST and LEAST are about to query the highest or lowest values. Using this function in the results I will get the GREATEST, or LEAST  value from the set when the values have the same data type. If the data type is various then in the return I will receive the data type of the highest value before comparison. It is similar to MAX() and MIN() functions, howe
+
 
 ## STRING_SPLIT()
 
