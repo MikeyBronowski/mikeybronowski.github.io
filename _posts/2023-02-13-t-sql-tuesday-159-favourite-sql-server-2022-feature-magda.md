@@ -96,10 +96,10 @@ And the results how that `LEAST()` & `GREATEST()` work horizontally
 ```
 s1	s2	s3	least	greatest
 --	--	--	-----	--------
-2	1	3	1		3
-5	4	3	3		5
-4	2	3	2		4
-40	110	398	40		398
+2	1	3	1	3
+5	4	3	3	5
+4	2	3	2	4
+40	110	398	40	398
 ```
 
 
