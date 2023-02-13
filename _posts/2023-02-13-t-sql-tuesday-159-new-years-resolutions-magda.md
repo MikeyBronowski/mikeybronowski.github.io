@@ -1,6 +1,6 @@
 ---
 ref: tsql2sday159magda2
-title: T-SQL Tuesday 159 - What’s Your Favorite New Feature?
+title: T-SQL Tuesday 159 - New Year's Resolutions - Magda
 excerpt: "This month the #TSQL2SDAY invitation comes from Deepthi Goguri who asks us to write about our favorite new feature in SQL Server 2022 or in Azure and New Year's Resolutions."
 tags: [english, community, events, sqlfamily, tsql2sday, sqlserver2022]
 categories: [english, community, events, tsql2sday]
@@ -14,7 +14,7 @@ author: "Magda"
 
 This month the #TSQL2SDAY invitation comes from Deepthi Goguri ([blog](http://tsqltuesday.com/2023/02/07/t-sql-tuesday-159-whats-your-favorite-new-feature/)\|[twitter](https://twitter.com/dbanuggets)) who asks us to write about our favorite new feature in SQL Server 2022 or in Azure and New Year's Resolutions. The invitation is in [this](https://sqlstudies.com/2022/05/03/tsql-tuesday-127-invite-your-first-technical-job/) post. The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
 
-If you want to read about my favourite new feature in SQL Server 2022 [read this post](2023-02-14-t-sql-tuesday-159-favourite-sql-server-2022-feature-magda).
+If you want to read about my favourite new feature in SQL Server 2022 [read this post]({% post_url 2023-02-14-t-sql-tuesday-159-favourite-sql-server-2022-feature-magda %}).
 
 ##  New Resolutions
 I thought I can write another post about the second Deepthi Goguri's  topic about the New year, New Resolutions.
