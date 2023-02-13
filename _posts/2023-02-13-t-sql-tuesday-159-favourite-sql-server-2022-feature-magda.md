@@ -14,7 +14,7 @@ author: "Magda"
 
 This month the #TSQL2SDAY invitation comes from Deepthi Goguri ([blog](http://tsqltuesday.com/2023/02/07/t-sql-tuesday-159-whats-your-favorite-new-feature/)\|[twitter](https://twitter.com/dbanuggets)) who asks us to write about our favorite new feature in SQL Server 2022 or in Azure and New Year's Resolutions. The invitation is in [this](https://sqlstudies.com/2022/05/03/tsql-tuesday-127-invite-your-first-technical-job/) post. The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
 
-If you want to find out about my New Year's Resolutions [read this post](2023-02-14-t-sql-tuesday-159-new-years-resolutions-magda).
+If you want to find out about my New Year's Resolutions [read this post]({% post_url 2023-02-13-t-sql-tuesday-159-new-years-resolutions-magda %}).
 
 There are many new features in SQL Server 2022, I've done my research, and I found quite several updates and new features that really interest me, and there were mostly features about the [Language](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022?view=sql-server-ver16#language), the new/updated T-SQL functions such as:
 
