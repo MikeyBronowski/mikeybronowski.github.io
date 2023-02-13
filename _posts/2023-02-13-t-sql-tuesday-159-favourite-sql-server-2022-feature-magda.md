@@ -84,12 +84,23 @@ From MS Learn:
 
 If the data type is various then in the return I will receive the data type of the highest value before comparison. It is similar to `MAX()` and `MIN()` functions, however `LEAST()` & `GREATEST()` accept more arguments  (up to 254) and they work differently on columns. 
 
-First, let's consider this example with multiple arguments:
+Let's consider this example with multiple arguments:
 
 ```sql
-SELECT LEAST ( '4.12', 2.14, N'2023' ) AS least;
+create table tsql2sday (s1 int, s2 int, s3 int);
+insert into tsql2sday values (2,1,3),(5,4,3),(4,2,3),(40.1,110.12,398.1);
+select *, least(s1,s2,s3) least, greatest(s1,s2,s3) greatest from tsql2sday;
 ```
 
+And the results how that `LEAST()` & `GREATEST()` work horizontally
+```
+s1	s2	s3	least	greatest
+--	--	--	-----	--------
+2	1	3	1		3
+5	4	3	3		5
+4	2	3	2		4
+40	110	398	40		398
+```
 
 
 
