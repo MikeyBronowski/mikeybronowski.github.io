@@ -12,7 +12,7 @@ author: "Magda"
 
 [![T-SQL Tuesday Logo](/assets/images/t-sql-tuesday-logo.jpg)](https://dbanuggets.com/2023/02/05/t-sql-tuesday-159-invitation-whats-your-new-favorite-feature/ "T-SQL Tuesday invitation")
 
-This month the #TSQL2SDAY invitation comes from Deepthi Goguri ([blog](http://tsqltuesday.com/2023/02/07/t-sql-tuesday-159-whats-your-favorite-new-feature/)\|[twitter](https://twitter.com/dbanuggets)) who asks us to write about our favorite new feature in SQL Server 2022 or in Azure and New Year's Resolutions. The invitation is in [this](https://sqlstudies.com/2022/05/03/tsql-tuesday-127-invite-your-first-technical-job/) post. The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
+This month the #TSQL2SDAY invitation comes from Deepthi Goguri ([blog](http://tsqltuesday.com/2023/02/07/t-sql-tuesday-159-whats-your-favorite-new-feature/)\|[twitter](https://twitter.com/dbanuggets)) who asks us to write about our favorite new feature in SQL Server 2022 or in Azure and New Year's Resolutions. The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
 
 If you want to find out about my New Year's Resolutions [read this post]({% post_url 2023-02-13-t-sql-tuesday-159-new-years-resolutions-magda %}).
 
