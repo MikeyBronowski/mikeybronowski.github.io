@@ -1,11 +1,8 @@
 Magda:
   name        : "Magda"
-  bio         : 
+  bio         : "Seeking an opportunity to work as Data Analyst, Report Specialist, Business Analyst, Data Modeler, and Data engineer. I like working with data, I am interested in Excel, SQL and MS SQL Server, Power BI and reporting. For many years I worked with very sensitive, data doing analytical work. I have high-quality sensitivity, good work organization and high analytical skills. I am a fast learner and I like challenges. "
   avatar      : 
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: ""
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: ""
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin-in"
+      url: "https://www.linkedin.com/in/magdalena-bronowska/"
