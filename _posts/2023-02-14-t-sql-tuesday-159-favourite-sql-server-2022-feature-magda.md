@@ -92,7 +92,7 @@ insert into tsql2sday values (2,1,3),(5,4,3),(4,2,3),(40.1,110.12,398.1);
 select *, least(s1,s2,s3) least, greatest(s1,s2,s3) greatest from tsql2sday;
 ```
 
-And the results how that `LEAST()` & `GREATEST()` work horizontally
+The results show that `LEAST()` & `GREATEST()` work horizontally:
 ```
 s1	s2	s3	least	greatest
 --	--	--	-----	--------
