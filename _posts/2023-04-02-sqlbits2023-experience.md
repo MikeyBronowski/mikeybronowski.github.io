@@ -9,7 +9,7 @@ locale: en-GB
 permalink: /:title/
 ---
 
-[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC1193-flashback.jpg)]()
+![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC1193-flashback.jpg)
 
 
 # Back to SQLBits
@@ -17,12 +17,12 @@ permalink: /:title/
 Similarly to the last year's event, I was wearing different hats at the event. The SQLBits 2023 was my third in-person (the first in 2019). In London, I was an attendee, helper and speaker, what changed this year?
 
 ## Location
-[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC4317-cymru.jpg)]()
+![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC4317-cymru.jpg)
 
 SQLBits 2023 had taken place in Newport, Wales and once it was announced it caused a small tsunami online. It wasn't that big of a deal for us, as we were driving there, but due to several unpleasant circumstances (strikes, weather), it could cause some disruption or stress to the attendees. We've never been to this side of the country, so it was nice to see bits (sic!) of it. Definitely will come back - maybe when the rainy season ends... In Wales it ends, right? Right?
 
 ## D&D
-[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC7142-dice.jpg)]()
+[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC7142-dice.jpg)
 
 Although it is far from my hobbies, I enjoyed the theme. Not much to say here, otherwise, I have more dice at home than I ever had.
 
@@ -32,15 +32,19 @@ Like last year, SQLBits offered crèche to help parents with childcare. This tim
 
 ## Orange helper
 
-[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC0381-orange.jpg)]()
+![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC0381-orange.jpg)
 Second year in orange shirts for both of us! Being part of the crew is an amazing experience (except for starting the day very, very early before everyone else gets to the venue ;-) ). The support we got from the committee, tools and all the preparation beforehand (months ahead) helps new helpers.
 
 ## Speaker 
 
-[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC6659-speaker.jpg)]()
+![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC6659-speaker.jpg)
 I have been very lucky to be selected as a speaker at SQLBits this year. It is a big honour and pleasure to be sharing a few things I learned with others. I had a shorter format (20 minutes), but it still raises the adrenaline level. Thank you to everyone who attended my session and if you want to see it again I believe it is available on Canapii.
 
+Photo credit : Magda
+
 ## Attendee
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Celebrating <a href="https://twitter.com/SQLGeordie?ref_src=twsrc%5Etfw">@SQLGeordie</a> ‘s birthday together in Wales at <a href="https://twitter.com/SQLBits?ref_src=twsrc%5Etfw">@SQLBits</a> with almost the complete team! ❤️ <a href="https://t.co/46eleJZfOW">pic.twitter.com/46eleJZfOW</a></p>&mdash; datamasterminds (@datamasterminds) <a href="https://twitter.com/datamasterminds/status/1636465085609549845?ref_src=twsrc%5Etfw">March 16, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Going to events like that has one more compelling value - networking! You can learn a lot from just chatting with people at the conference. Visit one of the sponsors' booths and learn about the new tool they have. Chat with your ex-colleagues or maybe future colleagues. As an example, I attended my first SQLBits with a colleague from the same company. In the next years, we were working for different places, and this time we met again as colleagues. Small world :-) 
 
@@ -56,7 +60,7 @@ That's a new role for me! I always enjoyed taking photos, but for the last few m
 
 # Conclusion
 
-[![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC0248-buddy.jpg)]()
+![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC0248-buddy.jpg)
 
 The SQLBits conference is unique, and being at a few other big conferences I can honestly say that SQLBits is not just a place to speak/attend and party - it is a place to feel safe, to be accepted, to belong!
 
