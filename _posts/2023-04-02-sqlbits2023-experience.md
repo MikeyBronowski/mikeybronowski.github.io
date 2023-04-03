@@ -17,12 +17,12 @@ permalink: /:title/
 Similarly to the last year's event, I was wearing different hats at the event. The SQLBits 2023 was my third in-person (the first in 2019). In London, I was an attendee, helper and speaker, what changed this year?
 
 ## Location
-![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience_DSC4317-cymru.jpg)
+![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience/dsc4317-cymru.jpg)
 
 SQLBits 2023 had taken place in Newport, Wales and once it was announced it caused a small tsunami online. It wasn't that big of a deal for us, as we were driving there, but due to several unpleasant circumstances (strikes, weather), it could cause some disruption or stress to the attendees. We've never been to this side of the country, so it was nice to see bits (sic!) of it. Definitely will come back - maybe when the rainy season ends... In Wales it ends, right? Right?
 
 ## D&D
-![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience_DSC7142-dice.jpg)
+![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience/dsc7142-dice.jpg)
 
 Although it is far from my hobbies, I enjoyed the theme. Not much to say here, otherwise, I have more dice at home than I ever had.
 
@@ -32,12 +32,12 @@ Like last year, SQLBits offered crèche to help parents with childcare. This tim
 
 ## Orange helper
 
-![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience_DSC0381-orange.jpg)
+![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience/dsc0381-orange.jpg)
 Second year in orange shirts for both of us! Being part of the crew is an amazing experience (except for starting the day very, very early before everyone else gets to the venue ;-) ). The support we got from the committee, tools and all the preparation beforehand (months ahead) helps new helpers.
 
 ## Speaker 
 
-![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience_DSC6659-speaker.jpg)
+![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience/dsc6659-speaker.jpg)
 I have been very lucky to be selected as a speaker at SQLBits this year. It is a big honour and pleasure to be sharing a few things I learned with others. I had a shorter format (20 minutes), but it still raises the adrenaline level. Thank you to everyone who attended my session and if you want to see it again I believe it is available on Canapii.
 
 Photo credit : Magda
