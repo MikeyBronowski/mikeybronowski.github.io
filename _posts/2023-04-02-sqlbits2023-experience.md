@@ -76,9 +76,13 @@ So, my advice to anyone attending a conference like this is to take advantage of
 I've been putting my photography skills to the test and snapping shots left and right. It's been a blast, and I can't wait for you to check out my work on [Flickr](https://www.flickr.com/MikeyBronowski).  but here I wanted to share work I did at SQLBits. Below are links to the days I attended. If you like any photos, or you find yourself or your friends there, feel free to use them on social media. I only ask for one thing - tag me, please. This way I know you liked them :-) 
 
 [2023-03-16 Wednesday](https://www.flickr.com/gp/mikeybronowski/798KAi4Z05)
+
 [2023-03-17 Thursday](https://www.flickr.com/gp/mikeybronowski/4is5m054G3)
+
 [2023-03-18 Friday](https://www.flickr.com/gp/mikeybronowski/L615w331LU)
+
 [2023-03-18 Friday Party](https://www.flickr.com/gp/mikeybronowski/PMh3Y3eZyH)
+
 [2023-03-19 Saturday](https://www.flickr.com/gp/mikeybronowski/Q6u802rf0f)
 
 # Conclusion
