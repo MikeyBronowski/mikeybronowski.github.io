@@ -9,8 +9,7 @@ locale: en-GB
 permalink: /:title/
 ---
 
-![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience_dsc1193-flashback.jpg)
-![SQLBits 2023](/assets/images/sqlbits2023experience/2023-04-02-sqlbits2023.jpg)
+![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience/dsc1193-flashback.jpg)
 
 
 # Back to SQLBits
