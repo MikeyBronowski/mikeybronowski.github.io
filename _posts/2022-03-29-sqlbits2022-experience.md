@@ -15,7 +15,7 @@ The SQLBits 2022 was my second in-person (the first in 2019). Last time I was an
 
 ## Parent
 
-The SQLBits offered creche to help parents with childcare during the conference.
+The SQLBits offered crèche to help parents with childcare during the conference.
 It was a gift for us as we could both help and enjoy the conference, and our little human could enjoy tons of toys, watching trains and singing and painting with childcare professionals because they are not that into data... yet. 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/SQLBits?ref_src=twsrc%5Etfw">@SQLBits</a> offered a crèche option for little people. It was a big help in our case as we could fully focus on the event and our little one could play with blocks, animals, read stories or even watch the trains 🚂<br>Thank you from MMA<a href="https://twitter.com/hashtag/familyfriendly?src=hash&amp;ref_src=twsrc%5Etfw">#familyfriendly</a> <a href="https://twitter.com/hashtag/SQLBits?src=hash&amp;ref_src=twsrc%5Etfw">#SQLBits</a> <a href="https://t.co/SdNFL6GXDl">pic.twitter.com/SdNFL6GXDl</a></p>&mdash; Mikey Bronowski (@MikeyBronowski) <a href="https://twitter.com/MikeyBronowski/status/1503324046263521280?ref_src=twsrc%5Etfw">March 14, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
