@@ -52,15 +52,15 @@ Going to events like that has one more compelling value - networking! You can le
 
 That's a new role for me! I always enjoyed taking photos, but for the last few months, I tried to do it more often than in the past. Some of my works can be found on https://www.flickr.com/MikeyBronowski but here I wanted to share work I did at SQLBits. Below are links to the days I attended. If you like any photos, or you find yourself or your friends, feel free to use them on social media. I only ask for one thing - tag me, please. This way I know you liked them :-) 
 
-2023-03-16 Wednesday https://www.flickr.com/gp/mikeybronowski/798KAi4Z05
-2023-03-17 Thursday https://www.flickr.com/gp/mikeybronowski/4is5m054G3
-2023-03-18 Friday https://www.flickr.com/gp/mikeybronowski/L615w331LU
-2023-03-18 Friday Party https://www.flickr.com/gp/mikeybronowski/PMh3Y3eZyH
-2023-03-19 Saturday https://www.flickr.com/gp/mikeybronowski/Q6u802rf0f
+[2023-03-16 Wednesday](https://www.flickr.com/gp/mikeybronowski/798KAi4Z05)
+[2023-03-17 Thursday](https://www.flickr.com/gp/mikeybronowski/4is5m054G3)
+[2023-03-18 Friday](https://www.flickr.com/gp/mikeybronowski/L615w331LU)
+[2023-03-18 Friday Party](https://www.flickr.com/gp/mikeybronowski/PMh3Y3eZyH)
+[2023-03-19 Saturday](https://www.flickr.com/gp/mikeybronowski/Q6u802rf0f)
 
 # Conclusion
 
-![SQLBits 2023](/assets/images/sqlbits2023experience/_DSC0248-buddy.jpg)
+![SQLBits 2023](/assets/images/2023-04-02-sqlbits2023-experience/dsc0248-buddy.jpg)
 
 The SQLBits conference is unique, and being at a few other big conferences I can honestly say that SQLBits is not just a place to speak/attend and party - it is a place to feel safe, to be accepted, to belong!
 
