@@ -3,7 +3,7 @@ ref: tsql2sday159magda1
 title: T-SQL Tuesday 159 - What’s Your Favorite New Feature? - Magda
 excerpt: "This month the #TSQL2SDAY invitation comes from Deepthi Goguri who asks us to write about our favorite new feature in SQL Server 2022 or in Azure and New Year's Resolutions."
 tags: [english, community, events, sqlfamily, tsql2sday, sqlserver2022]
-categories: [english, community, events, tsql2sday]
+categories: [english, community, events, tsql2sday.magda]
 lang: en
 locale: en-GB
 permalink: /:title/
