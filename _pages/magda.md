@@ -6,5 +6,5 @@ author_profile: true
 author: "Magda"
 ---
 
-[Posts by Magda](https://bronowski.it/categories/#magda)
+[For more posts by Magda click here](https://bronowski.it/categories/#magda)
 
