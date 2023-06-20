@@ -14,9 +14,9 @@ permalink: /:title/
 This month the #TSQL2SDAY invitation comes from Gethyn Ellis ([twitter](https://twitter.com/gethyn_ellis)). The T-SQL Tuesday is a monthly blogging event that was created by Adam Machanic ([blog](http://dataeducation.com/)\|[twitter](https://twitter.com/AdamMachanic)) and is maintained by Steve Jones ([blog](https://voiceofthedba.wordpress.com/)\|[twitter](https://twitter.com/way0utwest)).
 Gethyn Ellis asks us to write about the best piece of Career Advice we ever received. The invitation is in [this](https://www.gethynellis.com/2023/06/t-sql-tuesday-163-invitation-what-is-the-best-piece-of-career-advice-you-ever-received.html) post.
 
-## Escaping the Clutches of a Shitty Job
+## Escaping the Clutches of a Shi++y Job
 
-Let's face it - spending a significant chunk of our lives in a "shitty" job is a recipe for misery. Who wants that? In this provocative blog, we explore the notion that life is simply too short to waste on a soul-sucking job. 
+Let's face it - spending a significant chunk of our lives in a "shi++y" job is a recipe for misery. Who wants that? In this provocative blog, we explore the notion that life is simply too short to waste on a soul-sucking job. 
 
 ### Escaping the Abyss of Monotony
 
