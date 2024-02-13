@@ -60,7 +60,9 @@ plugins:
   - jekyll-paginate
   - jekyll-include-cache
   - jemoji
-
+  - jekyll-redirect-from
+  - jekyll-gist
+  - jekyll-feed
 
 
 author:
