@@ -58,6 +58,7 @@ include:
 # Plugins (previously gems:)
 plugins:
   - jekyll-paginate
+  - jekyll-include-cache
 
 
 
