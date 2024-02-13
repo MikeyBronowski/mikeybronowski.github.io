@@ -57,12 +57,13 @@ include:
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
-  - jekyll-include-cache
-  - jemoji
-  - jekyll-redirect-from
-  - jekyll-gist
   - jekyll-feed
+  - jekyll-gist
+  - jekyll-include-cache  
+  - jekyll-paginate  
+  - jekyll-redirect-from  
+  - jekyll-sitemap
+  - jemoji
 
 
 author:
