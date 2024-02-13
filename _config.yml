@@ -59,6 +59,7 @@ include:
 plugins:
   - jekyll-paginate
   - jekyll-include-cache
+  - jemoji
 
 
 
