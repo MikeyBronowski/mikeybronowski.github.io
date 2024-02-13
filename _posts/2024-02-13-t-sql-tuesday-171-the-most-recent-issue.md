@@ -1,6 +1,3 @@
-2024-02-13-t-sql-tuesday-171-the-most-recent-issue.md
-
-
 ---
 ref: tsql2sday171
 title: T-SQL Tuesday 171 - Describe the Most Recent Issue You Closed
