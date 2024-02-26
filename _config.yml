@@ -28,7 +28,7 @@ lang: en
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "UA-168247722-1"
+    tracking_id: "G-KDXRM96V35"
     anonymize_ip: false # default
 
 # Build settings
