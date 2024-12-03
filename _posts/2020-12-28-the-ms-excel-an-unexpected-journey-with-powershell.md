@@ -16,4 +16,9 @@ If you want to practice the whole thing I have prepared an interactive notebook 
 
 I would like to invite you to the world of magic!
 
-![Santa says Ho! Ho! Ho!](/assets/images/20201228-festivetechcalendar/0101_PSGallery_search.png)
+Santa says Ho! Ho! Ho!
+![Santa says Ho! Ho! Ho!](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-01)
+
+
+Hillcastle upon Sheeton
+![Hillcastle upon Sheeton](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-02)
