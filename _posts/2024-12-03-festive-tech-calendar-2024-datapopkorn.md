@@ -21,9 +21,13 @@ permalink: /:title/
 Please check their [JustGiving website](https://www.justgiving.com/page/festive-tech-calendar-2024) where they are raising money for Beatson Cancer Charity.
 
 ### Previous contributions
-[2020: The MS Excel - An Unexpected Journey with PowerShell](https://bronowski.it/blog/2020/12/the-ms-excel-an-unexpected-journey-with-powershell/)
-[2021: Arm Your Bicep with D(i)SC](https://bronowski.it/festive-tech-calendar-2021/)
+
+[2020: The MS Excel - An Unexpected Journey with PowerShell](https://bronowski.it/blog/2020/12/the-ms-excel-an-unexpected-journey-with-powershell)
+
+[2021: Arm Your Bicep with D(i)SC](https://bronowski.it/festive-tech-calendar-2021)
+
 [2022: AutomatedLab101](https://www.youtube.com/watch?v=ui5R7eWEmxg)
+
 [2023: When Python Crashed My Spreadsheet Tea Party](https://www.youtube.com/watch?v=_ZLQDhXwlqU)
 
 
