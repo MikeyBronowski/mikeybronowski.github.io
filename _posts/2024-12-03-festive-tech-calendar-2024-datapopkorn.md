@@ -65,6 +65,10 @@ Every successful event begins with clear goals. The vision for Data Popkorn was 
 * Make it easy for new speakers or first-time creators to participate.
 * Focus on short, impactful knowledge that inspires and engages.
 
+**Lesson learned: Clearly communicate who is behind the event.**
+
+In today's world, anyone can organize an event, so being transparent about the organizer builds trust and helps presenters decide if they want to participate.
+
 
 ### O – Organize the Details
 This was the most challenging phase, involving:
@@ -76,7 +80,7 @@ This was the most challenging phase, involving:
 * Promoting the event via LinkedIn and other platforms.
 * Using ChatGPT for generating illustrations and promotional graphics.
 
-#### Lesson learned: Communication tools matter. Plan for alternatives, as spam filters or platform issues (e.g., OneDrive link issues) can disrupt communication. 
+**Lesson learned: Communication tools matter. Plan for alternatives, as spam filters or platform issues (e.g., OneDrive link issues) can disrupt communication.**
 
 Sometimes the emails did not reach the speakers or the selected service was not accessible (for some reason OneDrive links/invitation did not work well with gmail adresses).
 
@@ -84,7 +88,7 @@ Sometimes the emails did not reach the speakers or the selected service was not 
 ### P – Promote with Purpose
 * Promotion relied heavily on LinkedIn, X (Twitter), and YouTube.
 
-#### Lesson learned: Build engagement on all platforms and encourage network sharing.
+**Lesson learned: Build engagement on all platforms and encourage network sharing.**
 
 While external referrals performed well, YouTube’s organic reach needs improvement. Explore additional promotion avenues like the [SQLcommunity slack](https://SQLcommunity.Slack.com) or Reddit.
 
@@ -92,7 +96,7 @@ While external referrals performed well, YouTube’s organic reach needs improve
 ### K – Keep the Flow Smooth
 * Pre-scheduling videos ensured a seamless release process. This approach avoided the stress of live events and allowed for targeted, timely promotions.
 
-#### Lesson learned: Schedule content early to handle potential interruptions (family, health, or work emergencies).
+**Lesson learned: Schedule content early to handle potential interruptions (family, health, or work emergencies).**
 
 Uploading and scheduling videos takes time, so don't leave it until the last minute!
 
@@ -103,7 +107,7 @@ Uploading and scheduling videos takes time, so don't leave it until the last min
 * Unforeseen personal emergencies (e.g., illness or work conflicts).
 * First-time speakers facing difficulties with video editing or audio quality.
 
-#### Lesson learned: Create a group communication space to foster collaboration and support among speakers and organizers.
+**Lesson learned: Create a group communication space to foster collaboration and support among speakers and organizers.**
 
 A place where speakers and organisers can support each other, so it's a collaborative effort and not individuals left alone with their own issues. 
 
@@ -112,7 +116,7 @@ A place where speakers and organisers can support each other, so it's a collabor
 * Engagement metrics are exciting, but the real value lies in personal growth and meaningful audience feedback.
 
 
-#### Lesson learned: Don’t obsess over metrics
+**Lesson learned: Don’t obsess over metrics**
 
 Focus on creating value and enjoying the process. Numbers are just a by-product.
 
@@ -120,7 +124,7 @@ Focus on creating value and enjoying the process. Numbers are just a by-product.
 ### N – Nurture Relationships
 * The event does not end when the videos are live. Highlighting individual contributions on social media ensures ongoing engagement and builds momentum for future events.
 
-#### Lesson learned: Plan 2–3 future events ahead to maintain continuity and stay organized.
+**Lesson learned: Plan 2–3 future events ahead to maintain continuity and stay organized.**
 
 With that in mind, the [Call for Sessions for DataPopkorn 2025 Spring is open](https://sessionize.com/datapopkorn2025). 
 
