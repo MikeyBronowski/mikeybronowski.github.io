@@ -17,8 +17,16 @@ If you want to practice the whole thing I have prepared an interactive notebook 
 I would like to invite you to the world of magic!
 
 Santa says Ho! Ho! Ho!
-![Santa says Ho! Ho! Ho!](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-01)
+![Santa says Ho! Ho! Ho!](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-01.jpg)
 
 
 Hillcastle upon Sheeton
-![Hillcastle upon Sheeton](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-02)
+![Hillcastle upon Sheeton](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-02.jpg)
+
+
+Magic soup by Jamie Posh
+![Magic soup by Jamie Posh](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-02.jpg)
+
+
+Magic for dummies
+![Magic for dummies](/assets/images/20201228-festivetechcalendar/festivetechcalendar2020-02.jpg)
