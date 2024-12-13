@@ -8,6 +8,7 @@ lang: en
 locale: en-GB
 permalink: /:title/
 author: "Magda"
+toc: true
 ---
 
 
