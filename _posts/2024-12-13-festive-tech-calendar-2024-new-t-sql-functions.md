@@ -19,7 +19,7 @@ The [Festive Tech Calendar 2024](https://festivetechcalendar.com/) is a communit
 
 Microsoft releases the classic SQL Server every couple of years, with some functionality added through regular updates. On the other hand, the SQL Server offering in Azure (Azure SQL Database and Managed Instance) receives the latest features earlier.
 
-This post highlights some of the T-SQL functions currently available in Azure SQL but not yet on-premises. However, with the [recent announcement of SQL Server 2025](https://www.microsoft.com/en-us/sql-server/blog/2024/11/19/announcing-microsoft-sql-server-2025-apply-for-the-preview-for-the-enterprise-ai-ready-database/), this might change next year. Keep in mind that some of these functions are in preview, so their behavior might evolve as they reach general availability.
+This post highlights some of the T-SQL functions currently available in Azure SQL but not yet in classic SQL Server. However, with the [recent announcement of SQL Server 2025](https://www.microsoft.com/en-us/sql-server/blog/2024/11/19/announcing-microsoft-sql-server-2025-apply-for-the-preview-for-the-enterprise-ai-ready-database/), this might change next year. Keep in mind that some of these functions are in preview, so their behavior might evolve as they reach general availability.
 
 
 # `UNISTR()` and `||` (String concatenation)
@@ -71,12 +71,12 @@ SELECT UNISTR('C:\\Path\\To\\File\+0041') AS FilePath;
 -- Output: C:\Path\To\FileA
 
 
--- custom escapre character
+-- custom escape character
 SELECT UNISTR(N'#0041#0042#0043', '#') AS ABC;
 -- Output: ABC
 ```
 
-If you work with Unicode frequently, here’s a helpful list of [codepoints](https://codepoints.net/search).
+If you work with Unicode frequently, here’s a helpful list of [codepoints](https://codepoints.net/).
 
 
 ## `||` (String concatenation)
@@ -97,7 +97,6 @@ select '1' || 0x1
 
 -- concatenate Christmas trees
 select '🎄'|| '🎄'|| '🎄'|| '🎄'|| '🎄'|| '🎄'|| '🎄'||2024||'🎄'|| '🎄'|| '🎄'|| '🎄'|| '🎄'|| '🎄'|| '🎄';
-
 -- Output: 🎄🎄🎄🎄🎄🎄🎄2024🎄🎄🎄🎄🎄🎄🎄
 ```
 
@@ -118,10 +117,10 @@ SET @ChristmasTree ||= UNISTR('\+01F381');
 
 SELECT @ChristmasTree AS [1DChristmasTree];
 
-<# Output:
+/* Output:
 1DChristmasTree
 ✯🎄🎄🎄🎄🎁
-#>
+*/
 ```
 
 ### Conclusion
@@ -142,7 +141,7 @@ Before we jump right in into the new functions, here’s a quick introduction to
 ### JSON Array
 A JSON array is an ordered collection of values (like a list). It can contain elements of any type: strings, numbers, objects, other arrays, or even `null`. Elements are indexed by their position, starting from 0.
 
-Example: JSON Array
+### Example: JSON Array
 
 ```json
 ["Apple", "Banana", "Cherry"]
@@ -155,12 +154,12 @@ Use Case:
 ### JSON Object
 A JSON object is a collection of key-value pairs (like a dictionary or map). Keys must be strings, while values can be any valid JSON type. Keys are unique, and their order is not guaranteed.
 
-Example: JSON Object
+### Example: JSON Object
 ```json
 {
-  "name": "Alice",
-  "age": 30,
-  "city": "London"
+  "name": "Santa",
+  "age": 65,
+  "city": "North Pole"
 }
 ```
 
@@ -202,7 +201,7 @@ VALUES
     (5, 'Peppermint', '2020-12-20', 3);
 ```
 
-## `JSON_ARRAYAGG()`
+## `JSON_ARRAYAGG()` function
 
 ```sql
 -- SYNTAX
@@ -227,7 +226,7 @@ FROM Workshop;
 
 
 
-## `JSON_OBJECTAGG()`
+## `JSON_OBJECTAGG()` function
 
 ```sql
 -- SYNTAX
@@ -241,9 +240,10 @@ The [`JSON_OBJECTAGG`](https://learn.microsoft.com/en-us/sql/t-sql/functions/jso
 ```sql
 SELECT JSON_OBJECTAGG(ElfID: ElfName) AS ElfDirectory
 FROM Elves;
+```
 
-/* Output:
-
+Output:
+```json
 {
     "1": "Buddy",
     "2": "Jingle",
@@ -251,8 +251,6 @@ FROM Elves;
     "4": "Snowflake",
     "5": "Peppermint"
 }
-
-*/
 ```
 
 ### Example: Combining JSON_ARRAYAGG() and JSON_OBJECTAGG()
@@ -270,14 +268,15 @@ WITH ElfGroups AS (
 )
 SELECT JSON_OBJECTAGG(WorkshopName: ElfArray) AS WorkshopElves
 FROM ElfGroups;
+```
 
-<#
+Output:
+```json
 {
     "Toy Assembly": ["Buddy", "Jingle"],
     "Gift Wrapping": ["Snowflake", "Sparkle"],
     "Reindeer Care": ["Peppermint"]
 }
-#>  
 ```
 
 ## What about `FOR JSON`?
@@ -288,9 +287,10 @@ You still have option to use `FOR JSON` syntax, but the output may be more verbo
 SELECT ElfID, ElfName
 FROM Elves
 FOR JSON PATH;
+```
 
-
-<# Output: 
+Output: 
+```json
 [
   {
     "ElfID": 1,
@@ -313,7 +313,6 @@ FOR JSON PATH;
     "ElfName": "Peppermint"
   }
 ]
-#>
 ```
 
 While `FOR JSON` works well, the new functions like `JSON_ARRAYAGG` and `JSON_OBJECTAGG` offer cleaner and more flexible options for working with JSON data.
