@@ -7,6 +7,7 @@ categories: [english, community, events, azure, magda]
 lang: en
 locale: en-GB
 permalink: /:title/
+author: "Magda"
 ---
 
 
