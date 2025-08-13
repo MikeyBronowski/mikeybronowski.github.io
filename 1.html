@@ -5,51 +5,28 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <title>Pierogi Runner — Śląsk (PL)</title>
 <style>
-  :root{
-    --bg:#0e1220; --panel:#161b31; --ink:#eef2ff; --muted:#9aa3b2; --ring:#2b3566;
-    --accent:#7dd3fc; --ok:#34d399; --warn:#fbbf24; --bad:#f87171;
-  }
+  :root{--bg:#0e1220;--panel:#161b31;--ink:#eef2ff;--muted:#9aa3b2;--ring:#2b3566;--accent:#7dd3fc}
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;background:#0b0f1e;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif}
   #wrap{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:flex-start;padding:10px}
   header,.panel{width:min(960px,100%)}
-  header{
-    display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;
-    padding:10px 12px;border:1px solid var(--ring);border-radius:12px;background:linear-gradient(180deg,#151a34,#0f142a);
-  }
+  header{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;padding:10px 12px;border:1px solid var(--ring);border-radius:12px;background:linear-gradient(180deg,#151a34,#0f142a)}
   h1{font-size:18px;margin:0}
   .chip{display:flex;gap:8px;align-items:center;background:#121734;border:1px solid var(--ring);padding:6px 10px;border-radius:10px;font-size:13px}
   .chip select,.chip input{background:transparent;color:var(--ink);border:none;outline:none}
   .btn{appearance:none;border:1px solid #3a4477;background:linear-gradient(#2a3156,#202746);color:#eef2ff;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-  .btn:active{transform:translateY(1px)}
-  .btn.ghost{background:#151a31}
+  .btn:active{transform:translateY(1px)} .btn.ghost{background:#151a31}
   .row{display:flex;gap:10px;flex-wrap:wrap}
   .panel{border:1px solid var(--ring);border-radius:12px;background:linear-gradient(180deg,#141a31,#0e1428);padding:10px}
   #gameWrap{position:relative;display:flex;justify-content:center}
-  canvas{
-    width:100%;max-width:960px;aspect-ratio:16/9;background:linear-gradient(#1b2145,#0e1220);
-    border-radius:12px;border:1px solid #243165;box-shadow:0 10px 24px rgba(0,0,0,.35);
-    touch-action:none; /* ważne dla Androida */
-  }
+  canvas{width:100%;max-width:960px;aspect-ratio:16/9;background:linear-gradient(#1b2145,#0e1220);border-radius:12px;border:1px solid #243165;box-shadow:0 10px 24px rgba(0,0,0,.35);touch-action:none}
   .hud{position:absolute;left:10px;top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .pill{background:#1a2140;border:1px solid #2b3566;border-radius:999px;padding:6px 10px;font-size:13px}
-  .pill.ok{background:#0f2a1f;border-color:#2c6e53;color:#d1fae5}
-  .pill.warn{background:#2a1e0f;border-color:#7a5c24;color:#fde68a}
-  .pill.bad{background:#3b0f16;border-color:#8f3040;color:#fecaca}
   .stars{letter-spacing:1px}
-  /* Sterowanie ekranowe */
-  .controls{
-    position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 12px;
-  }
-  .pad{display:flex;gap:10px;}
-  .ctl{
-    width:64px;height:64px;border-radius:12px;border:1px solid #334155;background:#0f172acc;
-    backdrop-filter: blur(3px);display:flex;align-items:center;justify-content:center;font-weight:900;
-    user-select:none;
-  }
+  .controls{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 12px}
+  .pad{display:flex;gap:10px}
+  .ctl{width:64px;height:64px;border-radius:12px;border:1px solid #334155;background:#0f172acc;backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;font-weight:900;user-select:none}
   .ctl.big{width:82px;height:82px}
-  /* poprzednio .controls miało pointer-events:none, co blokowało przycisk skoku na Androidzie */
-  #jumpBtn{pointer-events:auto}
   .kbd{font-family:ui-monospace,Consolas,monospace;background:#0e1328;border:1px solid #2b3668;border-radius:6px;padding:2px 6px;color:#c7d2fe}
 </style>
 </head>
@@ -62,8 +39,8 @@
         <strong>Gracz</strong>
         <select id="playerSel" aria-label="Wybierz gracza">
           <option value="P">Paweł (12) — niebieska koszulka</option>
-          <option value="B">Bartek (10) — czerwona koszulka</option>
-          <option value="A">Antek (6) — niebieska czapka z daszkiem</option>
+          <option value="B">Błażej (10) — czerwona koszulka</option>
+          <option value="A">Artur (6) — niebieska czapka z daszkiem</option>
         </select>
       </div>
       <div class="chip">
@@ -89,13 +66,11 @@
 
   <div class="panel" id="menu">
     <p style="margin:6px 0 8px 0;color:var(--muted)">
-      Zbieraj <strong>pierogi</strong> przez <strong>60 s</strong>. Sterowanie: przyciski na ekranie (telefon/tablet),
+      Zbieraj <strong>pierogi</strong> przez <strong>60 s</strong>. Sterowanie: przyciski na ekranie (telefon/tablet), tapnięcie w planszę = skok,
       lub klawiatura na PC (←/→ lub A/D, skok <span class="kbd">Spacja</span>/<span class="kbd">↑</span>).
       Premie: <strong>T</strong> Bilet tramwajowy (szybkość), <strong>M</strong> Magnes, <strong>H</strong> Kask górniczy (latarka w tunelu).
     </p>
-    <p style="margin:0;color:var(--muted)">
-      Bonus matematyczny (opcjonalnie): zbierz dwie numerowane pierogi, które sumują się do <strong>10</strong> lub <strong>20</strong>, aby dostać dodatkowe punkty.
-    </p>
+    <p style="margin:0;color:var(--muted)">Bonus matematyczny (opcjonalnie): zbierz dwie numerowane pierogi, które sumują się do <strong>10</strong> lub <strong>20</strong>, aby dostać dodatkowe punkty.</p>
     <div id="parentsPanel" class="panel" style="display:none;padding:10px;margin-top:10px">
       <div class="row">
         <label class="chip"><input type="checkbox" id="mathToggle" checked> Matematyczne bonusy</label>
@@ -108,14 +83,14 @@
 
   <div id="gameWrap" class="panel" style="padding:0">
     <canvas id="cv" width="960" height="540"></canvas>
-    <div class="hud" id="hud">
+    <div class="hud">
       <span class="pill" id="cityHUD">Miasto</span>
       <span class="pill" id="timer">⏱ 60.0 s</span>
       <span class="pill" id="score">Wynik: 0</span>
       <span class="pill" id="stars">★☆☆</span>
       <span class="pill" id="pendingPair">Para: —</span>
     </div>
-    <div class="controls" id="touchCtl">
+    <div class="controls">
       <div class="pad">
         <button class="ctl" id="leftBtn" aria-label="W lewo">◀</button>
         <button class="ctl" id="rightBtn" aria-label="W prawo">▶</button>
@@ -141,10 +116,7 @@
 
 <script>
 (() => {
-  const cv = document.getElementById('cv');
-  const ctx = cv.getContext('2d');
-
-  // UI
+  const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
   const playerSel = document.getElementById('playerSel');
   const modeSel   = document.getElementById('modeSel');
   const citySel   = document.getElementById('citySel');
@@ -162,7 +134,6 @@
     stars: document.getElementById('stars'),
     pending: document.getElementById('pendingPair'),
   };
-  const menu = document.getElementById('menu');
   const results = document.getElementById('results');
   const resTitle = document.getElementById('resTitle');
   const resStars = document.getElementById('resStars');
@@ -170,76 +141,69 @@
   const retryBtn = document.getElementById('retryBtn');
   const nextBtn  = document.getElementById('nextBtn');
 
-  // Sterowanie ekranowe
   const leftBtn  = document.getElementById('leftBtn');
   const rightBtn = document.getElementById('rightBtn');
   const jumpBtn  = document.getElementById('jumpBtn');
 
-  // Audio (proste, WebAudio; włącza się po pierwszym kliknięciu)
+  // --- Audio (WebAudio) ---
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
-  let actx = null;
-  let soundOn = true, mathOn = true;
-
+  let actx = null, soundOn = true, mathOn = true;
   function ensureAudio(){
     if(!soundOn) return;
-    if(!actx){
-      try{ actx = new AudioCtx(); }catch{}
-    }
+    if(!actx){ try{ actx = new AudioCtx(); }catch{} }
+    if(actx && actx.state === 'suspended'){ actx.resume().catch(()=>{}); }
   }
   function tone(freq=660, t=0.08, type='sine', vol=0.08){
-    if(!soundOn) return;
-    ensureAudio(); if(!actx) return;
+    if(!soundOn) return; ensureAudio(); if(!actx) return;
     const o=actx.createOscillator(), g=actx.createGain();
     o.type=type; o.frequency.value=freq; g.gain.value=vol;
     o.connect(g).connect(actx.destination); o.start(); o.stop(actx.currentTime+t);
   }
   const sfx = {
-    jump:   ()=>tone(740,0.08,'sine',0.09),
-    coin:   ()=>tone(920,0.05,'square',0.09),
-    bonus:  ()=>tone(1200,0.09,'triangle',0.1),
-    start:  ()=>tone(880,0.06,'triangle',0.09),
-    power:  ()=>tone(520,0.08,'sine',0.08),
-    end:    ()=>tone(440,0.14,'sawtooth',0.09),
-    tick:   ()=>tone(880,0.02,'sine',0.05)
+    jump: ()=>tone(740,0.08,'sine',0.09),
+    coin: ()=>tone(920,0.05,'square',0.09),
+    bonus:()=>tone(1200,0.09,'triangle',0.1),
+    start:()=>tone(880,0.06,'triangle',0.09),
+    power:()=>tone(520,0.08,'sine',0.08),
+    end:  ()=>tone(440,0.14,'sawtooth',0.09),
+    tick: ()=>tone(880,0.02,'sine',0.05)
   };
 
+  // --- Storage helpers ---
   const LS = k => `pierogi_${k}`;
+  soundOn = (localStorage.getItem(LS('sound')) ?? '1') === '1';
+  mathOn  = (localStorage.getItem(LS('math'))  ?? '1') === '1';
+  soundToggle.checked = soundOn; mathToggle.checked = mathOn;
+  soundToggle.addEventListener('change', ()=>{ soundOn = soundToggle.checked; localStorage.setItem(LS('sound'), soundOn?'1':'0'); });
+  mathToggle.addEventListener('change',  ()=>{ mathOn  = mathToggle.checked; localStorage.setItem(LS('math'),  mathOn?'1':'0'); });
 
+  // --- Game state ---
   let running=false, tLeft=60, last=0, raf=0, cityIndex=0;
   let mode='standard', playerKind='P';
   let pendingPair=null, score=0, stars=0;
   let leftHeld=false, rightHeld=false, jumpHeld=false, jumpWasPressed=false;
 
-  // Fizyka
   const phys = {
-    standard: { GRAV: 2100, MOVE: 1400, MAXV: 260, JUMP_V: 880, FRICTION: 1800, COYOTE: 0.08, JUMPBUF: 0.08, MAGR:120 },
-    kid:      { GRAV: 1800, MOVE: 1200, MAXV: 250, JUMP_V: 920, FRICTION: 1600, COYOTE: 0.14, JUMPBUF: 0.12, MAGR:170 },
+    standard:{GRAV:2100,MOVE:1400,MAXV:260,JUMP_V:880,FRICTION:1800,COYOTE:0.08,JUMPBUF:0.08,MAGR:120},
+    kid:     {GRAV:1800,MOVE:1200,MAXV:250,JUMP_V:920,FRICTION:1600,COYOTE:0.14,JUMPBUF:0.12,MAGR:170},
   };
-
-  // Pozycja bezpieczna (respawn)
   let lastSafe = {x:60,y:40};
 
-  // Poziomy
   function makeLevel(name){
-    const base = [
-      {x:0,y:500,w:960,h:40},
-      {x:60,y:440,w:160,h:16},
-      {x:280,y:400,w:130,h:16},
-      {x:460,y:360,w:120,h:16},
-      {x:680,y:320,w:160,h:16},
-      {x:820,y:280,w:100,h:16}
+    const base=[
+      {x:0,y:500,w:960,h:40},{x:60,y:440,w:160,h:16},{x:280,y:400,w:130,h:16},
+      {x:460,y:360,w:120,h:16},{x:680,y:320,w:160,h:16},{x:820,y:280,w:100,h:16}
     ];
     let tunnel=null;
-    if(name==='Mysłowice'){ tunnel={x:380,y:420,w:220,h:80}; }
-    if(name==='Zaborze'){   tunnel={x:540,y:420,w:240,h:80}; }
-    if(name==='Mszana'){    tunnel={x:180,y:420,w:220,h:80}; }
-    if(name==='Jastrzębie'){tunnel={x:720,y:420,w:200,h:80}; }
+    if(name==='Mysłowice') tunnel={x:380,y:420,w:220,h:80};
+    if(name==='Zaborze')   tunnel={x:540,y:420,w:240,h:80};
+    if(name==='Mszana')    tunnel={x:180,y:420,w:220,h:80};
+    if(name==='Jastrzębie')tunnel={x:720,y:420,w:200,h:80};
     return {name, plats:base, tunnel};
   }
-  const cities = ["Mysłowice","Zaborze","Mszana","Jastrzębie"].map(makeLevel);
-
-  const player = { x:60,y:40,w:28,h:36,vx:0,vy:0,onGround:false,coyote:0,jumpBuf:0,facing:1,tram:0,magnet:0,helmet:0 };
+  const cities=["Mysłowice","Zaborze","Mszana","Jastrzębie"].map(makeLevel);
   let level=cities[0], pierogi=[], powerups=[], glowBurst=[];
+  const player={x:60,y:40,w:28,h:36,vx:0,vy:0,onGround:false,coyote:0,jumpBuf:0,facing:1,tram:0,magnet:0,helmet:0};
 
   function resetEntities(){
     pierogi=[]; powerups=[]; glowBurst=[];
@@ -249,384 +213,251 @@
       const val=mathOn?nums[Math.floor(Math.random()*nums.length)]:null;
       pierogi.push({x,y,val});
     }
-    powerups.push({x:220,y:380,type:'T'});
-    powerups.push({x:520,y:340,type:'M'});
-    powerups.push({x:level.tunnel? level.tunnel.x+level.tunnel.w/2 : 760, y:470, type:'H'});
+    powerups.push({x:220,y:380,type:'T'}); // tram
+    powerups.push({x:520,y:340,type:'M'}); // magnet
+    powerups.push({x:level.tunnel? level.tunnel.x+level.tunnel.w/2 : 760, y:470, type:'H'}); // helmet
   }
 
-  // Klawiatura (blokada scrolla przy Spacji)
+  // --- Input (keyboard) ---
   addEventListener('keydown', e=>{
-    if(e.code==='Space' || e.code==='ArrowUp'){ e.preventDefault(); jumpHeld=true; jumpWasPressed=true; }
-    if(e.code==='ArrowLeft'||e.code==='KeyA')  leftHeld=true;
+    if(e.code==='Space'||e.code==='ArrowUp'){ e.preventDefault(); jumpHeld=true; jumpWasPressed=true; ensureAudio(); }
+    if(e.code==='ArrowLeft'||e.code==='KeyA') leftHeld=true;
     if(e.code==='ArrowRight'||e.code==='KeyD') rightHeld=true;
   }, {passive:false});
   addEventListener('keyup', e=>{
-    if(e.code==='Space' || e.code==='ArrowUp'){ jumpHeld=false; }
-    if(e.code==='ArrowLeft'||e.code==='KeyA')  leftHeld=false;
+    if(e.code==='Space'||e.code==='ArrowUp') jumpHeld=false;
+    if(e.code==='ArrowLeft'||e.code==='KeyA') leftHeld=false;
     if(e.code==='ArrowRight'||e.code==='KeyD') rightHeld=false;
   });
 
-  // Dotyk / klik (Android fix: tapnięcie w canvas = skok)
-  cv.addEventListener('pointerdown', (e)=>{ if(!running) return; jumpWasPressed=true; ensureAudio(); }, {passive:false});
-
-  function bindHold(btn, downCb, upCb){
-    const on = (ev)=>{ ev.preventDefault(); downCb(); ensureAudio(); };
-    const off= (ev)=>{ ev.preventDefault(); upCb(); };
-    btn.addEventListener('pointerdown', on, {passive:false});
-    btn.addEventListener('pointerup', off, {passive:false});
-    btn.addEventListener('pointerleave', off, {passive:false});
-    btn.addEventListener('pointercancel', off, {passive:false});
+  // --- Input (touch/mouse fallbacks) ---
+  function bindPress(el, down, up){
+    const d = ev=>{ ev.preventDefault(); down(); ensureAudio(); };
+    const u = ev=>{ ev.preventDefault(); up(); };
+    ['pointerdown','mousedown','touchstart'].forEach(t=> el.addEventListener(t,d,{passive:false}));
+    ['pointerup','mouseup','mouseleave','touchend','touchcancel'].forEach(t=> el.addEventListener(t,u,{passive:false}));
   }
-  bindHold(leftBtn, ()=>leftHeld=true, ()=>leftHeld=false);
-  bindHold(rightBtn,()=>rightHeld=true,()=>rightHeld=false);
-  bindHold(jumpBtn, ()=>{ jumpHeld=true; jumpWasPressed=true; }, ()=>jumpHeld=false);
+  bindPress(leftBtn, ()=>leftHeld=true, ()=>leftHeld=false);
+  bindPress(rightBtn,()=>rightHeld=true,()=>rightHeld=false);
+  bindPress(jumpBtn, ()=>{jumpHeld=true; jumpWasPressed=true;}, ()=>jumpHeld=false);
 
-  // Menu
-  startBtn.addEventListener('click', ()=>{ ensureAudio(); startGame(); });
-  document.getElementById('parentsBtn').addEventListener('click', ()=>{
-    parentsPanel.style.display = parentsPanel.style.display==='none' ? 'block' : 'none';
+  // Tap na canvas = skok
+  ['pointerdown','mousedown','touchstart','click'].forEach(t=>{
+    cv.addEventListener(t, ev=>{ if(running){ ev.preventDefault(); jumpWasPressed=true; ensureAudio(); } }, {passive:false});
   });
-  mathToggle.addEventListener('change', ()=> mathOn = mathToggle.checked);
-  soundToggle.addEventListener('change', ()=> soundOn = soundToggle.checked);
-  kidToggle.addEventListener('change', ()=> { if(kidToggle.checked) modeSel.value='kid'; });
+
+  // --- Menu ---
+  startBtn.addEventListener('click', ()=>{ ensureAudio(); startGame(); });
+  parentsBtn.addEventListener('click', ()=>{ parentsPanel.style.display = parentsPanel.style.display==='none' ? 'block' : 'none'; });
+  kidToggle.addEventListener('change', ()=>{ if(kidToggle.checked) modeSel.value='kid'; });
 
   retryBtn.addEventListener('click', ()=>{ results.style.display='none'; startGame(); });
-  nextBtn.addEventListener('click', ()=>{ results.style.display='none'; citySel.selectedIndex=(citySel.selectedIndex+1)%cities.length; startGame(); });
+  nextBtn .addEventListener('click', ()=>{ results.style.display='none'; citySel.selectedIndex=(citySel.selectedIndex+1)%cities.length; startGame(); });
 
   function startGame(){
     playerKind = playerSel.value;
     mode = kidToggle.checked ? 'kid' : modeSel.value;
     cityIndex = citySel.selectedIndex;
     level = cities[cityIndex];
-    score=0; stars=0; pendingPair=null; tLeft=60;
-    last=performance.now();
+    score=0; stars=0; pendingPair=null; tLeft=60; last=performance.now();
     Object.assign(player,{x:60,y:40,vx:0,vy:0,onGround:false,coyote:0,jumpBuf:0,facing:1,tram:0,magnet:0,helmet:0});
-    lastSafe = {x:player.x, y:player.y};
+    lastSafe={x:player.x,y:player.y};
     resetEntities();
-    hud.city.textContent = level.name;
-    hud.score.textContent= 'Wynik: 0';
-    hud.stars.textContent= '★☆☆';
-    hud.pending.textContent='Para: —';
-    menu.style.display='none'; results.style.display='none';
-    running=true; cancelAnimationFrame(raf);
-    raf=requestAnimationFrame(tick);
-    sfx.start();
+    document.getElementById('menu').style.display='none'; results.style.display='none';
+    hud.city.textContent=level.name; hud.score.textContent='Wynik: 0'; hud.stars.textContent='★☆☆'; hud.pending.textContent='Para: —';
+    running=true; cancelAnimationFrame(raf); raf=requestAnimationFrame(tick); sfx.start();
   }
 
-  function aabb(a,b){ return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y; }
-
-  function collideAndSlide(obj, plats, dt){
-    // X
-    obj.x += obj.vx * dt;
-    for(const p of plats){
-      if(aabb(obj,p)){
-        if(obj.vx>0) obj.x = p.x - obj.w; else if(obj.vx<0) obj.x = p.x + p.w;
-        obj.vx = 0;
-      }
-    }
-    // Y
-    obj.y += obj.vy * dt; obj.onGround=false;
-    for(const p of plats){
-      if(aabb(obj,p)){
-        if(obj.vy>0){ obj.y = p.y - obj.h; obj.vy=0; obj.onGround=true; obj.coyote=ph().COYOTE; lastSafe={x:obj.x,y:obj.y}; }
-        else if(obj.vy<0){ obj.y = p.y + p.h; obj.vy=0; }
-      }
-    }
-  }
-
+  // --- Physics/helpers ---
+  function aabb(a,b){ return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y; }
   function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
   function ph(){ return phys[mode]; }
 
+  function collideAndSlide(o, plats, dt){
+    o.x += o.vx*dt;
+    for(const p of plats){ if(aabb(o,p)){ if(o.vx>0) o.x=p.x-o.w; else if(o.vx<0) o.x=p.x+p.w; o.vx=0; } }
+    o.y += o.vy*dt; o.onGround=false;
+    for(const p of plats){
+      if(aabb(o,p)){
+        if(o.vy>0){ o.y=p.y-o.h; o.vy=0; o.onGround=true; o.coyote=ph().COYOTE; lastSafe={x:o.x,y:o.y}; }
+        else if(o.vy<0){ o.y=p.y+p.h; o.vy=0; }
+      }
+    }
+  }
+
   function update(dt){
-    const P = ph();
+    const P=ph();
     if(leftHeld && !rightHeld) player.vx -= P.MOVE*dt;
     else if(rightHeld && !leftHeld) player.vx += P.MOVE*dt;
     else if(player.onGround){
-      if(Math.abs(player.vx) <= P.FRICTION*dt) player.vx=0;
+      if(Math.abs(player.vx)<=P.FRICTION*dt) player.vx=0;
       else player.vx += (player.vx>0?-1:1)*P.FRICTION*dt;
     }
-
-    const speedMul = 1 + (player.tram>0 ? 0.5 : 0);
+    const speedMul = 1+(player.tram>0?0.5:0);
     player.vx = clamp(player.vx, -P.MAXV*speedMul, P.MAXV*speedMul);
-    player.facing = (player.vx>=0)?1:-1;
+    player.facing = player.vx>=0?1:-1;
 
-    if(jumpWasPressed){ player.jumpBuf = P.JUMPBUF; jumpWasPressed=false; }
+    if(jumpWasPressed){ player.jumpBuf=P.JUMPBUF; jumpWasPressed=false; }
     if(player.jumpBuf>0) player.jumpBuf -= dt;
     if(player.coyote>0)  player.coyote -= dt;
-
-    if((player.jumpBuf>0) && (player.onGround || player.coyote>0)){
-      player.vy = -P.JUMP_V; player.onGround=false; player.coyote=0; player.jumpBuf=0; sfx.jump();
+    if(player.jumpBuf>0 && (player.onGround||player.coyote>0)){
+      player.vy=-P.JUMP_V; player.onGround=false; player.coyote=0; player.jumpBuf=0; sfx.jump();
     }
 
-    player.vy += P.GRAV*dt;
-    player.vy = clamp(player.vy, -1000, 1200);
-
+    player.vy += P.GRAV*dt; player.vy = clamp(player.vy,-1000,1200);
     collideAndSlide(player, level.plats, dt);
 
-    // GRANICE ŚWIATA (fix: brak znikania)
-    player.x = clamp(player.x, 0, cv.width - player.w);
-    player.y = clamp(player.y, 0, cv.height - player.h);
-    // jeśli jednak spadnie poniżej – respawn
-    if(player.y >= cv.height - player.h - 1 && !player.onGround){
-      // nic – dojedzie do ziemi
-    }
-    // awaryjny respawn, gdyby wyjechał poza (np. z powodu lagów)
-    if(player.y > cv.height + 50 || player.x < -50 || player.x > cv.width + 50){
-      Object.assign(player, {x:lastSafe.x, y:lastSafe.y, vx:0, vy:0});
+    // granice + respawn
+    player.x = clamp(player.x, 0, cv.width-player.w);
+    player.y = clamp(player.y, 0, cv.height-player.h);
+    if(player.y > cv.height+50 || player.x < -50 || player.x > cv.width+50){
+      Object.assign(player,{x:lastSafe.x,y:lastSafe.y,vx:0,vy:0});
     }
 
     if(player.tram>0)   player.tram -= dt;
     if(player.magnet>0) player.magnet -= dt;
     if(player.helmet>0) player.helmet -= dt;
 
-    // Magnes
+    // magnes
     const magR = player.magnet>0 ? P.MAGR : 0;
-    for(const p of pierogi){
+    for(const prg of pierogi){
       if(magR>0){
-        const dx = p.x - (player.x + player.w/2);
-        const dy = p.y - (player.y + player.h/2);
-        const d = Math.hypot(dx,dy);
-        if(d < magR && d>1){
-          p.x -= (dx/d) * 180 * dt;
-          p.y -= (dy/d) * 180 * dt;
-        }
+        const dx = prg.x-(player.x+player.w/2), dy = prg.y-(player.y+player.h/2);
+        const d = Math.hypot(dx,dy); if(d<magR && d>1){ prg.x -= (dx/d)*180*dt; prg.y -= (dy/d)*180*dt; }
       }
     }
 
-    // Zbieranie pierogów
+    // zbieranie pierogów
     for(let i=pierogi.length-1;i>=0;i--){
-      const pr={x:pierogi[i].x-10,y:pierogi[i].y-10,w:20,h:20};
-      if(aabb(player, pr)){
-        const val = pierogi[i].val;
-        pierogi.splice(i,1);
-        score += 1; sfx.coin();
+      const r={x:pierogi[i].x-10,y:pierogi[i].y-10,w:20,h:20};
+      if(aabb(player,r)){
+        const val=pierogi[i].val; pierogi.splice(i,1); score+=1; sfx.coin();
         if(mathOn && val!=null){
-          if(pendingPair==null){
-            pendingPair = val; hud.pending.textContent = 'Para: '+pendingPair;
-          } else {
-            const s = pendingPair + val;
-            if(s===10 || s===20){
-              const bonus = (s===10?5:10);
-              score += bonus; hud.pending.textContent='Para: —'; pendingPair=null; sfx.bonus();
-              flashText(`+${bonus} para!`, player.x, player.y-16, s===10?'#7dd3fc':'#34d399');
-            } else {
-              pendingPair = val; hud.pending.textContent='Para: '+pendingPair;
-            }
+          if(pendingPair==null){ pendingPair=val; hud.pending.textContent='Para: '+pendingPair; }
+          else{
+            const s=pendingPair+val;
+            if(s===10||s===20){ const bonus=s===10?5:10; score+=bonus; hud.pending.textContent='Para: —'; pendingPair=null; sfx.bonus(); flashText(`+${bonus} para!`, player.x, player.y-16, s===10?'#7dd3fc':'#34d399'); }
+            else { pendingPair=val; hud.pending.textContent='Para: '+pendingPair; }
           }
         }
-        glowBurst.push({x:player.x+player.w/2,y:player.y, t:0});
+        glowBurst.push({x:player.x+player.w/2,y:player.y,t:0});
       }
     }
 
-    // Power-upy
+    // power-upy
     for(let i=powerups.length-1;i>=0;i--){
-      const u=powerups[i], ur={x:u.x-10,y:u.y-10,w:20,h:20};
-      if(aabb(player,ur)){
+      const u=powerups[i], r={x:u.x-10,y:u.y-10,w:20,h:20};
+      if(aabb(player,r)){
         powerups.splice(i,1); sfx.power();
-        if(u.type==='T'){ player.tram=6;   flashText('Szybkość!', u.x, u.y-10, '#fbbf24'); }
-        if(u.type==='M'){ player.magnet=8; flashText('Magnes!',  u.x, u.y-10, '#60a5fa'); }
-        if(u.type==='H'){ player.helmet=12;flashText('Kask!',    u.x, u.y-10, '#34d399'); }
+        if(u.type==='T') { player.tram=6;  flashText('Szybkość!',u.x,u.y-10,'#fbbf24'); }
+        if(u.type==='M') { player.magnet=8;flashText('Magnes!',  u.x,u.y-10,'#60a5fa'); }
+        if(u.type==='H') { player.helmet=12;flashText('Kask!',    u.x,u.y-10,'#34d399'); }
       }
     }
 
-    // Particles
-    for(let i=glowBurst.length-1;i>=0;i--){
-      glowBurst[i].t += dt;
-      if(glowBurst[i].t > 0.5) glowBurst.splice(i,1);
-    }
+    // particles
+    for(let i=glowBurst.length-1;i>=0;i--){ glowBurst[i].t+=dt; if(glowBurst[i].t>0.5) glowBurst.splice(i,1); }
   }
 
-  function flashText(txt,x,y,col){
-    glowBurst.push({txt, x, y, t:0, color:col});
-  }
+  function flashText(txt,x,y,col){ glowBurst.push({txt,x,y,t:0,color:col}); }
 
   function draw(){
     drawSkyline(level.name);
-
-    // Tunel + latarka
+    // tunel
     if(level.tunnel){
-      const t=level.tunnel;
-      ctx.fillStyle='rgba(0,0,0,0.55)'; ctx.fillRect(t.x,t.y,t.w,t.h);
+      const t=level.tunnel; ctx.fillStyle='rgba(0,0,0,0.55)'; ctx.fillRect(t.x,t.y,t.w,t.h);
       if(player.helmet>0){
-        const r=90;
-        const grd=ctx.createRadialGradient(player.x+player.w/2,player.y+player.h/2,10, player.x+player.w/2,player.y+player.h/2,r);
-        grd.addColorStop(0,'rgba(0,0,0,0)');
-        grd.addColorStop(1,'rgba(0,0,0,0.55)');
-        ctx.globalCompositeOperation='destination-out';
-        ctx.fillStyle=grd; ctx.beginPath(); ctx.arc(player.x+player.w/2,player.y+player.h/2,r,0,Math.PI*2); ctx.fill();
-        ctx.globalCompositeOperation='source-over';
+        const r=90, cxp=player.x+player.w/2, cyp=player.y+player.h/2;
+        const g=ctx.createRadialGradient(cxp,cyp,10,cxp,cyp,r);
+        g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,0.55)');
+        ctx.globalCompositeOperation='destination-out'; ctx.fillStyle=g; ctx.beginPath(); ctx.arc(cxp,cyp,r,0,Math.PI*2); ctx.fill(); ctx.globalCompositeOperation='source-over';
       }
     }
-
-    // Platformy
+    // platformy
     ctx.fillStyle='#2dd4bf';
-    for(const p of level.plats){
-      ctx.fillRect(p.x,p.y,p.w,p.h);
-      ctx.fillStyle='#14b8a6'; ctx.fillRect(p.x,p.y,p.w,4);
-      ctx.fillStyle='#2dd4bf';
-    }
-
-    // Power-upy
-    powerups.forEach(u=>{
-      ctx.save(); ctx.translate(u.x,u.y);
+    for(const p of level.plats){ ctx.fillRect(p.x,p.y,p.w,p.h); ctx.fillStyle='#14b8a6'; ctx.fillRect(p.x,p.y,p.w,4); ctx.fillStyle='#2dd4bf'; }
+    // power-upy
+    powerups.forEach(u=>{ ctx.save(); ctx.translate(u.x,u.y);
       if(u.type==='T'){ ctx.fillStyle='#fbbf24'; ctx.fillRect(-10,-6,20,12); ctx.fillStyle='#111827'; ctx.fillRect(-14,-2,28,4); }
       if(u.type==='M'){ ctx.fillStyle='#60a5fa'; ctx.beginPath(); ctx.arc(0,0,10,0,Math.PI,true); ctx.lineTo(6,8); ctx.lineTo(-6,8); ctx.closePath(); ctx.fill(); }
       if(u.type==='H'){ ctx.fillStyle='#34d399'; ctx.fillRect(-12,-8,24,16); ctx.fillStyle='#fef08a'; ctx.fillRect(-6,-2,12,6); }
-      ctx.restore();
-    });
-
-    // Pierogi
-    for(const p of pierogi){
-      ctx.save(); ctx.translate(p.x,p.y);
-      ctx.fillStyle='#fcd34d';
-      ctx.beginPath();
-      ctx.arc(0,0,10,Math.PI,0);
-      ctx.lineTo(10,4);
-      ctx.arc(0,4,10,0,Math.PI,true);
-      ctx.closePath(); ctx.fill();
-      if(mathOn && p.val!=null){
-        ctx.fillStyle='#111827'; ctx.font='bold 11px system-ui'; ctx.textAlign='center'; ctx.fillText(p.val,0,2);
-      }
-      ctx.restore();
-    }
-
-    // Gracz (Paweł/Bartek/Antek)
+    ctx.restore(); });
+    // pierogi
+    for(const p of pierogi){ ctx.save(); ctx.translate(p.x,p.y);
+      ctx.fillStyle='#fcd34d'; ctx.beginPath(); ctx.arc(0,0,10,Math.PI,0); ctx.lineTo(10,4); ctx.arc(0,4,10,0,Math.PI,true); ctx.closePath(); ctx.fill();
+      if(mathOn && p.val!=null){ ctx.fillStyle='#111827'; ctx.font='bold 11px system-ui'; ctx.textAlign='center'; ctx.fillText(p.val,0,2); }
+    ctx.restore(); }
+    // gracz
     drawPlayer();
-
-    // Teksty/efekty
+    // teksty/efekty
     for(const g of glowBurst){
-      if(g.txt){
-        const a=Math.max(0,1-g.t*2); ctx.globalAlpha=a;
-        ctx.fillStyle=g.color||'#fff'; ctx.font='bold 16px system-ui'; ctx.textAlign='center';
-        ctx.fillText(g.txt, g.x, g.y - g.t*40); ctx.globalAlpha=1;
-      }else{
-        const a=Math.max(0,1-g.t*3); ctx.globalAlpha=a;
-        ctx.fillStyle='#fde68a'; ctx.beginPath(); ctx.arc(g.x, g.y, 6+g.t*20, 0, Math.PI*2); ctx.fill(); ctx.globalAlpha=1;
-      }
+      if(g.txt){ const a=Math.max(0,1-g.t*2); ctx.globalAlpha=a; ctx.fillStyle=g.color||'#fff'; ctx.font='bold 16px system-ui'; ctx.textAlign='center'; ctx.fillText(g.txt,g.x,g.y-g.t*40); ctx.globalAlpha=1; }
+      else{ const a=Math.max(0,1-g.t*3); ctx.globalAlpha=a; ctx.fillStyle='#fde68a'; ctx.beginPath(); ctx.arc(g.x,g.y,6+g.t*20,0,Math.PI*2); ctx.fill(); ctx.globalAlpha=1; }
     }
-
     // HUD
-    hud.timer.textContent = '⏱ ' + Math.max(0,tLeft).toFixed(1) + ' s';
-    hud.score.textContent = 'Wynik: ' + score;
-    hud.stars.textContent = '★' + (stars>=2?'★':'☆') + (stars>=3?'★':'☆');
+    hud.timer.textContent='⏱ '+Math.max(0,tLeft).toFixed(1)+' s';
+    hud.score.textContent='Wynik: '+score;
+    hud.stars.textContent='★'+(stars>=2?'★':'☆')+(stars>=3?'★':'☆');
   }
 
   function drawSkyline(name){
     ctx.clearRect(0,0,cv.width,cv.height);
-    // gwiazdki
-    for(let i=0;i<60;i++){
-      const x=(i*37)%960, y=(i*i*17)%540;
-      ctx.globalAlpha=0.06+(i%5)*0.03; ctx.fillStyle='#93c5fd'; ctx.fillRect(x,y,2,2);
-    }
-    ctx.globalAlpha=1;
-    ctx.fillStyle='#0b122a'; ctx.fillRect(0,400,960,140);
-
-    ctx.fillStyle='#1f2d55';
-    ctx.save();
-    if(name==='Mysłowice'){
-      // wieża szybowa
-      ctx.fillRect(120,260,30,140);
-      ctx.fillRect(100,300,100,12);
-      ctx.beginPath(); ctx.arc(150,250,30,0,Math.PI,true); ctx.fill();
-      // Spodek (cameo Katowic)
-      drawSpodek(420,330,1.0);
-    }
-    if(name==='Zaborze'){
-      // kominy
-      ctx.fillRect(420,240,20,160);
-      ctx.fillRect(460,260,24,140);
-      ctx.fillRect(510,280,18,120);
-      drawSpodek(700,350,0.8);
-    }
-    if(name==='Mszana'){
-      // pagórki
-      ctx.beginPath(); ctx.moveTo(0,360); ctx.quadraticCurveTo(200,300,400,360); ctx.quadraticCurveTo(680,420,960,360); ctx.lineTo(960,540); ctx.lineTo(0,540); ctx.closePath(); ctx.fill();
-      drawSpodek(260,345,0.9);
-    }
-    if(name==='Jastrzębie'){
-      // maszty oświetleniowe
-      for(let i=0;i<4;i++){ ctx.fillRect(700+i*40,240,6,160); for(let j=0;j<5;j++){ ctx.fillRect(690+i*40,230-j*22,26,6);} }
-      drawSpodek(520,350,0.85);
-    }
+    for(let i=0;i<60;i++){ const x=(i*37)%960,y=(i*i*17)%540; ctx.globalAlpha=0.06+(i%5)*0.03; ctx.fillStyle='#93c5fd'; ctx.fillRect(x,y,2,2); }
+    ctx.globalAlpha=1; ctx.fillStyle='#0b122a'; ctx.fillRect(0,400,960,140);
+    ctx.fillStyle='#1f2d55'; ctx.save();
+    if(name==='Mysłowice'){ ctx.fillRect(120,260,30,140); ctx.fillRect(100,300,100,12); ctx.beginPath(); ctx.arc(150,250,30,0,Math.PI,true); ctx.fill(); drawSpodek(420,330,1.0); }
+    if(name==='Zaborze'){   ctx.fillRect(420,240,20,160); ctx.fillRect(460,260,24,140); ctx.fillRect(510,280,18,120); drawSpodek(700,350,0.8); }
+    if(name==='Mszana'){    ctx.beginPath(); ctx.moveTo(0,360); ctx.quadraticCurveTo(200,300,400,360); ctx.quadraticCurveTo(680,420,960,360); ctx.lineTo(960,540); ctx.lineTo(0,540); ctx.closePath(); ctx.fill(); drawSpodek(260,345,0.9); }
+    if(name==='Jastrzębie'){ for(let i=0;i<4;i++){ ctx.fillRect(700+i*40,240,6,160); for(let j=0;j<5;j++){ ctx.fillRect(690+i*40,230-j*22,26,6);} } drawSpodek(520,350,0.85); }
     ctx.restore();
   }
-
-  function drawSpodek(cx, cy, s){
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.scale(s, s);
-    // dolny talerz
-    ctx.fillStyle='#253463';
-    ctx.beginPath();
-    ctx.ellipse(0,0,140,28,0,0,Math.PI*2); ctx.fill();
-    // górna kopuła
-    ctx.fillStyle='#2c3f78';
-    ctx.beginPath();
-    ctx.ellipse(0,-20,120,22,0,0,Math.PI*2); ctx.fill();
-    // podpora
-    ctx.fillStyle='#1b2a55';
-    ctx.fillRect(-6, -6, 12, 40);
-    // światło
-    ctx.fillStyle='rgba(125,211,252,0.18)';
-    ctx.beginPath();
-    ctx.moveTo(-80,10); ctx.quadraticCurveTo(0,60,80,10); ctx.lineTo(80,28); ctx.quadraticCurveTo(0,78,-80,28); ctx.closePath(); ctx.fill();
+  function drawSpodek(cx,cy,s){
+    ctx.save(); ctx.translate(cx,cy); ctx.scale(s,s);
+    ctx.fillStyle='#253463'; ctx.beginPath(); ctx.ellipse(0,0,140,28,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#2c3f78'; ctx.beginPath(); ctx.ellipse(0,-20,120,22,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#1b2a55'; ctx.fillRect(-6,-6,12,40);
+    ctx.fillStyle='rgba(125,211,252,0.18)'; ctx.beginPath(); ctx.moveTo(-80,10); ctx.quadraticCurveTo(0,60,80,10); ctx.lineTo(80,28); ctx.quadraticCurveTo(0,78,-80,28); ctx.closePath(); ctx.fill();
     ctx.restore();
   }
-
   function drawPlayer(){
-    ctx.save();
-    ctx.translate(player.x + player.w/2, player.y + player.h/2);
-    ctx.scale(player.facing,1);
+    ctx.save(); ctx.translate(player.x+player.w/2, player.y+player.h/2); ctx.scale(player.facing,1);
     let top='#60a5fa', pants='#1f2937', shorts='#111827', hat=false;
-    if(playerKind==='P'){ top='#60a5fa'; pants='#334155'; }     // Paweł
-    if(playerKind==='B'){ top='#ef4444'; shorts='#0b0f19'; }   // Bartek
-    if(playerKind==='A'){ top='#60a5fa'; pants='#334155'; hat=true; } // Antek
-    ctx.fillStyle = top; ctx.fillRect(-12,-16,24,22);
+    if(playerKind==='P'){ top='#60a5fa'; pants='#334155'; }      // Paweł (azure)
+    if(playerKind==='B'){ top='#ef4444'; shorts='#0b0f19'; }    // Błażej (red/black shorts)
+    if(playerKind==='A'){ top='#60a5fa'; pants='#334155'; hat=true; } // Artur (blue hat)
+    ctx.fillStyle=top; ctx.fillRect(-12,-16,24,22);
     if(playerKind==='B'){ ctx.fillStyle=shorts; ctx.fillRect(-12,6,10,12); ctx.fillRect(2,6,10,12); }
     else { ctx.fillStyle=pants; ctx.fillRect(-12,6,10,18); ctx.fillRect(2,6,10,18); }
-    ctx.fillStyle='#fcd34d'; ctx.fillRect(-10,-28,20,12); // głowa
-    if(hat){ ctx.fillStyle='#2563eb'; ctx.fillRect(-10,-30,20,6); ctx.fillRect(6,-26,10,3); }
-    ctx.fillStyle='#0f172a'; ctx.fillRect(2,-26,6,4); // oko
+    ctx.fillStyle='#fcd34d'; ctx.fillRect(-10,-28,20,12); if(hat){ ctx.fillStyle='#2563eb'; ctx.fillRect(-10,-30,20,6); ctx.fillRect(6,-26,10,3); }
+    ctx.fillStyle='#0f172a'; ctx.fillRect(2,-26,6,4);
     if(player.tram>0){ ctx.globalAlpha=0.35; ctx.fillStyle='#fde68a'; ctx.fillRect(-20,-16,8,24); ctx.globalAlpha=1; }
     ctx.restore();
   }
 
   function computeStars(){ return score>=26?3 : score>=15?2 : 1; }
-
   function endGame(){
     running=false; cancelAnimationFrame(raf);
     stars = computeStars();
-    const bestKey = LS('best_'+level.name);
-    const prev = parseInt(localStorage.getItem(bestKey) || '0', 10);
-    if(stars>prev) localStorage.setItem(bestKey, String(stars));
+    const bestKey=LS('best_'+level.name), prev=parseInt(localStorage.getItem(bestKey)||'0',10);
+    if(stars>prev) localStorage.setItem(bestKey,String(stars));
     resTitle.textContent = `${level.name} — koniec czasu!`;
-    resStars.textContent = '★' + (stars>=2?'★':'☆') + (stars>=3?'★':'☆');
+    resStars.textContent = '★'+(stars>=2?'★':'☆')+(stars>=3?'★':'☆');
     resDetail.innerHTML = `Wynik: <strong>${score}</strong> • Czas: 60 s • Najlepsze gwiazdki: <strong>${Math.max(prev,stars)}</strong>`;
-    results.style.display='block'; menu.style.display='block'; sfx.end();
+    results.style.display='block'; document.getElementById('menu').style.display='block'; sfx.end();
   }
 
   function tick(now){
-    const dt = Math.min((now - last)/1000, 0.03); last=now;
+    const dt=Math.min((now-last)/1000,0.03); last=now;
     if(!running) return;
-    tLeft -= dt;
-    if(tLeft < 5 && Math.floor(tLeft*10)%10===0){ sfx.tick(); }
+    tLeft -= dt; if(tLeft<5 && Math.floor(tLeft*10)%10===0) sfx.tick();
     if(tLeft<=0){ tLeft=0; draw(); endGame(); return; }
     update(dt); draw();
-    raf = requestAnimationFrame(tick);
+    raf=requestAnimationFrame(tick);
   }
 
-  // Inicjalizacja
-  soundOn = (localStorage.getItem(LS('sound')) ?? '1') === '1';
-  mathOn  = (localStorage.getItem(LS('math')) ?? '1') === '1';
-  soundToggle.checked = soundOn; mathToggle.checked = mathOn;
-  soundToggle.addEventListener('change', ()=> localStorage.setItem(LS('sound'), soundToggle.checked?'1':'0'));
-  mathToggle.addEventListener('change',  ()=> localStorage.setItem(LS('math'),  mathToggle.checked?'1':'0'));
+  // Idle preview
+  (function(){ ctx.clearRect(0,0,cv.width,cv.height); drawSkyline('Mysłowice'); })();
 
-  // Wstępny rysunek
-  (function drawIdle(){
-    ctx.clearRect(0,0,cv.width,cv.height);
-    drawSkyline('Mysłowice');
-  })();
 })();
 </script>
 </body>
