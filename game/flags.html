@@ -356,7 +356,7 @@
       localStorage.setItem('donate', e.target.checked?'1':'0'); document.getElementById('donateLink').classList.toggle('hidden', !e.target.checked);
     });
     document.getElementById('donateLink').classList.toggle('hidden', localStorage.getItem('donate')!=='1');
-    document.getElementById('donateLink').href='https://buymeacoffee.com/'; // placeholder
+    document.getElementById('donateLink').href='https://ko-fi.com/mikeybronowski'; // placeholder
 
     document.querySelectorAll('#screenStart .btn').forEach(btn=>{
       const m=btn.getAttribute('data-mode'); const v=btn.getAttribute('data-variant'); if(m&&v){ btn.addEventListener('click',()=>startGame(m,v)); }
