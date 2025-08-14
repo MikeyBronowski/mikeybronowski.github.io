@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Math Dash — Falling Answers</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --tile:#21262d; --fg:#e6edf3;
+    --good:#2ea043; --bad:#f85149; --hint:#f2cc60;
+    --mouth:12px; /* chomp size (animated) */
+  }
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:system-ui,Arial;touch-action:manipulation}
+  #game{position:relative;height:100vh;overflow:hidden}
+  /* HUD */
+  .hud{position:absolute;z-index:10;top:8px;left:8px;right:8px;display:flex;gap:8px;justify-content:space-between;pointer-events:none}
+  .card{background:rgba(255,255,255,.08);padding:6px 10px;border-radius:10px}
+  /* Lanes & runner */
+  .lanes{position:absolute;inset:0 0 90px 0;display:grid;grid-template-columns:repeat(3,1fr)}
+  .lane{border-left:1px solid rgba(255,255,255,.05)}
+  #runner{
+    position:absolute;bottom:110px;width:56px;height:56px;border-radius:50%;
+    background:radial-gradient(circle at 60% 35%, #fff8, #0000 35%), #ffd400;
+    box-shadow:0 0 18px #ffd40055;
+    transform-origin:center; transition:left .08s ease;
+  }
+  /* Mouth: an upward triangle “\/” cut using a pseudo-element in bg color */
+  #runner::after{
+    content:""; position:absolute; left:50%; top:46%;
+    transform:translate(-50%,-50%);
+    border-left:var(--mouth) solid transparent;
+    border-right:var(--mouth) solid transparent;
+    border-top:var(--mouth) solid var(--bg); /* points upward */
+    filter:drop-shadow(0 -1px 0 #0006);
+  }
+  /* Little eye */
+  #runner::before{
+    content:""; position:absolute; left:62%; top:28%;
+    width:6px; height:6px; background:#000; border-radius:50%;
+  }
+  .chomp{animation:chomp .12s}
+  @keyframes chomp{
+    0%{transform:scale(1)}
+    50%{transform:scale(0.94)}
+    100%{transform:scale(1)}
+  }
+  /* Falling things */
+  .fall{position:absolute;top:-60px; font-size:32px; text-align:center; z-index:2}
+  .fruit{filter:drop-shadow(0 2px 4px #0006)}
+  .power{font-size:36px}
+  .ans{
+    min-width:70px; padding:.25em .5em; border-radius:12px;
+    background:var(--tile); border:2px solid #3b4451; font-weight:800; font-size:26px;
+    color:var(--fg); box-shadow:0 2px 10px #0005; z-index:3;
+  }
+  /* Bottom question panel (fixed, readable) */
+  .panel{position:absolute;left:0;right:0;bottom:0;height:90px;background:var(--panel);
+    display:flex;align-items:center;justify-content:center;gap:12px;font-size:20px;z-index:5}
+  .question{font-weight:700}
+  .flashGood{animation:fg .22s}
+  .flashBad{animation:fb .22s}
+  @keyframes fg{from{background:var(--bg)} 50%{background:#133818} to{background:var(--bg)}}
+  @keyframes fb{from{background:var(--bg)} 50%{background:#3b1414} to{background:var(--bg)}}
+</style>
+</head>
+<body>
+<div id="game">
+  <div class="hud">
+    <div class="card">Score: <span id="score">0</span></div>
+    <div class="card">Lives: <span id="lives">3</span></div>
+    <div class="card">Streak: <span id="streak">0</span></div>
+  </div>
+
+  <div class="lanes" id="lanes">
+    <div class="lane"></div><div class="lane"></div><div class="lane"></div>
+  </div>
+
+  <div id="runner"></div>
+
+  <div class="panel">
+    <span class="question" id="qText">—</span>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ----- Elements
+  const game = document.getElementById('game');
+  const lanesEl = document.getElementById('lanes');
+  const runner = document.getElementById('runner');
+  const qText = document.getElementById('qText');
+  const scoreEl = document.getElementById('score');
+  const livesEl = document.getElementById('lives');
+  const streakEl = document.getElementById('streak');
+
+  // ----- State
+  let lane = 1;
+  let score = 0;
+  let lives = 3;
+  let streak = 0;
+  let baseSpeed = 230;       // px/sec base fall speed
+  let speedMul = 1;          // power-up multiplier
+  let speedTimer = 0;        // seconds remaining for power effect
+  let lastT = 0;
+  let objects = [];          // falling objs: {el,type,lane,y,val,correct}
+  let answersActive = false; // prevent multiple sets
+  let currentCorrect = null; // current correct numeric answer
+
+  const fruits = ["🍎","🍌","🍇","🍉","🍓","🍒","🍑","🍍","🥕","🥦"];
+  const powerEmojis = ["⚡","🐢"]; // boost / slow
+
+  // ----- Helpers
+  function laneX(i){
+    const w = game.clientWidth;
+    return (w/6) + (w/3)*i - 28; // center item ~56-70px wide
+  }
+  function setLane(i){
+    lane = Math.max(0, Math.min(2, i));
+    runner.style.left = laneX(lane)+'px';
+  }
+  function chomp(){
+    runner.classList.remove('chomp');
+    // wider mouth briefly
+    runner.style.setProperty('--mouth','22px');
+    void runner.offsetWidth; // restart animation
+    runner.classList.add('chomp');
+    setTimeout(()=>runner.style.setProperty('--mouth','12px'),110);
+  }
+  function rand(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+  function pick(arr){ return arr[rand(0,arr.length-1)]; }
+  function vibrate(ms){ if(navigator.vibrate) navigator.vibrate(ms); }
+
+  // ----- Sound (tiny WebAudio beeps)
+  const AC = window.AudioContext || window.webkitAudioContext;
+  const actx = new AC();
+  function beep(f=880,d=0.1,type='sine',g=0.06){
+    const t = actx.currentTime;
+    const o = actx.createOscillator();
+    const gn = actx.createGain();
+    o.type=type; o.frequency.value=f;
+    gn.gain.value=g; gn.gain.exponentialRampToValueAtTime(0.001, t+d);
+    o.connect(gn).connect(actx.destination);
+    o.start(t); o.stop(t+d);
+  }
+  const sfx = {
+    good: ()=>{ beep(880,0.08,'triangle',0.06); beep(1320,0.08,'triangle',0.05); },
+    bad:  ()=>{ beep(200,0.15,'sawtooth',0.07); },
+    fruit:()=>{ beep(1040,0.06,'square',0.05); },
+    boost:()=>{ beep(1400,0.12,'sine',0.06); },
+    slow: ()=>{ beep(300,0.12,'sine',0.06); }
+  };
+
+  // ----- Questions (+ - × ÷ %), integer-friendly
+  function newQuestion(){
+    const ops = ['+','-','×','÷','%'];
+    const op = pick(ops);
+    const min=0, max=20;
+    let a,b,correct;
+
+    if(op==='÷'){
+      b = rand(2,12); correct = rand(1,10); a = b*correct;        // exact division
+    }else if(op==='×'){
+      a = rand(1,12); b = rand(1,12); correct = a*b;
+    }else if(op==='%'){
+      b = rand(2,12); a = rand(0,60); correct = a % b;
+    }else if(op==='+'){
+      a = rand(min,max); b = rand(min,max); correct = a+b;
+    }else{ // '-'
+      a = rand(min,max); b = rand(min,max);
+      if(b>a) [a,b]=[b,a]; correct = a-b;
+    }
+
+    // Build options: correct + two distractors near it
+    const opts = new Set([correct]);
+    while(opts.size<3){
+      let delta = rand(-5,5); if(delta===0) delta = 1;
+      let val = correct + delta;
+      if(op!=='-' && val<0) continue; // keep non-negative except subtraction could be 0+
+      opts.add(val);
+    }
+    const options = [...opts];
+    // shuffle and map to lanes
+    for(let i=options.length-1;i>0;i--){ const j=rand(0,i); [options[i],options[j]]=[options[j],options[i]]; }
+
+    currentCorrect = correct;
+    qText.textContent = `${a} ${op} ${b} = ?`;
+    dropAnswers(options, correct);
+  }
+
+  function dropAnswers(options, correct){
+    // ensure only one set at a time
+    answersActive = true;
+    // spawn three answer tiles (one per lane)
+    options.forEach((val, i) => {
+      const el = document.createElement('div');
+      el.className = 'fall ans';
+      el.textContent = val;
+      el.style.left = laneX(i)+'px';
+      el.style.top = (-60 - i*40)+'px'; // slight stagger
+      game.appendChild(el);
+      objects.push({ el, type:'answer', lane:i, y:-60 - i*40, val, correct: val===correct });
+    });
+  }
+
+  function clearAnswers(){
+    // remove any existing answer objects/elements
+    objects = objects.filter(o=>{
+      if(o.type==='answer'){ o.el.remove(); return false; }
+      return true;
+    });
+    answersActive = false;
+  }
+
+  // ----- Spawners
+  function spawnFruit(){
+    const el = document.createElement('div');
+    el.className = 'fall fruit';
+    el.textContent = pick(fruits);
+    const ln = rand(0,2);
+    el.style.left = laneX(ln)+'px';
+    el.style.top = '-60px';
+    game.appendChild(el);
+    objects.push({ el, type:'fruit', lane:ln, y:-60 });
+  }
+
+  function spawnPower(kind){ // '⚡' or '🐢'
+    const el = document.createElement('div');
+    el.className = 'fall power';
+    el.textContent = kind;
+    const ln = rand(0,2);
+    el.style.left = laneX(ln)+'px';
+    el.style.top = '-70px';
+    game.appendChild(el);
+    objects.push({ el, type:'power', lane:ln, y:-70, kind });
+  }
+
+  // after each 3-correct streak, drop a power-up
+  function maybeSpawnReward(){
+    if(streak>0 && streak % 3 === 0){
+      spawnPower(pick(powerEmojis));
+    }
+  }
+
+  // ----- Game flow
+  function onCorrect(){
+    score += 50; streak++;
+    scoreEl.textContent = score; streakEl.textContent = streak;
+    game.classList.add('flashGood'); setTimeout(()=>game.classList.remove('flashGood'),180);
+    sfx.good(); vibrate(20); chomp();
+    clearAnswers();
+    maybeSpawnReward();
+    // next question
+    newQuestion();
+  }
+
+  function onWrong(){
+    lives--; streak=0;
+    livesEl.textContent = lives; streakEl.textContent = 0;
+    game.classList.add('flashBad'); setTimeout(()=>game.classList.remove('flashBad'),180);
+    sfx.bad(); vibrate(70); chomp();
+    clearAnswers();
+    if(lives<=0){ gameOver(); return; }
+    newQuestion();
+  }
+
+  function gameOver(){
+    alert(`Game Over!\nScore: ${score}`);
+    // reset
+    objects.forEach(o=>o.el.remove()); objects=[];
+    score=0; lives=3; streak=0; speedMul=1; speedTimer=0;
+    scoreEl.textContent=0; livesEl.textContent=3; streakEl.textContent=0;
+    setLane(1);
+    newQuestion();
+  }
+
+  // ----- Loop
+  function update(dt){
+    // power-up timer
+    if(speedTimer>0){
+      speedTimer -= dt;
+      if(speedTimer<=0){ speedMul = 1; }
+    }
+
+    // spawn fruits randomly
+    if(Math.random() < 0.035) spawnFruit();
+
+    const speed = baseSpeed * speedMul;
+    const playerY = game.clientHeight - 110; // runner baseline (top coordinate)
+
+    const toRemove = [];
+    for(const o of objects){
+      o.y += speed * dt;
+      o.el.style.top = o.y+'px';
+
+      // collision window around player
+      const near = (o.y > playerY - 36) && (o.y < playerY + 22);
+      if(near && o.lane === lane){
+        if(o.type==='fruit'){
+          score += 5; scoreEl.textContent = score; sfx.fruit(); chomp(); vibrate(10);
+          toRemove.push(o);
+        } else if(o.type==='power'){
+          if(o.kind==='⚡'){ speedMul = 1.6; speedTimer = 5; sfx.boost(); }
+          if(o.kind==='🐢'){ speedMul = 0.6; speedTimer = 5; sfx.slow(); }
+          chomp(); vibrate(20);
+          toRemove.push(o);
+        } else if(o.type==='answer'){
+          // resolve question based on correctness
+          if(o.correct) onCorrect(); else onWrong();
+          toRemove.push(o);
+        }
+      }
+
+      // past bottom -> remove; if it's an answer, count as wrong (missed)
+      if(o.y > game.clientHeight - 90){
+        if(o.type==='answer'){
+          // only penalize once per set; guard if already cleared by collision
+          if(answersActive){ onWrong(); }
+        }
+        toRemove.push(o);
+      }
+    }
+    if(toRemove.length){
+      objects = objects.filter(x=>{
+        if(toRemove.includes(x)){ x.el.remove(); return false; }
+        return true;
+      });
+    }
+  }
+
+  function loop(t){
+    if(!lastT) lastT = t;
+    const dt = Math.min(0.03, (t - lastT)/1000);
+    lastT = t;
+    update(dt);
+    requestAnimationFrame(loop);
+  }
+
+  // ----- Input
+  window.addEventListener('keydown', e=>{
+    if(e.key==='ArrowLeft' || e.key==='a') setLane(lane-1);
+    if(e.key==='ArrowRight'|| e.key==='d') setLane(lane+1);
+    if(e.key===' ' && actx.state==='suspended') actx.resume();
+  });
+
+  let touchStartX=null, touchStartY=null;
+  game.addEventListener('touchstart', e=>{
+    const t = e.changedTouches[0]; touchStartX=t.clientX; touchStartY=t.clientY;
+    if(actx.state==='suspended') actx.resume();
+  }, {passive:true});
+  game.addEventListener('touchend', e=>{
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStartX, dy = t.clientY - touchStartY;
+    if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 18){
+      setLane(lane + (dx>0?1:-1));
+    } else {
+      // tap thirds
+      const third = Math.floor((t.clientX / innerWidth)*3);
+      setLane(third);
+    }
+  }, {passive:true});
+
+  window.addEventListener('resize', ()=> setLane(lane));
+
+  // ----- Start
+  function init(){
+    setLane(1);
+    newQuestion();
+    requestAnimationFrame(loop);
+  }
+  init();
+})();
+</script>
+</body>
+</html>
