@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Flag Quest Kids — Single File</title>
+  <meta name="description" content="Guess the Flag — kids-friendly, multilingual, single-file (HTML+JS)">
+  <style>
+  :root{
+    --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --accent:#0ea5e9;
+    --good:#22c55e; --bad:#ef4444; --warning:#f59e0b; --shadow:0 10px 30px rgba(0,0,0,.3);
+  }
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+       background:radial-gradient(1000px 600px at 20% -10%, #1f2a44, #0b1220); color:var(--text);
+       display:flex; flex-direction:column}
+  header, footer{display:flex;align-items:center;justify-content:space-between;gap:12px;
+       padding:12px 16px;background:rgba(15,23,42,.6);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
+  footer{border-top:1px solid rgba(255,255,255,.06);margin-top:auto}
+  .brand{display:flex;align-items:center;gap:10px}
+  .tag{font-size:.7em;padding:2px 8px;background:var(--accent);color:black;border-radius:999px;margin-left:6px}
+  main{max-width:980px;width:100%;margin:0 auto;padding:12px}
+  .screen{display:none} .screen.active{display:block}
+  .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;margin:12px 0;box-shadow:var(--shadow)}
+  .row{display:flex;gap:12px;align-items:center} .wrap{flex-wrap:wrap} .space{justify-content:space-between} .right{justify-content:flex-end}
+  .muted{color:var(--muted)} .btn{border:none;background:var(--accent);color:black;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+  .btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.2)}
+  .btn.danger{background:var(--bad);color:white} .btn:disabled{opacity:.6;cursor:not-allowed}
+  .mode-card{flex:1;min-width:260px;padding:12px;border:1px dashed rgba(255,255,255,.12);border-radius:12px}
+  .chip{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;cursor:pointer}
+  .chip input{transform:scale(1.2)}
+  .flag-wrap{display:flex;justify-content:center;margin:16px 0}
+  .flag{max-width:min(80vw,520px);width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);background:#0a0f1d}
+  .hud{display:flex;gap:12px;align-items:center;font-weight:700} #hudTimer{color:var(--warning)} #hudScore{color:var(--good)} #hudStreak{color:#60a5fa}
+  #questionArea{display:flex;flex-direction:column;gap:12px;align-items:center}
+  .options{display:grid;grid-template-columns:repeat(2,minmax(160px,1fr));gap:12px;width:100%;max-width:600px}
+  .option{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:10px;border-radius:12px;cursor:pointer;text-align:center}
+  .option:hover{outline:2px solid rgba(255,255,255,.2)} .option.correct{background:rgba(34,197,94,.2);border-color:rgba(34,197,94,.4)} .option.wrong{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.4)}
+  .input-wrap{display:flex;gap:8px;width:100%;max-width:600px}
+  .input-wrap input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:var(--text)}
+  .autocomplete{display:grid;gap:6px;width:100%;max-width:600px}
+  .suggestion{padding:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;cursor:pointer}
+  .hint{color:var(--muted)} .hidden{display:none !important}
+  .table-wrap{overflow:auto} table{width:100%;border-collapse:collapse} th,td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.1);text-align:left} th{color:#9fb5d1;font-weight:700}
+  dialog{border:none;border-radius:16px;padding:0;background:var(--card);color:var(--text);border:1px solid rgba(255,255,255,.12)} dialog form{padding:16px;min-width:min(92vw,540px)} dialog::backdrop{background:rgba(0,0,0,.5)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div style="width:36px;height:36px;border-radius:8px;background:#0ea5e9;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)">🏳️‍🌈</div>
+      <h1>Flag Quest <span class="tag">Kids</span></h1>
+    </div>
+    <div class="row">
+      <button id="btnSettings" class="btn secondary">⚙️</button>
+      <button id="btnLanguage" class="btn secondary">🌐</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="screenStart" class="screen active">
+      <div class="card">
+        <h2 data-i18n="title_play">Play</h2>
+        <div class="row wrap">
+          <div class="mode-card">
+            <h3>Learning</h3>
+            <p class="muted" data-i18n="desc_learning">Relaxed mode with hints.</p>
+            <div class="row" style="gap:8px">
+              <button class="btn" data-mode="learning" data-variant="mcq" data-i18n="btn_mcq">Multiple Choice</button>
+              <button class="btn" data-mode="learning" data-variant="typing" data-i18n="btn_typing">Typing</button>
+            </div>
+          </div>
+          <div class="mode-card">
+            <h3>Competitive</h3>
+            <p class="muted" data-i18n="desc_competitive">60s sprint with streaks.</p>
+            <div class="row" style="gap:8px">
+              <button class="btn" data-mode="competitive" data-variant="mcq" data-i18n="btn_mcq">Multiple Choice</button>
+              <button class="btn" data-mode="competitive" data-variant="typing" data-i18n="btn_typing">Typing</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="title_filters">Filters</h2>
+        <div class="row wrap" style="gap:10px">
+          <label class="chip"><input type="checkbox" class="continent" value="Africa" checked> <span>Africa</span></label>
+          <label class="chip"><input type="checkbox" class="continent" value="Asia" checked> <span>Asia</span></label>
+          <label class="chip"><input type="checkbox" class="continent" value="Europe" checked> <span>Europe</span></label>
+          <label class="chip"><input type="checkbox" class="continent" value="North America" checked> <span>North America</span></label>
+          <label class="chip"><input type="checkbox" class="continent" value="South America" checked> <span>South America</span></label>
+          <label class="chip"><input type="checkbox" class="continent" value="Oceania" checked> <span>Oceania</span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="title_leaderboard">Local High Scores</h2>
+        <div id="leaderboard"></div>
+      </div>
+    </section>
+
+    <section id="screenGame" class="screen">
+      <div class="row space">
+        <button id="btnBack" class="btn secondary" data-i18n="btn_back">Back</button>
+        <div class="hud">
+          <span id="hudMode"></span>
+          <span id="hudTimer"></span>
+          <span id="hudScore"></span>
+          <span id="hudStreak"></span>
+        </div>
+      </div>
+      <div class="flag-wrap">
+        <img id="flagImg" alt="flag" class="flag">
+      </div>
+      <div id="questionArea"></div>
+      <div class="row space">
+        <div class="hint" id="hintBox"></div>
+        <button id="btnSkip" class="btn secondary" data-i18n="btn_skip">Skip</button>
+      </div>
+    </section>
+
+    <dialog id="dlgSettings">
+      <form method="dialog">
+        <h3 data-i18n="title_settings">Settings</h3>
+        <label class="row space">
+          <span data-i18n="label_language">Language</span>
+          <select id="selLang">
+            <option value="en">English</option>
+            <option value="pl">Polski</option>
+            <option value="es">Español</option>
+          </select>
+        </label>
+        <label class="row space">
+          <span data-i18n="label_donate">Show donate link</span>
+          <input type="checkbox" id="chkDonate">
+        </label>
+        <details>
+          <summary data-i18n="title_parental">Parental / Teacher</summary>
+          <label class="row space">
+            <span data-i18n="label_pin">Enter PIN to reset (default 1234)</span>
+            <input type="password" id="pinInput" placeholder="1234">
+            <button id="btnResetProgress" class="btn danger" type="button" data-i18n="btn_reset">Reset Progress</button>
+          </label>
+        </details>
+        <div class="row right">
+          <button class="btn" value="ok" data-i18n="btn_close">Close</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+
+  <footer>
+    <span>&copy; <span id="year"></span> Flag Quest</span>
+    <a id="donateLink" href="#" class="hidden" rel="noopener" target="_blank">Donate</a>
+    <span class="muted">Single-file HTML • Online needed on first load for full dataset/flags</span>
+  </footer>
+
+  <script>
+  // --- i18n ---
+  const I18N = {
+    en:{title_play:"Play",desc_learning:"Relaxed mode with hints.",desc_competitive:"60s sprint with streaks.",btn_mcq:"Multiple Choice",btn_typing:"Typing",
+        title_filters:"Filters",title_leaderboard:"Local High Scores",btn_back:"Back",btn_skip:"Skip",title_settings:"Settings",label_language:"Language",
+        title_parental:"Parental / Teacher",label_pin:"Enter PIN to reset (default 1234)",btn_reset:"Reset Progress",btn_close:"Close",label_donate:"Show donate link",
+        learning:"Learning",competitive:"Competitive",streak:"Streak",score:"Score",time:"Time",hint_continent:"Continent:",hint_first:"First letter:",
+        correct:"Correct!",wrong:"Try again!",over:"Time's up!",donate_text:"Donate"},
+    pl:{title_play:"Graj",desc_learning:"Spokojny tryb z podpowiedziami.",desc_competitive:"Sprint 60 s z seriami.",btn_mcq:"Pytania ABCD",btn_typing:"Wpisz nazwę",
+        title_filters:"Filtry",title_leaderboard:"Lokalne wyniki",btn_back:"Wróć",btn_skip:"Pomiń",title_settings:"Ustawienia",label_language:"Język",
+        title_parental:"Rodzic / Nauczyciel",label_pin:"PIN do resetu (domyślnie 1234)",btn_reset:"Wyzeruj postęp",btn_close:"Zamknij",label_donate:"Pokaż link wsparcia",
+        learning:"Nauka",competitive:"Rywalizacja",streak:"Seria",score:"Wynik",time:"Czas",hint_continent:"Kontynent:",hint_first:"Pierwsza litera:",
+        correct:"Dobrze!",wrong:"Spróbuj ponownie!",over:"Koniec czasu!",donate_text:"Wesprzyj"},
+    es:{title_play:"Jugar",desc_learning:"Modo relajado con pistas.",desc_competitive:"Carrera de 60 s con rachas.",btn_mcq:"Opción múltiple",btn_typing:"Escribir nombre",
+        title_filters:"Filtros",title_leaderboard:"Puntuaciones locales",btn_back:"Atrás",btn_skip:"Saltar",title_settings:"Ajustes",label_language:"Idioma",
+        title_parental:"Padres / Profesor",label_pin:"PIN para restablecer (por defecto 1234)",btn_reset:"Restablecer",btn_close:"Cerrar",label_donate:"Mostrar enlace de donación",
+        learning:"Aprender",competitive:"Competitivo",streak:"Racha",score:"Puntuación",time:"Tiempo",hint_continent:"Continente:",hint_first:"Primera letra:",
+        correct:"¡Correcto!",wrong:"¡Inténtalo de nuevo!",over:"¡Se acabó el tiempo!",donate_text:"Donar"}
+  };
+  let LANG = (localStorage.getItem('lang')) || ((navigator.language||'en').slice(0,2));
+  if(!['en','pl','es'].includes(LANG)) LANG='en';
+  function t(k){return (I18N[LANG]&&I18N[LANG][k])||I18N.en[k]||k}
+  function applyI18n(){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent=t(el.getAttribute('data-i18n')); });
+    document.getElementById('donateLink').textContent=t('donate_text');
+  }
+
+  // --- Dataset ---
+  const DATASET_URL="https://cdn.jsdelivr.net/npm/world-countries@latest/countries.json";
+  const FALLBACK=[
+    {cca2:"PL",region:"Europe",name:{common:"Poland"},translations:{pol:{common:"Polska"},spa:{common:"Polonia"}}},
+    {cca2:"ES",region:"Europe",name:{common:"Spain"},translations:{pol:{common:"Hiszpania"},spa:{common:"España"}}},
+    {cca2:"FR",region:"Europe",name:{common:"France"},translations:{pol:{common:"Francja"},spa:{common:"Francia"}}},
+    {cca2:"DE",region:"Europe",name:{common:"Germany"},translations:{pol:{common:"Niemcy"},spa:{common:"Alemania"}}},
+    {cca2:"GB",region:"Europe",name:{common:"United Kingdom"},translations:{pol:{common:"Wielka Brytania"},spa:{common:"Reino Unido"}}},
+    {cca2:"US",region:"North America",name:{common:"United States"},translations:{pol:{common:"Stany Zjednoczone"},spa:{common:"Estados Unidos"}}},
+    {cca2:"BR",region:"South America",name:{common:"Brazil"},translations:{pol:{common:"Brazylia"},spa:{common:"Brasil"}}},
+    {cca2:"CN",region:"Asia",name:{common:"China"},translations:{pol:{common:"Chiny"},spa:{common:"China"}}},
+    {cca2:"JP",region:"Asia",name:{common:"Japan"},translations:{pol:{common:"Japonia"},spa:{common:"Japón"}}},
+    {cca2:"AU",region:"Oceania",name:{common:"Australia"},translations:{pol:{common:"Australia"},spa:{common:"Australia"}}},
+    {cca2:"ZA",region:"Africa",name:{common:"South Africa"},translations:{pol:{common:"Republika Południowej Afryki"},spa:{common:"Sudáfrica"}}}
+  ];
+  let COUNTRIES=[];
+  function normalize(raw){
+    return raw.map(c=>{
+      const code=(c.cca2||c.ccn3||"").toUpperCase();
+      const region=c.region||"Other";
+      const name_en=c.name?.common||code;
+      const name_pl=c.translations?.pol?.common||name_en;
+      const name_es=c.translations?.spa?.common||name_en;
+      return {code,region,name_en,name_pl,name_es};
+    }).filter(c=>c.code && c.region && c.region!=="Antarctica");
+  }
+  async function loadCountries(){
+    try{
+      const res=await fetch(DATASET_URL,{cache:'no-cache'});
+      if(!res.ok) throw new Error('fetch failed');
+      const json=await res.json();
+      COUNTRIES=normalize(json);
+    }catch(e){
+      console.warn('Using FALLBACK dataset:',e);
+      COUNTRIES=normalize(FALLBACK);
+    }
+  }
+
+  // --- Utils ---
+  const $=s=>document.querySelector(s); const $$=s=>Array.from(document.querySelectorAll(s));
+  function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a}
+  function choice(a){return a[Math.floor(Math.random()*a.length)]}
+  function normalizeStr(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,' ').trim()}
+
+  // --- Audio ---
+  const audioCtx = (window.AudioContext? new AudioContext(): null);
+  function beep(freq=440,dur=120,type='sine',vol=0.2){
+    if(!audioCtx || audioCtx.state==='closed') return;
+    const o=audioCtx.createOscillator(); const g=audioCtx.createGain();
+    o.type=type; o.frequency.value=freq; g.gain.value=vol; o.connect(g); g.connect(audioCtx.destination);
+    o.start(); setTimeout(()=>o.stop(), dur);
+  }
+
+  // --- State ---
+  const state={mode:'learning',variant:'mcq',continents:new Set(["Africa","Asia","Europe","North America","South America","Oceania"]),
+    timeLeft:60,score:0,streak:0,bestStreak:0,current:null,options:[],timerId:null,running:false};
+
+  function getName(c){return LANG==='pl'?c.name_pl: (LANG==='es'?c.name_es:c.name_en)}
+  function getAllNameVariants(c){
+    const names=new Set([c.name_en,c.name_pl,c.name_es]);
+    const aliases={
+      "Cote d Ivoire":["Côte d'Ivoire","Ivory Coast"], "United States":["USA","US","United States of America","Estados Unidos","Stany Zjednoczone"],
+      "United Kingdom":["UK","Great Britain","Britain","Wielka Brytania","Reino Unido"], "Russia":["Russian Federation","Federacja Rosyjska","Rusia"],
+      "South Korea":["Korea, South","Republic of Korea","Korea Południowa","Corea del Sur"], "North Korea":["Korea, North","DPRK","Korea Północna","Corea del Norte"],
+      "Czechia":["Czech Republic","Czechy","Chequia"], "Türkiye":["Turkey","Turcja","Turquía"], "Eswatini":["Swaziland","Suazi"],
+      "Cape Verde":["Cabo Verde"], "Timor-Leste":["East Timor","Timor Wschodni","Timor Oriental"]
+    };
+    Object.values(aliases).forEach(list=>list.forEach(n=>names.add(n)));
+    return Array.from(names);
+  }
+  function countriesByContinents(){return COUNTRIES.filter(c=>state.continents.has(c.region))}
+  function loadScores(){try{return JSON.parse(localStorage.getItem('scores')||'[]')}catch{return []}}
+  function saveScore(e){const s=loadScores(); s.push(e); s.sort((a,b)=>b.score-a.score); localStorage.setItem('scores',JSON.stringify(s.slice(0,20)))}
+  function renderLeaderboard(){
+    const box=$('#leaderboard'); const s=loadScores();
+    if(s.length===0){box.innerHTML='<p class="muted">No scores yet.</p>';return}
+    const rows=s.map(r=>`<tr><td>${r.date}</td><td>${r.mode}</td><td>${r.variant}</td><td>${r.conts.join(', ')}</td><td>${r.score}</td><td>${r.bestStreak}</td></tr>`).join('');
+    box.innerHTML=`<div class="table-wrap"><table><thead><tr><th>Date</th><th>Mode</th><th>Variant</th><th>Continents</th><th>Score</th><th>Best Streak</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+
+  function startGame(mode,variant){
+    state.mode=mode; state.variant=variant; state.timeLeft=(mode==='competitive')?60:0; state.score=0; state.streak=0; state.bestStreak=0; state.running=true;
+    $('#screenStart').classList.remove('active'); $('#screenGame').classList.add('active');
+    $('#hudMode').textContent = t(mode)+' • '+variant.toUpperCase();
+    $('#hudScore').textContent = t('score')+': 0'; $('#hudStreak').textContent=t('streak')+': 0';
+    $('#hudTimer').textContent = (mode==='competitive') ? (t('time')+': '+state.timeLeft) : '';
+    $('#hintBox').textContent=''; nextQuestion(); if(mode==='competitive') startTimer();
+  }
+  function startTimer(){ clearInterval(state.timerId); state.timerId=setInterval(()=>{state.timeLeft--; $('#hudTimer').textContent=t('time')+': '+state.timeLeft; if(state.timeLeft<=0){clearInterval(state.timerId); endGame();}},1000) }
+  function endGame(){
+    state.running=false; $('#hintBox').textContent=t('over'); beep(330,250,'sawtooth',0.15);
+    const conts=Array.from(state.continents); saveScore({date:new Date().toLocaleDateString(),mode:state.mode,variant:state.variant,conts,score:state.score,bestStreak:state.bestStreak});
+    renderLeaderboard(); setTimeout(()=>{$('#screenGame').classList.remove('active'); $('#screenStart').classList.add('active');}, 1500);
+  }
+  function pickCountry(){const pool=countriesByContinents(); return choice(pool)}
+  function flagUrl(code){return 'https://flagcdn.com/w640/'+code.toLowerCase()+'.png'}
+  function placeholderFlag(){ // simple inline SVG
+    const svg='<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400"><rect width="640" height="400" fill="#0ea5e9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="42" fill="#0b1220">Flag unavailable offline</text></svg>';
+    return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+  }
+  function nextQuestion(){
+    state.current=pickCountry();
+    const img=$('#flagImg');
+    img.onerror=()=>{ img.onerror=null; img.src=placeholderFlag(); };
+    img.src=flagUrl(state.current.code);
+    $('#hintBox').textContent=(state.mode==='learning') ? (t('hint_continent')+' '+state.current.region+' • '+t('hint_first')+' '+getName(state.current)[0]) : '';
+    renderQuestion();
+  }
+  function renderQuestion(){
+    const area=$('#questionArea'); area.innerHTML='';
+    if(state.variant==='mcq'){
+      const options=generateOptions(state.current); state.options=options;
+      const grid=document.createElement('div'); grid.className='options';
+      options.forEach(opt=>{ const btn=document.createElement('button'); btn.className='option'; btn.textContent=getName(opt); btn.addEventListener('click',()=>onAnswer(opt)); grid.appendChild(btn); });
+      area.appendChild(grid);
+    }else{
+      const wrap=document.createElement('div'); wrap.className='input-wrap';
+      const input=document.createElement('input'); input.placeholder='Type country name…'; input.autocomplete='off'; input.setAttribute('aria-label','Type country name');
+      const confirm=document.createElement('button'); confirm.className='btn'; confirm.textContent='OK'; confirm.addEventListener('click',()=>onTyping(input.value));
+      input.addEventListener('keydown',e=>{if(e.key==='Enter') onTyping(input.value)});
+      wrap.appendChild(input); wrap.appendChild(confirm); area.appendChild(wrap);
+      const sugg=document.createElement('div'); sugg.className='autocomplete'; area.appendChild(sugg);
+      input.addEventListener('input',()=>{
+        const q=normalizeStr(input.value); if(!q){sugg.innerHTML=''; return;}
+        const picks=countriesByContinents().filter(c=> normalizeStr(getName(c)).startsWith(q) ).slice(0,6);
+        sugg.innerHTML=picks.map(p=>`<div class="suggestion">${getName(p)}</div>`).join('');
+        sugg.querySelectorAll('.suggestion').forEach(s=> s.addEventListener('click',()=>{input.value=s.textContent; sugg.innerHTML=''}));
+      });
+    }
+  }
+  function generateOptions(answer){
+    const pool=countriesByContinents(); let others=pool.filter(c=>c.code!==answer.code);
+    const same=others.filter(c=>c.region===answer.region); const wrongs=shuffle((same.length>=3?same:others)).slice(0,3);
+    return shuffle([answer, ...wrongs]);
+  }
+  function onAnswer(picked){
+    const correct=picked.code===state.current.code; const buttons=[...document.querySelectorAll('.option')];
+    buttons.forEach(btn=>{ const isAns=btn.textContent===getName(state.current); btn.classList.toggle('correct', isAns); if(btn.textContent===getName(picked)) btn.classList.add(correct?'correct':'wrong'); });
+    if(correct) onCorrect(); else onWrong();
+  }
+  function onTyping(value){
+    const target=state.current; const v=normalizeStr(value); const variants=getAllNameVariants(target).map(normalizeStr);
+    if(variants.includes(v)) onCorrect(); else onWrong();
+  }
+  function onCorrect(){
+    beep(660,120,'triangle',0.15);
+    let add=100; state.streak=Math.min(state.streak+1,10); state.bestStreak=Math.max(state.bestStreak,state.streak);
+    const mult = state.streak<3?1:(state.streak<5?1.2:(state.streak<8?1.5:2)); state.score+=Math.floor(add*mult);
+    document.getElementById('hudScore').textContent=t('score')+': '+state.score; document.getElementById('hudStreak').textContent=t('streak')+': '+state.streak;
+    setTimeout(()=>nextQuestion(),400);
+  }
+  function onWrong(){
+    beep(220,150,'square',0.15);
+    if(state.mode==='competitive'){ state.timeLeft=Math.max(0,state.timeLeft-2); document.getElementById('hudTimer').textContent=t('time')+': '+state.timeLeft; }
+    state.streak=0; document.getElementById('hudStreak').textContent=t('streak')+': 0';
+  }
+  function skipQuestion(){ nextQuestion() }
+
+  // --- UI ---
+  function initUI(){
+    document.getElementById('year').textContent=new Date().getFullYear();
+    applyI18n();
+    document.getElementById('btnLanguage').addEventListener('click',()=>{ const map={en:'pl',pl:'es',es:'en'}; LANG=map[LANG]||'en'; localStorage.setItem('lang',LANG); applyI18n(); renderLeaderboard(); });
+    const sel=document.getElementById('selLang'); sel.value=LANG; sel.addEventListener('change',e=>{LANG=e.target.value; localStorage.setItem('lang',LANG); applyI18n(); renderLeaderboard();});
+    document.getElementById('btnSettings').addEventListener('click',()=>document.getElementById('dlgSettings').showModal());
+    document.getElementById('btnResetProgress').addEventListener('click',()=>{
+      const pin=document.getElementById('pinInput').value.trim();
+      if(pin===(localStorage.getItem('pin')||'1234')){ localStorage.removeItem('scores'); renderLeaderboard(); alert('Progress reset.'); } else { alert('Wrong PIN.'); }
+    });
+    document.getElementById('chkDonate').checked = localStorage.getItem('donate')==='1';
+    document.getElementById('chkDonate').addEventListener('change',e=>{
+      localStorage.setItem('donate', e.target.checked?'1':'0'); document.getElementById('donateLink').classList.toggle('hidden', !e.target.checked);
+    });
+    document.getElementById('donateLink').classList.toggle('hidden', localStorage.getItem('donate')!=='1');
+    document.getElementById('donateLink').href='https://buymeacoffee.com/'; // placeholder
+
+    document.querySelectorAll('#screenStart .btn').forEach(btn=>{
+      const m=btn.getAttribute('data-mode'); const v=btn.getAttribute('data-variant'); if(m&&v){ btn.addEventListener('click',()=>startGame(m,v)); }
+    });
+    document.getElementById('btnBack').addEventListener('click',()=>{
+      clearInterval(state.timerId); document.getElementById('screenGame').classList.remove('active'); document.getElementById('screenStart').classList.add('active'); state.running=false;
+    });
+    document.getElementById('btnSkip').addEventListener('click', skipQuestion);
+    document.querySelectorAll('.continent').forEach(cb=> cb.addEventListener('change',()=>{
+      if(cb.checked) state.continents.add(cb.value); else state.continents.delete(cb.value);
+    }));
+  }
+
+  async function boot(){ initUI(); renderLeaderboard(); await loadCountries(); }
+  boot();
+  </script>
+</body>
+</html>
