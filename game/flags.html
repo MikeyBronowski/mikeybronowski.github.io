@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Flag Quest Kids — Single File (v5)</title>
+  <title>Flag Quest – A free, ad-free, and offline educational game perfect for kids!</title>
   <meta name="description" content="Guess the Flag — kids-friendly, multilingual, single-file (HTML+JS)">
   <style>
   :root{
@@ -85,7 +85,7 @@
   <header>
     <div class="brand">
       <div style="width:36px;height:36px;border-radius:8px;background:#0ea5e9;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)">🏳️</div>
-      <h1>Flag Quest <span class="tag">Kids</span></h1>
+      <h1>Flag Quest</h1>
     </div>
     <div class="row" style="position:relative">
       <button id="btnLanguage" class="btn secondary lang-btn"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
@@ -145,7 +145,7 @@
     </section>
 
     <section id="screenGame" class="screen">
-      <div class="row space">
+      <div class="">
         <button id="btnBack" class="btn secondary" data-i18n="btn_back">Back</button>
         <div class="hud">
           <span id="hudMode"></span>
@@ -171,21 +171,13 @@
       <form method="dialog">
         <h3 data-i18n="title_settings">Settings</h3>
         <label class="row space">
-          <span data-i18n="label_language">Language</span>
-          <select id="selLang">
-            <option value="en">English</option>
-            <option value="pl">Polski</option>
-            <option value="es">Español</option>
-            <option value="de">Deutsch</option>
-            <option value="it">Italiano</option>
-            <option value="ru">Русский</option>
-            <option value="pt">Português</option>
-          </select>
-        </label>
-        <label class="row space">
           <span data-i18n="label_donate">Show donate link</span>
           <input type="checkbox" id="chkDonate">
         </label>
+        <label class="row space">
+          <span data-i18n="label_offline">Make available offline (cache flags)</span>
+          <button id="btnOffline" type="button" class="btn" data-i18n="btn_offline">Download offline pack</button>
+      </label>
         <details>
           <summary data-i18n="title_parental">Parental / Teacher</summary>
           <label class="row space">
@@ -218,7 +210,7 @@
         correct:"Correct!",wrong:"Try again!",over:"Time's up!",donate_text:"Donate",
         africa:"Africa",asia:"Asia",europe:"Europe",north_america:"North America",south_america:"South America",oceania:"Oceania",
         th_date:"Date",th_mode:"Mode",th_variant:"Variant",th_continents:"Continents",th_score:"Score",th_beststreak:"Best Streak",
-        ph_typing:"Type country name…",btn_ok:"OK"},
+        ph_typing:"Type country name…",btn_ok:"OK",label_offline:"Make available offline (cache flags)",btn_offline:"Download offline pack",offline_ready:"Offline pack ready! You can now play without internet."},
     pl:{title_play:"Graj",desc_learning:"Spokojny tryb z podpowiedziami.",desc_competitive:"Sprint 60 s z seriami.",btn_mcq:"ABCD",btn_typing:"Pisanie ⌨️",
         title_filters:"Filtry",title_leaderboard:"Lokalne wyniki",btn_back:"Wróć",btn_skip:"Pomiń",title_settings:"Ustawienia",label_language:"Język",
         title_parental:"Rodzic / Nauczyciel",label_pin:"PIN do resetu (domyślnie 1234)",btn_reset:"Wyzeruj postęp",btn_close:"Zamknij",label_donate:"Pokaż link wsparcia",
@@ -227,7 +219,7 @@
         correct:"Dobrze!",wrong:"Spróbuj ponownie!",over:"Koniec czasu!",donate_text:"Wesprzyj",
         africa:"Afryka",asia:"Azja",europe:"Europa",north_america:"Ameryka Północna",south_america:"Ameryka Południowa",oceania:"Australia i Oceania",
         th_date:"Data",th_mode:"Tryb",th_variant:"Wariant",th_continents:"Kontynenty",th_score:"Wynik",th_beststreak:"Najlepsza seria",
-        ph_typing:"Wpisz nazwę kraju…",btn_ok:"OK"},
+        ph_typing:"Wpisz nazwę kraju…",btn_ok:"OK",label_offline:"Udostępnij offline (pobierz flagi)",btn_offline:"Pobierz pakiet offline",offline_ready:"Pakiet offline gotowy! Możesz grać bez internetu."},
     es:{title_play:"Jugar",desc_learning:"Modo relajado con pistas.",desc_competitive:"Carrera de 60 s con rachas.",btn_mcq:"Opción múltiple",btn_typing:"Escribir nombre ⌨️",
         title_filters:"Filtros",title_leaderboard:"Puntuaciones locales",btn_back:"Atrás",btn_skip:"Saltar",title_settings:"Ajustes",label_language:"Idioma",
         title_parental:"Padres / Profesor",label_pin:"PIN para restablecer (por defecto 1234)",btn_reset:"Restablecer",btn_close:"Cerrar",label_donate:"Mostrar enlace de donación",
@@ -327,6 +319,61 @@
       COUNTRIES=normalize(FALLBACK);
     }
   }
+
+  async function buildAndRegisterSW(assetList){
+  const swCode = `
+    const CACHE = 'flag-quest-v1';
+    const ASSETS = ${JSON.stringify(assetList, null, 0)};
+    self.addEventListener('install', e=>{
+      e.waitUntil((async ()=>{
+        const cache = await caches.open(CACHE);
+        await cache.addAll(ASSETS);
+        self.skipWaiting();
+      })());
+    });
+    self.addEventListener('activate', e=>{
+      e.waitUntil(self.clients.claim());
+    });
+    self.addEventListener('fetch', e=>{
+      const url = new URL(e.request.url);
+      // Cache-first for our assets and flag images
+      if (ASSETS.includes(url.href) || url.hostname.includes('flagcdn.com') || url.href.includes('world-countries')) {
+        e.respondWith((async ()=>{
+          const cache = await caches.open(CACHE);
+          const cached = await cache.match(e.request);
+          if (cached) return cached;
+          try {
+            const res = await fetch(e.request, {cache:'no-store'});
+            if (res && res.ok) cache.put(e.request, res.clone());
+            return res;
+          } catch(err){
+            return cached || Response.error();
+          }
+        })());
+      }
+    });
+  `;
+  const blob = new Blob([swCode], {type:'text/javascript'});
+  const swURL = URL.createObjectURL(blob);
+  await navigator.serviceWorker.register(swURL, {scope: './'});
+}
+
+async function makeOfflinePack(){
+  // Ensure countries are loaded
+  if (!COUNTRIES.length) try { await loadCountries(); } catch(e){}
+  // Collect assets to cache
+  const selected = COUNTRIES.filter(c => state.continents.has(c.region));
+  const flags = selected.map(c => flagUrl(c.code));
+  const core = [
+    location.href, // this HTML file
+    "https://cdn.jsdelivr.net/npm/world-countries@latest/countries.json"
+  ];
+  const assets = Array.from(new Set([...core, ...flags]));
+  await buildAndRegisterSW(assets);
+  // Trigger an initial fetch to warm the cache (optional but helps)
+  await Promise.allSettled(assets.map(u => fetch(u).catch(()=>null)));
+  alert(t('offline_ready') || 'Offline pack ready!');
+}
 
   // --- Utils ---
   const $=s=>document.querySelector(s); const $$=s=>Array.from(document.querySelectorAll(s));
@@ -521,10 +568,6 @@
     });
     document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && e.target!==btnLang){ menu.classList.remove('open'); } });
 
-    const sel=document.getElementById('selLang'); sel.value=LANG; sel.addEventListener('change',e=>{
-      LANG=e.target.value; localStorage.setItem('lang',LANG); applyI18n(); renderLeaderboard(); renderQuestion();
-    });
-
     document.getElementById('btnSettings').addEventListener('click',()=>document.getElementById('dlgSettings').showModal());
     document.getElementById('btnResetProgress').addEventListener('click',()=>{
       const pin=document.getElementById('pinInput').value.trim();
@@ -548,6 +591,10 @@
     document.querySelectorAll('.continent').forEach(cb=> cb.addEventListener('change',()=>{
       if(cb.checked) state.continents.add(cb.value); else state.continents.delete(cb.value);
     }));
+    if ('serviceWorker' in navigator) {
+      const btnOffline = document.getElementById('btnOffline');
+      btnOffline?.addEventListener('click', makeOfflinePack);
+    }
   }
 
   async function boot(){ initUI(); renderLeaderboard(); await loadCountries(); }
