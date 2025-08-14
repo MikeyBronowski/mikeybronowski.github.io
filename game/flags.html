@@ -45,7 +45,8 @@
   .input-wrap input{flex:1;padding:12px;border-radius:12px;border:2px solid var(--option-border);background:var(--option);color:var(--text)}
   .autocomplete{display:grid;gap:6px;width:100%;max-width:640px}
   .suggestion{padding:8px;background:var(--option);border:2px solid var(--option-border);border-radius:10px;cursor:pointer}
-  .hint{color:var(--muted); min-height:1.6em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .hint{color:var(--muted);min-height:1.6em;white-space: normal;line-height: 1.4;}
+.hint div{ margin-bottom:4px; }
   .hidden{display:none !important}
   .table-wrap{overflow:auto}
   table{width:100%;border-collapse:collapse}
@@ -452,17 +453,21 @@
 
   // Hint toggle (no layout shift)
   function toggleHint(){
-    if(state.mode!=='learning' || !state.current) return;
-    state.hintShown = !state.hintShown;
-    const btn=document.getElementById('btnToggleHint');
-    if(state.hintShown){
-      document.getElementById('hintBox').textContent = t('hint_continent')+' '+state.current.region+' • '+t('hint_first')+' '+getName(state.current)[0];
-      btn.textContent = t('btn_hide_hint');
-    }else{
-      document.getElementById('hintBox').textContent = '';
-      btn.textContent = t('btn_show_hint');
-    }
+  if (state.mode !== 'learning' || !state.current) return;
+  state.hintShown = !state.hintShown;
+  const btn = document.getElementById('btnToggleHint');
+  const hintBox = document.getElementById('hintBox');
+
+  if (state.hintShown) {
+    hintBox.innerHTML =
+      `<div>🌍 ${t('hint_continent')} ${state.current.region}</div>` +
+      `<div>🔤 ${t('hint_first')} ${getName(state.current)[0]}</div>`;
+    btn.textContent = t('btn_hide_hint');
+  } else {
+    hintBox.innerHTML = '';
+    btn.textContent = t('btn_show_hint');
   }
+}
 
   // --- UI ---
   function initUI(){
