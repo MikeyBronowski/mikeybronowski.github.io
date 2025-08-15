@@ -2,10 +2,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="manifest.json">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
-</script>  
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Flag Quest – A free, ad-free, and offline educational game perfect for kids!</title>
