@@ -1,7 +1,7 @@
 {
   "name": "Flag Quest",
   "short_name": "Flag Quest",
-  "start_url": "/dashboard.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0b1220",
   "theme_color": "#0ea5e9",
