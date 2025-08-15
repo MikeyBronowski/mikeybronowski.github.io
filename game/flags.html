@@ -476,7 +476,7 @@ async function makeOfflinePack(){
   function pickCountry(){ const pool=countriesByContinents(); return choice(pool); }
   function flagUrl(code){ return 'https://flagcdn.com/w640/'+code.toLowerCase()+'.png'; }
   function placeholderFlag(){
-    const svg='<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400"><rect width="640" height="400" fill="#0ea5e9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="42" fill="#0b1220">Flag unavailable offline</text></svg>';
+    const svg='<svg xmlns="https://www.w3.org/2000/svg" width="640" height="400"><rect width="640" height="400" fill="#0ea5e9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="42" fill="#0b1220">Flag unavailable offline</text></svg>';
     return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
   }
   function nextQuestion(){
