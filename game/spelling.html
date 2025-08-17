@@ -38,12 +38,16 @@ main{max-width:980px;width:100%;margin:0 auto;padding:12px}
 .pic{font-size:6rem; filter: drop-shadow(0 6px 16px rgba(0,0,0,.45))}
 @media (min-width:600px){ .pic{font-size:8rem} }
 
-/* Tiles (placeholders + letters) */
+/* Siatki i kafelki (jednakowe rozmiary) */
 .grid{--cols:5; --gap:12px; display:grid; grid-template-columns:repeat(var(--cols), 1fr); gap:var(--gap); margin:12px 0}
 .tile{
   display:flex; align-items:center; justify-content:center; user-select:none;
   border-radius:14px; border:2px solid var(--tile-b); background:var(--tile);
-  min-height:64px; aspect-ratio:1/1; font-weight:900; font-size:1.6rem; letter-spacing:.02em;
+  min-height: var(--tile-size, 64px);
+  aspect-ratio: 1 / 1;
+  font-weight:900;
+  font-size: var(--tile-font, 1.6rem);
+  letter-spacing:.02em;
   box-shadow:var(--shadow);
 }
 .tile.placeholder{background:#0a0f1d}
@@ -56,7 +60,7 @@ main{max-width:980px;width:100%;margin:0 auto;padding:12px}
 @keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-6px)}
 50%{transform:translateX(6px)}75%{transform:translateX(-6px)}100%{transform:translateX(0)}}
 
-/* Leaderboard table */
+/* Tabela */
 .table-wrap{overflow:auto}
 table{width:100%;border-collapse:collapse}
 th,td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.15);text-align:left}
@@ -76,7 +80,7 @@ th{color:#c7d2fe;font-weight:800}
   </header>
 
   <main>
-    <!-- Start Screen -->
+    <!-- Start -->
     <section id="screenStart" class="screen active">
       <div class="card">
         <h2>Graj</h2>
@@ -100,7 +104,7 @@ th{color:#c7d2fe;font-weight:800}
       </div>
     </section>
 
-    <!-- Game Screen -->
+    <!-- Gra -->
     <section id="screenGame" class="screen">
       <div class="row space">
         <div class="hud">
@@ -116,13 +120,14 @@ th{color:#c7d2fe;font-weight:800}
 
       <div class="stage"><div id="pic" class="pic" aria-hidden="true">🍎</div></div>
 
-      <!-- Placeholders -->
+      <!-- Miejsca na litery -->
       <div id="placeholders" class="grid" style="--cols:5"></div>
 
-      <!-- Letter bank -->
+      <!-- Bank liter -->
       <div id="bank" class="grid" style="--cols:5"></div>
-      <div id="wordCount" class="muted" style="text-align:right;font-size:.8rem;margin-top:8px"></div>
 
+      <!-- Licznik słów -->
+      <div id="wordCount" class="muted" style="text-align:right;font-size:.8rem;margin-top:8px"></div>
     </section>
   </main>
 
@@ -131,7 +136,7 @@ th{color:#c7d2fe;font-weight:800}
   </footer>
 
 <script>
-// ===== Dataset (100+ słów, emoji) =====
+// ===== Słownik (emoji + słowa PL, UPPERCASE) =====
 const WORDS = [
   // Zwierzęta
   ["🐶","PIES"],["🐱","KOT"],["🧸","MIŚ"],["🦊","LIS"],["🐺","WILK"],["🐰","KRÓLIK"],["🐮","KROWA"],["🐐","KOZA"],
@@ -142,7 +147,7 @@ const WORDS = [
   ["🕷️","PAJĄK"],["🦋","MOTYL"],
 
   // Owoce/warzywa/jedzenie
-  ["🍎","JABŁKO"],["🍐","GRUSZKA"],["🍇","WINOGRONO"],["🍓","TRUSKAWKA"],["🍓","MALINA"],["🫐","BORÓWKA"],["🍋","CYTRYNA"],["🍊","POMARAŃCZA"],
+  ["🍎","JABŁKO"],["🍐","GRUSZKA"],["🍇","WINOGRONO"],["🍓","TRUSKAWKA"],["🫐","BORÓWKA"],["🍋","CYTRYNA"],["🍊","POMARAŃCZA"],
   ["🍌","BANAN"],["🍉","ARBUZ"],["🍍","ANANAS"],["🍒","WIŚNIA"],["🍅","POMIDOR"],["🥕","MARCHEWKA"],["🥒","OGÓREK"],["🌶️","PAPRYKA"],
   ["🌽","KUKURYDZA"],["🍆","BAKŁAŻAN"],["🥦","BROKUŁ"],["🍄","GRZYB"],["🍞","CHLEB"],["🍰","CIASTO"],["🍦","LODY"],["🧀","SER"],
   ["🥛","MLEKO"],["🍕","PIZZA"],["🍔","BURGER"],["🥚","JAJKO"],["🥣","ZUPA"],["🍚","RYŻ"],["🍝","MAKARON"],["☕","KAWA"],["🍵","HERBATA"],
@@ -152,7 +157,7 @@ const WORDS = [
   ["🚁","HELIKOPTER"],["✈️","SAMOLOT"],["🚢","STATEK"],["🚤","ŁÓDKA"],["🛴","HULAJNOGA"],["🚛","TIR"],["🚚","CIĘŻARÓWKA"],
 
   // Przedmioty/dom
-  ["🏠","DOM"],["🔑","KLUCZ"],["🛏️","ŁÓŻKO"],["🪑","KRZESŁO"],["🍽️","STÓŁ"],["💡","LAMPA"],["⏰","ZEGAR"],["📚","KSIĄŻKA"],
+  ["🏠","DOM"],["🔑","KLUCZ"],["🛏️","ŁÓŻKO"],["🪑","KRZESŁO"],["🍽️","NAKRYCIE"],["💡","LAMPA"],["⏰","ZEGAR"],["📚","KSIĄŻKA"],
   ["✏️","OŁÓWEK"],["🖊️","DŁUGOPIS"],["🎒","PLECAK"],["👓","OKULARY"],["📱","TELEFON"],["💻","KOMPUTER"],["📺","TELEWIZOR"],
   ["📻","RADIO"],["📷","APARAT"],["☂️","PARASOL"],["✂️","NOŻYCZKI"],["🔨","MŁOTEK"],["🎨","FARBY"],["🖋️","PIÓRO"],["🗒️","ZESZYT"],
 
@@ -160,8 +165,7 @@ const WORDS = [
   ["☀️","SŁOŃCE"],["☁️","CHMURA"],["🌧️","DESZCZ"],["❄️","ŚNIEG"],["🌈","TĘCZA"],["🌙","KSIĘŻYC"],["⭐","GWIAZDA"],
   ["🌳","DRZEWO"],["🌷","KWIAT"],["🔥","OGIEŃ"],["💧","WODA"],["🪨","KAMIEŃ"],["⛰️","GÓRA"]
 ];
-// ensure all unique ids (use word)
-const DATA = WORDS.map(([emo, w])=>({emoji:emo, word:w}));
+const DATA = WORDS.map(([emoji, word])=>({emoji, word}));
 
 // ===== Utils =====
 const $=s=>document.querySelector(s);
@@ -196,7 +200,7 @@ function speak(text){
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
 
-// ===== State =====
+// ===== Stan =====
 const state = {
   mode:'learning',
   timeLeft:60, timerId:null,
@@ -220,7 +224,7 @@ function renderLeaderboard(){
     <tbody>${rows}</tbody></table></div>`;
 }
 
-// ===== Game picking (no frequent repeats) =====
+// ===== Pick (bez częstych powtórek) =====
 function pickWord(){
   let w=null, tries=0;
   do{
@@ -236,19 +240,42 @@ function pickWord(){
   return w || choice(DATA);
 }
 
-// ===== UI update =====
+// ===== HUD, skalowanie, licznik =====
 function updateHud(){
   $('#hudScore').textContent = 'Wynik: '+state.score;
   $('#hudStreak').textContent = 'Seria: '+state.streak;
   $('#hudTimer').textContent = state.mode==='competitive' ? ('Czas: '+state.timeLeft) : '';
   $('#hudMode').textContent = state.mode==='competitive' ? 'Rywalizacja' : 'Nauka';
 }
-function setCols(len){
-  document.getElementById('placeholders').style.setProperty('--cols', Math.max(2, len));
-  document.getElementById('bank').style.setProperty('--cols', Math.max(2, len));
+function updateWordCounter(){
+  const el = $('#wordCount'); if(el) el.textContent = 'Słów w zestawie: '+DATA.length;
 }
+function fitTiles(id, cols){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const GAP = 12;
+  const w = el.clientWidth || el.parentElement?.clientWidth || window.innerWidth;
+  const size = Math.max(40, Math.min(84, Math.floor((w - GAP*(cols-1)) / cols)));
+  const font = Math.max(18, Math.floor(size * 0.5));
+  el.style.setProperty('--tile-size', size + 'px');
+  el.style.setProperty('--tile-font', font + 'px');
+}
+function setCols(len){
+  const cols = Math.max(2, len);
+  ['placeholders','bank'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){
+      el.style.setProperty('--cols', cols);
+      fitTiles(id, cols);
+    }
+  });
+}
+window.addEventListener('resize', ()=> {
+  const L = state.current ? state.current.word.length : 5;
+  setCols(L);
+});
 
-// Build placeholders (first letter fixed)
+// ===== Render placeholders (pierwsza litera zablokowana) =====
 function renderPlaceholders(){
   const wrap = $('#placeholders'); wrap.innerHTML='';
   const w = state.current.word;
@@ -260,49 +287,37 @@ function renderPlaceholders(){
     wrap.appendChild(t);
   });
 }
-function updateWordCounter(){
-  const el = document.getElementById('wordCount');
-  if (el) el.textContent = 'Słów w zestawie: ' + DATA.length;
-}
 
-// Build letter bank (exact counts of remaining letters)
+// ===== Render bank (pełny zestaw, pierwsza litera od razu „used”) =====
 function renderBank(){
   const wrap = $('#bank'); wrap.innerHTML='';
   const w = state.current.word;
-
-  // Build full multiset of letters (including the first one)
-  const letters = [...w];                // ALL letters
+  const letters = [...w];
   shuffle(letters);
 
-  letters.forEach((ch, idx)=>{
+  letters.forEach((ch)=>{
     const b = document.createElement('button');
     b.className = 'tile bank';
     b.textContent = ch;
 
-    // If this tile is the FIRST LETTER of the word, mark as already used+disabled
-    // (pre-filled in the puzzle). We still display it so tile count matches.
     if (ch === w[0]) {
-      b.classList.add('used');
-      b.disabled = true;
+      b.classList.add('used'); b.disabled = true;
     } else {
       b.addEventListener('click', ()=>{
         if(b.classList.contains('used')) return;
         b.classList.add('used'); b.disabled = true;
         state.typed += ch;
         renderPlaceholders();
-
-        // finished attempt?
         if(state.typed.length === w.length-1){
           const full = w[0] + state.typed;
           if(full === w){ onCorrect(); } else { onWrong(); }
         }
       });
     }
-
     wrap.appendChild(b);
   });
 
-  // Add invisible fillers if needed (keeps tile sizing perfect)
+  // Fillery dla spójności siatki
   while(wrap.children.length < w.length){
     const f = document.createElement('div');
     f.className='tile bank'; f.style.visibility='hidden';
@@ -310,7 +325,7 @@ function renderBank(){
   }
 }
 
-
+// ===== Przebieg gry =====
 function nextWord(){
   state.current = pickWord();
   state.recent.push(state.current.word);
@@ -319,20 +334,23 @@ function nextWord(){
   $('#pic').textContent = state.current.emoji;
   renderPlaceholders();
   renderBank();
-  updateWordCounter();   // keep the label fresh (in case you swap datasets later)
+  updateWordCounter();
   $('#placeholders').classList.remove('shake');
 }
 
 function onCorrect(){
   beep(660,120,'triangle',0.2);
-  // highlight success
   [...document.querySelectorAll('#placeholders .tile')].forEach(t=>t.classList.add('success'));
   state.streak = Math.min(state.streak+1, 10);
   state.bestStreak = Math.max(state.bestStreak, state.streak);
   const mult = state.streak<3?1:(state.streak<5?1.2:(state.streak<8?1.5:2));
   state.score += Math.floor(100*mult);
   updateHud();
-  speak(state.current.word.replaceAll('Ó','ó').replaceAll('Ł','ł').replaceAll('Ś','ś').replaceAll('Ć','ć').replaceAll('Ń','ń').replaceAll('Ż','ż').replaceAll('Ź','ź').replaceAll('Ę','ę').replaceAll('Ą','ą'));
+  // czytamy słowo (małe litery dla lepszej wymowy)
+  const speakable = state.current.word
+    .replaceAll('Ó','ó').replaceAll('Ł','ł').replaceAll('Ś','ś').replaceAll('Ć','ć')
+    .replaceAll('Ń','ń').replaceAll('Ż','ż').replaceAll('Ź','ź').replaceAll('Ę','ę').replaceAll('Ą','ą');
+  speak(speakable);
   setTimeout(()=>{
     [...document.querySelectorAll('#placeholders .tile')].forEach(t=>t.classList.remove('success'));
     nextWord();
@@ -346,7 +364,6 @@ function onWrong(){
   }
   state.streak = 0;
   updateHud();
-  // red feedback + reset attempt and bank
   const ph = $('#placeholders');
   ph.classList.add('shake');
   [...ph.children].forEach((t,i)=>{ if(i>0) t.classList.add('fail'); });
@@ -355,7 +372,7 @@ function onWrong(){
     [...ph.children].forEach((t,i)=>{ t.classList.remove('fail'); });
     state.typed='';
     renderPlaceholders();
-    renderBank(); // re-enable letters
+    renderBank();
   }, 550);
 }
 
@@ -383,21 +400,17 @@ function startGame(mode){
   if(mode==='competitive') startTimer(); else clearInterval(state.timerId);
 }
 function endGame(){
-  // save score (only for competitive)
   if(state.mode==='competitive'){
     saveScore({date:new Date().toLocaleDateString('pl-PL'), mode:state.mode, score:state.score, bestStreak:state.bestStreak});
     renderLeaderboard();
-    updateWordCounter();
-    
   }
-  // brief message: reuse placeholders green then back to start
   [...document.querySelectorAll('#placeholders .tile')].forEach(t=>t.classList.add('success'));
   setTimeout(()=>{
     $('#screenGame').classList.remove('active'); $('#screenStart').classList.add('active');
   }, 1000);
 }
 
-// ===== UI wiring =====
+// ===== UI =====
 document.getElementById('year').textContent=new Date().getFullYear();
 document.querySelectorAll('#screenStart .btn').forEach(b=>{
   const mode=b.getAttribute('data-mode'); if(mode){ b.addEventListener('click', ()=>startGame(mode)); }
@@ -408,26 +421,25 @@ document.getElementById('btnSkip').addEventListener('click', ()=>{
 });
 document.getElementById('btnSpeak').addEventListener('click', ()=>{ if(state.current) speak(state.current.word); });
 
-// Back: index.html if present, otherwise history.back
+// Back:
+// - jeśli jesteś w grze, wróć do ekranu trybów tej gry
+// - jeśli już na starcie, spróbuj index.html, inaczej historia wstecz
 document.getElementById('btnBack').addEventListener('click', ()=>{
   const inGame = document.getElementById('screenGame').classList.contains('active');
   if (inGame) {
-    // Go back to this game's start screen (mode selection), not the dashboard
     clearInterval(state.timerId);
     document.getElementById('screenGame').classList.remove('active');
     document.getElementById('screenStart').classList.add('active');
     return;
   }
-
-  // If already at the start screen, try dashboard (Android TWA may ignore this)
   fetch('index.html', {method:'HEAD'}).then(r=>{
     if(r.ok) location.href='index.html'; else history.back();
   }).catch(()=>history.back());
 });
 
-
-// Boot
+// Start
 renderLeaderboard();
+updateWordCounter();
 </script>
 </body>
 </html>
