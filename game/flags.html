@@ -41,11 +41,34 @@
   .flag{max-width:min(80vw,520px);width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);background:#0a0f1d}
   .hud{display:flex;gap:12px;align-items:center;font-weight:700} #hudTimer{color:var(--warning)} #hudScore{color:#34d399} #hudStreak{color:#93c5fd}
   #questionArea{display:flex;flex-direction:column;gap:12px;align-items:center}
-  .options{display:grid;grid-template-columns:repeat(2,minmax(160px,1fr));gap:12px;width:100%;max-width:640px}
-  .option{background:var(--option);border:2px solid var(--option-border);padding:12px;border-radius:12px;cursor:pointer;text-align:center;color:var(--text);font-weight:700}
-  .option:hover{outline:0; background:var(--option-hover)}
-  .option.correct{background:rgba(34,197,94,.25);border-color:rgba(34,197,94,.6);color:#ecfdf5}
-  .option.wrong{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.6);color:#fee2e2}
+  /* Bigger, kid-friendly MCQ layout */
+.options{
+  display:grid;
+  grid-template-columns:1fr;              /* single column on phones */
+  gap:16px;
+  width:100%;
+  max-width:640px;
+}
+@media (min-width:640px){
+  .options{ grid-template-columns:repeat(2,minmax(200px,1fr)); gap:18px; }
+}
+.option{
+  background:var(--option);
+  border:2px solid var(--option-border);
+  padding:18px 16px;                      /* larger touch target */
+  border-radius:14px;
+  cursor:pointer;
+  text-align:center;
+  color:var(--text);
+  font-weight:800;
+  font-size:1.15rem;                      /* bigger text */
+  line-height:1.3;
+  min-height:56px;                        /* ~48px+ recommended */
+}
+.option:hover{outline:0; background:var(--option-hover)}
+.option.correct{background:rgba(34,197,94,.25);border-color:rgba(34,197,94,.6);color:#ecfdf5}
+.option.wrong{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.6);color:#fee2e2}
+
   .input-wrap{display:flex;gap:8px;width:100%;max-width:640px}
   .input-wrap input{flex:1;padding:12px;border-radius:12px;border:2px solid var(--option-border);background:var(--option);color:var(--text)}
   .autocomplete{display:grid;gap:6px;width:100%;max-width:640px}
@@ -380,6 +403,11 @@ async function makeOfflinePack(){
   alert(t('offline_ready') || 'Offline pack ready!');
 }
 
+    // Recently shown flags memory to reduce repeats
+const RECENT_MAX = 8;
+let recentCodes = [];
+
+
   // --- Utils ---
   const $=s=>document.querySelector(s); const $$=s=>Array.from(document.querySelectorAll(s));
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a}
@@ -473,7 +501,27 @@ async function makeOfflinePack(){
     renderLeaderboard();
     setTimeout(()=>{ $('#screenGame').classList.remove('active'); $('#screenStart').classList.add('active'); }, 1500);
   }
-  function pickCountry(){ const pool=countriesByContinents(); return choice(pool); }
+  function pickCountry(){
+  const pool = countriesByContinents();
+  if(!pool.length) return choice(COUNTRIES);
+
+  let picked = null;
+  let attempts = 0;
+
+  do {
+    picked = choice(pool);
+    attempts++;
+  } while (
+    attempts < 25 &&
+    (
+      (state.current && picked.code === state.current.code) ||
+      recentCodes.includes(picked.code)
+    )
+  );
+
+  return picked || choice(pool);
+}
+
   function flagUrl(code){ return 'https://flagcdn.com/w640/'+code.toLowerCase()+'.png'; }
   function placeholderFlag(){
     const svg='<svg xmlns="https://www.w3.org/2000/svg" width="640" height="400"><rect width="640" height="400" fill="#0ea5e9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="42" fill="#0b1220">Flag unavailable offline</text></svg>';
@@ -481,6 +529,9 @@ async function makeOfflinePack(){
   }
   function nextQuestion(){
     state.current=pickCountry();
+    // remember current to reduce repeats
+    recentCodes.push(state.current.code);
+    if (recentCodes.length > RECENT_MAX) recentCodes.shift();
     const img=$('#flagImg');
     img.onerror=()=>{ img.onerror=null; img.src=placeholderFlag(); };
     img.src=flagUrl(state.current.code);
@@ -588,8 +639,9 @@ async function makeOfflinePack(){
     document.querySelectorAll('#screenStart .btn').forEach(btn=>{
       const m=btn.getAttribute('data-mode'); const v=btn.getAttribute('data-variant'); if(m&&v){ btn.addEventListener('click',()=>startGame(m,v)); }
     });
-    document.getElementById('btnBack').addEventListener('click',()=>{
-      clearInterval(state.timerId); document.getElementById('screenGame').classList.remove('active'); document.getElementById('screenStart').classList.add('active'); state.running=false;
+    document.getElementById('btnBack').addEventListener('click', ()=>{
+    // go back to dashboard
+    location.href = 'index.html';
     });
     document.getElementById('btnSkip').addEventListener('click', ()=> nextQuestion());
     document.getElementById('btnToggleHint').addEventListener('click', toggleHint);
