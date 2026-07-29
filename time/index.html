@@ -172,21 +172,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-us-west">US West</div>
+                        <div class="header-title" id="title-us-west" role="heading" aria-level="3">Pacific</div>
                         <small class="header-cities">Vancouver, Seattle, Los Angeles</small>
                     </header>
                     <div class="data-block" id="data-us-west" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-us-central">US Central</div>
+                        <div class="header-title" id="title-us-central" role="heading" aria-level="3">US Central</div>
                         <small class="header-cities">Chicago, Dallas</small>
                     </header>
                     <div class="data-block" id="data-us-central" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-us-east">US East</div>
+                        <div class="header-title" id="title-us-east" role="heading" aria-level="3">Eastern</div>
                         <small class="header-cities">Toronto, New York</small>
                     </header>
                     <div class="data-block" id="data-us-east" aria-live="off">Loading...</div>
@@ -199,21 +199,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-utc">UTC</div>
+                        <div class="header-title" id="title-utc" role="heading" aria-level="3">UTC</div>
                         <small class="header-cities">Universal Time</small>
                     </header>
                     <div class="data-block" id="data-utc" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-uk-ireland">UK / Ireland</div>
+                        <div class="header-title" id="title-uk-ireland" role="heading" aria-level="3">UK / Ireland</div>
                         <small class="header-cities">Dublin, London</small>
                     </header>
                     <div class="data-block" id="data-uk-ireland" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-eu-central">Central Europe</div>
+                        <div class="header-title" id="title-eu-central" role="heading" aria-level="3">Central Europe</div>
                         <small class="header-cities">Warsaw</small>
                     </header>
                     <div class="data-block" id="data-eu-central" aria-live="off">Loading...</div>
@@ -226,21 +226,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-india">INDIA</div>
+                        <div class="header-title" id="title-india" role="heading" aria-level="3">INDIA</div>
                         <small class="header-cities">New Delhi</small>
                     </header>
                     <div class="data-block" id="data-india" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-japan">JAPAN</div>
+                        <div class="header-title" id="title-japan" role="heading" aria-level="3">JAPAN</div>
                         <small class="header-cities">Tokyo</small>
                     </header>
                     <div class="data-block" id="data-japan" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-australia">AUSTRALIA</div>
+                        <div class="header-title" id="title-australia" role="heading" aria-level="3">AUSTRALIA</div>
                         <small class="header-cities">Melbourne, Sydney</small>
                     </header>
                     <div class="data-block" id="data-australia" aria-live="off">Loading...</div>
@@ -251,9 +251,9 @@
 
     <script>
         const clocksConfig = [
-            { id: 'us-west',    zone: 'America/Vancouver',   label: 'US West'      },
+            { id: 'us-west',    zone: 'America/Vancouver',   label: 'Pacific'      },
             { id: 'us-central', zone: 'America/Chicago',     label: 'US Central'   },
-            { id: 'us-east',    zone: 'America/Toronto',     label: 'US East'      },
+            { id: 'us-east',    zone: 'America/Toronto',     label: 'Eastern'      },
             { id: 'utc',        zone: 'UTC',                 label: 'UTC'          },
             { id: 'uk-ireland', zone: 'Europe/Dublin',       label: 'UK / Ireland' },
             { id: 'eu-central', zone: 'Europe/Warsaw',       label: 'Central Europe' },
@@ -442,7 +442,7 @@
                         <time>${timeString}</time>
                     </div>
                     <div class="info-line ${sClass}">
-                        <span role="img" aria-label="${modeText} indicator">${modeIcon}</span>
+                        <span role="img" aria-label="${modeText}">${modeIcon}</span>
                         <span>${modeText}</span>
                         <span class="divider" aria-hidden="true">|</span>
                         <span>${offset}</span>
