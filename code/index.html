@@ -3,7 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Snippet Cheatsheet</title>
+    <meta name="theme-color" content="#21252b">
+
+    <title>My Snippet Cheatsheet | bronowski.it</title>
+    <meta name="description" content="A personal cheatsheet of commands, configs, and code snippets — quickly searchable by keyword or tag.">
+    <link rel="canonical" href="https://bronowski.it/code/">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="My Snippet Cheatsheet | bronowski.it">
+    <meta property="og:description" content="A personal cheatsheet of commands, configs, and code snippets — quickly searchable by keyword or tag.">
+    <meta property="og:url"         content="https://bronowski.it/code/">
+    <meta property="og:site_name"   content="Mikey Bronowski - Blog">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:site"        content="@mikeybronowski">
+    <meta name="twitter:title"       content="My Snippet Cheatsheet | bronowski.it">
+    <meta name="twitter:description" content="A personal cheatsheet of commands, configs, and code snippets — quickly searchable by keyword or tag.">
+
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -13,14 +31,16 @@
 </header>
 
 <main>
-    <section id="search-wrapper">
-        <input id="search-input" type="text" placeholder="Search by keyword, tag, or text…">
-        <div id="meta">Type to filter snippets. Matching is case-insensitive.</div>
-        <div id="no-results">No snippets match your search.</div>
+    <section aria-label="Search snippets" role="search" id="search-wrapper">
+        <label for="search-input" class="sr-only">Search snippets</label>
+        <input id="search-input" type="text" placeholder="Search by keyword, tag, or text…"
+               aria-controls="snippets-list" autocomplete="off" spellcheck="false">
+        <div id="meta" aria-live="polite" aria-atomic="true">Type to filter snippets. Matching is case-insensitive.</div>
+        <div id="no-results" role="status">No snippets match your search.</div>
     </section>
 
     <!-- SNIPPETS -->
-    <section id="snippets-list">
+    <section id="snippets-list" aria-label="Code snippets">
 
         <!-- PowerShell example -->
         <article class="snippet"
@@ -30,8 +50,8 @@
             <div class="category">PowerShell</div>
             <h2>Get last reboot time on a remote server</h2>
             <pre>$cn = @('computerName1','computerName2')
-                $cn | Get-CimInstance Win32_OperatingSystem | Select-Object CSName, LastBootUpTime, LocalDateTime</pre>
-            <div class="tags">
+$cn | Get-CimInstance Win32_OperatingSystem | Select-Object CSName, LastBootUpTime, LocalDateTime</pre>
+            <div class="tags" role="group" aria-label="Tags">
                 <span>#powershell</span>
                 <span>#cim</span>
                 <span>#windows</span>
@@ -39,11 +59,11 @@
         </article>
 
     </section>
-
-    <footer>
-        Last updated: <span id="last-updated"></span>
-    </footer>
 </main>
+
+<footer>
+    Last updated: <span id="last-updated"></span>
+</footer>
 
 <script src="./script.js"></script>
 </body>
