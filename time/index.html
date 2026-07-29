@@ -213,10 +213,10 @@
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-eu-cet">EU</div>
+                        <div class="header-title" id="title-eu">EU</div>
                         <small class="header-cities">Warsaw</small>
                     </header>
-                    <div class="data-block" id="data-eu-cet" aria-live="off">Loading...</div>
+                    <div class="data-block" id="data-eu" aria-live="off">Loading...</div>
                 </div>
             </div>
         </section>
@@ -256,7 +256,7 @@
             { id: 'us-east',    zone: 'America/New_York',    label: 'US East'      },
             { id: 'utc',        zone: 'UTC',                 label: 'UTC'          },
             { id: 'uk-ireland', zone: 'Europe/London',       label: 'UK / Ireland' },
-            { id: 'eu-cet',     zone: 'Europe/Warsaw',       label: 'EU'           },
+            { id: 'eu',         zone: 'Europe/Warsaw',       label: 'EU'           },
             { id: 'india',      zone: 'Asia/Kolkata',        label: 'INDIA'        },
             { id: 'japan',      zone: 'Asia/Tokyo',          label: 'JAPAN'        },
             { id: 'australia',  zone: 'Australia/Sydney',    label: 'AUSTRALIA'    }
@@ -280,6 +280,7 @@
                 case 'Europe/London':       return isSummer ? 'BST'  : 'GMT';
                 case 'Europe/Warsaw':       return isSummer ? 'CEST' : 'CET';
                 case 'Asia/Kolkata':        return 'IST';
+                case 'Asia/Tokyo':          return 'JST';
                 case 'Australia/Sydney':    return isSummer ? 'AEDT' : 'AEST';
                 case 'UTC':                 return 'UTC';
                 default:                    return '';
@@ -420,8 +421,8 @@
                 const { acronym, offset, isSummer, observesDst } = c.meta;
                 const sClass   = isSummer ? 'text-summer'   : 'text-standard';
                 const modeText = observesDst
-                    ? (isSummer ? '☀️ Daylight' : '🌙 Base Time')
-                    : '⏱️ No DST';
+                    ? (isSummer ? '🔆 Daylight' : '🧊 Base Time')
+                    : '➖ No DST';
 
                 if (c.titleEl) {
                     c.titleEl.textContent = acronym ? `${c.label} (${acronym})` : c.label;
