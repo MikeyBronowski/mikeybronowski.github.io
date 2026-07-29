@@ -51,7 +51,7 @@
             <h2>Get last reboot time on a remote server</h2>
             <pre>$cn = @('computerName1','computerName2')
 $cn | Get-CimInstance Win32_OperatingSystem | Select-Object CSName, LastBootUpTime, LocalDateTime</pre>
-            <div class="tags" aria-label="Tags">
+            <div class="tags" role="group" aria-label="Tags">
                 <span>#powershell</span>
                 <span>#cim</span>
                 <span>#windows</span>

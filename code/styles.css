@@ -143,6 +143,7 @@ main {
 }
 
 .snippet .tags span {
+    /* inline-block ensures consistent margin/padding rendering across browsers */
     display: inline-block;
     background: #e7f0ff;
     border-radius: 999px;

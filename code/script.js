@@ -104,7 +104,14 @@
         try {
             document.execCommand('copy');
             callback();
-        } catch (e) { /* silent – copy unavailable */ }
+        } catch (e) {
+            // Show a brief error message when copy is unavailable
+            const errDiv = document.createElement('div');
+            errDiv.textContent = 'Copy unavailable — please select and copy manually.';
+            errDiv.style.cssText = 'position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:0.5rem 1rem;font-size:0.85rem;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,0.15)';
+            document.body.appendChild(errDiv);
+            setTimeout(function () { document.body.removeChild(errDiv); }, 3000);
+        }
         document.body.removeChild(ta);
     }
 
