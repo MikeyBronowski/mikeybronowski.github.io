@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clean Unified World Clock</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 24px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        .section {
+            width: 100%;
+            max-width: 900px;
+        }
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+        /* Grid container replaces rigid HTML tables */
+        .grid-card {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+        }
+        .column:last-child {
+            border-right: none;
+        }
+        .header-block {
+            background-color: #1e293b;
+            color: #f8fafc;
+            width: 100%;
+            padding: 12px 8px;
+            text-align: center;
+            box-sizing: border-box;
+            border-bottom: 3px solid #38bdf8;
+        }
+        .header-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .header-cities {
+            display: block;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-top: 2px;
+            font-size: 0.72rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            padding: 0 4px;
+        }
+        .data-block {
+            padding: 16px 4px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .time {
+            font-size: 1.7rem;
+            font-weight: 700;
+            font-family: monospace;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #0f172a;
+        }
+        /* Flattened single line format text */
+        .info-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        .text-summer { color: #16a34a; }
+        .text-standard { color: #64748b; }
+        .divider {
+            opacity: 0.3;
+            font-weight: 400;
+            color: #64748b;
+        }
+        .sun { color: #f59e0b; font-size: 1.4rem; }
+        .moon { color: #38bdf8; font-size: 1.4rem; }
+    </style>
+</head>
+<body>
+
+    <!-- BIT 1: AMERICAS -->
+    <div class="section">
+        <div class="section-title">The Americas</div>
+        <div class="grid-card" id="grid-americas"></div>
+    </div>
+
+    <!-- BIT 2: EUROPE, UK & UTC -->
+    <div class="section">
+        <div class="section-title">Europe & UTC</div>
+        <div class="grid-card" id="grid-europe"></div>
+    </div>
+
+    <!-- BIT 3: ASIA & AUSTRALIA -->
+    <div class="section">
+        <div class="section-title">Asia & Pacific</div>
+        <div class="grid-card" id="grid-asia"></div>
+    </div>
+
+    <script>
+        const clockGroups = {
+            americas: [
+                { id: "us-west", label: "US West", cities: "Los Angeles, Seattle, Vancouver", zone: "America/Los_Angeles" },
+                { id: "us-central", label: "US Central", cities: "Dallas, Chicago", zone: "America/Chicago" },
+                { id: "us-east", label: "US East", cities: "New York, Orlando", zone: "America/New_York" }
+            ],
+            europe: [
+                { id: "utc", label: "UTC", cities: "Universal Time", zone: "UTC" },
+                { id: "uk-ireland", label: "UK / Ireland", cities: "London, Dublin, Lisbon", zone: "Europe/London" },
+                { id: "eu-cet", label: "EU (CET)", cities: "Madrid, Rome, Warsaw", zone: "Europe/Warsaw" }
+            ],
+            asia: [
+                { id: "india", label: "INDIA", cities: "New Delhi, Mumbai, Kolkata", zone: "Asia/Kolkata" },
+                { id: "japan", label: "JAPAN", cities: "Tokyo, Osaka, Kyoto", zone: "Asia/Tokyo" },
+                { id: "australia", label: "AUSTRALIA", cities: "Sydney, Melbourne, Brisbane", zone: "Australia/Sydney" }
+            ]
+        };
+
+        function getTimezoneMetrics(zone) {
+            const now = new Date();
+            let shortName = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'short' }).formatToParts(now).find(p => p.type === 'timeZoneName').value;
+
+            if (zone === "Asia/Kolkata") shortName = "IST";
+            if (zone === "UTC") shortName = "UTC";
+
+            const longName = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'long' }).formatToParts(now).find(p => p.type === 'timeZoneName').value;
+            const tzString = now.toLocaleDateString('en-US', { timeZone: zone, timeZoneName: 'shortOffset' });
+            let offset = tzString.split(', ')[1] || 'UTC+0';
+            offset = offset.replace('GMT', 'UTC');
+
+            const isSummer = longName.includes("Daylight") || longName.includes("Summer");
+
+            return { acronym: shortName, offset: offset, isSummer: isSummer };
+        }
+
+        function initializeGrid() {
+            Object.keys(clockGroups).forEach(groupKey => {
+                const container = document.getElementById(`grid-${groupKey}`);
+                container.innerHTML = "";
+
+                clockGroups[groupKey].forEach(item => {
+                    const column = document.createElement("div");
+                    column.className = "column";
+
+                    column.innerHTML = `
+                        <div class="header-block">
+                            <div class="header-title">${item.label}</div>
+                            <small class="header-cities" title="${item.cities}">${item.cities}</small>
+                        </div>
+                        <div class="data-block" id="data-${item.id}"></div>
+                    `;
+                    container.appendChild(column);
+                });
+            });
+        }
+
+        function updateLiveValues() {
+            const now = new Date();
+
+            Object.keys(clockGroups).forEach(groupKey => {
+                clockGroups[groupKey].forEach(item => {
+                    const targetBlock = document.getElementById(`data-${item.id}`);
+                    if (!targetBlock) return;
+
+                    const hourStr = now.toLocaleTimeString("en-US", { timeZone: item.zone, hour12: false, hour: '2-digit' });
+                    const hour = parseInt(hourStr, 10);
+                    const isDay = hour >= 6 && hour < 18;
+                    const icon = isDay ? '<span class="sun">☀️</span>' : '<span class="moon">🌙</span>';
+
+                    const timeString = now.toLocaleTimeString("en-US", {
+                        timeZone: item.zone, hour: '2-digit', minute: '2-digit', hour12: false
+                    });
+
+                    const metrics = getTimezoneMetrics(item.zone);
+                    const styleClass = metrics.isSummer ? 'text-summer' : 'text-standard';
+                    const modeText = metrics.isSummer ? 'Summer' : 'Standard';
+
+                    targetBlock.innerHTML = `
+                        <div class="time">${icon} ${timeString}</div>
+                        <div class="info-line ${styleClass}">
+                            <span>${metrics.acronym}</span>
+                            <span class="divider">|</span>
+                            <span>${modeText}</span>
+                            <span class="divider">|</span>
+                            <span>${metrics.offset}</span>
+                        </div>
+                    `;
+                });
+            });
+        }
+
+        initializeGrid();
+        updateLiveValues();
+        setInterval(updateLiveValues, 1000);
+    </script>
+
+</body>
+</html>
