@@ -359,6 +359,8 @@
             if (knownAcronym) {
                 acronym = knownAcronym;
             } else if (/^GMT[+-]/.test(acronym)) {
+                // Hide generic GMT+/- labels because the UTC offset is already
+                // shown separately in the info line.
                 acronym = '';
             }
 
@@ -421,7 +423,7 @@
                 const { acronym, offset, isSummer, observesDst } = c.meta;
                 const sClass   = isSummer ? 'text-summer'   : 'text-standard';
                 const modeText = observesDst
-                    ? (isSummer ? '🔆 Daylight' : '🧊 Base Time')
+                    ? (isSummer ? '🔆 Daylight' : '❄️ Standard')
                     : '➖ No DST';
 
                 if (c.titleEl) {
