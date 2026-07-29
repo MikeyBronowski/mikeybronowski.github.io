@@ -173,7 +173,7 @@
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title" id="title-us-west">US West</div>
-                        <small class="header-cities">Los Angeles, Vancouver, Seattle</small>
+                        <small class="header-cities">Vancouver, Seattle, Los Angeles</small>
                     </header>
                     <div class="data-block" id="data-us-west" aria-live="off">Loading...</div>
                 </div>
@@ -187,7 +187,7 @@
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title" id="title-us-east">US East</div>
-                        <small class="header-cities">New York, Toronto</small>
+                        <small class="header-cities">Toronto, New York</small>
                     </header>
                     <div class="data-block" id="data-us-east" aria-live="off">Loading...</div>
                 </div>
@@ -207,7 +207,7 @@
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title" id="title-uk-ireland">UK / Ireland</div>
-                        <small class="header-cities">London, Dublin</small>
+                        <small class="header-cities">Dublin, London</small>
                     </header>
                     <div class="data-block" id="data-uk-ireland" aria-live="off">Loading...</div>
                 </div>
@@ -241,7 +241,7 @@
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title" id="title-australia">AUSTRALIA</div>
-                        <small class="header-cities">Sydney, Melbourne</small>
+                        <small class="header-cities">Melbourne, Sydney</small>
                     </header>
                     <div class="data-block" id="data-australia" aria-live="off">Loading...</div>
                 </div>
@@ -251,15 +251,15 @@
 
     <script>
         const clocksConfig = [
-            { id: 'us-west',    zone: 'America/Los_Angeles', label: 'US West'      },
+            { id: 'us-west',    zone: 'America/Vancouver',   label: 'US West'      },
             { id: 'us-central', zone: 'America/Chicago',     label: 'US Central'   },
-            { id: 'us-east',    zone: 'America/New_York',    label: 'US East'      },
+            { id: 'us-east',    zone: 'America/Toronto',     label: 'US East'      },
             { id: 'utc',        zone: 'UTC',                 label: 'UTC'          },
-            { id: 'uk-ireland', zone: 'Europe/London',       label: 'UK / Ireland' },
+            { id: 'uk-ireland', zone: 'Europe/Dublin',       label: 'UK / Ireland' },
             { id: 'eu-central', zone: 'Europe/Warsaw',       label: 'Central Europe' },
             { id: 'india',      zone: 'Asia/Kolkata',        label: 'INDIA'        },
             { id: 'japan',      zone: 'Asia/Tokyo',          label: 'JAPAN'        },
-            { id: 'australia',  zone: 'Australia/Sydney',    label: 'AUSTRALIA'    }
+            { id: 'australia',  zone: 'Australia/Melbourne', label: 'AUSTRALIA'    }
         ];
 
         const MINS_PER_HOUR  = 60;
@@ -274,14 +274,18 @@
 
         function getKnownAcronym(zone, isSummer) {
             switch (zone) {
-                case 'America/Los_Angeles': return isSummer ? 'PDT'  : 'PST';
+                case 'America/Los_Angeles':
+                case 'America/Vancouver':   return isSummer ? 'PDT'  : 'PST';
                 case 'America/Chicago':     return isSummer ? 'CDT'  : 'CST';
-                case 'America/New_York':    return isSummer ? 'EDT'  : 'EST';
-                case 'Europe/London':       return isSummer ? 'BST'  : 'GMT';
+                case 'America/New_York':
+                case 'America/Toronto':     return isSummer ? 'EDT'  : 'EST';
+                case 'Europe/London':
+                case 'Europe/Dublin':       return isSummer ? 'BST'  : 'GMT';
                 case 'Europe/Warsaw':       return isSummer ? 'CEST' : 'CET';
                 case 'Asia/Kolkata':        return 'IST';
                 case 'Asia/Tokyo':          return 'JST';
-                case 'Australia/Sydney':    return isSummer ? 'AEDT' : 'AEST';
+                case 'Australia/Sydney':
+                case 'Australia/Melbourne': return isSummer ? 'AEDT' : 'AEST';
                 case 'UTC':                 return 'UTC';
                 default:                    return '';
             }
@@ -438,7 +442,7 @@
                         <time>${timeString}</time>
                     </div>
                     <div class="info-line ${sClass}">
-                        <span aria-hidden="true">${modeIcon}</span>
+                        <span role="img" aria-label="${modeText} indicator">${modeIcon}</span>
                         <span>${modeText}</span>
                         <span class="divider" aria-hidden="true">|</span>
                         <span>${offset}</span>
