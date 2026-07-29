@@ -213,10 +213,10 @@
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-eu">EU</div>
+                        <div class="header-title" id="title-eu-cet">Central Europe</div>
                         <small class="header-cities">Warsaw</small>
                     </header>
-                    <div class="data-block" id="data-eu" aria-live="off">Loading...</div>
+                    <div class="data-block" id="data-eu-cet" aria-live="off">Loading...</div>
                 </div>
             </div>
         </section>
@@ -256,7 +256,7 @@
             { id: 'us-east',    zone: 'America/New_York',    label: 'US East'      },
             { id: 'utc',        zone: 'UTC',                 label: 'UTC'          },
             { id: 'uk-ireland', zone: 'Europe/London',       label: 'UK / Ireland' },
-            { id: 'eu',         zone: 'Europe/Warsaw',       label: 'EU'           },
+            { id: 'eu-cet',     zone: 'Europe/Warsaw',       label: 'Central Europe' },
             { id: 'india',      zone: 'Asia/Kolkata',        label: 'INDIA'        },
             { id: 'japan',      zone: 'Asia/Tokyo',          label: 'JAPAN'        },
             { id: 'australia',  zone: 'Australia/Sydney',    label: 'AUSTRALIA'    }
@@ -422,9 +422,8 @@
 
                 const { acronym, offset, isSummer, observesDst } = c.meta;
                 const sClass   = isSummer ? 'text-summer'   : 'text-standard';
-                const modeText = observesDst
-                    ? (isSummer ? '🔆 Daylight' : '❄️ Standard')
-                    : '➖ No DST';
+                const modeIcon = observesDst ? (isSummer ? '🔆' : '❄️') : '➖';
+                const modeText = observesDst ? (isSummer ? 'Daylight' : 'Standard') : 'No DST';
 
                 if (c.titleEl) {
                     c.titleEl.textContent = acronym ? `${c.label} (${acronym})` : c.label;
@@ -439,6 +438,7 @@
                         <time>${timeString}</time>
                     </div>
                     <div class="info-line ${sClass}">
+                        <span aria-hidden="true">${modeIcon}</span>
                         <span>${modeText}</span>
                         <span class="divider" aria-hidden="true">|</span>
                         <span>${offset}</span>
