@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Snippet Cheatsheet</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header>
+    <h1>My Snippet Cheatsheet</h1>
+    <p>Quick reference for commands, configs, and notes I keep looking up.</p>
+</header>
+
+<main>
+    <section id="search-wrapper">
+        <input id="search-input" type="text" placeholder="Search by keyword, tag, or text…">
+        <div id="meta">Type to filter snippets. Matching is case-insensitive.</div>
+        <div id="no-results">No snippets match your search.</div>
+    </section>
+
+    <!-- SNIPPETS -->
+    <section id="snippets-list">
+
+        <!-- PowerShell example -->
+        <article class="snippet"
+                 data-category="PowerShell"
+                 data-tags="powershell cim os windows"
+                 data-text="powershell get-ciminstance win32_operatingsystem">
+            <div class="category">PowerShell</div>
+            <h2>Get Windows operating system info</h2>
+            <pre>$cn | Get-CimInstance Win32_OperatingSystem</pre>
+            <div class="tags">
+                <span>#powershell</span>
+                <span>#cim</span>
+                <span>#windows</span>
+            </div>
+        </article>
+
+    </section>
+
+    <footer>
+        Last updated: <span id="last-updated"></span>
+    </footer>
+</main>
+
+<script src="./script.js"></script>
+</body>
+</html>
