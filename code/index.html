@@ -28,8 +28,9 @@
                  data-tags="powershell cim os windows"
                  data-text="powershell get-ciminstance win32_operatingsystem">
             <div class="category">PowerShell</div>
-            <h2>Get Windows operating system info</h2>
-            <pre>$cn | Get-CimInstance Win32_OperatingSystem</pre>
+            <h2>Get last reboot time on a remote server</h2>
+            <pre>$cn = @('computerName1','computerName2')
+                $cn | Get-CimInstance Win32_OperatingSystem | Select-Object CSName, LastBootUpTime, LocalDateTime</pre>
             <div class="tags">
                 <span>#powershell</span>
                 <span>#cim</span>
