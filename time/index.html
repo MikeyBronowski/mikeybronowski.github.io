@@ -95,6 +95,7 @@
             font-size: 0.9rem;
             font-weight: 700;
             letter-spacing: 0.3px;
+            margin: 0;
         }
         .header-cities {
             display: block;
@@ -172,21 +173,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-us-west" role="heading" aria-level="3">Pacific</div>
+                        <h3 class="header-title" id="title-us-west">Pacific</h3>
                         <small class="header-cities">Vancouver, Seattle, Los Angeles</small>
                     </header>
                     <div class="data-block" id="data-us-west" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-us-central" role="heading" aria-level="3">US Central</div>
+                        <h3 class="header-title" id="title-us-central">US Central</h3>
                         <small class="header-cities">Chicago, Dallas</small>
                     </header>
                     <div class="data-block" id="data-us-central" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-us-east" role="heading" aria-level="3">Eastern</div>
+                        <h3 class="header-title" id="title-us-east">Eastern</h3>
                         <small class="header-cities">Toronto, New York</small>
                     </header>
                     <div class="data-block" id="data-us-east" aria-live="off">Loading...</div>
@@ -199,21 +200,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-utc" role="heading" aria-level="3">UTC</div>
+                        <h3 class="header-title" id="title-utc">UTC</h3>
                         <small class="header-cities">Universal Time</small>
                     </header>
                     <div class="data-block" id="data-utc" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-uk-ireland" role="heading" aria-level="3">UK / Ireland</div>
+                        <h3 class="header-title" id="title-uk-ireland">UK / Ireland</h3>
                         <small class="header-cities">Dublin, London</small>
                     </header>
                     <div class="data-block" id="data-uk-ireland" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-eu-central" role="heading" aria-level="3">Central Europe</div>
+                        <h3 class="header-title" id="title-eu-central">Central Europe</h3>
                         <small class="header-cities">Warsaw</small>
                     </header>
                     <div class="data-block" id="data-eu-central" aria-live="off">Loading...</div>
@@ -226,21 +227,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-india" role="heading" aria-level="3">INDIA</div>
+                        <h3 class="header-title" id="title-india">INDIA</h3>
                         <small class="header-cities">New Delhi</small>
                     </header>
                     <div class="data-block" id="data-india" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-japan" role="heading" aria-level="3">JAPAN</div>
+                        <h3 class="header-title" id="title-japan">JAPAN</h3>
                         <small class="header-cities">Tokyo</small>
                     </header>
                     <div class="data-block" id="data-japan" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title" id="title-australia" role="heading" aria-level="3">AUSTRALIA</div>
+                        <h3 class="header-title" id="title-australia">AUSTRALIA</h3>
                         <small class="header-cities">Melbourne, Sydney</small>
                     </header>
                     <div class="data-block" id="data-australia" aria-live="off">Loading...</div>
@@ -275,9 +276,11 @@
         function getKnownAcronym(zone, isSummer) {
             switch (zone) {
                 case 'America/Los_Angeles':
+                // Pacific time zones share the same DST abbreviations.
                 case 'America/Vancouver':   return isSummer ? 'PDT'  : 'PST';
                 case 'America/Chicago':     return isSummer ? 'CDT'  : 'CST';
                 case 'America/New_York':
+                // Eastern time zones share the same DST abbreviations.
                 case 'America/Toronto':     return isSummer ? 'EDT'  : 'EST';
                 case 'Europe/London':       return isSummer ? 'BST'  : 'GMT';
                 case 'Europe/Dublin':       return isSummer ? 'IST'  : 'GMT';
@@ -285,6 +288,7 @@
                 case 'Asia/Kolkata':        return 'IST';
                 case 'Asia/Tokyo':          return 'JST';
                 case 'Australia/Sydney':
+                // Australia east-coast cities share the same DST abbreviations.
                 case 'Australia/Melbourne': return isSummer ? 'AEDT' : 'AEST';
                 case 'UTC':                 return 'UTC';
                 default:                    return '';
