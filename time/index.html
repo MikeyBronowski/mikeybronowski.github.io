@@ -3,7 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live World Clock Tracker</title>
+    <meta name="theme-color" content="#0f172a">
+
+    <title>Live World Clock | bronowski.it</title>
+    <meta name="description" content="A live world clock tracking current times across The Americas, Europe, UTC, and Asia-Pacific. Updates every second.">
+    <link rel="canonical" href="https://bronowski.it/time/">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Live World Clock | bronowski.it">
+    <meta property="og:description" content="A live world clock tracking current times across The Americas, Europe, UTC, and Asia-Pacific.">
+    <meta property="og:url"         content="https://bronowski.it/time/">
+    <meta property="og:site_name"   content="Mikey Bronowski - Blog">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:site"        content="@mikeybronowski">
+    <meta name="twitter:title"       content="Live World Clock | bronowski.it">
+    <meta name="twitter:description" content="A live world clock tracking current times across The Americas, Europe, UTC, and Asia-Pacific.">
+
     <style>
         body {
             font-family: -apple-system, sans-serif;
@@ -22,6 +40,21 @@
             flex-direction: column;
             gap: 24px;
         }
+        .page-heading {
+            text-align: center;
+            margin: 0 0 8px;
+        }
+        .page-heading h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 4px;
+        }
+        .page-heading p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin: 0;
+        }
         .section-title {
             font-size: 0.85rem;
             font-weight: 700;
@@ -33,7 +66,7 @@
         }
         .grid-card {
             display: grid;
-            /* Default: 3 columns for desktop screens */
+            /* 3 columns on desktop; collapses to 1 via media query below */
             grid-template-columns: repeat(3, 1fr);
             background: white;
             border-radius: 12px;
@@ -103,32 +136,19 @@
             letter-spacing: 0.2px;
             white-space: nowrap;
         }
-        .text-summer { color: #166534; }
+        .text-summer  { color: #166534; }
         .text-standard { color: #475569; }
         .divider { opacity: 0.4; font-weight: 400; color: #475569; }
-        .sun { color: #b45309; font-size: 1.4rem; }
+        .sun  { color: #b45309; font-size: 1.4rem; }
         .moon { color: #0284c7; font-size: 1.4rem; }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
 
-        /* RESPONSIVE RESPONSIVENESS FIX FOR NARROW WINDOWS */
+        /* Collapse to single-column stack on narrow screens */
         @media (max-width: 768px) {
             .grid-card {
-                /* Collapse grid into 1 single column stack on smaller widths */
                 grid-template-columns: 1fr;
             }
             .column {
-                /* Remove vertical dividing line since rows stack vertically */
                 border-right: none;
-                /* Add a bottom boundary line between stacked regions instead */
                 border-bottom: 1px solid #cbd5e1;
             }
             .column:last-child {
@@ -141,181 +161,266 @@
     </style>
 </head>
 <body>
-    <h1 class="sr-only">International Dashboard Clocks</h1>
     <main>
-        <section aria-label="The Americas Regions">
-            <h2 class="section-title">The Americas</h2>
+        <header class="page-heading">
+            <h1>Live World Clock</h1>
+            <p>Current times across major regions &mdash; updates every second.</p>
+        </header>
+
+        <section aria-labelledby="section-americas">
+            <h2 id="section-americas" class="section-title">The Americas</h2>
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">US West</div>
                         <small class="header-cities">Los Angeles</small>
                     </header>
-                    <div class="data-block" id="data-us-west" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-us-west" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">US Central</div>
                         <small class="header-cities">Chicago</small>
                     </header>
-                    <div class="data-block" id="data-us-central" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-us-central" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">US East</div>
                         <small class="header-cities">New York</small>
                     </header>
-                    <div class="data-block" id="data-us-east" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-us-east" aria-live="off">Loading...</div>
                 </div>
             </div>
         </section>
-        <section aria-label="Europe and UTC">
-            <h2 class="section-title">Europe & UTC</h2>
+
+        <section aria-labelledby="section-europe">
+            <h2 id="section-europe" class="section-title">Europe &amp; UTC</h2>
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">UTC</div>
                         <small class="header-cities">Universal Time</small>
                     </header>
-                    <div class="data-block" id="data-utc" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-utc" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">UK / Ireland</div>
                         <small class="header-cities">London</small>
                     </header>
-                    <div class="data-block" id="data-uk-ireland" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-uk-ireland" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">EU (CET)</div>
                         <small class="header-cities">Warsaw</small>
                     </header>
-                    <div class="data-block" id="data-eu-cet" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-eu-cet" aria-live="off">Loading...</div>
                 </div>
             </div>
         </section>
-        <section aria-label="Asia and Pacific">
-            <h2 class="section-title">Asia & Pacific</h2>
+
+        <section aria-labelledby="section-asia">
+            <h2 id="section-asia" class="section-title">Asia &amp; Pacific</h2>
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">INDIA</div>
                         <small class="header-cities">New Delhi</small>
                     </header>
-                    <div class="data-block" id="data-india" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-india" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">JAPAN</div>
                         <small class="header-cities">Tokyo</small>
                     </header>
-                    <div class="data-block" id="data-japan" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-japan" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
                         <div class="header-title">AUSTRALIA</div>
                         <small class="header-cities">Sydney</small>
                     </header>
-                    <div class="data-block" id="data-australia" aria-live="polite">Loading...</div>
+                    <div class="data-block" id="data-australia" aria-live="off">Loading...</div>
                 </div>
             </div>
         </section>
     </main>
 
     <script>
-        const clocksData = [
-            { id: "us-west", zone: "America/Los_Angeles" },
-            { id: "us-central", zone: "America/Chicago" },
-            { id: "us-east", zone: "America/New_York" },
-            { id: "utc", zone: "UTC" },
-            { id: "uk-ireland", zone: "Europe/London" },
-            { id: "eu-cet", zone: "Europe/Warsaw" },
-            { id: "india", zone: "Asia/Kolkata" },
-            { id: "japan", zone: "Asia/Tokyo" },
-            { id: "australia", zone: "Australia/Sydney" }
+        const clocksConfig = [
+            { id: 'us-west',    zone: 'America/Los_Angeles' },
+            { id: 'us-central', zone: 'America/Chicago'     },
+            { id: 'us-east',    zone: 'America/New_York'    },
+            { id: 'utc',        zone: 'UTC'                 },
+            { id: 'uk-ireland', zone: 'Europe/London'       },
+            { id: 'eu-cet',     zone: 'Europe/Warsaw'       },
+            { id: 'india',      zone: 'Asia/Kolkata'        },
+            { id: 'japan',      zone: 'Asia/Tokyo'          },
+            { id: 'australia',  zone: 'Australia/Sydney'    }
         ];
 
-        function getTimezoneMetrics(zone) {
-            const now = new Date();
-            let shortName = "UTC";
-            
-            if (zone !== "UTC") {
-                const fmt = new Intl.DateTimeFormat('en-US', {
-                    timeZone: zone, timeZoneName: 'short'
-                });
-                const p = fmt.formatToParts(now);
-                const match = p.find(x => x.type === 'timeZoneName');
-                shortName = match ? match.value : "TZ";
-            }
-            if (zone === "Asia/Kolkata") shortName = "IST";
+        const MINS_PER_HOUR  = 60;
+        const MS_PER_SECOND  = 1000;
+        const MIN_TICK_DELAY = 100;  // floor for setTimeout delay (ms): prevents near-zero
+                                     // values when Date.now() % MS_PER_SECOND approaches 0
+                                     // just after a second boundary
+        // Day 15 of January and July: safely within each month and away from
+        // Northern Hemisphere DST transitions (March/April, Oct/Nov) and
+        // Southern Hemisphere transitions (Sept/Oct, March/April).
+        const DST_SAMPLE_DAY = 15;
 
-            let isSummer = false;
-            if (zone !== "UTC") {
-                const fmtLong = new Intl.DateTimeFormat('en-US', {
-                    timeZone: zone, timeZoneName: 'long'
-                });
-                const pLong = fmtLong.formatToParts(now);
-                const matchLong = pLong.find(x => x.type === 'timeZoneName');
-                const name = matchLong ? matchLong.value : "";
-                isSummer = name.includes("Daylight") || name.includes("Summer");
-            }
-
-            const fmtOff = new Intl.DateTimeFormat('en-US', {
-                timeZone: zone, timeZoneName: 'shortOffset'
-            });
-            const pOff = fmtOff.formatToParts(now);
-            const matchOff = pOff.find(x => x.type === 'timeZoneName');
-            
-            let offset = matchOff ? matchOff.value : "GMT";
-            offset = offset.replace('GMT', 'UTC');
-            if (offset === "UTC") offset = "UTC+0";
-
-            return { acronym: shortName, offset: offset, isSummer: isSummer };
+        // Parse the UTC offset (in minutes) for a given zone and moment using
+        // Intl.DateTimeFormat instead of locale-string heuristics.
+        function getOffsetMinutes(zone, date) {
+            try {
+                const fmt  = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' });
+                const part = fmt.formatToParts(date).find(p => p.type === 'timeZoneName');
+                if (!part) return 0;
+                // shortOffset values are 'GMT' (UTC+0), 'GMT±H', 'GMT±HH', or 'GMT±HH:MM'.
+                // Most ICU builds zero-pad the hour ('GMT+05:30'), but single-digit
+                // forms ('GMT+5') are also handled by the `\d+` quantifier.
+                // Plain 'GMT' (no sign/digits) means UTC+0; the regex won't match it
+                // and the `if (!m)` guard below returns 0 correctly.
+                const m = part.value.match(/GMT([+-])(\d+)(?::(\d+))?/);
+                if (!m) return 0;
+                return (m[1] === '+' ? 1 : -1) * (parseInt(m[2], 10) * MINS_PER_HOUR + (m[3] ? parseInt(m[3], 10) : 0));
+            } catch (e) { return 0; }
         }
 
-        function updateLiveValues() {
+        // Compute the display metadata for a zone: acronym, UTC offset string,
+        // and whether DST (Summer Time) is currently active.
+        // DST is detected by comparing the current UTC offset against the minimum
+        // (standard-time) offset of the year.  Standard time has the smaller UTC
+        // offset in both hemispheres: Northern Hemisphere standard = winter (lower
+        // offset), Southern Hemisphere standard = winter too (lower offset relative
+        // to their DST summer).  'current > min(jan, jul)' is therefore universally
+        // correct for any IANA timezone that observes DST.
+        // Limitation: zones with irregular DST rules (multiple transitions per year
+        // or reverse-DST conventions) are treated as standard time.
+        function computeZoneMeta(zone, now) {
+            let acronym  = 'UTC';
+            let offset   = 'UTC+0';
+            let isSummer = false;
+
+            if (zone !== 'UTC') {
+                try {
+                    const fmt  = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'short' });
+                    const part = fmt.formatToParts(now).find(p => p.type === 'timeZoneName');
+                    acronym = part ? part.value : 'TZ';
+                } catch (e) {}
+                // Unconditional override: some ICU builds return 'GMT+5:30' rather than
+                // 'IST' for this zone.  Always use the widely-recognised abbreviation.
+                if (zone === 'Asia/Kolkata') acronym = 'IST';
+            }
+
+            try {
+                const fmt  = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' });
+                const part = fmt.formatToParts(now).find(p => p.type === 'timeZoneName');
+                offset = part ? part.value.replace('GMT', 'UTC') : 'UTC+0';
+                if (offset === 'UTC') offset = 'UTC+0';
+            } catch (e) {}
+
+            if (zone !== 'UTC') {
+                try {
+                    const jan    = new Date(now.getFullYear(), 0, DST_SAMPLE_DAY);
+                    const jul    = new Date(now.getFullYear(), 6, DST_SAMPLE_DAY);
+                    const janOff = getOffsetMinutes(zone, jan);
+                    const julOff = getOffsetMinutes(zone, jul);
+                    const curOff = getOffsetMinutes(zone, now);
+                    // Standard time = the smaller of the two representative offsets.
+                    // DST/Summer Time is active when the current offset exceeds that minimum.
+                    if (janOff !== julOff) {
+                        isSummer = curOff > Math.min(janOff, julOff);
+                    }
+                } catch (e) {}
+            }
+
+            return { acronym, offset, isSummer };
+        }
+
+        // Build per-clock objects with:
+        //   • Intl.DateTimeFormat instances created ONCE and reused every tick
+        //   • cached DOM element reference
+        //   • initial zone metadata
+        const initNow = new Date();
+        const clocks  = clocksConfig.map(({ id, zone }) => {
+            const timeOpts = { hour: '2-digit', minute: '2-digit', hour12: false };
+            let timeFmt, hourFmt;
+            try {
+                timeFmt = new Intl.DateTimeFormat('en-US', { timeZone: zone, ...timeOpts });
+                hourFmt = new Intl.DateTimeFormat('en-US', { timeZone: zone, hour: 'numeric', hour12: false });
+            } catch (e) {
+                // Fallback: if the zone identifier is unsupported, use local time
+                timeFmt = new Intl.DateTimeFormat('en-US', timeOpts);
+                hourFmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', hour12: false });
+            }
+            return {
+                zone,
+                timeFmt,
+                hourFmt,
+                el:            document.getElementById(`data-${id}`),
+                meta:          computeZoneMeta(zone, initNow),
+                lastOffsetMin: getOffsetMinutes(zone, initNow)
+            };
+        });
+
+        function tick() {
             const now = new Date();
 
-            clocksData.forEach(item => {
-                const block = document.getElementById(`data-${item.id}`);
-                if (!block) return;
+            clocks.forEach(c => {
+                if (!c.el) return;
 
-                const hStr = now.toLocaleTimeString("en-US", {
-                    timeZone: item.zone, hour12: false, hour: '2-digit'
-                });
-                const hour = parseInt(hStr, 10);
+                // Lazily refresh metadata only when the UTC offset changes
+                // (i.e., at a DST transition) to keep per-tick CPU work minimal.
+                const curOff = getOffsetMinutes(c.zone, now);
+                if (curOff !== c.lastOffsetMin) {
+                    c.meta          = computeZoneMeta(c.zone, now);
+                    c.lastOffsetMin = curOff;
+                }
+
+                let timeString = '--:--';
+                try { timeString = c.timeFmt.format(now); } catch (e) {}
+
+                let hour = 12;
+                try { hour = parseInt(c.hourFmt.format(now), 10); } catch (e) {}
                 const isDay = hour >= 6 && hour < 18;
-                
-                const emoji = isDay ? '☀️' : '🌙';
-                const emojiClass = isDay ? 'sun' : 'moon';
 
-                const timeString = now.toLocaleTimeString("en-US", {
-                    timeZone: item.zone, hour: '2-digit', minute: '2-digit', hour12: false
-                });
+                const emoji      = isDay ? '☀️' : '🌙';
+                const emojiClass = isDay ? 'sun'      : 'moon';
 
-                const m = getTimezoneMetrics(item.zone);
-                const sClass = m.isSummer ? 'text-summer' : 'text-standard';
-                const modeText = m.isSummer ? 'Summer Time' : 'Standard Time';
+                const { acronym, offset, isSummer } = c.meta;
+                const sClass   = isSummer ? 'text-summer'   : 'text-standard';
+                const modeText = isSummer ? 'Summer Time' : 'Standard Time';
 
-                block.innerHTML = `
+                // aria-live="off" is set explicitly on .data-block in the HTML to signal
+                // intent: continuous per-second updates should not auto-announce to
+                // screen readers.  The content remains readable on demand via navigation.
+                c.el.innerHTML = `
                     <div class="time">
                         <span class="${emojiClass}" aria-hidden="true">${emoji}</span>
                         <time>${timeString}</time>
                     </div>
                     <div class="info-line ${sClass}">
-                        <span>${m.acronym}</span>
+                        <span>${acronym}</span>
                         <span class="divider" aria-hidden="true">|</span>
                         <span>${modeText}</span>
                         <span class="divider" aria-hidden="true">|</span>
-                        <span>${m.offset}</span>
-                    </div>
-                `;
+                        <span>${offset}</span>
+                    </div>`;
             });
         }
 
-        updateLiveValues();
-        setInterval(updateLiveValues, 1000);
+        // Drift-resistant scheduling: align each tick to the next whole-second
+        // boundary so the displayed time stays in sync with the system clock.
+        function scheduleTick() {
+            tick();
+            setTimeout(scheduleTick, Math.max(MIN_TICK_DELAY, MS_PER_SECOND - (Date.now() % MS_PER_SECOND)));
+        }
+
+        scheduleTick();
     </script>
 </body>
 </html>
