@@ -172,22 +172,22 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">US West</div>
-                        <small class="header-cities">Los Angeles</small>
+                        <div class="header-title" id="title-us-west">US West</div>
+                        <small class="header-cities">Los Angeles, Vancouver, Seattle</small>
                     </header>
                     <div class="data-block" id="data-us-west" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">US Central</div>
-                        <small class="header-cities">Chicago</small>
+                        <div class="header-title" id="title-us-central">US Central</div>
+                        <small class="header-cities">Chicago, Dallas</small>
                     </header>
                     <div class="data-block" id="data-us-central" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">US East</div>
-                        <small class="header-cities">New York</small>
+                        <div class="header-title" id="title-us-east">US East</div>
+                        <small class="header-cities">New York, Toronto</small>
                     </header>
                     <div class="data-block" id="data-us-east" aria-live="off">Loading...</div>
                 </div>
@@ -199,21 +199,21 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">UTC</div>
+                        <div class="header-title" id="title-utc">UTC</div>
                         <small class="header-cities">Universal Time</small>
                     </header>
                     <div class="data-block" id="data-utc" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">UK / Ireland</div>
-                        <small class="header-cities">London</small>
+                        <div class="header-title" id="title-uk-ireland">UK / Ireland</div>
+                        <small class="header-cities">London, Dublin</small>
                     </header>
                     <div class="data-block" id="data-uk-ireland" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">EU (CET)</div>
+                        <div class="header-title" id="title-eu-cet">EU</div>
                         <small class="header-cities">Warsaw</small>
                     </header>
                     <div class="data-block" id="data-eu-cet" aria-live="off">Loading...</div>
@@ -226,22 +226,22 @@
             <div class="grid-card">
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">INDIA</div>
+                        <div class="header-title" id="title-india">INDIA</div>
                         <small class="header-cities">New Delhi</small>
                     </header>
                     <div class="data-block" id="data-india" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">JAPAN</div>
+                        <div class="header-title" id="title-japan">JAPAN</div>
                         <small class="header-cities">Tokyo</small>
                     </header>
                     <div class="data-block" id="data-japan" aria-live="off">Loading...</div>
                 </div>
                 <div class="column">
                     <header class="header-block">
-                        <div class="header-title">AUSTRALIA</div>
-                        <small class="header-cities">Sydney</small>
+                        <div class="header-title" id="title-australia">AUSTRALIA</div>
+                        <small class="header-cities">Sydney, Melbourne</small>
                     </header>
                     <div class="data-block" id="data-australia" aria-live="off">Loading...</div>
                 </div>
@@ -251,15 +251,15 @@
 
     <script>
         const clocksConfig = [
-            { id: 'us-west',    zone: 'America/Los_Angeles' },
-            { id: 'us-central', zone: 'America/Chicago'     },
-            { id: 'us-east',    zone: 'America/New_York'    },
-            { id: 'utc',        zone: 'UTC'                 },
-            { id: 'uk-ireland', zone: 'Europe/London'       },
-            { id: 'eu-cet',     zone: 'Europe/Warsaw'       },
-            { id: 'india',      zone: 'Asia/Kolkata'        },
-            { id: 'japan',      zone: 'Asia/Tokyo'          },
-            { id: 'australia',  zone: 'Australia/Sydney'    }
+            { id: 'us-west',    zone: 'America/Los_Angeles', label: 'US West'      },
+            { id: 'us-central', zone: 'America/Chicago',     label: 'US Central'   },
+            { id: 'us-east',    zone: 'America/New_York',    label: 'US East'      },
+            { id: 'utc',        zone: 'UTC',                 label: 'UTC'          },
+            { id: 'uk-ireland', zone: 'Europe/London',       label: 'UK / Ireland' },
+            { id: 'eu-cet',     zone: 'Europe/Warsaw',       label: 'EU'           },
+            { id: 'india',      zone: 'Asia/Kolkata',        label: 'INDIA'        },
+            { id: 'japan',      zone: 'Asia/Tokyo',          label: 'JAPAN'        },
+            { id: 'australia',  zone: 'Australia/Sydney',    label: 'AUSTRALIA'    }
         ];
 
         const MINS_PER_HOUR  = 60;
@@ -271,6 +271,20 @@
         // Northern Hemisphere DST transitions (March/April, Oct/Nov) and
         // Southern Hemisphere transitions (Sept/Oct, March/April).
         const DST_SAMPLE_DAY = 15;
+
+        function getKnownAcronym(zone, isSummer) {
+            switch (zone) {
+                case 'America/Los_Angeles': return isSummer ? 'PDT'  : 'PST';
+                case 'America/Chicago':     return isSummer ? 'CDT'  : 'CST';
+                case 'America/New_York':    return isSummer ? 'EDT'  : 'EST';
+                case 'Europe/London':       return isSummer ? 'BST'  : 'GMT';
+                case 'Europe/Warsaw':       return isSummer ? 'CEST' : 'CET';
+                case 'Asia/Kolkata':        return 'IST';
+                case 'Australia/Sydney':    return isSummer ? 'AEDT' : 'AEST';
+                case 'UTC':                 return 'UTC';
+                default:                    return '';
+            }
+        }
 
         // Parse the UTC offset (in minutes) for a given zone and moment using
         // Intl.DateTimeFormat instead of locale-string heuristics.
@@ -304,6 +318,7 @@
             let acronym  = 'UTC';
             let offset   = 'UTC+0';
             let isSummer = false;
+            let observesDst = false;
 
             if (zone !== 'UTC') {
                 try {
@@ -333,12 +348,20 @@
                     // Standard time = the smaller of the two representative offsets.
                     // DST/Summer Time is active when the current offset exceeds that minimum.
                     if (janOff !== julOff) {
+                        observesDst = true;
                         isSummer = curOff > Math.min(janOff, julOff);
                     }
                 } catch (e) {}
             }
 
-            return { acronym, offset, isSummer };
+            const knownAcronym = getKnownAcronym(zone, isSummer);
+            if (knownAcronym) {
+                acronym = knownAcronym;
+            } else if (/^GMT[+-]/.test(acronym)) {
+                acronym = '';
+            }
+
+            return { acronym, offset, isSummer, observesDst };
         }
 
         // Build per-clock objects with:
@@ -346,7 +369,7 @@
         //   • cached DOM element reference
         //   • initial zone metadata
         const initNow = new Date();
-        const clocks  = clocksConfig.map(({ id, zone }) => {
+        const clocks  = clocksConfig.map(({ id, zone, label }) => {
             const timeOpts = { hour: '2-digit', minute: '2-digit', hour12: false };
             let timeFmt, hourFmt;
             try {
@@ -358,10 +381,13 @@
                 hourFmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', hour12: false });
             }
             return {
+                id,
                 zone,
+                label,
                 timeFmt,
                 hourFmt,
                 el:            document.getElementById(`data-${id}`),
+                titleEl:       document.getElementById(`title-${id}`),
                 meta:          computeZoneMeta(zone, initNow),
                 lastOffsetMin: getOffsetMinutes(zone, initNow)
             };
@@ -391,9 +417,15 @@
                 const emoji      = isDay ? '☀️' : '🌙';
                 const emojiClass = isDay ? 'sun'      : 'moon';
 
-                const { acronym, offset, isSummer } = c.meta;
+                const { acronym, offset, isSummer, observesDst } = c.meta;
                 const sClass   = isSummer ? 'text-summer'   : 'text-standard';
-                const modeText = isSummer ? 'Summer Time' : 'Standard Time';
+                const modeText = observesDst
+                    ? (isSummer ? '☀️ Daylight' : '🌙 Base Time')
+                    : '⏱️ No DST';
+
+                if (c.titleEl) {
+                    c.titleEl.textContent = acronym ? `${c.label} (${acronym})` : c.label;
+                }
 
                 // aria-live="off" is set explicitly on .data-block in the HTML to signal
                 // intent: continuous per-second updates should not auto-announce to
@@ -404,8 +436,6 @@
                         <time>${timeString}</time>
                     </div>
                     <div class="info-line ${sClass}">
-                        <span>${acronym}</span>
-                        <span class="divider" aria-hidden="true">|</span>
                         <span>${modeText}</span>
                         <span class="divider" aria-hidden="true">|</span>
                         <span>${offset}</span>

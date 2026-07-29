@@ -115,7 +115,7 @@ main {
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    opacity: 0;
+    opacity: 0.88;
     transition: opacity 0.15s, background 0.15s, color 0.15s;
     white-space: nowrap;
 }
@@ -184,5 +184,10 @@ footer {
 
     .snippet pre {
         font-size: 0.82rem;
+    }
+
+    .copy-btn {
+        opacity: 1;
+        font-size: 0.8rem;
     }
 }
